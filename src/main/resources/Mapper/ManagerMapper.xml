@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.ManagerDao">
+
+  <resultMap type="manager" id="managerMap">
+  	<id column="managerID" property="managerID"/>
+  	<result column="managerName" property="managerName"/>
+  	<result column="managerPwd" property="managerPwd"/>
+  </resultMap>
+
+  <select id="findById" resultMap="managerMap">
+    select * from Manager where managerId = #{id}
+  </select>
+  <insert id="insert" parameterType="manager">
+  	insert into Manager values(#{managerID}, #{managerName}, #{managerPwd})
+  </insert>
+  <update id="update" parameterType="manager">
+    update Manager set managerName=#{managerName}, managerPwd=#{managerPwd} where managerID=#{managerID}
+  </update>
+  <delete id="delete" parameterType="manager">
+    delete from Manager where managerID=#{managerID}
+  </delete>
+</mapper>

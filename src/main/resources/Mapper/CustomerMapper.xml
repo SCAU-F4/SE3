@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.CustomerDao">
+
+  <resultMap type="customer" id="customerMap">
+  	<id column="customerID" property="customerID"/>
+  	<result column="customerName" property="customerName"/>
+  	<result column="customerPwd" property="customerPwd"/>
+  	<result column="customerPhone" property="customerPhone"/>
+  	<result column="customerEmail" property="customerEmail"/>
+  	<result column="customerRegDate" property="customerRegDate"/>
+  </resultMap>
+
+  <select id="findById" resultMap="customerMap">
+    select * from Customer where customerID = #{id}
+  </select>
+  <insert id="insert" parameterType="customer">
+  	insert into Customer values(#{customerID}, #{customerName}, #{customerPwd}, #{customerPhone}, #{customerEmail}, #{customerRegDate})
+  </insert>
+  <update id="update" parameterType="customer">
+    update Customer set customerName=#{customerName}, customerPwd=#{customerPwd},customerPhone=#{customerPhone},customerEmail=#{customerEmail},customerRegDate=#{customerRegDate} where customerID=#{customerID}
+  </update>
+  <delete id="delete" parameterType="customer">
+    delete from Customer where customerID=#{customerID}
+  </delete>
+</mapper>
