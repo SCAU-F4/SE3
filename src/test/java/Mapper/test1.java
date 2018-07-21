@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import larry.function.Function;
 import pojo.Address;
 import pojo.Customer;
 import pojo.Evaluate;
@@ -35,9 +36,9 @@ public class test1 {
 		// int id=manager.getManagerId();
 		// System.out.println(managerMapper.findById(id));
 
-		 ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		 CustomerDao customerMapper=ctx.getBean(CustomerDao.class);
-		System.out.println(customerMapper.findById(1));
+//		 ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		 CustomerDao customerMapper=ctx.getBean(CustomerDao.class);
+//		System.out.println(customerMapper.findById(1));
 
 		// ApplicationContext ctx = new
 		// ClassPathXmlApplicationContext("SpringConf.xml");
@@ -141,7 +142,7 @@ public class test1 {
 		
 //		System.out.println(evaluate);
 	
-	
+	System.out.println(Function.loginJudege(3, "12356"));
 		
 		
 	}
