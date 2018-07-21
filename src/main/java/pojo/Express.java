@@ -1,8 +1,10 @@
 package pojo;
 
+import java.sql.Timestamp;
+
 public class Express {
 	public int expressCode;
-	public String expressDate;
+	public Timestamp expressDate;
 	public String expressState;
 
 	public Express() {
@@ -10,7 +12,7 @@ public class Express {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Express(int expressCode, String expressDate, String expressState) {
+	public Express(int expressCode, Timestamp expressDate, String expressState) {
 		super();
 		this.expressCode = expressCode;
 		this.expressDate = expressDate;
@@ -25,11 +27,11 @@ public class Express {
 		this.expressCode = expressCode;
 	}
 
-	public String getExpressDate() {
+	public Timestamp getExpressDate() {
 		return expressDate;
 	}
 
-	public void setExpressDate(String expressDate) {
+	public void setExpressDate(Timestamp expressDate) {
 		this.expressDate = expressDate;
 	}
 

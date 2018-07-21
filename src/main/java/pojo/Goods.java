@@ -1,6 +1,7 @@
 package pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -13,7 +14,7 @@ public class Goods {
 	public double goodsPrice;
 	public int goodsCount;
 	public int sellCount;
-	public Date goodsDate;
+	public Timestamp goodsDate;
 	public int isSell;
 
 	public Goods() {
@@ -22,7 +23,7 @@ public class Goods {
 	}
 
 	public Goods(int goodsID, String goodsName, int goodsTypeID, String goodsSpecify, String goodsBrief,
-			double goodsPrice, int goodsCount, int sellCount, Date goodsDate, int isSell) {
+			double goodsPrice, int goodsCount, int sellCount, Timestamp goodsDate, int isSell) {
 		super();
 		this.goodsID = goodsID;
 		this.goodsName = goodsName;
@@ -100,11 +101,11 @@ public class Goods {
 		this.sellCount = sellCount;
 	}
 
-	public Date getGoodsDate() {
+	public Timestamp getGoodsDate() {
 		return goodsDate;
 	}
 
-	public void setGoodsDate(Date goodsDate) {
+	public void setGoodsDate(Timestamp goodsDate) {
 		this.goodsDate = goodsDate;
 	}
 

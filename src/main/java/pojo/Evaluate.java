@@ -1,12 +1,13 @@
 package pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Evaluate {
 	public int evaluateID;
 	public int customerID;
 	public int goodsID;
-	public Date evaluateDate;
+	public Timestamp evaluateDate;
 	public int evaluateGrade;
 	public String evaluateContent;
 	public int evaluatePictureID;
@@ -16,7 +17,7 @@ public class Evaluate {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Evaluate(int evaluateID, int customerID, int goodsID, Date evaluateDate, int evaluateGrade,
+	public Evaluate(int evaluateID, int customerID, int goodsID, Timestamp evaluateDate, int evaluateGrade,
 			String evaluateContent, int evaluatePictureID) {
 		super();
 		this.evaluateID = evaluateID;
@@ -52,11 +53,11 @@ public class Evaluate {
 		this.goodsID = goodsID;
 	}
 
-	public Date getEvaluateDate() {
+	public Timestamp getEvaluateDate() {
 		return evaluateDate;
 	}
 
-	public void setEvaluateDate(Date evaluateDate) {
+	public void setEvaluateDate(Timestamp evaluateDate) {
 		this.evaluateDate = evaluateDate;
 	}
 

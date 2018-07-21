@@ -1,6 +1,7 @@
 package pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Customer {
 	public int customerID;
@@ -8,7 +9,7 @@ public class Customer {
 	public String customerPwd;
 	public String customerPhone;
 	public String customerEmail;
-	public Date customerRegDate;
+	public Timestamp customerRegDate;
 
 	public Customer() {
 		super();
@@ -16,7 +17,7 @@ public class Customer {
 	}
 
 	public Customer(int customerID, String customerName, String customerPwd, String customerPhone, String customerEmail,
-			Date customerRegDate) {
+			Timestamp customerRegDate) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -66,11 +67,11 @@ public class Customer {
 		this.customerEmail = customerEmail;
 	}
 
-	public Date getCustomerRegDate() {
+	public Timestamp getCustomerRegDate() {
 		return customerRegDate;
 	}
 
-	public void setCustomerRegDate(Date customerRegDate) {
+	public void setCustomerRegDate(Timestamp customerRegDate) {
 		this.customerRegDate = customerRegDate;
 	}
 
