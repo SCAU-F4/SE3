@@ -14,7 +14,10 @@
           <mapper resource="Mapper/GoodsMapper.xml"/>
            <mapper resource="Mapper/PictureMapper.xml"/>
            <mapper resource="Mapper/GoodsTypeMapper.xml"/>
-           <mapper resource="Mapper/OrderMapper.xml"/>
+           <mapper resource="Mapper/IndentMapper.xml"/>
+           <mapper resource="Mapper/OrderDetailMapper.xml"/>
+           <mapper resource="Mapper/ExpressMapper.xml"/>
+           <mapper resource="Mapper/EvaluateMapper.xml"/>
    </mappers>
    
 </configuration>

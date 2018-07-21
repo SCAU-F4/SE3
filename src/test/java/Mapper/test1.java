@@ -10,10 +10,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import pojo.Address;
 import pojo.Customer;
+import pojo.Evaluate;
+import pojo.Express;
 import pojo.Goods;
 import pojo.GoodsType;
 import pojo.Manager;
-import pojo.Order;
+import pojo.OrderDetail;
+import pojo.Indent;
 import pojo.Picture;
 
 public class test1 {
@@ -93,17 +96,56 @@ public class test1 {
 //		goodsType.setGoodsDetailType("ewrhuisdfhuisyg");
 //		System.out.println(gdMapper.findById(goodsType.getGoodsTypeID(), goodsType.getGoodsMainType(),goodsType.getGoodsDetailType()));
 		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
-		OrderDao orderMapper=ctx.getBean(OrderDao.class);
-		System.out.println(orderMapper.findById(1));
-//		order.setOrderID(1);
-//		order.setCustomerID(1234);
-//		order.setTotalPrice(903);
-//		order.setOrderTime(new Date(0));
-//		order.setAddressID(355);
-//		order.setExpressCode(999);
-//		orderMapper.insert(order);
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+//		IndentDao indentMapper=ctx.getBean(IndentDao.class);
+//		Indent indent=new Indent();
+//		indent.setOrderID(2);
+//		indent.setCustomerID(16);
+//		indent.setTotalPrice(56);
+//		indent.setOrderTime(new Date(0));
+//		indent.setAddressID(85);
+//		indent.setExpressCode(41);
+//		System.out.println(indent);
+//		indentMapper.delete(indent);
+
 		
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+//		OrderDetailDao oddddd=ctx.getBean(OrderDetailDao.class);
+//		OrderDetail orderDetail=new OrderDetail();
+//		orderDetail.setOrderID(10);
+//		orderDetail.setGoodsID(20);
+//		orderDetail.setGoodsPrice(98);
+//		orderDetail.setGoodsCount(5);
+//		orderDetail.setTotalPrice(44);
+//		System.out.println(orderDetail);
+//		oddddd.insert(orderDetail);
+//		System.out.println(oddddd.delete(orderDetail));
+		
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+//		ExpressDao expressMapper=ctx.getBean(ExpressDao.class);
+////		System.out.println(expressMapper.findById(1));
+//		Express express=new Express();
+//		express.setExpressCode(2);
+//		express.setExpressDate(new Date(0).toString());
+//		express.setExpressState("fasfjh");
+//		expressMapper.delete(express);
+		
+		
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+		EvaluateDao evaluateMapper=ctx.getBean(EvaluateDao.class);
+//		System.out.println(evaluateMapper.findById(1));
+		Evaluate evaluate=new Evaluate();
+		evaluate.setEvaluateID(2);
+		evaluate.setCustomerID(2);
+		evaluate.setGoodsID(2);
+		evaluate.setEvaluateDate(new Date(0));
+		evaluate.setEvaluateGrade(2);
+		evaluate.setEvaluateContent("abcjidfisoajdfijdsofjioe");
+		evaluate.setEvaluatePictureID(2);
+		evaluateMapper.delete(evaluate);
+		
+//		System.out.println(evaluate);
+	
 		
 		
 	}
