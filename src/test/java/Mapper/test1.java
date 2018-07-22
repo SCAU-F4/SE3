@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -142,7 +143,11 @@ public class test1 {
 		
 //		System.out.println(evaluate);
 	
-	System.out.println(Function.loginJudege(3, "12356"));
+		List<GoodsType> list=Function.getAllGoodsType();
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
 		
 		
 	}

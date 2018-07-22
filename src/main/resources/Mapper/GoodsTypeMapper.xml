@@ -13,6 +13,12 @@
   <select id="findById" resultMap="goodsTypeMap">
     select * from GoodsType where goodsTypeID = #{0} AND goodsMainType =#{1} AND goodsDetailType =#{2}
   </select>
+  
+  <select id="selectAllGoodsTypes" resultMap="goodsTypeMap">
+    select * from GoodsType
+  </select>
+  
+  
   <insert id="insert" parameterType="manager">
   	insert into GoodsType values(#{goodsTypeID}, #{goodsMainType}, #{goodsDetailType})
   </insert>
