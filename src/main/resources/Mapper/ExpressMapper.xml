@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.ExpressDao">
+
+  <resultMap type="express" id="expressMap">
+  	<id column="expressCode" property="expressCode"/>
+  	<result column="expressDate" property="expressDate"/>
+  	<result column="expressState" property="expressState"/>
+  </resultMap>
+
+  <select id="findById" resultMap="expressMap">
+    select * from Express where expressCode = #{0}
+  </select>
+  <insert id="insert" parameterType="express">
+  	insert into Express values(#{expressCode}, #{expressDate}, #{expressState})
+  </insert>
+  <update id="update" parameterType="express">
+    update Express set expressDate=#{expressDate},expressState=#{expressState}  where expressCode=#{expressCode}
+  </update>
+  <delete id="delete" parameterType="express">
+    delete from Express where expressCode=#{expressCode}
+  </delete>
+</mapper>
