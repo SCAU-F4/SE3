@@ -18,6 +18,7 @@
     <mvc:resources mapping="/img/**" location="/img/" cache-period="31556926"/>
     <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
     <mvc:resources mapping="/fonts/**" location="/fonts/" cache-period="31556926"/>
+      <mvc:resources mapping="/layui/**" location="/layui/" cache-period="31556926"/>
     
     
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

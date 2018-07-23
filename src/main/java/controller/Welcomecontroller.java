@@ -9,4 +9,12 @@ public class Welcomecontroller {
   public String welcome(){
 	  return "index";
   }
+  @RequestMapping(value="signin")
+  public String signin(){
+	  return "signin";
+  }
+  @RequestMapping(value="signup")
+  public String signup(){
+	  return "signup";
+  }
 }
