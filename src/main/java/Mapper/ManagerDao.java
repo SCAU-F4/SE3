@@ -7,8 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pojo.Manager;
 
 public interface ManagerDao {
-	
-	
+	//只有一个管理员无所谓
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	Manager findById(int managerID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)

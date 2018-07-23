@@ -152,7 +152,7 @@ public class test1 {
 		// }
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
-		ManagerDao managerMapper = ctx.getBean(ManagerDao.class);
+		IndentDao indentMapper=ctx.getBean(IndentDao.class);
 //				new Thread(new Runnable() {
 //			@Override
 //			public void run() {
@@ -168,19 +168,22 @@ public class test1 {
 //		}.start();
 		
 		
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				for (int x = 6; x < 100; x++) {
-					Manager manager = new Manager();
-					manager.setManagerId(x);
-					manager.setManagerName(String.valueOf(x));
-					manager.setManagerPwd(String.valueOf(x * 11));
-					managerMapper.delete(manager);
-				}
-			}
-		}) {
-		}.start();
+//		new Thread(new Runnable() {
+//			@Override
+//			public void run() {
+//				for (int x = 6; x < 100; x++) {
+//					Indent indent=new Indent();
+//					indent.setOrderID(x);
+//					indent.setCustomerID(x);
+//					indent.setTotalPrice(x);
+//					indent.setOrderTime(new Timestamp(0));
+//					indent.setAddressID(x);
+//					indent.setExpressCode(x);
+//					indentMapper.insert(indent);
+//				}
+//			}
+//		}) {
+//		}.start();
 		
 
 	}
