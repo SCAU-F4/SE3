@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.AddressDao">
+
+  <resultMap type="address" id="addressMap">
+  	<id column="customerID" property="customerID"/>
+  	<result column="addressID" property="addressID"/>
+  	<result column="addressDetail" property="addressDetail"/>
+  	<result column="addressPostcode" property="addressPostcode"/>
+  	<result column="addressPhone" property="addressPhone"/>
+  	<result column="addressName" property="addressName"/>
+  </resultMap>
+
+  <select id="findById" resultMap="addressMap">
+    select * from Address where customerID = #{0} AND addressID=#{1}
+  </select>
+  <insert id="insert" parameterType="address">
+  	insert into Address values(#{customerID}, #{addressID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
+  </insert>
+  <update id="update" parameterType="address">
+    update Address set addressDetail=#{addressDetail}, addressPostcode=#{addressPostcode},addressPhone=#{addressPhone},addressName=#{addressName}where customerID=#{customerID} AND addressID=#{addressID} 
+  </update>
+  <delete id="delete" parameterType="address">
+    delete from Address where customerID=#{customerID} AND addressID=#{addressID}
+  </delete>
+</mapper>

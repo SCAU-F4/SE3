@@ -1,0 +1,80 @@
+
+#SE3_signup,#SE3_signin{
+    background: #e1e1e1 url("../img/bg3.jpg") no-repeat center center;
+    background-position: 0px 100px;
+    /*-webkit-background-size: contain;*/
+    /*background-size: contain;*/
+    -webkit-background-size: 83%;
+    background-size: 83%;
+    height: 900px;
+}
+section{
+    padding-top: 100px;
+}
+.input-group .form-control{
+    width: 200px;
+}
+form{
+    width:290px;
+    height: 400px;
+    padding-top: 20px;
+    background-color: #e0d6d5;
+    background-color:rgba(0,0,0,0.1);
+    border:1px solid transparent;
+    /*border-radius: 25px;*/
+    box-shadow:5px 5px 3px rgba(0,0,0,.2);
+
+}
+.jumbotron{
+    background: transparent;
+    padding-top: 8px;
+}
+.jumbotron h1{
+    padding-left:50px ;
+}
+.jumbotron h1:last-child{
+    padding-left: 50px;
+}
+.jumbotron a{
+    text-decoration: none;
+}
+i{
+    font-size: 15px;
+    color: #333;
+}
+
+.form-group{
+    padding-left: 20px;
+}
+.form-group:first-child{
+    padding-top: 20px;
+}
+
+form h3{
+    padding-left: 115px;
+}
+#SE3_signin form{
+    height: 240px;
+}
+ .submitButton{
+    padding-left:68px ;
+}
+ .form-part{
+     padding-left: 250px;
+ }
+
+ .input-group{
+     position: relative;
+ }
+ .input-group span{
+     z-index: 99999;
+     position: absolute;
+     right:35px;
+     top: 10px;
+     display: none;
+ }
+.form-group p{
+     display: none;
+ }
+
+

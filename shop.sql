@@ -114,8 +114,8 @@ CREATE TABLE `manager`  (
 -- ----------------------------
 -- Table structure for order
 -- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order`  (
+DROP TABLE IF EXISTS `indent`;
+CREATE TABLE `indent`  (
   `orderID` int(5) NOT NULL AUTO_INCREMENT,
   `customerID` int(5) NOT NULL,
   `totalPrice` double(8, 2) NOT NULL,
