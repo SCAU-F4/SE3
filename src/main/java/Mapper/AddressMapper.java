@@ -4,9 +4,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Address;
+import bean.Address;
 
-public interface AddressDao {
+public interface AddressMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	Address findById(int customerID, int addressID);
 

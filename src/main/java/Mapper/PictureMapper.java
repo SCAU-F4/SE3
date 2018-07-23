@@ -4,9 +4,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Picture;
+import bean.Picture;
 
-public interface PictureDao {
+public interface PictureMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	Picture findById(int goodsID,int pictureID);
 	

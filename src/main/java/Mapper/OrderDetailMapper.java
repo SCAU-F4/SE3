@@ -4,9 +4,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.OrderDetail;
+import bean.OrderDetail;
 
-public interface OrderDetailDao {
+public interface OrderDetailMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	OrderDetail findById(int orderID,int goodsID);
 

@@ -4,9 +4,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Indent;
+import bean.Indent;
 
-public interface IndentDao {
+public interface IndentMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	Indent findById(int orderID);
 

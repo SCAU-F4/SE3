@@ -1,4 +1,4 @@
-package pojo;
+package bean;
 
 public class Address {
 	public int customerID;

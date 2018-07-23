@@ -4,9 +4,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Express;
+import bean.Express;
 
-public interface ExpressDao {
+public interface ExpressMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	Express findById(int expressCode);
 

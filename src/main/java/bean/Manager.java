@@ -1,4 +1,4 @@
-package pojo;
+package bean;
 
 public class Manager {
 	public int managerID;

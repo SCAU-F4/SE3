@@ -1,4 +1,4 @@
-package pojo;
+package bean;
 
 public class OrderDetail {
 	public int orderID;

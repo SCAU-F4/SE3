@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.GoodsType;
+import bean.GoodsType;
 
-public interface GoodsTypeDao {
+public interface GoodsTypeMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	GoodsType findById(int goodsTypeID, String goodsMainType, String goodsDetailType);
 

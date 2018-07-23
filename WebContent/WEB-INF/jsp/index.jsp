@@ -19,8 +19,8 @@
                 <div class="row">
                     <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                     <div class="col-md-5 ">
-                        <a href="signup">注册</a>
-                        <a href="signin">登陆</a>
+                        <a href="user/signup">注册</a>
+                        <a href="user/signin">登录</a>
                         <a href="#">我的订单</a>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                             <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinyue.png" alt=""><span>音乐相关</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinshi.png" alt=""><span>影视想关</span></div></a>
+                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinshi.png" alt=""><span>影视相关</span></div></a>
                             </li>
                             </ul>
                     </div>
