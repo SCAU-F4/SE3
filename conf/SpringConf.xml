@@ -98,13 +98,6 @@
 		<property name="mapperInterface" value="Mapper.EvaluateDao" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-
-
-
-
-
-
-
 	<!-- 自动扫描注解的bean -->
 	<context:component-scan base-package="pojo" />
 </beans>

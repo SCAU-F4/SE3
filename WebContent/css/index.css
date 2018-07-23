@@ -1,0 +1,304 @@
+
+/****************************************头部*************************************/
+#SE3_header{
+
+}
+#SE3_header .boxshadow{
+    box-shadow:5px 5px 3px rgba(0,0,0,.2);
+    border-bottom: 1px solid #ccc;
+}
+
+#SE3_header .top-bar{
+    background-color: #333;
+}
+
+#SE3_header .top-bar{
+    height: 40px;
+    line-height: 39px;
+    position: relative;
+}
+
+#SE3_header .top-bar .row .col-md-7 p,#SE3_header .top-bar .row .col-md-5 a{
+    color: #cccccc;
+}
+
+#SE3_header .top-bar .row .col-md-5{
+    position:absolute;
+    top: 0;
+    right: 0;
+}
+#SE3_header .top-bar .row .col-md-5 a{
+    border-right: #cccccc 1px solid;
+    padding: 0 20px 0 25px;
+}
+#SE3_header .top-bar .row .col-md-5 a:last-child{
+    border-right: 0;
+}
+#SE3_header .top-main {
+    margin-top: 60px;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#SE3_header .top-main #serech_input input{
+    margin: 30px 0 30px 220px;
+    border: 0;
+    border-bottom: #d0c4af 2px solid;
+}
+#SE3_header .top-main #serech_input i{
+    padding-right: 1px;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #d0c4af;
+}
+#SE3_header .navbar .container-fluid{
+    padding: 0;
+}
+#SE3_header .navbar-default{
+    border:0;
+    font-weight: bolder;
+    font-size: 18px;
+    background-color: #fff;
+}
+#SE3_header .navbar .container-fluid .collapse{
+    background-color: #fff;
+}
+#SE3_header .navbar .container-fluid .collapse>ul>li{
+    margin: 10px 50px;
+    width: 120px;
+    position: relative;
+    z-index: 99999;
+}
+#SE3_header .navbar .container-fluid .collapse>ul>li>a{
+    text-align: center;
+}
+#SE3_header .navbar .container-fluid .collapse ul li.active a,#SE3_header .navbar .container-fluid .collapse ul li:hover>a{
+    color: #d0c4af;
+    background-color: #fff;
+    border-bottom: 3px #d0c4af solid ;
+    z-index: 99999;
+}
+#SE3_header .navbar .container-fluid .downmenu{
+    width: 2022px;
+    position: absolute;
+    left: -780px;
+    top: 50px;
+    z-index: 999;
+    background-color: #fff;
+    height: 120px;
+    display: none;
+    box-shadow:5px 5px 3px rgba(0,0,0,.2);
+    border-bottom: 1px solid #ccc;
+}
+#SE3_header .navbar .container-fluid div.bag-li{
+    padding-left:250px;
+}
+#SE3_header .navbar .container-fluid div.cloth-li{
+    left: -1000px;
+    padding-left:250px ;
+
+}
+#SE3_header .navbar .container-fluid div.food-li{
+    width:2170px;
+    left: -1340px;
+    padding-left:370px ;
+
+}
+#SE3_header .navbar .container-fluid div.sport-li{
+    left: -1440px;
+    padding-left:250px ;
+
+}
+#SE3_header .navbar .container-fluid .downmenu ul li a div img{
+    display: block;
+    padding-left:15px;
+}
+#SE3_header .navbar .container-fluid .downmenu ul li{
+    margin: 10px 50px;
+}
+#SE3_header .navbar .container-fluid .downmenu ul{
+    margin-left:380px ;
+
+}
+#SE3_header .navbar .container-fluid .downmenu ul li{
+    float: left;
+}
+#SE3_header .navbar .container-fluid .downmenu ul li:hover a{
+    border-bottom: 0;
+    color: #333;
+}
+@media screen and (min-width:1280px)and (max-width: 1600px){
+    #SE3_header .navbar .container-fluid .downmenu{
+        width: 1870px;
+        position: absolute;
+        left: -780px;
+        top: 50px;
+        z-index: 999;
+        background-color: #fff;
+        height: 120px;
+        display: none;
+        box-shadow:5px 5px 3px rgba(0,0,0,.2);
+        border-bottom: 1px solid #ccc;
+    }
+    #SE3_header .navbar .container-fluid div.bag-li{
+        padding-left:250px;
+    }
+
+    #SE3_header .navbar .container-fluid div.cloth-li{
+        left: -1000px;
+        padding-left:250px ;
+
+    }
+    #SE3_header .navbar .container-fluid div.food-li{
+        width: 1985px;
+        left: -1340px;
+        padding-left:370px ;
+
+    }
+    #SE3_header .navbar .container-fluid div.sport-li{
+        left: -1440px;
+        padding-left:250px ;
+
+    }
+}
+/****************************************头部结束*************************************/
+
+/****************************************轮播图*************************************/
+
+#SE3_carousel{
+    z-index: 888;
+}
+/****************************************轮播图结束*************************************/
+
+/****************************************人气推荐*************************************/
+
+#SE3_hot{
+    background-color: #f4f0ea;
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+#SE3_hot .container .row .left .Lagerimg{
+    margin-top:20px;
+    width: 390px;
+    height: 410px;
+    background-color: #fff;
+    border-bottom: rgba(0,0,0,.2) 1px dashed;
+}
+
+#SE3_hot .container .row .left .Lagerimg a>img{
+    margin: 40px 35px;
+}
+
+#SE3_hot .container .row .left .Lagerimg-title{
+    width: 390px;
+    height: 116px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+}
+#SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-top{
+    width: 200px;
+    height: 20px;
+    margin: 0 auto 10px auto;
+    text-align: center;
+}
+#SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-top span ,#SE3_hot>.container>.row>.right .littleimg-title .littleimg-title-top span{
+    margin-top: 10px;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 12px;
+    background-color: #e36844;
+}
+#SE3_hot>.container>.row>.right .littleimg-title .littleimg-title-top span{
+    margin-top: 5px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+}
+#SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-name{
+    overflow: hidden;
+    margin-top:7px;
+}
+#SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-name h4{
+    font-size: 16px;
+}
+
+#SE3_hot>.container>.row>.right .littleimg-title .littleimg-title-name h4{
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+#SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-price span{
+font-size: 18px;
+}
+
+#SE3_hot>.container>.row>.right .littleimg{
+    margin-top:20px;
+    width: 223px;
+    height: 180px;
+    background-color: #fff;
+    border-bottom: rgba(0,0,0,.2) 1px dashed;
+}
+#SE3_hot>.container>.row>.right .littleimg-title{
+    width: 223px;
+    height: 73px;
+    background-color: #fff;
+}
+#SE3_hot>.container>.row>.right .littleimg img{
+    margin: 0 21px;
+}
+
+#SE3_hot>.container>.row>.right .littleimg-title .littleimg-title-top,.littleimg-title-name,.littleimg-title-price{
+    text-align: center;
+}
+#SE3_hot>.container>.row>.right .col-md-3{
+    padding-right: 10px;
+    width: 240px;
+}
+
+/****************************************人气推荐结束*************************************/
+
+/****************************************箱包配饰*************************************/
+.SE3_product{
+    padding: 60px 0;
+}
+.SE3_product>.container>.row h1{
+    padding-bottom: 25px;
+}
+.SE3_product>.container>.row>.col-md-12{
+    width: 1250px;
+}
+.SE3_product>.container>.row>.producttitle>.breadcrumb{
+    background-color: transparent;
+    position: absolute;
+    top:40px;
+    right: 40px;
+}
+
+.producttitle{
+    overflow: hidden;
+    position: relative;
+}
+.producttitle>ol>li>a{
+    font-size: 16px;
+}
+.producttitle>ol>li>a:hover{
+    color: #333;
+    text-decoration: none;
+}
+.SE3_product .container .row .product .littleimg{
+}
+
+.SE3_product{
+
+}
+
+/****************************************箱包配饰结束*************************************/
