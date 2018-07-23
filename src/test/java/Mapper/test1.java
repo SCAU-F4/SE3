@@ -151,8 +151,7 @@ public class test1 {
 		// System.out.println(list.get(i));
 		// }
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
-		IndentDao indentMapper=ctx.getBean(IndentDao.class);
+		
 //				new Thread(new Runnable() {
 //			@Override
 //			public void run() {
@@ -185,6 +184,9 @@ public class test1 {
 //		}) {
 //		}.start();
 		
+		int mid=1;
+		String pwd="123456";
+		System.out.println(Function.deleteManager(mid, pwd));
 
 	}
 

@@ -28,7 +28,52 @@ public class Function {
 		return false;
 	}
 
-	public static List<GoodsType> getAllGoodsType() {//获取所有商品类型,用于前段制作页面
+	public static Boolean ChangeManagerPwd(int managerID, String OldPwd, String NewPwd)// 修改管理员密码,管理员ID，旧密码，新密码
+	{
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+		ManagerDao managerMapper = ctx.getBean(ManagerDao.class);
+		Manager manager = managerMapper.findById(managerID);
+		if (manager != null) {
+			if (manager.getManagerPwd().equals(OldPwd)) {
+				manager.setManagerPwd(NewPwd);
+				int result = managerMapper.update(manager);
+				if (result > 0)
+					return true;
+				System.out.println("数据库更新失败，不关你的事");
+				return false;
+			}
+			System.out.println("输入密码不正确");
+			return false;
+		}
+		System.out.println("没有该管理员");
+		return false;
+
+	}
+	
+	public static Boolean deleteManager(int managerID,String pwd)// 删除管理员(输入ID，输入密码)
+	{
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+		ManagerDao managerMapper = ctx.getBean(ManagerDao.class);
+		Manager manager = managerMapper.findById(managerID);
+		if(manager!=null)
+		{
+			if(manager.getManagerPwd().equals(pwd))
+			{
+				int result=managerMapper.delete(manager);
+				if(result>0) return true;
+				System.out.println("数据库删除失败，不关你的事");
+				return false;
+			}
+			System.out.println("密码输入错误");
+			return false;
+			
+		}
+		System.out.println("无该管理员");
+		return false;
+		
+	}
+
+	public static List<GoodsType> getAllGoodsType() {// 获取所有商品类型
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
 		GoodsTypeDao gdMapper = ctx.getBean(GoodsTypeDao.class);
 		List<GoodsType> list = gdMapper.selectAllGoodsTypes();
