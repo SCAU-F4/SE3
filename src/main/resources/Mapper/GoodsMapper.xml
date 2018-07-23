@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.GoodsDao">
+
+  <resultMap type="goods" id="goodsMap">
+  	<id column="goodsID" property="goodsID"/>
+  	<result column="goodsName" property="goodsName"/>
+  	<result column="goodsTypeID" property="goodsTypeID"/>
+  	<result column="goodsSpecify" property="goodsSpecify"/>
+  	<result column="goodsBrief" property="goodsBrief"/>
+  	<result column="goodsPrice" property="goodsPrice"/>
+  	<result column="goodsCount" property="goodsCount"/>
+  	<result column="sellCount" property="sellCount"/>
+  	<result column="goodsDate" property="goodsDate"/>
+  	<result column="isSell" property="isSell"/>
+  </resultMap>
+
+  <select id="findById" resultMap="goodsMap">
+    select * from Goods where goodsID = #{goodsID}
+  </select>
+  <insert id="insert" parameterType="goods">
+  	insert into Goods values(#{goodsID}, #{goodsName}, #{goodsTypeID}, #{goodsSpecify}, #{goodsBrief}, #{goodsPrice}, #{goodsCount}, #{sellCount}, #{goodsDate}, #{isSell})
+  </insert>
+  <update id="update" parameterType="goods">
+    update Goods set goodsName=#{goodsName}, goodsTypeID=#{goodsTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell} where goodsID=#{goodsID} 
+  </update>
+  <delete id="delete" parameterType="goods">
+    delete from Goods where goodsID=#{goodsID}
+  </delete>
+</mapper>
