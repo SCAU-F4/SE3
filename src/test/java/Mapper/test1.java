@@ -11,15 +11,15 @@ public class test1 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-//		 ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-//		 ManagerMapper managerMapper=(ManagerMapper) ctx.getBean("ManagerMapper");
-//		 Manager manager=new Manager();
-//		 manager.setManagerId(5);
-//		 manager.setManagerName("DickMing");
-//		 manager.setManagerPwd("12345678");
+		 ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+		 ManagerMapper managerMapper=(ManagerMapper) ctx.getBean("ManagerMapper");
+		 Manager manager=new Manager();
+		 manager.setManagerId(5);
+		 manager.setManagerName("DickMing");
+		 manager.setManagerPwd("12345678");
 //		 managerMapper.insert(manager);
-//		 int id=manager.getManagerId();
-//		 System.out.println(managerMapper.findById(id));
+		 int id=manager.getManagerId();
+		 System.out.println(managerMapper.findById(id));
 
 		// ApplicationContext ctx=new
 		// ClassPathXmlApplicationContext("SpringConf.xml");
