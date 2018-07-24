@@ -64,7 +64,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="layui-icon layui-icon-password input-group-addon"></div>
-                            <input type="password" class="form-control" id="repassword" placeholder="请再次输入密码">
+                            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="请再次输入密码">
                             <span class="glyphicon glyphicon-ok text-success"></span>
                             <span class="glyphicon glyphicon-remove text-danger"></span>
                         </div>
