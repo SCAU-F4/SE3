@@ -8,7 +8,7 @@ import bean.Picture;
 
 public interface PictureMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	Picture findById(int goodsID,int pictureID);
+	Picture find(int goodsID,int pictureID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Picture picture);

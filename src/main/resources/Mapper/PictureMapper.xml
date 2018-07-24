@@ -10,7 +10,7 @@
   	<result column="picturePath" property="picturePath"/>
   </resultMap>
 
-  <select id="findById" resultMap="pictureMap">
+  <select id="find" resultMap="pictureMap">
     select * from Picture where goodsID = #{0} AND pictureID= #{1}
   </select>
   <insert id="insert" parameterType="picture">

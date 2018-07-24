@@ -10,9 +10,10 @@
   	<result column="goodsDetailType" property="goodsDetailType"/>
   </resultMap>
 
-  <select id="findById" resultMap="goodsTypeMap">
+  <select id="find" resultMap="goodsTypeMap">
     select * from GoodsType where goodsTypeID = #{0} AND goodsMainType =#{1} AND goodsDetailType =#{2}
   </select>
+  
   
   <select id="selectAllGoodsTypes" resultMap="goodsTypeMap">
     select * from GoodsType

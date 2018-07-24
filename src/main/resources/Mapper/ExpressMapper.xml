@@ -10,7 +10,7 @@
   	<result column="expressState" property="expressState"/>
   </resultMap>
 
-  <select id="findById" resultMap="expressMap">
+  <select id="findByexpressCode" resultMap="expressMap">
     select * from Express where expressCode = #{0}
   </select>
   <insert id="insert" parameterType="express">

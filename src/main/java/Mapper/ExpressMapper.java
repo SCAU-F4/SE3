@@ -8,7 +8,7 @@ import bean.Express;
 
 public interface ExpressMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Express findById(int expressCode);
+	Express findByexpressCode(int expressCode);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Express express);

@@ -8,7 +8,7 @@ import bean.Address;
 
 public interface AddressMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Address findById(int customerID, int addressID);
+	Address find(int customerID, int addressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Address address);

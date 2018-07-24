@@ -13,7 +13,7 @@
   	<result column="addressName" property="addressName"/>
   </resultMap>
 
-  <select id="findById" resultMap="addressMap">
+  <select id="find" resultMap="addressMap">
     select * from Address where customerID = #{0} AND addressID=#{1}
   </select>
   <insert id="insert" parameterType="address">
