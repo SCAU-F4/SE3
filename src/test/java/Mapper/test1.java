@@ -1,25 +1,29 @@
 package Mapper;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import bean.Customer;
+import bean.Indent;
 import bean.Manager;
+import bean.IndentDetail;
 
 public class test1 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		 ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		 ManagerMapper managerMapper=(ManagerMapper) ctx.getBean("ManagerMapper");
-		 Manager manager=new Manager();
-		 manager.setManagerId(5);
-		 manager.setManagerName("DickMing");
-		 manager.setManagerPwd("12345678");
-//		 managerMapper.insert(manager);
-		 int id=manager.getManagerId();
-		 System.out.println(managerMapper.findById(id));
+//		 ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		 ManagerMapper managerMapper=(ManagerMapper) ctx.getBean("ManagerMapper");
+//		 Manager manager=new Manager();
+//		 manager.setManagerId(5);
+//		 manager.setManagerName("DickMing");
+//		 manager.setManagerPwd("12345678");
+////		 managerMapper.insert(manager);
+//		 int id=manager.getManagerId();
+//		 System.out.println(managerMapper.findById(id));
 
 		// ApplicationContext ctx=new
 		// ClassPathXmlApplicationContext("SpringConf.xml");
@@ -168,6 +172,21 @@ public class test1 {
 //		}) {
 //		}.start();
 
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+		IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
+		Indent indent=indentMapper.findById(1);
+		System.out.println(indentMapper.delete(indent));
+		
+		
+//		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
+//		Customer customer=new Customer();
+//		customer.setCustomerName("abc");
+//		try{
+//			
+//			System.out.println(customerMapper.IsCustomerNameExist(customer));
+//		}catch(Exception e){
+//			
+//		}
 
 	}
 

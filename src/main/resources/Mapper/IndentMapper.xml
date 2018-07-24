@@ -5,7 +5,7 @@
 <mapper namespace="Mapper.IndentMapper">
 
   <resultMap type="indent" id="indentMap">
-  	<id column="orderID" property="orderID"/>
+  	<id column="indentID" property="indentID"/>
   	<result column="customerID" property="customerID"/>
   	<result column="totalPrice" property="totalPrice"/>
   	<result column="orderTime" property="orderTime"/>
@@ -14,15 +14,15 @@
   </resultMap>
 
   <select id="findById" resultMap="indentMap">
-    select * from Indent where orderID = #{0}
+    select * from Indent where indentID = #{0}
   </select>
   <insert id="insert" parameterType="indent">
-  	insert into Indent values(#{orderID}, #{customerID}, #{totalPrice}, #{orderTime}, #{addressID}, #{expressCode})
+  	insert into Indent values(#{indentID}, #{customerID}, #{totalPrice}, #{orderTime}, #{addressID}, #{expressCode})
   </insert>
   <update id="update" parameterType="indent">
-    update Indent set customerID=#{customerID}, totalPrice=#{totalPrice},orderTime=#{orderTime},addressID=#{addressID},expressCode=#{expressCode} where orderID=#{orderID} 
+    update Indent set customerID=#{customerID}, totalPrice=#{totalPrice},orderTime=#{orderTime},addressID=#{addressID},expressCode=#{expressCode} where indentID=#{indentID} 
   </update>
   <delete id="delete" parameterType="indent">
-    delete from Indent where orderID=#{orderID}
+    delete from Indent where indentID=#{indentID}
   </delete>
 </mapper>

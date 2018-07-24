@@ -16,6 +16,11 @@
   <select id="findById" resultMap="customerMap">
     select * from Customer where customerID = #{id}
   </select>
+  
+  <select id="IsCustomerNameExist" resultType="java.lang.Integer">
+     select customerID from Customer where customerName = #{customerName}
+  </select>
+  
   <insert id="insert" parameterType="customer">
   	insert into Customer values(#{customerID}, #{customerName}, #{customerPwd}, #{customerPhone}, #{customerEmail}, #{customerRegDate})
   </insert>
