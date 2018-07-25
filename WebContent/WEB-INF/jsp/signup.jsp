@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>注册</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/sign.css">
@@ -90,7 +91,7 @@
                     </div>
                     <div class="submitButton">
                         <button type="reset" class="layui-btn layui-btn-radius layui-btn-primary">重置</button>
-                        <button class="layui-btn layui-btn-radius layui-btn-primary" id="submit">注册</button></div>
+                        <button class="layui-btn layui-btn-radius layui-btn-primary" type="submit" id="submit">注册</button></div>
                 </form>
                 </div>
             </div>
@@ -100,6 +101,7 @@
 </section>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/sign.js"></script>
 </body>
