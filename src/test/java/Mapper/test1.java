@@ -1,15 +1,6 @@
 package Mapper;
 
 import java.io.IOException;
-import java.util.List;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import bean.Customer;
-import bean.Indent;
-import bean.Manager;
-import bean.IndentDetail;
 
 public class test1 {
 
@@ -172,10 +163,10 @@ public class test1 {
 //		}) {
 //		}.start();
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
-		IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
-		Indent indent=indentMapper.findById(1);
-		System.out.println(indentMapper.delete(indent));
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+//		IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
+//		Indent indent=indentMapper.findById(1);
+//		System.out.println(indentMapper.delete(indent));
 		
 		
 //		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
