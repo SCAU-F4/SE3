@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>${currentCustomer.customerName}的管理中心</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
@@ -22,9 +22,8 @@
             <div class="row">
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                 <div class="col-md-5 top-right">
-                    <a href="signup.html">注册</a>
-                    <a href="signin.html">登录</a>
-                    <a href="#">我的订单</a>
+                    <a href="signup">注册</a>
+                    <a href="signin">登录</a>
                 </div>
             </div>
         </div>
@@ -115,7 +114,7 @@
                                             <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinyue.png" alt=""><span>音乐相关</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinshi.png" alt=""><span>影视想关</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinshi.png" alt=""><span>影视相关</span></div></a>
                                         </li>
                                     </ul>
                                 </div>

@@ -28,9 +28,9 @@ public class Usercontroller {
 	public String signin(Customer customer, Model model, HttpSession session) {
 		String result = "";
 		customer = userservice.signincheck(customer);
-		System.out.println(customer);
+//		System.out.println(customer);
 		if (customer == null) {
-			result += "用户不存在";
+			result += "用户名或密码不正确";
 			model.addAttribute("error", result);
 			return "signin";
 		} else {
@@ -54,10 +54,10 @@ public class Usercontroller {
 		else
 			return "signup";
 	}
-//	
-//	@RequestMapping(value ="mycenter/{CustomerID}")
-//	public String mycenter(@PathVariable Customer){
-//		return null;
-//		
-//	}
+	
+	@RequestMapping(value ="mycenter")
+	public String mycenter(Model model){
+//		userservice
+		return "myCenter";
+	}
 }
