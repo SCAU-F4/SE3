@@ -1,12 +1,12 @@
 package controller;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,7 +29,7 @@ public class Usercontroller {
 		String result = "";
 		customer = userservice.signincheck(customer);
 		System.out.println(customer);
-		if (customer.getCustomerPhone() == null) {
+		if (customer == null) {
 			result += "用户不存在";
 			model.addAttribute("error", result);
 			return "signin";
@@ -54,4 +54,10 @@ public class Usercontroller {
 		else
 			return "signup";
 	}
+//	
+//	@RequestMapping(value ="mycenter/{CustomerID}")
+//	public String mycenter(@PathVariable Customer){
+//		return null;
+//		
+//	}
 }

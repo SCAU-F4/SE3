@@ -1,3 +1,6 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="../../layui/css/layui.css">
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../css/myCenter.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/myCenter.css">
 </head>
 <body>
 <!--头-->
@@ -20,7 +23,7 @@
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                 <div class="col-md-5 top-right">
                     <a href="signup.html">注册</a>
-                    <a href="signin.html">登陆</a>
+                    <a href="signin.html">登录</a>
                     <a href="#">我的订单</a>
                 </div>
             </div>
@@ -30,7 +33,7 @@
     <div class="boxshadow">
         <div class="top-main">
             <div id="logo_img">
-                <img src="../../img/logo.png.png" alt="logo">
+                <img src="${pageContext.request.contextPath }/img/logo.png.png" alt="logo">
             </div>
             <div id="serech_input">
                 <input type="text" value="雅迪电动车只要999">
@@ -48,16 +51,16 @@
                                 <div class="bag-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="../../img/xingli.png" alt=""><span>行李箱包</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/xingli.png" alt=""><span>行李箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/nanxing.png" alt=""><span>男士箱包</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/nanxing.png" alt=""><span>男士箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/nvxing.png" alt=""><span>女性箱包</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/nvxing.png" alt=""><span>女性箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/qianbao.png" alt=""><span>钱包配件</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/qianbao.png" alt=""><span>钱包配件</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -67,16 +70,16 @@
                                 <div class="cloth-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="../../img/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/shirt.png" alt=""><span>时尚衬衫</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/shirt.png" alt=""><span>时尚衬衫</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/dress.png" alt=""><span>性感长裙</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/dress.png" alt=""><span>性感长裙</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/ku.png" alt=""><span>潮流裤类</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/ku.png" alt=""><span>潮流裤类</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -85,16 +88,16 @@
                                 <div class="food-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="../../img/xiaochi.png" alt=""><span>美味零食</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/xiaochi.png" alt=""><span>美味零食</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/shuiguo.png" alt=""><span>水果坚果</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/shuiguo.png" alt=""><span>水果坚果</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/rou.png" alt=""><span>新鲜肉类</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/rou.png" alt=""><span>新鲜肉类</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/yinliao.png" alt=""><span>饮料酒水</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinliao.png" alt=""><span>饮料酒水</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -103,16 +106,16 @@
                                 <div class="sport-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="../../img/wenju.png" alt=""><span>精美文具</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/wenju.png" alt=""><span>精美文具</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/huwai.png" alt=""><span>运动户外</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/huwai.png" alt=""><span>运动户外</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/yinyue.png" alt=""><span>音乐相关</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinyue.png" alt=""><span>音乐相关</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="../../img/yinshi.png" alt=""><span>影视想关</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinshi.png" alt=""><span>影视想关</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -169,7 +172,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -191,7 +194,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -213,7 +216,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -235,7 +238,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -256,7 +259,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -277,7 +280,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -298,7 +301,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="../../img/dingdan1.png" alt="">
+                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
                                         <span>日系百褶蝴蝶结钱包</span>
                                     </div>
                                     <div class="cell">
@@ -450,10 +453,10 @@
          </div>
     </div>
 </section>
-<script src="../../js/jquery-3.2.1.min.js"></script>
-<script src="../../layui/layui.js"></script>
-<script src="../../js/bootstrap.js"></script>
-<script src="../../js/index.js"></script>
-<script src="../../js/myCenter.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
+<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath }/js/index.js"></script>
+<script src="${pageContext.request.contextPath }/js/myCenter.js"></script>
 </body>
 </html>

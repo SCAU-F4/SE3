@@ -21,7 +21,7 @@
                     <div class="col-md-5 ">
                         <a href="user/signup">注册</a>
                         <a href="user/signin">登录</a>
-                        <a href="#">我的订单</a>
+                        <a href="mycenter/{CustomerID}">个人中心</a>
                     </div>
                 </div>
         </div>
