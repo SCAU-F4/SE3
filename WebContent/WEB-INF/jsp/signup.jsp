@@ -93,6 +93,7 @@
                         <button type="reset" class="layui-btn layui-btn-radius layui-btn-primary">重置</button>
                         <button class="layui-btn layui-btn-radius layui-btn-primary" type="submit" id="submit">注册</button></div>
                 </form>
+                ${error}
                 </div>
             </div>
         </div>

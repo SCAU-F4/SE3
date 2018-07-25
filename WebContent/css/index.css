@@ -4,8 +4,7 @@
 
 }
 #SE3_header .boxshadow{
-    box-shadow:5px 5px 3px rgba(0,0,0,.2);
-    border-bottom: 1px solid #ccc;
+    box-shadow:0px 1.9px 3px rgba(0,0,0,.2);
 }
 
 #SE3_header .top-bar{
@@ -70,7 +69,7 @@
     margin: 10px 50px;
     width: 120px;
     position: relative;
-    z-index: 99999;
+    z-index: 9999;
 }
 #SE3_header .navbar .container-fluid .collapse>ul>li>a{
     text-align: center;
@@ -79,7 +78,7 @@
     color: #d0c4af;
     background-color: #fff;
     border-bottom: 3px #d0c4af solid ;
-    z-index: 99999;
+    z-index: 9999;
 }
 #SE3_header .navbar .container-fluid .downmenu{
     width: 2022px;
@@ -90,8 +89,7 @@
     background-color: #fff;
     height: 120px;
     display: none;
-    box-shadow:5px 5px 3px rgba(0,0,0,.2);
-    border-bottom: 1px solid #ccc;
+    box-shadow:0px 2px 2px rgba(0,0,0,.2);
 }
 #SE3_header .navbar .container-fluid div.bag-li{
     padding-left:250px;
@@ -163,6 +161,13 @@
         padding-left:250px ;
 
     }
+}
+
+.top-right{
+    padding-left: 180px;
+}
+.sign .top-right{
+    padding-left: 350px;
 }
 /****************************************头部结束*************************************/
 
@@ -237,7 +242,7 @@
 }
 
 #SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-price span{
-font-size: 18px;
+    font-size: 18px;
 }
 
 #SE3_hot>.container>.row>.right .littleimg{
