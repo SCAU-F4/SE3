@@ -34,6 +34,7 @@ public class Usercontroller {
 	public String signupcheck(Customer customer,HttpServletRequest request) {
 		String repassword=request.getParameter("repassword");
 		String result=userservice.signup(customer,repassword);
+		System.out.println(result);
 		if(result==null) return "redirect:/";
 		else return "signup";
 	}

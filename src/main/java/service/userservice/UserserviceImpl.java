@@ -25,9 +25,19 @@ public class UserserviceImpl implements Userservice{
 		// TODO Auto-generated method stub
 		String result=check(customer,repassword);
 		if(result!=null) return result;
+		//检验完成，没问题，result必为空
 		customer.setCustomerRegDate(new Timestamp(System.currentTimeMillis()));
-		
-		return result;
+		try {
+			customermapper.IsCustomerNameExist(customer);//判断用户是否重名,不重名则抛出异常，重名则返回用户重名
+				result="用户重名";
+				return result;
+		} catch (Exception e) {
+			if(customermapper.insert(customer)!=0) return null;
+			else {
+				result ="插入失败";
+			}
+		}
+			return result;
 	}	
 	
 	
