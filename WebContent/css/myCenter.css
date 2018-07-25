@@ -1,0 +1,137 @@
+
+#SE3_header .boxshadow{
+    box-shadow: 0px 0px 0px transparent;
+    border-bottom: 1.5px solid rgb(234,234,234);
+}
+
+.myCenterBody .container{
+    padding-top: 50px;
+}
+
+.myCenterBody .menu-left ul{
+    border-right:1.5px solid rgb(234,234,234);
+}
+
+.myCenterBody .menu-left ul li{
+    list-style: none;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 6px;
+    cursor: pointer;
+}
+.myCenterBody .menu-left ul li.active,.myCenterBody .menu-left ul li:hover{
+    color: #d0c4af;
+    border-right:2px solid #d0c4af;
+}
+
+.myCenterBody .menu-left h3{
+    margin-left: 20px;
+    text-align: center;
+}
+
+.show-area>div{
+    margin-left: 40px;
+}
+.show-area .Order-top ul li{
+    list-style:none;
+    width: 100px;
+    float: left;
+    font-size: 18px;
+    padding-right: 3px;
+    padding-left: 3px;
+    border-right :2px solid rgb(234,234,234);
+    border-bottom:2px solid rgb(234,234,234);
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+}.show-area .Order-top ul li:last-child{
+    border-right: 0px;
+ }
+
+ .Order-search .input-group{
+     padding-top: 3px;
+     padding-left: 15px;
+     width: 230px;
+    height: 30px;
+ }
+ .Order-search .input-group input{
+     height: 31px;
+     line-height: 31px;
+     width: 200px;
+     border: 0.5px solid gray;
+ }
+.Order-top ul li.active,.Order-top ul li:hover{
+    color: #d0c4af;
+    border-bottom: 2px solid #d0c4af;
+}
+.Order-list{
+    padding-top: 50px;
+}
+.Order-list .panel{
+    width:855px;
+}
+.Order-list .panel .panel-heading span{
+    padding-right: 100px;
+}
+
+.cell{
+    width: 100px;
+    height: 70px;
+    margin-left: 200px;
+}
+.price{
+    margin-left: 100px;
+     width: 100px;
+     height: 70px;
+    text-align: center;
+ }
+.panel-body div,.cell span{
+    text-align: center;
+    display: inline-block;
+}
+.cell button{
+    background: #d0c4af;
+}
+
+.show-area .Message,.show-area .Address{
+    display: none;
+}
+
+.Message .Message-list{
+    padding-top: 20px;
+}
+.Message .Message-list>ul>li>a{
+    color: #3c3c3c;
+    font-size: 16px;
+}
+.Message .Message-list>ul>li.active ,.Message .Message-list>ul>li:hover{
+    color: #d0c4af;
+    border-top: 1.4px solid #d0c4af;
+    border-radius: 8px;
+}
+.Message-list .group{
+    margin: 20px;
+}.Message-list .group:last-child{
+     margin-left: 80px;
+ }
+.Message-list .group span,.Message-list .group label,.Address .group span,.Address  .group label{
+    width: 100px;
+    text-align: right;
+}
+.Message-list .group button,.Address .group button{
+    width: 140px;
+    background: #d0c4af;
+}
+
+.Address-table  > tbody > tr > td,th{
+    text-align: center;
+    vertical-align:middle;
+    line-height: 40px;
+}
+.Address{
+    margin-top: 20px;
+}
+.Address-top h3{
+    display: inline;
+}
