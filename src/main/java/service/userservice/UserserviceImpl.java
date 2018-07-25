@@ -15,9 +15,13 @@ public class UserserviceImpl implements Userservice{
 	@Autowired
     CustomerMapper customermapper;
 	@Override
-	public boolean signincheck() {
+	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			customer=customermapper.findByNameAndPassword(customer.getCustomerName(), customer.getCustomerPwd());
+		} catch (Exception e) {
+		}
+		return customer;
 	}
 
 	@Override

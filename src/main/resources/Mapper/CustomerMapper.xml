@@ -21,6 +21,10 @@
      select customerID from Customer where customerName = #{customerName}
   </select>
   
+  <select id="findByNameAndPassword" resultMap="customerMap">
+  select * from Customer where customerName=#{0} and customerPwd=#{1}
+  </select>
+  
   <insert id="insert" parameterType="customer">
   	insert into Customer values(#{customerID}, #{customerName}, #{customerPwd}, #{customerPhone}, #{customerEmail}, #{customerRegDate})
   </insert>
