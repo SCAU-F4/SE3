@@ -112,7 +112,7 @@ var lock=1;
               if(text!=""&&lock==1)
     	{
    		layer.open({
-            title:'登录失败'
+            title:'注册失败'
             ,content: text
             ,id:'Sign_result'
             ,anim: 6 //这里content是一个普通的String
