@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
-                <div class="col-md-5 ">
+                <div class="col-md-5 top-right">
                     <a href="signup">注册</a>
                     <a href="signin">登录</a>
                 </div>
@@ -90,7 +90,6 @@
             }
         });
     	}
-    	
      </script>
 </body>
 </html>
