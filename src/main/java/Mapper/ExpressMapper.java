@@ -4,19 +4,18 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Picture;
+import bean.Express;
 
-public interface PictureDao {
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	Picture findById(int goodsID,int pictureID);
-	
+public interface ExpressMapper {
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	Express findByexpressCode(int expressCode);
+
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
-	int insert(Picture picture);
+	int insert(Express express);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int update(Picture picture);
+	int update(Express express);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int delete(Picture picture);
-
+	int delete(Express express);
 }

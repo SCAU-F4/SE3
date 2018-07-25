@@ -22,7 +22,7 @@
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                 <div class="col-md-5 ">
                     <a href="signup.html">注册</a>
-                    <a href="signin.html">登陆</a>
+                    <a href="signin.html">登录</a>
                 </div>
             </div>
         </div>
@@ -35,19 +35,18 @@
             <div class="col-md-7">
                 <div class="jumbotron">
                     <h1>华农的生活</h1>
-                    <h1>就是这么高贵</h1>
+                    <h1>就是这么贵</h1>
 
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-part">
-                <form action="#" >
-
+                <form  method="post">
                     <h3>注册</h3>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="layui-icon layui-icon-username input-group-addon"></div>
-                            <input type="text" class="form-control" id="name" placeholder="请输入用户名">
+                            <input type="text" class="form-control" id="customerName" name="customerName" placeholder="请输入用户名">
                             <span class="glyphicon glyphicon-ok text-success"></span>
                             <span class="glyphicon glyphicon-remove text-danger"></span>
                         </div>
@@ -56,7 +55,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="layui-icon layui-icon-password input-group-addon"></div>
-                            <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                            <input type="password" class="form-control" id="customerPwd" name="customerPwd" placeholder="请输入密码">
                             <span class="glyphicon glyphicon-ok text-success"></span>
                             <span class="glyphicon glyphicon-remove text-danger"></span>
                         </div>
@@ -74,7 +73,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon layui-icon layui-icon-cellphone"></div>
-                            <input type="tel" class="form-control" id="phone" placeholder="请输入手机号码">
+                            <input type="tel" class="form-control" id="customerPhone" name="customerPhone" placeholder="请输入手机号码">
                             <span class="glyphicon glyphicon-ok text-success"></span>
                             <span class="glyphicon glyphicon-remove text-danger"></span>
                         </div>
@@ -83,7 +82,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="layui-icon layui-icon-website input-group-addon"></div>
-                            <input type="email" class="form-control" id="email" placeholder="请输入邮箱">
+                            <input type="email" class="form-control" id="customerEmail" name="customerEmail" placeholder="请输入邮箱">
                             <span class="glyphicon glyphicon-ok text-success"></span>
                             <span class="glyphicon glyphicon-remove text-danger"></span>
                         </div>

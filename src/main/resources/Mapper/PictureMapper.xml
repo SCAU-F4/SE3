@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Mapper.PictureDao">
+<mapper namespace="Mapper.PictureMapper">
 
   <resultMap type="picture" id="pictureMap">
   	<id column="goodsID" property="goodsID"/>
@@ -10,7 +10,7 @@
   	<result column="picturePath" property="picturePath"/>
   </resultMap>
 
-  <select id="findById" resultMap="pictureMap">
+  <select id="find" resultMap="pictureMap">
     select * from Picture where goodsID = #{0} AND pictureID= #{1}
   </select>
   <insert id="insert" parameterType="picture">

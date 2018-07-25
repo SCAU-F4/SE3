@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.IndentDetailMapper">
+
+  <resultMap type="indentDetail" id="indentDetailMap">
+  	<id column="indentID" property="indentID"/>
+  	<result column="goodsID" property="goodsID"/>
+  	<result column="goodsPrice" property="goodsPrice"/>
+  	<result column="goodsCount" property="goodsCount"/>
+  	<result column="totalPrice" property="totalPrice"/>
+  </resultMap>
+
+  <select id="find" resultMap="indentDetailMap">
+    select * from IndentDetail where indentID = #{0} AND goodsID=#{1}
+  </select>
+  
+  <select id="getAllDetailbyOrderID" resultMap="indentDetailMap">
+    select * from IndentDetail  where indentID = #{0}
+  </select>
+  
+  <insert id="insert" parameterType="indentDetail">
+  	insert into IndentDetail values(#{indentID}, #{goodsID}, #{goodsPrice}, #{goodsCount}, #{totalPrice})
+  </insert>
+  <update id="update" parameterType="indentDetail">
+    update IndentDetail set goodsPrice=#{goodsPrice}, goodsCount=#{goodsCount},totalPrice=#{totalPrice} where indentID=#{indentID} AND goodsID=#{goodsID} 
+  </update>
+  <delete id="delete" parameterType="indentDetail">
+    delete from IndentDetail where indentID=#{indentID} AND goodsID=#{goodsID}
+  </delete>
+</mapper>

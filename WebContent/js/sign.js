@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var flag=1;
-    $("#name").blur(function () {
+    $("#customerName").blur(function () {
         var value=$(this).val();
         var re=/^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$/;
         if(value.length<5 ||re.test(value)==false){
@@ -17,7 +17,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#password").blur(function () {
+    $("#customerPwd").blur(function () {
         var value=$(this).val();
         var re=/^[A-Za-z0-9]{6,20}$/;
         if (!re.test(value)){
@@ -33,7 +33,7 @@ $(document).ready(function () {
         }
     });
     $("#repassword").blur(function () {
-        var password=$("#password").val()
+        var password=$("#customerPwd").val()
         if ($(this).val()===password && $(this).val()!=""){
             flag = 0;
             $(this).parent().parent().css("margin-bottom","15px").find("p").fadeOut("fast");
@@ -47,7 +47,7 @@ $(document).ready(function () {
             $(this).parent().find(".glyphicon-remove").show("fast");
         }
     });
-    $("#phone").blur(function () {
+    $("#customerPhone").blur(function () {
 
         var re=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
         var value=$(this).val();
@@ -63,7 +63,7 @@ $(document).ready(function () {
             $(this).parent().find(".glyphicon-ok").show("fast");
         }
     });
-    $("#email").blur(function () {
+    $("#customerEmail").blur(function () {
         var re=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.com$/;
         var value=$(this).val();
         if (!re.test(value)){

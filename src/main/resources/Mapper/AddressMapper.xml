@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Mapper.AddressDao">
+<mapper namespace="Mapper.AddressMapper">
 
   <resultMap type="address" id="addressMap">
   	<id column="customerID" property="customerID"/>
@@ -13,7 +13,7 @@
   	<result column="addressName" property="addressName"/>
   </resultMap>
 
-  <select id="findById" resultMap="addressMap">
+  <select id="find" resultMap="addressMap">
     select * from Address where customerID = #{0} AND addressID=#{1}
   </select>
   <insert id="insert" parameterType="address">

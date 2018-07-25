@@ -1,32 +1,32 @@
-package pojo;
+package bean;
 
-public class OrderDetail {
-	public int orderID;
+public class IndentDetail {
+	public int indentID;
 	public int goodsID;
 	public double goodsPrice;
 	public int goodsCount;
 	public double totalPrice;
 
-	public OrderDetail() {
+	public IndentDetail() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderDetail(int orderID, int goodsID, double goodsPrice, int goodsCount, double totalPrice) {
+	public IndentDetail(int indentID, int goodsID, double goodsPrice, int goodsCount, double totalPrice) {
 		super();
-		this.orderID = orderID;
+		this.indentID = indentID;
 		this.goodsID = goodsID;
 		this.goodsPrice = goodsPrice;
 		this.goodsCount = goodsCount;
 		this.totalPrice = totalPrice;
 	}
 
-	public int getOrderID() {
-		return orderID;
+	public int getIndentID() {
+		return indentID;
 	}
 
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
+	public void setIndentID(int indentID) {
+		this.indentID = indentID;
 	}
 
 	public int getGoodsID() {
@@ -63,7 +63,7 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "OrderDetail [orderID=" + orderID + ", goodsID=" + goodsID + ", goodsPrice=" + goodsPrice
+		return "IndentDetail [indentID=" + indentID + ", goodsID=" + goodsID + ", goodsPrice=" + goodsPrice
 				+ ", goodsCount=" + goodsCount + ", totalPrice=" + totalPrice + "]";
 	}
 

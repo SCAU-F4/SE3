@@ -4,6 +4,25 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 	<display-name>myshop</display-name>
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<!-- 加载spring配置 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	
+	<!-- 默认路径是WEB-INF下的applicationContext.xml,此处创建spring配置文件为： beans.xml -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:SpringConf.xml</param-value>
+	</context-param>
+
+
+
 	<servlet>
 		<servlet-name>myshop</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -13,14 +32,18 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>myshop</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+
 	<session-config>
 		<session-timeout>20</session-timeout>
 		<cookie-config>
 			<max-age>3600</max-age>
 		</cookie-config>
 	</session-config>
-	<servlet-mapping>
-		<servlet-name>myshop</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+
 </web-app>

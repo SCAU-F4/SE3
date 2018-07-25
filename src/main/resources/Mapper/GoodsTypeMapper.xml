@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Mapper.GoodsTypeDao">
+<mapper namespace="Mapper.GoodsTypeMapper">
 
   <resultMap type="goodsType" id="goodsTypeMap">
   	<id column="goodsTypeID" property="goodsTypeID"/>
@@ -10,9 +10,10 @@
   	<result column="goodsDetailType" property="goodsDetailType"/>
   </resultMap>
 
-  <select id="findById" resultMap="goodsTypeMap">
+  <select id="find" resultMap="goodsTypeMap">
     select * from GoodsType where goodsTypeID = #{0} AND goodsMainType =#{1} AND goodsDetailType =#{2}
   </select>
+  
   
   <select id="selectAllGoodsTypes" resultMap="goodsTypeMap">
     select * from GoodsType

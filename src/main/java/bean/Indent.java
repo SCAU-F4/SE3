@@ -1,10 +1,10 @@
-package pojo;
+package bean;
 
 import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Indent {
-	public int orderID;
+	public int indentID;
 	public int customerID;
 	public double totalPrice;
 	public Timestamp orderTime;
@@ -16,9 +16,10 @@ public class Indent {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Indent(int orderID, int customerID, double totalPrice, Timestamp orderTime, int addressID, int expressCode) {
+	public Indent(int indentID, int customerID, double totalPrice, Timestamp orderTime, int addressID,
+			int expressCode) {
 		super();
-		this.orderID = orderID;
+		this.indentID = indentID;
 		this.customerID = customerID;
 		this.totalPrice = totalPrice;
 		this.orderTime = orderTime;
@@ -26,12 +27,12 @@ public class Indent {
 		this.expressCode = expressCode;
 	}
 
-	public int getOrderID() {
-		return orderID;
+	public int getIndentID() {
+		return indentID;
 	}
 
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
+	public void setIndentID(int indentID) {
+		this.indentID = indentID;
 	}
 
 	public int getCustomerID() {
@@ -76,7 +77,7 @@ public class Indent {
 
 	@Override
 	public String toString() {
-		return "Indent [orderID=" + orderID + ", customerID=" + customerID + ", totalPrice=" + totalPrice
+		return "Indent [indentID=" + indentID + ", customerID=" + customerID + ", totalPrice=" + totalPrice
 				+ ", orderTime=" + orderTime + ", addressID=" + addressID + ", expressCode=" + expressCode + "]";
 	}
 

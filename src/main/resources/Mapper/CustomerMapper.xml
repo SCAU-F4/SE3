@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Mapper.CustomerDao">
+<mapper namespace="Mapper.CustomerMapper">
 
   <resultMap type="customer" id="customerMap">
   	<id column="customerID" property="customerID"/>
@@ -16,6 +16,11 @@
   <select id="findById" resultMap="customerMap">
     select * from Customer where customerID = #{id}
   </select>
+  
+  <select id="IsCustomerNameExist" resultType="java.lang.Integer">
+     select customerID from Customer where customerName = #{customerName}
+  </select>
+  
   <insert id="insert" parameterType="customer">
   	insert into Customer values(#{customerID}, #{customerName}, #{customerPwd}, #{customerPhone}, #{customerEmail}, #{customerRegDate})
   </insert>

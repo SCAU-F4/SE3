@@ -4,18 +4,18 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Address;
+import bean.Evaluate;
 
-public interface AddressDao {
+public interface EvaluateMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Address findById(int customerID, int addressID);
+	Evaluate findById(int expressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
-	int insert(Address address);
+	int insert(Evaluate evaluate);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int update(Address address);
+	int update(Evaluate evaluate);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int delete(Address address);
+	int delete(Evaluate evaluate);
 }

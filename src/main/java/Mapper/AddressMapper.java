@@ -4,19 +4,18 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pojo.Customer;
+import bean.Address;
 
-public interface CustomerDao {
-
+public interface AddressMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Customer findById(int customerID);
+	Address find(int customerID, int addressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
-	int insert(Customer customer);
+	int insert(Address address);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int update(Customer customer);
+	int update(Address address);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int delete(Customer customer);
+	int delete(Address address);
 }
