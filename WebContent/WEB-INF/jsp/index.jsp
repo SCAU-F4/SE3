@@ -21,7 +21,7 @@
                     <div class="col-md-5 ">
                         <a href="user/signup">注册</a>
                         <a href="user/signin">登录</a>
-                        <a href="#">我的订单</a>
+                        <a href="mycenter/{CustomerID}">个人中心</a>
                     </div>
                 </div>
         </div>
@@ -453,7 +453,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="../../img/bag1.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/bag1.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
