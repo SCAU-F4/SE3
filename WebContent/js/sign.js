@@ -94,7 +94,7 @@ $(document).ready(function () {
         }
     });
     console.log(result);
-    $("#submit").click(function () {
+    $("#SE3_signup #submit").click(function () {
         var submitflag=1;
         var i=0;
         for (i;i<result.length;i++)

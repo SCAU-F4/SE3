@@ -93,7 +93,7 @@
                         <button type="reset" class="layui-btn layui-btn-radius layui-btn-primary">重置</button>
                         <button class="layui-btn layui-btn-radius layui-btn-primary" type="submit" id="submit">注册</button></div>
                 </form>
-                ${error}
+               
                 </div>
             </div>
         </div>
@@ -105,5 +105,25 @@
 <script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/sign.js"></script>
+<script>
+var lock=1;
+ var text="${error}";
+           console.log(text);
+              if(text!=""&&lock==1)
+    	{
+   		layer.open({
+            title:'登录失败'
+            ,content: text
+            ,id:'Sign_result'
+            ,anim: 6 //这里content是一个普通的String
+            ,success:function(layero,index){
+            	lock=0;
+            }
+            ,end:function(layero,index){
+            	lock=1;
+            }
+        });
+    	}
+           </script>
 </body>
 </html>
