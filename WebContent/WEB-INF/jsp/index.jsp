@@ -22,7 +22,7 @@
                         <a href="user/signup" id="signup">注册</a>
                         <a href="user/signin" id="signin">登录</a>
                         <a href="user/mycenter" id="myCenter">个人中心</a>
-                        <a href="#" id="signout">注销</a>
+                        <a href="user/signout" id="signout">注销</a>
                     </div>
                 </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="home active"><a href="index.html">首页<span class="sr-only">首页</span></a></li>
+                    <li class="home active"><a href="/SE3-F4">首页<span class="sr-only">首页</span></a></li>
                     <li class="bag-li"><a href="#">箱包配饰</a>
                         <div class="bag-li container downmenu">
                             <ul class="nav navbar-nav">

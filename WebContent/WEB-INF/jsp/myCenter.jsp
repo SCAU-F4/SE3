@@ -22,10 +22,10 @@
             <div class="row">
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                 <div class="col-md-5 top-right">
-                   		<a href="user/signup" id="signup">注册</a>
-                        <a href="user/signin" id="signin">登录</a>
-                        <a href="user/mycenter" id="myCenter">个人中心</a>
-                        <a href="#" id="signout">注销</a>
+                   		<a href="signup" id="signup">注册</a>
+                        <a href="signin" id="signin">登录</a>
+                        <a href="mycenter" id="myCenter">个人中心</a>
+                        <a href="signout" id="signout">注销</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="home"><a href="index.html">首页<span class="sr-only">首页</span></a></li>
+                            <li class="home"><a href="/SE3-F4">首页<span class="sr-only">首页</span></a></li>
                             <li class="bag-li"><a href="#">箱包配饰</a>
                                 <div class="bag-li container downmenu">
                                     <ul class="nav navbar-nav">
@@ -331,20 +331,20 @@
                                 <div role="tabpanel" class="tab-pane active" id="usermsg">
                                     <div class="group">
                                         <label>用户ID:</label>
-                                        <span class="customerId">12580</span>
+                                        <span class="customerId">${currentCustomer.customerID }</span>
                                     </div>
                                     <form action="">
                                     <div class="group">
                                         <label>用户名:</label>
-                                        <span><input type="text" class="customerName" value="鸡鸡昌"></span>
+                                        <span><input type="text" class="customerName" value="${currentCustomer.customerName }"></span>
                                     </div>
                                     <div class="group">
                                          <label>手机号:</label>
-                                         <span>13800138000</span>
+                                         <span>${currentCustomer.customerPhone }</span>
                                     </div>
                                      <div class="group">
                                         <label>邮箱:</label>
-                                        <span>jijichang@163.com</span>
+                                        <span>${currentCustomer.customerEmail }</span>
                                      </div>
 
                                     <div class="group">

@@ -60,4 +60,10 @@ public class Usercontroller {
 //		userservice
 		return "myCenter";
 	}
+	
+	@RequestMapping(value ="signout")
+	public String signout(HttpSession session){
+        session.removeAttribute("currentCustomer");
+		return "redirect:/";
+	}
 }

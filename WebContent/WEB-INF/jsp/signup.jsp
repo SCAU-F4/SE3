@@ -22,8 +22,8 @@
             <div class="row">
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                 <div class="col-md-5 top-right">
-                    <a href="signup.html">注册</a>
-                    <a href="signin.html">登录</a>
+                    <a href="signup">注册</a>
+                    <a href="signin">登录</a>
                 </div>
             </div>
         </div>
