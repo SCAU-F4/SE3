@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/sign.css">
@@ -59,7 +60,6 @@
                         <button type="reset" class="layui-btn layui-btn-radius layui-btn-primary">重置</button>
                         <button class="layui-btn layui-btn-radius layui-btn-primary" type="submit" id="submit">登录</button></div>
                 </form>
-                ${error}
             </div>
             </div>
             </div>
@@ -68,7 +68,29 @@
 </section>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/sign.js"></script>
+<script>
+		   var lock=1;
+           var text="${error}";
+           console.log(text);
+           if(text!=""&&lock==1)
+    	{
+   		layer.open({
+            title:'登录失败'
+            ,content: text
+            ,id:'Sign_result'
+            ,anim: 6 //这里content是一个普通的String
+            ,success:function(layero,index){
+            	lock=0;
+            }
+            ,end:function(layero,index){
+            	lock=1;
+            }
+        });
+    	}
+    	
+     </script>
 </body>
 </html>
