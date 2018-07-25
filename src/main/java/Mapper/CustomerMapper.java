@@ -12,6 +12,9 @@ public interface CustomerMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	Customer findById(int customerID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	Customer findByNameAndPassword(String name,String password);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	int IsCustomerNameExist(Customer customer);//找到返回一个用户的ID,找不到抛出异常
