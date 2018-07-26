@@ -14,7 +14,7 @@
   	<result column="evaluatePictureID" property="evaluatePictureID"/>
   </resultMap>
 
-  <select id="findById" resultMap="evaluateMap">
+  <select id="findByevaluateID" resultMap="evaluateMap">
     select * from Evaluate where evaluateID = #{0}
   </select>
   <insert id="insert" parameterType="evaluate">

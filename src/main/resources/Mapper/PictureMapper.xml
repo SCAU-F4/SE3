@@ -10,8 +10,8 @@
   	<result column="picturePath" property="picturePath"/>
   </resultMap>
 
-  <select id="find" resultMap="pictureMap">
-    select * from Picture where goodsID = #{0} AND pictureID= #{1}
+  <select id="findBygoodsIDAndpictureID" resultMap="pictureMap">
+    select * from Picture where goodsID = #{goodsID} AND pictureID= #{pictureID}
   </select>
   <insert id="insert" parameterType="picture">
   	insert into Picture values(#{goodsID}, #{pictureID}, #{picturePath})

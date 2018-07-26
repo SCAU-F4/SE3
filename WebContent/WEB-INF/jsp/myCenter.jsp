@@ -462,7 +462,7 @@
 <script src="${pageContext.request.contextPath }/js/index.js"></script>
 <script src="${pageContext.request.contextPath }/js/myCenter.js"></script>
 <script>
-$(document).ready(function () {
+		$(document).ready(function () {
 			var customer= "${currentCustomer.customerName}";
 			if(customer==""){
 				$("#myCenter").hide();
@@ -476,27 +476,54 @@ $(document).ready(function () {
 				$("#signin").hide();
 				$("#signup").hide();
 			}
-			
-			$(".Message-list .save").click(function(){
-				var name=$("#customerName").val();
-				$.ajax({    
-		         type : "post",    
-		         async:false,    
-		         url : "http://127.0.0.1:8080/SE3-F4/user/changeName",
-		         dataType:"jsonp", 
-		         jsonp:"callback",
-				 data: {
-				 customerName:name
-				 }, 
-		         success:function(res){     
-							alert("ok");
-		         },    
-		         error:function(){ 
-					alert("提交失败");
-		         }    
-		     });   
-			});
+		
 		});
+
+		$(".Message-list .save").click(function(){
+			var name=$("#customerName").val();
+			/*
+			$.ajax({    
+			 contentType:"application/json;charset=utf-8",
+	         type : "post",      
+	         url : "http://localhost:8080/SE3-F4/user/changeName",
+	         //dataType:"jsonp",
+			 //data: JSON.stringify({
+			 //"customerName":"name"
+			 //}), 
+			 data:'{"customerName":"name"}',
+	         success:function(res){     
+						alert("ok");
+	         },    
+	         error:function(e){ 
+		         
+				alert("提交失败");
+	         }    
+	     });   */
+
+		    $.ajax({
+		        type: "POST",
+		        url: "http://localhost:8080/SE3-F4/user/changeName",
+		        contentType: "application/json; charset=utf-8",
+		        data: JSON.stringify(GetJsonData()),
+		        dataType: "json",
+		        success: function (message) {
+		            
+		            alert("请求已提交！");
+		            
+		        },
+		        error: function (message) {
+		        	alert("提交数据失败！");
+		        }
+		    });
+		});
+
+		function GetJsonData() {
+		    var json = {
+		    	"customerName":"name",
+		        "name": "蜘蛛侠"
+		    };
+		    return json;
+		}
 		</script>
 </body>
 </html>

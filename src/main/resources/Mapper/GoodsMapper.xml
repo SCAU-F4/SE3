@@ -17,7 +17,7 @@
   	<result column="isSell" property="isSell"/>
   </resultMap>
 
-  <select id="findById" resultMap="goodsMap">
+  <select id="findBygoodsID" resultMap="goodsMap">
     select * from Goods where goodsID = #{goodsID}
   </select>
   <insert id="insert" parameterType="goods">

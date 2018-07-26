@@ -12,11 +12,11 @@
   	<result column="totalPrice" property="totalPrice"/>
   </resultMap>
 
-  <select id="find" resultMap="indentDetailMap">
-    select * from IndentDetail where indentID = #{0} AND goodsID=#{1}
+  <select id="findByindentIDAndgoodsID" resultMap="indentDetailMap">
+    select * from IndentDetail where indentID = #{indentID} AND goodsID=#{goodsID}
   </select>
   
-  <select id="getAllDetailbyOrderID" resultMap="indentDetailMap">
+  <select id="findAllDetailByindentID" resultMap="indentDetailMap">
     select * from IndentDetail  where indentID = #{0}
   </select>
   

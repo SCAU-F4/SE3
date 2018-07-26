@@ -18,7 +18,7 @@ public class UserserviceImpl implements Userservice{
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
 		try {
-			customer=customermapper.findByNameAndPassword(customer.getCustomerName(), customer.getCustomerPwd());
+			customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
 		} catch (Exception e) {
 		}
 		return customer;

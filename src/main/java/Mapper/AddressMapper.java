@@ -1,5 +1,6 @@
 package Mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,7 +9,7 @@ import bean.Address;
 
 public interface AddressMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Address find(int customerID, int addressID);
+	Address findBycustomerIDAndaddressID(@Param("customerID") int customerID,@Param("addressID") int addressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Address address);

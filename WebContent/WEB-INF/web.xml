@@ -9,19 +9,16 @@
 	</welcome-file-list>
 
 
-	<!-- 加载spring配置 -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
-	
 	<!-- 默认路径是WEB-INF下的applicationContext.xml,此处创建spring配置文件为： beans.xml -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:SpringConf.xml</param-value>
 	</context-param>
-
-
+	
+	<!-- 加载spring配置 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>myshop</servlet-name>

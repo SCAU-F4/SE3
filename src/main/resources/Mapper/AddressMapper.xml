@@ -13,8 +13,8 @@
   	<result column="addressName" property="addressName"/>
   </resultMap>
 
-  <select id="find" resultMap="addressMap">
-    select * from Address where customerID = #{0} AND addressID=#{1}
+  <select id="findBycustomerIDAndaddressID" resultMap="addressMap">
+    select * from Address where customerID = #{customerID} AND addressID=#{addressID}
   </select>
   <insert id="insert" parameterType="address">
   	insert into Address values(#{customerID}, #{addressID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})

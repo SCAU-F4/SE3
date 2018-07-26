@@ -8,7 +8,7 @@ import bean.Evaluate;
 
 public interface EvaluateMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Evaluate findById(int expressID);
+	Evaluate findByevaluateID(int expressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Evaluate evaluate);

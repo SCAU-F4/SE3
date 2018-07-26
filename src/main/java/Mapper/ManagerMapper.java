@@ -9,7 +9,7 @@ import bean.Manager;
 public interface ManagerMapper {
 	//只有一个管理员无所谓
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Manager findById(int managerID);
+	Manager findBymanagerId(int managerID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	int insert(Manager manager);

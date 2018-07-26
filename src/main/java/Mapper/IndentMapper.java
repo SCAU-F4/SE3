@@ -8,7 +8,7 @@ import bean.Indent;
 
 public interface IndentMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	Indent findById(int indentID);
+	Indent findByindentID(int indentID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Indent indent);

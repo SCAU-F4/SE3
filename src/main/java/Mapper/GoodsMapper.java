@@ -8,7 +8,7 @@ import bean.Goods;
 
 public interface GoodsMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Goods findById(int goodsID);
+	Goods findBygoodsID(int goodsID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Goods goods);

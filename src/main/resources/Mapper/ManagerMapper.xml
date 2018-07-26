@@ -10,7 +10,7 @@
   	<result column="managerPwd" property="managerPwd"/>
   </resultMap>
 
-  <select id="findById" resultMap="managerMap">
+  <select id="findBymanagerId" resultMap="managerMap">
     select * from Manager where managerId = #{id}
   </select>
   <insert id="insert" parameterType="manager">

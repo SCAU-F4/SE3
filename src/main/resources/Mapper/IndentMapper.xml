@@ -13,7 +13,7 @@
   	<result column="expressCode" property="expressCode"/>
   </resultMap>
 
-  <select id="findById" resultMap="indentMap">
+  <select id="findByindentID" resultMap="indentMap">
     select * from Indent where indentID = #{0}
   </select>
   <insert id="insert" parameterType="indent">
