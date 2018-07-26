@@ -1,6 +1,13 @@
 package Mapper;
 
 import java.io.IOException;
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import bean.Customer;
+import bean.IndentDetail;
 
 
 public class test1 {
@@ -8,14 +15,9 @@ public class test1 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-//		IndentDetailMapper indentDetailMapper=ctx.getBean(IndentDetailMapper.class);
-//		List<IndentDetail> list=indentDetailMapper.getAllDetailbyOrderID(1);
-//		for(int i=0;i<list.size();i++)
-//		{
-//			System.out.println(list.get(i));
-//		}
-		
-		
+//		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
+//		Customer c=cm.findBycustomerID(1);
+//		System.out.println(c);
 		
 //		 IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
 //		 Indent indent=indentMapper.findById(2);

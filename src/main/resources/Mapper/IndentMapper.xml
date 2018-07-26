@@ -16,7 +16,6 @@
 	<resultMap type="indent" id="indentMap1" extends="indentMap">
 		<association property="express" column="{expressCode=expressCode}"
 			select="Mapper.ExpressMapper.findByexpressCode" />
-
 		<collection property="indentDetaillist" fetchType="lazy"
 			select="Mapper.IndentDetailMapper.getAllDetailbyOrderID" column="{indentID=indentID}">
 		</collection>
