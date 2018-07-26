@@ -17,6 +17,12 @@
   <select id="findByevaluateID" resultMap="evaluateMap">
     select * from Evaluate where evaluateID = #{0}
   </select>
+  
+  <select id="getEvaluateByGoodsID" resultMap="evaluateMap">
+    select * from Evaluate where goodsID = #{goodsID}
+  </select>
+  
+  
   <insert id="insert" parameterType="evaluate">
   	insert into Evaluate values(#{evaluateID}, #{customerID}, #{goodsID}, #{evaluateDate}, #{evaluateGrade}, #{evaluateContent}, #{evaluatePictureID})
   </insert>

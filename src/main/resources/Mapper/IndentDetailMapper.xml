@@ -4,13 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mapper.IndentDetailMapper">
 
-  <resultMap type="indentDetail" id="indentDetailMap">
-  	<id column="indentID" property="indentID"/>
-  	<result column="goodsID" property="goodsID"/>
-  	<result column="goodsPrice" property="goodsPrice"/>
-  	<result column="goodsCount" property="goodsCount"/>
-  	<result column="totalPrice" property="totalPrice"/>
-  </resultMap>
+	<resultMap type="indentDetail" id="indentDetailMap">
+		<id column="indentID" property="indentID" />
+		<id column="goodsID" property="goodsID" />
+		<result column="goodsPrice" property="goodsPrice" />
+		<result column="goodsCount" property="goodsCount" />
+		<result column="totalPrice" property="totalPrice" />
+	</resultMap>
 
   <select id="findByindentIDAndgoodsID" resultMap="indentDetailMap">
     select * from IndentDetail where indentID = #{indentID} AND goodsID=#{goodsID}
@@ -29,4 +29,9 @@
   <delete id="delete" parameterType="indentDetail">
     delete from IndentDetail where indentID=#{indentID} AND goodsID=#{goodsID}
   </delete>
+	<select id="getAllDetailbyOrderID" resultMap="indentDetailMap">
+		select indent.indentID,goodsID,goodsPrice,goodsCount,IndentDetail.totalPrice
+		from Indent  inner join IndentDetail on Indent.indentID=IndentDetail.indentID
+		where Indent.indentID = #{indentID} <!-- 传的参数要传上面定义的intentid，别他妈用 0,1-->
+	</select>
 </mapper>

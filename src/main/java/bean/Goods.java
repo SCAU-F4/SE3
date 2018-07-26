@@ -1,11 +1,13 @@
 package bean;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
-public class Goods {
+public class Goods implements Serializable {
 	public int goodsID;
 	public String goodsName;
 	public int goodsTypeID;
@@ -16,6 +18,8 @@ public class Goods {
 	public int sellCount;
 	public Timestamp goodsDate;
 	public int isSell;
+	public List<Picture> pictureList;
+	public List<Evaluate> evaluateList;
 
 	public Goods() {
 		super();
@@ -23,7 +27,8 @@ public class Goods {
 	}
 
 	public Goods(int goodsID, String goodsName, int goodsTypeID, String goodsSpecify, String goodsBrief,
-			double goodsPrice, int goodsCount, int sellCount, Timestamp goodsDate, int isSell) {
+			double goodsPrice, int goodsCount, int sellCount, Timestamp goodsDate, int isSell,
+			List<Picture> pictureList, List<Evaluate> evaluateList) {
 		super();
 		this.goodsID = goodsID;
 		this.goodsName = goodsName;
@@ -35,6 +40,8 @@ public class Goods {
 		this.sellCount = sellCount;
 		this.goodsDate = goodsDate;
 		this.isSell = isSell;
+		this.pictureList = pictureList;
+		this.evaluateList = evaluateList;
 	}
 
 	public int getGoodsID() {
@@ -117,12 +124,28 @@ public class Goods {
 		this.isSell = isSell;
 	}
 
+	public List<Picture> getPictureList() {
+		return pictureList;
+	}
+
+	public void setPictureList(List<Picture> pictureList) {
+		this.pictureList = pictureList;
+	}
+
+	public List<Evaluate> getEvaluateList() {
+		return evaluateList;
+	}
+
+	public void setEvaluateList(List<Evaluate> evaluateList) {
+		this.evaluateList = evaluateList;
+	}
+
 	@Override
 	public String toString() {
 		return "Goods [goodsID=" + goodsID + ", goodsName=" + goodsName + ", goodsTypeID=" + goodsTypeID
 				+ ", goodsSpecify=" + goodsSpecify + ", goodsBrief=" + goodsBrief + ", goodsPrice=" + goodsPrice
 				+ ", goodsCount=" + goodsCount + ", sellCount=" + sellCount + ", goodsDate=" + goodsDate + ", isSell="
-				+ isSell + "]";
+				+ isSell + ", pictureList=" + pictureList + ", evaluateList=" + evaluateList + "]";
 	}
 
 }

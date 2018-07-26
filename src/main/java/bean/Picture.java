@@ -1,6 +1,8 @@
 package bean;
 
-public class Picture {
+import java.io.Serializable;
+
+public class Picture implements Serializable{
 	public int goodsID;
 	public int pictureID;
 	public String picturePath;

@@ -13,6 +13,14 @@
   <select id="findBygoodsIDAndpictureID" resultMap="pictureMap">
     select * from Picture where goodsID = #{goodsID} AND pictureID= #{pictureID}
   </select>
+  
+  
+  <select id="findGoodsAllPictures" resultMap="pictureMap">
+    select * 
+    from Picture where goodsID = #{goodsID}
+  </select>
+  
+  
   <insert id="insert" parameterType="picture">
   	insert into Picture values(#{goodsID}, #{pictureID}, #{picturePath})
   </insert>

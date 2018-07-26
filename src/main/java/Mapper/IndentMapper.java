@@ -1,5 +1,8 @@
 package Mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +12,9 @@ import bean.Indent;
 public interface IndentMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	Indent findByindentID(int indentID);
+
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	List<Indent> getAllIndentItembyCid_and_Aid(@Param("customerID")int CustomerID,@Param("addressID")int AddressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Indent indent);

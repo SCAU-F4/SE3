@@ -1,6 +1,8 @@
 package bean;
 
-public class Manager {
+import java.io.Serializable;
+
+public class Manager implements Serializable{
 	public int managerID;
 	public String managerName;
 	public String managerPwd;

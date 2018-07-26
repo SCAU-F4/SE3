@@ -9,13 +9,19 @@
   	<result column="goodsMainType" property="goodsMainType"/>
   	<result column="goodsDetailType" property="goodsDetailType"/>
   </resultMap>
+  
+  <resultMap type="goodsType" id="goodsTypeMap1" extends="goodsTypeMap">
+		<collection property="goodsList" fetchType="lazy"
+			select="Mapper.GoodsMapper.getGoodsByGoodsTypeID" column="{goodsTypeID=goodsTypeID}">
+		</collection>
+	</resultMap>
 
-  <select id="findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType" resultMap="goodsTypeMap">
+  <select id="findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType" resultMap="goodsTypeMap1">
     select * from GoodsType where goodsTypeID = #{goodsTypeID} AND goodsMainType =#{goodsMainType} AND goodsDetailType =#{goodsDetailType}
   </select>
   
   
-  <select id="=findAllGoodsTypes" resultMap="goodsTypeMap">
+  <select id="=findAllGoodsTypes" resultMap="goodsTypeMap1">
     select * from GoodsType
   </select>
   

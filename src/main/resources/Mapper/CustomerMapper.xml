@@ -13,7 +13,7 @@
   	<result column="customerRegDate" property="customerRegDate"/>
   </resultMap>
 
-  <select id="findBycustomerID" resultMap="customerMap">
+  <select id="findBycustomerID" resultMap="customerMap1">
     select * from Customer where customerID = #{id}
   </select>
   
@@ -21,7 +21,7 @@
      select customerID from Customer where customerName = #{customerName}
   </select>
   
-  <select id="findBycustomerNameAndcustomerPwd" resultMap="customerMap">
+  <select id="findBycustomerNameAndcustomerPwd" resultMap="customerMap1">
   select * from Customer where customerName=#{customerName} and customerPwd=#{customerPwd}
   </select>
   
@@ -34,4 +34,9 @@
   <delete id="delete" parameterType="customer">
     delete from Customer where customerID=#{customerID}
   </delete>
+	<resultMap type="customer" id="customerMap1" extends="customerMap">
+		<collection property="addressList" fetchType="lazy"
+			select="Mapper.AddressMapper.getAddressByCustomoerID" column="{customerID=customerID}">
+		</collection>
+	</resultMap>
 </mapper>

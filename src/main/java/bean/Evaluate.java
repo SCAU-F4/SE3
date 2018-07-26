@@ -1,9 +1,10 @@
 package bean;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class Evaluate {
+public class Evaluate implements Serializable{
 	public int evaluateID;
 	public int customerID;
 	public int goodsID;

@@ -1,8 +1,9 @@
 package bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Express {
+public class Express implements Serializable{
 	public int expressCode;
 	public Timestamp expressDate;
 	public String expressState;

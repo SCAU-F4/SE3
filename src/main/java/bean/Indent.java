@@ -1,23 +1,28 @@
 package bean;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
-public class Indent {
+public class Indent implements Serializable {
 	public int indentID;
 	public int customerID;
 	public double totalPrice;
 	public Timestamp orderTime;
 	public int addressID;
 	public int expressCode;
+	public int indentState;
+	public List<IndentDetail> indentDetaillist;// 订单商品表
+	public Express express;// 订单
 
 	public Indent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Indent(int indentID, int customerID, double totalPrice, Timestamp orderTime, int addressID,
-			int expressCode) {
+	public Indent(int indentID, int customerID, double totalPrice, Timestamp orderTime, int addressID, int expressCode,
+			int indentState, List<IndentDetail> indentDetaillist, Express express) {
 		super();
 		this.indentID = indentID;
 		this.customerID = customerID;
@@ -25,6 +30,9 @@ public class Indent {
 		this.orderTime = orderTime;
 		this.addressID = addressID;
 		this.expressCode = expressCode;
+		this.indentState = indentState;
+		this.indentDetaillist = indentDetaillist;
+		this.express = express;
 	}
 
 	public int getIndentID() {
@@ -75,10 +83,36 @@ public class Indent {
 		this.expressCode = expressCode;
 	}
 
+	public int getIndentState() {
+		return indentState;
+	}
+
+	public void setIndentState(int indentState) {
+		this.indentState = indentState;
+	}
+
+	public List<IndentDetail> getIndentDetaillist() {
+		return indentDetaillist;
+	}
+
+	public void setIndentDetaillist(List<IndentDetail> indentDetaillist) {
+		this.indentDetaillist = indentDetaillist;
+	}
+
+	public Express getExpress() {
+		return express;
+	}
+
+	public void setExpress(Express express) {
+		this.express = express;
+	}
+
 	@Override
 	public String toString() {
 		return "Indent [indentID=" + indentID + ", customerID=" + customerID + ", totalPrice=" + totalPrice
-				+ ", orderTime=" + orderTime + ", addressID=" + addressID + ", expressCode=" + expressCode + "]";
+				+ ", orderTime=" + orderTime + ", addressID=" + addressID + ", expressCode=" + expressCode
+				+ ", indentState=" + indentState + ", indentDetaillist=" + indentDetaillist + ", express=" + express
+				+ "]";
 	}
 
 }

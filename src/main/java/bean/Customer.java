@@ -1,15 +1,18 @@
 package bean;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
-public class Customer {
+public class Customer implements Serializable {
 	public int customerID;
 	public String customerName;
 	public String customerPwd;
 	public String customerPhone;
 	public String customerEmail;
 	public Timestamp customerRegDate;
+	public List<Address> addressList;
 
 	public Customer() {
 		super();
@@ -17,7 +20,7 @@ public class Customer {
 	}
 
 	public Customer(int customerID, String customerName, String customerPwd, String customerPhone, String customerEmail,
-			Timestamp customerRegDate) {
+			Timestamp customerRegDate, List<Address> addressList) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -25,6 +28,7 @@ public class Customer {
 		this.customerPhone = customerPhone;
 		this.customerEmail = customerEmail;
 		this.customerRegDate = customerRegDate;
+		this.addressList = addressList;
 	}
 
 	public int getCustomerID() {
@@ -75,11 +79,19 @@ public class Customer {
 		this.customerRegDate = customerRegDate;
 	}
 
+	public List<Address> getAddressList() {
+		return addressList;
+	}
+
+	public void setAddressList(List<Address> addressList) {
+		this.addressList = addressList;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", customerName=" + customerName + ", customerPwd=" + customerPwd
 				+ ", customerPhone=" + customerPhone + ", customerEmail=" + customerEmail + ", customerRegDate="
-				+ customerRegDate + "]";
+				+ customerRegDate + ", addressList=" + addressList + "]";
 	}
 
 }
