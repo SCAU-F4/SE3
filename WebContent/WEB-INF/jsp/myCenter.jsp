@@ -333,7 +333,7 @@
                                         <label>用户ID:</label>
                                         <span class="customerId">${currentCustomer.customerID }</span>
                                     </div>
-                                    <form action="">
+                                    <form action="changeName">
                                     <div class="group">
                                         <label>用户名:</label>
                                         <span><input type="text" class="customerName" value="${currentCustomer.customerName }"></span>
