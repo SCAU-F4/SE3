@@ -1,12 +1,16 @@
 package bean;
 
-public class Address {
+import java.io.Serializable;
+import java.util.List;
+
+public class Address implements Serializable {
 	public int customerID;
 	public int addressID;
 	public String addressDetail;
 	public String addressPostcode;
 	public String addressPhone;
 	public String addressName;
+	public List<Indent> IndentList;
 
 	public Address() {
 		super();
@@ -14,7 +18,7 @@ public class Address {
 	}
 
 	public Address(int customerID, int addressID, String addressDetail, String addressPostcode, String addressPhone,
-			String addressName) {
+			String addressName, List<Indent> indentList) {
 		super();
 		this.customerID = customerID;
 		this.addressID = addressID;
@@ -22,6 +26,7 @@ public class Address {
 		this.addressPostcode = addressPostcode;
 		this.addressPhone = addressPhone;
 		this.addressName = addressName;
+		IndentList = indentList;
 	}
 
 	public int getCustomerID() {
@@ -72,11 +77,19 @@ public class Address {
 		this.addressName = addressName;
 	}
 
+	public List<Indent> getIndentList() {
+		return IndentList;
+	}
+
+	public void setIndentList(List<Indent> indentList) {
+		IndentList = indentList;
+	}
+
 	@Override
 	public String toString() {
 		return "Address [customerID=" + customerID + ", addressID=" + addressID + ", addressDetail=" + addressDetail
 				+ ", addressPostcode=" + addressPostcode + ", addressPhone=" + addressPhone + ", addressName="
-				+ addressName + "]";
+				+ addressName + ", IndentList=" + IndentList + "]";
 	}
 
 }

@@ -11,7 +11,7 @@
   </resultMap>
 
   <select id="findByexpressCode" resultMap="expressMap">
-    select * from Express where expressCode = #{0}
+    select * from Express where expressCode = #{expressCode}
   </select>
   <insert id="insert" parameterType="express">
   	insert into Express values(#{expressCode}, #{expressDate}, #{expressState})

@@ -16,10 +16,29 @@
   	<result column="goodsDate" property="goodsDate"/>
   	<result column="isSell" property="isSell"/>
   </resultMap>
+  
+  <resultMap type="goods" id="goodsMap1" extends="goodsMap">
+		<collection property="pictureList" fetchType="lazy"
+			select="Mapper.PictureMapper.findGoodsAllPictures" column="{goodsID=goodsID}">
+		</collection>
+		
+		<collection property="evaluateList" fetchType="lazy"
+			select="Mapper.EvaluateMapper.getEvaluateByGoodsID" column="{goodsID=goodsID}">
+		</collection>
+	</resultMap>
 
-  <select id="findById" resultMap="goodsMap">
+  <select id="findById" resultMap="goodsMap1">
     select * from Goods where goodsID = #{goodsID}
   </select>
+  
+  
+   <select id="getGoodsByGoodsTypeID" resultMap="goodsMap1">
+    select * 
+    from Goods
+    where goodsTypeID = #{goodsTypeID}
+  </select>
+  
+  
   <insert id="insert" parameterType="goods">
   	insert into Goods values(#{goodsID}, #{goodsName}, #{goodsTypeID}, #{goodsSpecify}, #{goodsBrief}, #{goodsPrice}, #{goodsCount}, #{sellCount}, #{goodsDate}, #{isSell})
   </insert>

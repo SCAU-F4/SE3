@@ -1,6 +1,9 @@
 package bean;
 
-public class IndentDetail {
+import java.io.Serializable;
+import java.util.List;
+
+public class IndentDetail implements Serializable {
 	public int indentID;
 	public int goodsID;
 	public double goodsPrice;
