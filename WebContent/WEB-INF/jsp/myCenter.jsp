@@ -333,10 +333,10 @@
                                         <label>用户ID:</label>
                                         <span class="customerId">${currentCustomer.customerID }</span>
                                     </div>
-                                    <form action="changeName">
+                                    
                                     <div class="group">
                                         <label>用户名:</label>
-                                        <span><input type="text" class="customerName" value="${currentCustomer.customerName }"></span>
+                                        <span><input type="text" class="customerName" id="customerName" value="${currentCustomer.customerName }"></span>
                                     </div>
                                     <div class="group">
                                          <label>手机号:</label>
@@ -348,9 +348,9 @@
                                      </div>
 
                                     <div class="group">
-                                        <button class="layui-btn layui-btn-radius">保存</button>
+                                        <button class="layui-btn layui-btn-radius save">保存</button>
                                     </div>
-                                    </form>
+                                    
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="resetpwd">
                                     <form action="">
@@ -456,6 +456,7 @@
     </div>
 </section>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery.form.js"></script>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/index.js"></script>
@@ -475,6 +476,26 @@ $(document).ready(function () {
 				$("#signin").hide();
 				$("#signup").hide();
 			}
+			
+			$(".Message-list .save").click(function(){
+				var name=$("#customerName").val();
+				$.ajax({    
+		         type : "post",    
+		         async:false,    
+		         url : "http://127.0.0.1:8080/SE3-F4/user/changeName",
+		         dataType:"jsonp", 
+		         jsonp:"callback",
+				 data: {
+				 customerName:name
+				 }, 
+		         success:function(res){     
+							alert("ok");
+		         },    
+		         error:function(){ 
+					alert("提交失败");
+		         }    
+		     });   
+			});
 		});
 		</script>
 </body>

@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -72,7 +74,9 @@ public class Usercontroller {
 	
 	@RequestMapping(value= "changeName")
 	@ResponseBody
-	public void changeName(){
+	public void changeName(@RequestBody Map<String,String> map){ 
+		System.out.println(6666666);
+		System.out.println(map.get("customerName"));
 //		JSONObject.
 	}
 }
