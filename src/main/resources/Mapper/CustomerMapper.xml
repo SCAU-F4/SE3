@@ -21,34 +21,47 @@
 			<result property="addressName" column="addressName" />
 		</collection>
 	</resultMap>
-	
-	
-	 <resultMap type="customer" id="customerMap1" extends="customerMap">
+
+
+	<resultMap type="customer" id="customerMap1" extends="customerMap">
 		<collection property="addressList" fetchType="lazy"
 			select="Mapper.AddressMapper.getAddressByCustomoerID" column="{customerID=customerID}">
 		</collection>
 	</resultMap>
-	
+
+
 
 	<select id="findById" resultMap="customerMap1">
-		select * from Customer where customerID = #{id}
+		select * from Customer where
+		customerID = #{id}
 	</select>
 
 
 	<select id="IsCustomerNameExist" resultType="java.lang.Integer">
-		select customerID from Customer where customerName = #{customerName}
+		select customerID
+		from Customer where customerName = #{customerName}
 	</select>
 
 	<insert id="insert" parameterType="customer">
-		insert into Customer values(#{customerID}, #{customerName}, #{customerPwd},
+		insert into Customer
+		values(#{customerID}, #{customerName}, #{customerPwd},
 		#{customerPhone}, #{customerEmail}, #{customerRegDate})
 	</insert>
 	<update id="update" parameterType="customer">
-		update Customer set customerName=#{customerName},
+		update Customer set
+		customerName=#{customerName},
 		customerPwd=#{customerPwd},customerPhone=#{customerPhone},customerEmail=#{customerEmail},customerRegDate=#{customerRegDate}
 		where customerID=#{customerID}
 	</update>
 	<delete id="delete" parameterType="customer">
-		delete from Customer where customerID=#{customerID}
+		delete from Customer where
+		customerID=#{customerID}
 	</delete>
+
+	<select id="findByNameAndPassword" resultMap="customerMap">
+		select * from
+		Customer where customerName=#{0} and customerPwd=#{1}
+	</select>
+
+
 </mapper>

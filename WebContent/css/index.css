@@ -1,11 +1,10 @@
 
-/****************************************头部*************************************/
+/****************************************濠㈣埖鎸抽崕锟�*************************************/
 #SE3_header{
 
 }
 #SE3_header .boxshadow{
-    box-shadow:5px 5px 3px rgba(0,0,0,.2);
-    border-bottom: 1px solid #ccc;
+    box-shadow:0px 1.9px 3px rgba(0,0,0,.2);
 }
 
 #SE3_header .top-bar{
@@ -30,6 +29,9 @@
 #SE3_header .top-bar .row .col-md-5 a{
     border-right: #cccccc 1px solid;
     padding: 0 20px 0 25px;
+}
+#SE3_header #signin{
+	 border-right: 0;
 }
 #SE3_header .top-bar .row .col-md-5 a:last-child{
     border-right: 0;
@@ -70,7 +72,7 @@
     margin: 10px 50px;
     width: 120px;
     position: relative;
-    z-index: 99999;
+    z-index: 9999;
 }
 #SE3_header .navbar .container-fluid .collapse>ul>li>a{
     text-align: center;
@@ -79,7 +81,7 @@
     color: #d0c4af;
     background-color: #fff;
     border-bottom: 3px #d0c4af solid ;
-    z-index: 99999;
+    z-index: 9999;
 }
 #SE3_header .navbar .container-fluid .downmenu{
     width: 2022px;
@@ -90,8 +92,7 @@
     background-color: #fff;
     height: 120px;
     display: none;
-    box-shadow:5px 5px 3px rgba(0,0,0,.2);
-    border-bottom: 1px solid #ccc;
+    box-shadow:0px 2px 2px rgba(0,0,0,.2);
 }
 #SE3_header .navbar .container-fluid div.bag-li{
     padding-left:250px;
@@ -164,16 +165,23 @@
 
     }
 }
-/****************************************头部结束*************************************/
 
-/****************************************轮播图*************************************/
+.top-right{
+    padding-left: 180px;
+}
+.sign .top-right{
+    padding-left: 350px;
+}
+/****************************************濠㈣埖鎸抽崕瀵哥磼閹惧瓨灏�*************************************/
+
+/****************************************閺夌儐鍠楅幐閬嶅炊閿燂拷*************************************/
 
 #SE3_carousel{
     z-index: 888;
 }
-/****************************************轮播图结束*************************************/
+/****************************************閺夌儐鍠楅幐閬嶅炊閸撗呮尝闁哄鎷�*************************************/
 
-/****************************************人气推荐*************************************/
+/****************************************濞存粎鍎ら惃鐢稿箳閵娿劌绀�*************************************/
 
 #SE3_hot{
     background-color: #f4f0ea;
@@ -237,7 +245,7 @@
 }
 
 #SE3_hot .container .row .left .Lagerimg-title .Lagerimg-title-price span{
-font-size: 18px;
+    font-size: 18px;
 }
 
 #SE3_hot>.container>.row>.right .littleimg{
@@ -264,9 +272,9 @@ font-size: 18px;
     width: 240px;
 }
 
-/****************************************人气推荐结束*************************************/
+/****************************************濞存粎鍎ら惃鐢稿箳閵娿劌绀冪紓浣规尰濞硷拷*************************************/
 
-/****************************************箱包配饰*************************************/
+/****************************************缂佺姴宕�垫﹢鏌婂澶堝仒*************************************/
 .SE3_product{
     padding: 60px 0;
 }
@@ -301,4 +309,8 @@ font-size: 18px;
 
 }
 
-/****************************************箱包配饰结束*************************************/
+#SE3_header #signout,#SE3_header #myCenter{
+	display:none;
+}
+
+/****************************************缂佺姴宕�垫﹢鏌婂澶堝仒缂備焦鎸诲锟�*************************************/

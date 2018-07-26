@@ -18,10 +18,11 @@
         <div class="container">
                 <div class="row">
                     <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
-                    <div class="col-md-5 ">
-                        <a href="user/signup">注册</a>
-                        <a href="user/signin">登录</a>
-                        <a href="#">我的订单</a>
+                    <div class="col-md-5 top-right">
+                        <a href="user/signup" id="signup">注册</a>
+                        <a href="user/signin" id="signin">登录</a>
+                        <a href="user/mycenter" id="myCenter">个人中心</a>
+                        <a href="user/signout" id="signout">注销</a>
                     </div>
                 </div>
         </div>
@@ -43,7 +44,7 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="home active"><a href="index.html">首页<span class="sr-only">首页</span></a></li>
+                    <li class="home active"><a href="/SE3-F4">首页<span class="sr-only">首页</span></a></li>
                     <li class="bag-li"><a href="#">箱包配饰</a>
                         <div class="bag-li container downmenu">
                             <ul class="nav navbar-nav">
@@ -453,7 +454,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="../../img/bag1.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/bag1.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -592,9 +593,28 @@
             </div>
         </div>
     </div>
+    <%-- ${currentCustomer.customerName} --%>
 </section>
+
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/index.js"></script>
+<script>
+			 $(document).ready(function () {
+			var customer= "${currentCustomer.customerName}";
+			if(customer==""){
+				$("#myCenter").hide();
+				$("#signout").hide();
+				$("#signin").show();
+				$("#signup").show();
+			}
+			else{
+				$("#myCenter").show();
+				$("#signout").show();
+				$("#signin").hide();
+				$("#signup").hide();
+			}
+		}); 
+</script>
 </body>
 </html>

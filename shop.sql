@@ -128,11 +128,11 @@ CREATE TABLE `indent`  (
 -- ----------------------------
 -- Table structure for orderdetail
 -- ----------------------------
-DROP TABLE IF EXISTS `orderdetail`;
-CREATE TABLE `orderdetail`  (
+DROP TABLE IF EXISTS `indentdetail`;
+CREATE TABLE `indentdetail`  (
   `orderID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
-  `goodsPrice` double(8, 2) NOT NULL,
+  `goodsPrice` double(8, 2) NOT NULL,expressevaluate
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8, 2) NOT NULL,
   PRIMARY KEY (`orderID`, `goodsID`) USING BTREE

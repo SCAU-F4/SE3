@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>注册</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/sign.css">
@@ -20,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
-                <div class="col-md-5 ">
-                    <a href="signup.html">注册</a>
-                    <a href="signin.html">登录</a>
+                <div class="col-md-5 top-right">
+                    <a href="signup">注册</a>
+                    <a href="signin">登录</a>
                 </div>
             </div>
         </div>
@@ -64,7 +65,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="layui-icon layui-icon-password input-group-addon"></div>
-                            <input type="password" class="form-control" id="repassword" placeholder="请再次输入密码">
+                            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="请再次输入密码">
                             <span class="glyphicon glyphicon-ok text-success"></span>
                             <span class="glyphicon glyphicon-remove text-danger"></span>
                         </div>
@@ -90,8 +91,9 @@
                     </div>
                     <div class="submitButton">
                         <button type="reset" class="layui-btn layui-btn-radius layui-btn-primary">重置</button>
-                        <button class="layui-btn layui-btn-radius layui-btn-primary" id="submit">注册</button></div>
+                        <button class="layui-btn layui-btn-radius layui-btn-primary" type="submit" id="submit">注册</button></div>
                 </form>
+               
                 </div>
             </div>
         </div>
@@ -100,7 +102,28 @@
 </section>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/sign.js"></script>
+<script>
+var lock=1;
+ var text="${error}";
+           console.log(text);
+              if(text!=""&&lock==1)
+    	{
+   		layer.open({
+            title:'注册失败'
+            ,content: text
+            ,id:'Sign_result'
+            ,anim: 6 //这里content是一个普通的String
+            ,success:function(layero,index){
+            	lock=0;
+            }
+            ,end:function(layero,index){
+            	lock=1;
+            }
+        });
+    	}
+           </script>
 </body>
 </html>
