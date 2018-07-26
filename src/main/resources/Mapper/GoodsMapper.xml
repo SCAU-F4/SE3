@@ -29,7 +29,8 @@
 
 
 	<select id="findBygoodsID" resultMap="goodsMap1">
-		select * from Goods where goodsID = #{goodsID}
+		select * from Goods where
+		goodsID = #{goodsID}
 	</select>
 
 
@@ -41,16 +42,21 @@
 
 
 	<insert id="insert" parameterType="goods">
-		insert into Goods values(#{goodsID}, #{goodsName}, #{goodsTypeID},
-		#{goodsSpecify}, #{goodsBrief}, #{goodsPrice}, #{goodsCount},
-		#{sellCount}, #{goodsDate}, #{isSell})
+		insert into Goods
+		values(#{goodsID}, #{goodsName}, #{goodsTypeID},
+		#{goodsSpecify},
+		#{goodsBrief}, #{goodsPrice}, #{goodsCount},
+		#{sellCount},
+		#{goodsDate}, #{isSell})
 	</insert>
 	<update id="update" parameterType="goods">
-		update Goods set goodsName=#{goodsName},
+		update Goods set
+		goodsName=#{goodsName},
 		goodsTypeID=#{goodsTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell}
 		where goodsID=#{goodsID}
 	</update>
 	<delete id="delete" parameterType="goods">
-		delete from Goods where goodsID=#{goodsID}
+		delete from Goods where
+		goodsID=#{goodsID}
 	</delete>
 </mapper>

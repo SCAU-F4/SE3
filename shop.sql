@@ -116,12 +116,13 @@ CREATE TABLE `manager`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `indent`;
 CREATE TABLE `indent`  (
-  `orderID` int(5) NOT NULL AUTO_INCREMENT,
+  `indentID` int(5) NOT NULL AUTO_INCREMENT,
   `customerID` int(5) NOT NULL,
   `totalPrice` double(8, 2) NOT NULL,
-  `orderTime` datetime(6) NOT NULL,
+  `indentTime` datetime(6) NOT NULL,
   `addressID` int(5) NOT NULL,
   `expressCode` int(18) NOT NULL,
+  `indentState` int(2) NOT NULL,
   PRIMARY KEY (`orderID`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -130,7 +131,7 @@ CREATE TABLE `indent`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `indentdetail`;
 CREATE TABLE `indentdetail`  (
-  `orderID` int(5) NOT NULL,
+  `indentID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
   `goodsPrice` double(8, 2) NOT NULL,expressevaluate
   `goodsCount` int(5) NOT NULL,

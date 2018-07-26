@@ -22,10 +22,12 @@
 	</resultMap>
 
 	<select id="findByindentID" resultMap="indentMap1">
-		select * from Indent where indentID = #{indentID}
+		select * from Indent where
+		indentID = #{indentID}
 	</select>
 	<delete id="delete" parameterType="indent">
-		delete from Indent where indentID=#{indentID}
+		delete from Indent where
+		indentID=#{indentID}
 	</delete>
 
 	<select id="getAllIndentItembyCid_and_Aid" resultMap="indentMap1">
@@ -37,14 +39,14 @@
 	<insert id="insert" parameterType="indent">
 		insert into Indent
 		values(#{indentID}, #{customerID}, #{totalPrice},
-		#{orderTime},
+		#{indentTime},
 		#{addressID}, #{expressCode},#{indentState})
 	</insert>
-	
+
 	<update id="update" parameterType="indent">
 		update Indent set
 		customerID=#{customerID},
-		totalPrice=#{totalPrice},orderTime=#{orderTime},addressID=#{addressID},expressCode=#{expressCode},indentState=#{indentState}
+		totalPrice=#{totalPrice},indentTime=#{indentTime},addressID=#{addressID},expressCode=#{expressCode},indentState=#{indentState}
 		where indentID=#{indentID}
 	</update>
 </mapper>

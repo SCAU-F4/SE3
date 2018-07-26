@@ -12,26 +12,33 @@
 		<result column="totalPrice" property="totalPrice" />
 	</resultMap>
 
-  <select id="findByindentIDAndgoodsID" resultMap="indentDetailMap">
-    select * from IndentDetail where indentID = #{indentID} AND goodsID=#{goodsID}
-  </select>
-  
-  <select id="findAllDetailByindentID" resultMap="indentDetailMap">
-    select * from IndentDetail  where indentID = #{0}
-  </select>
-  
-  <insert id="insert" parameterType="indentDetail">
-  	insert into IndentDetail values(#{indentID}, #{goodsID}, #{goodsPrice}, #{goodsCount}, #{totalPrice})
-  </insert>
-  <update id="update" parameterType="indentDetail">
-    update IndentDetail set goodsPrice=#{goodsPrice}, goodsCount=#{goodsCount},totalPrice=#{totalPrice} where indentID=#{indentID} AND goodsID=#{goodsID} 
-  </update>
-  <delete id="delete" parameterType="indentDetail">
-    delete from IndentDetail where indentID=#{indentID} AND goodsID=#{goodsID}
-  </delete>
+	<select id="findByindentIDAndgoodsID" resultMap="indentDetailMap">
+		select * from IndentDetail where indentID = #{indentID} AND
+		goodsID=#{goodsID}
+	</select>
+
+	<select id="findAllDetailByindentID" resultMap="indentDetailMap">
+		select * from IndentDetail where indentID = #{indentID}
+	</select>
+
+	<insert id="insert" parameterType="indentDetail">
+		insert into IndentDetail values(#{indentID}, #{goodsID}, #{goodsPrice},
+		#{goodsCount}, #{totalPrice})
+	</insert>
+	<update id="update" parameterType="indentDetail">
+		update IndentDetail set goodsPrice=#{goodsPrice},
+		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
+		indentID=#{indentID} AND goodsID=#{goodsID}
+	</update>
+	<delete id="delete" parameterType="indentDetail">
+		delete from IndentDetail where indentID=#{indentID} AND goodsID=#{goodsID}
+	</delete>
 	<select id="getAllDetailbyOrderID" resultMap="indentDetailMap">
-		select indent.indentID,goodsID,goodsPrice,goodsCount,IndentDetail.totalPrice
-		from Indent  inner join IndentDetail on Indent.indentID=IndentDetail.indentID
-		where Indent.indentID = #{indentID} <!-- 传的参数要传上面定义的intentid，别他妈用 0,1-->
+		select
+		indent.indentID,goodsID,goodsPrice,goodsCount,IndentDetail.totalPrice
+		from Indent inner join IndentDetail on
+		Indent.indentID=IndentDetail.indentID
+		where Indent.indentID =
+		#{indentID} <!-- 传的参数要传上面定义的intentid -->
 	</select>
 </mapper>
