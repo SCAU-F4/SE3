@@ -135,3 +135,6 @@
 .Address-top h3{
     display: inline;
 }
+.panel .panel-heading i{
+    cursor: pointer;
+}

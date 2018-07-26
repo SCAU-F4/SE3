@@ -384,7 +384,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">添加新地址</h4>
+                                            <h4 class="modal-title" id="myModalLabel">地址管理</h4>
                                         </div>
                                         <form action="">
                                         <div class="modal-body">
@@ -409,6 +409,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="layui-btn-primary layui-btn layui-btn-radius Address-addsubmit" data-dismiss="modal">保存</button>
+                                             <button type="button" class="layui-btn-primary layui-btn layui-btn-radius Address-mod" data-dismiss="modal">确认修改</button>
                                             <!--<button class="layui-btn layui-btn-radius layui-btn-primary Address-addsubmit" >确认添加</button>-->
                                         </div>
                                         </form>
@@ -432,7 +433,7 @@
                                         <td class="addressDetail">华南农业大学华山14栋</td>
                                         <td class="addressPhone">138001380000</td>
                                         <td class="addressPostcode">523100</td>
-                                        <td><button class="layui-btn layui-btn-radius layui-btn-primary Address-modify" >修改</button>
+                                        <td><button class="layui-btn layui-btn-radius layui-btn-primary Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
                                             <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
                                         </td>
                                     </tr>
@@ -441,7 +442,7 @@
                                         <td class="addressDetail">华南农业大学泰山7栋</td>
                                         <td class="addressPhone">138001380000</td>
                                         <td class="addressPostcode">523100</td>
-                                        <td><button class="layui-btn layui-btn-radius layui-btn-primary  Address-modify" >修改</button>
+                                        <td><button class="layui-btn layui-btn-radius layui-btn-primary  Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
                                             <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
                                         </td>
                                     </tr>
