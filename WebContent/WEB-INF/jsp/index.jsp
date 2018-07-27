@@ -31,7 +31,7 @@
     <div class="boxshadow">
     <div class="top-main">
         <div id="logo_img">
-            <img src="${pageContext.request.contextPath }/img/logo.png.png" alt="logo">
+            <img src="${pageContext.request.contextPath }/img/logo.png" alt="logo">
         </div>
         <div id="serech_input">
             <input type="text" value="雅迪电动车只要999">
@@ -139,13 +139,13 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="${pageContext.request.contextPath }/img/1.jpg" alt="...">
+                <img src="${pageContext.request.contextPath }/img/lunbo1.jpg" alt="...">
             </div>
             <div class="item">
-                <img src="${pageContext.request.contextPath }/img/2.jpg" alt="...">
+                <img src="${pageContext.request.contextPath }/img/lunbo2.jpg" alt="...">
             </div>
             <div class="item">
-                <img src="${pageContext.request.contextPath }/img/3.jpg" alt="...">
+                <img src="${pageContext.request.contextPath }/img/lunbo3.jpg" alt="...">
             </div>
         </div>
 
@@ -290,7 +290,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag1.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product7.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -305,7 +305,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag2.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product8.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -320,7 +320,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag3.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product9.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -335,7 +335,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag4.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product10.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -372,7 +372,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag1.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product7.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -387,7 +387,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag2.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product8.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -402,7 +402,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag3.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product9.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -417,7 +417,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag4.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product10.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -454,7 +454,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag1.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product7.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -469,7 +469,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag2.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product8.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -484,7 +484,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag3.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product9.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -499,7 +499,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag4.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product10.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -535,7 +535,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag1.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product7.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -550,7 +550,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag2.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product8.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -565,7 +565,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag3.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product9.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">
@@ -580,7 +580,7 @@
             <div class="product col-md-3">
                 <div class="littleimg">
                     <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/bag4.png" alt="">
+                        <img src="${pageContext.request.contextPath }/img/product10.png" alt="">
                     </a>
                 </div>
                 <div class="littleimg-title">

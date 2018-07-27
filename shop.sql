@@ -123,7 +123,7 @@ CREATE TABLE `indent`  (
   `addressID` int(5) NOT NULL,
   `expressCode` int(18) NOT NULL,
   `indentState` int(2) NOT NULL,
-  PRIMARY KEY (`orderID`) USING BTREE
+  PRIMARY KEY (`indentID`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -133,10 +133,10 @@ DROP TABLE IF EXISTS `indentdetail`;
 CREATE TABLE `indentdetail`  (
   `indentID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
-  `goodsPrice` double(8, 2) NOT NULL,expressevaluate
+  `goodsPrice` double(8, 2) NOT NULL,
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8, 2) NOT NULL,
-  PRIMARY KEY (`orderID`, `goodsID`) USING BTREE
+  PRIMARY KEY (`indentID`, `goodsID`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
