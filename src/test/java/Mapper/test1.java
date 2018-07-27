@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import bean.Customer;
+import bean.GoodsType;
 import bean.IndentDetail;
 
 
@@ -15,8 +16,12 @@ public class test1 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
-		Customer c=cm.findBycustomerID(1);
+//		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
+//		Customer c=cm.findBycustomerID(1);
+//		System.out.println(c);
+		
+		GoodsTypeMapper cm=ctx.getBean(GoodsTypeMapper.class);
+		GoodsType c=cm.findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType(1, "dress", "femal");
 		System.out.println(c);
 		
 //		 IndentMapper indentMapper=ctx.getBean(IndentMapper.class);

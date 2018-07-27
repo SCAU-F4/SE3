@@ -14,7 +14,7 @@ public interface AddressMapper {
 	Address findBycustomerIDAndaddressID(@Param("customerID") int customerID,@Param("addressID") int addressID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	 List<Address> getAddressByCustomoerID(@Param("customerID")int customerID);
+	 List<Address> findAddressByCustomoerID(@Param("customerID")int customerID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Address address);

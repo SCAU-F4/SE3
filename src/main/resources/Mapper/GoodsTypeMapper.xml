@@ -12,7 +12,7 @@
 
 	<resultMap type="goodsType" id="goodsTypeMap1" extends="goodsTypeMap">
 		<collection property="goodsList" fetchType="lazy"
-			select="Mapper.GoodsMapper.getGoodsByGoodsTypeID" column="{goodsTypeID=goodsTypeID}">
+			select="Mapper.GoodsMapper.findGoodsBygoodsTypeID" column="{goodsTypeID=goodsTypeID}">
 		</collection>
 	</resultMap>
 

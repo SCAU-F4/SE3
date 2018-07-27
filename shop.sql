@@ -55,7 +55,7 @@ CREATE TABLE `evaluate`  (
   `goodsID` int(5) NOT NULL,
   `evaluateDate` datetime(6) NOT NULL,
   `evaluateGrade` int(5) NOT NULL,
-  `evaluateContent` int(255) NOT NULL,
+  `evaluateContent` varchar(255) NOT NULL,
   `evaluatePictureID` int(5) NOT NULL,
   PRIMARY KEY (`evaluateID`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

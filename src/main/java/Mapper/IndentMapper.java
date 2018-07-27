@@ -14,7 +14,7 @@ public interface IndentMapper {
 	Indent findByindentID(int indentID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	List<Indent> getAllIndentItembycustomerIDandaddressID(@Param("customerID") int CustomerID,@Param("addressID") int AddressID);
+	List<Indent> findAllIndentItembycustomerIDandaddressID(@Param("customerID") int CustomerID,@Param("addressID") int AddressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Indent indent);

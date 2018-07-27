@@ -18,7 +18,7 @@
     select * from Evaluate where evaluateID = #{evaluateID}
   </select>
   
-  <select id="getEvaluateByGoodsID" resultMap="evaluateMap">
+  <select id="findEvaluateByGoodsID" resultMap="evaluateMap">
     select * from Evaluate where goodsID = #{goodsID}
   </select>
   

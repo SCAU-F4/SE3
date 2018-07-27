@@ -14,7 +14,7 @@ public interface EvaluateMapper {
 	Evaluate findByevaluateID(int expressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	List<Evaluate> getEvaluateByGoodsID(@Param("goodsID")int gooodsID);
+	List<Evaluate> findEvaluateByGoodsID(@Param("goodsID")int gooodsID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE)
 	int insert(Evaluate evaluate);

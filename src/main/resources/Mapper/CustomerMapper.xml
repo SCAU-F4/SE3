@@ -15,7 +15,7 @@
 
 	<resultMap type="customer" id="customerMap1" extends="customerMap">
 		<collection property="addressList" fetchType="lazy"
-			select="Mapper.AddressMapper.getAddressByCustomoerID" column="{customerID=customerID}">
+			select="Mapper.AddressMapper.findAddressByCustomoerID" column="{customerID=customerID}">
 		</collection>
 	</resultMap>
 	

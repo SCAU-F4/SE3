@@ -15,23 +15,20 @@
   
   <resultMap type="address" id="addressMap1" extends="addressMap">
 		<collection property="IndentList" fetchType="lazy"
-			select="Mapper.IndentMapper.getAllIndentItembycustomerIDandaddressID" column="{customerID=customerID},{addressID=addressID}">
+			select="Mapper.IndentMapper.findAllIndentItembycustomerIDandaddressID" column="{customerID=customerID},{addressID=addressID}">
 		</collection>
 	</resultMap>
 
   <select id="findBycustomerIDAndaddressID" resultMap="addressMap1">
     select * from Address where customerID = #{customerID} AND addressID=#{addressID}
   </select>
-  
-  
-  <select id="getAddressByCustomoerID" resultMap="addressMap1">
+    
+  <select id="findAddressByCustomoerID" resultMap="addressMap1">
     select *
     from Address 
     where customerID = #{customerID}
   </select>
-  
-  
-  
+
   <insert id="insert" parameterType="address">
   	insert into Address values(#{customerID}, #{addressID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
   </insert>
