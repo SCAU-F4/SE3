@@ -9,7 +9,7 @@ public class Indent implements Serializable {
 	public int indentID;
 	public int customerID;
 	public double totalPrice;
-	public Timestamp orderTime;
+	public Timestamp indentTime;
 	public int addressID;
 	public int expressCode;
 	public int indentState;
@@ -27,7 +27,7 @@ public class Indent implements Serializable {
 		this.indentID = indentID;
 		this.customerID = customerID;
 		this.totalPrice = totalPrice;
-		this.orderTime = orderTime;
+		this.indentTime = indentTime;
 		this.addressID = addressID;
 		this.expressCode = expressCode;
 		this.indentState = indentState;
@@ -60,11 +60,11 @@ public class Indent implements Serializable {
 	}
 
 	public Timestamp getOrderTime() {
-		return orderTime;
+		return indentTime;
 	}
 
 	public void setOrderTime(Timestamp orderTime) {
-		this.orderTime = orderTime;
+		this.indentTime = indentTime;
 	}
 
 	public int getAddressID() {
@@ -110,7 +110,7 @@ public class Indent implements Serializable {
 	@Override
 	public String toString() {
 		return "Indent [indentID=" + indentID + ", customerID=" + customerID + ", totalPrice=" + totalPrice
-				+ ", orderTime=" + orderTime + ", addressID=" + addressID + ", expressCode=" + expressCode
+				+ ", orderTime=" + indentTime + ", addressID=" + addressID + ", expressCode=" + expressCode
 				+ ", indentState=" + indentState + ", indentDetaillist=" + indentDetaillist + ", express=" + express
 				+ "]";
 	}

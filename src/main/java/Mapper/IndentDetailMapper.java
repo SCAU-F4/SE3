@@ -16,6 +16,9 @@ public interface IndentDetailMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<IndentDetail> findAllDetailByindentID(int indentID);//找到该用户ID所有的订单信息
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	List<IndentDetail> getAllDetailbyindentID(int indentID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE)
 	int insert(IndentDetail indentdetail);

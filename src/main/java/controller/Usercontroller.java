@@ -72,7 +72,7 @@ public class Usercontroller {
 		return "redirect:/";
 	}
 	
-	//@RequestMapping(value= "changeName",produces="application/json;charset=utf-8")
+	@RequestMapping(value= "changeName",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public JSONObject changeName(@RequestBody Map<String,String> map){ 
 		System.out.println(6666666);

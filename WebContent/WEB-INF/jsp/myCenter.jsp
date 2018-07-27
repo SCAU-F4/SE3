@@ -481,11 +481,10 @@
 
 		$(".Message-list .save").click(function(){
 			var name=$("#customerName").val();
-			/*
 			$.ajax({    
 			 contentType:"application/json;charset=utf-8",
 	         type : "post",      
-	         url : "http://localhost:8080/SE3-F4/user/changeName",
+	         url : "signin",
 	         //dataType:"jsonp",
 			 //data: JSON.stringify({
 			 //"customerName":"name"
@@ -498,32 +497,7 @@
 		         
 				alert("提交失败");
 	         }    
-	     });   */
-
-		    $.ajax({
-		        type: "POST",
-		        url: "http://localhost:8080/SE3-F4/user/changeName",
-		        contentType: "application/json; charset=utf-8",
-		        data: JSON.stringify(GetJsonData()),
-		        dataType: "json",
-		        success: function (message) {
-		            
-		            alert("请求已提交！");
-		            
-		        },
-		        error: function (message) {
-		        	alert("提交数据失败！");
-		        }
-		    });
-		});
-
-		function GetJsonData() {
-		    var json = {
-		    	"customerName":"name",
-		        "name": "蜘蛛侠"
-		    };
-		    return json;
-		}
+	     });   
 		</script>
 </body>
 </html>

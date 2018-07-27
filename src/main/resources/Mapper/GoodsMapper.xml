@@ -21,7 +21,6 @@
 		<collection property="pictureList" fetchType="lazy"
 			select="Mapper.PictureMapper.findGoodsAllPictures" column="{goodsID=goodsID}">
 		</collection>
-
 		<collection property="evaluateList" fetchType="lazy"
 			select="Mapper.EvaluateMapper.getEvaluateByGoodsID" column="{goodsID=goodsID}">
 		</collection>
@@ -34,7 +33,7 @@
 	</select>
 
 
-	<select id="getGoodsByGoodsTypeID" resultMap="goodsMap1">
+	<select id="getGoodsBygoodsTypeID" resultMap="goodsMap1">
 		select *
 		from Goods
 		where goodsTypeID = #{goodsTypeID}

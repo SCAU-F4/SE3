@@ -14,7 +14,7 @@ public interface GoodsMapper {
 	Goods findBygoodsID(int goodsID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	List<Goods> getGoodsByGoodsTypeID(@Param("goodsTypeID")int goodsTypeID);
+	List<Goods> getGoodsBygoodsTypeID(@Param("goodsTypeID")int goodsTypeID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Goods goods);

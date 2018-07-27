@@ -8,7 +8,7 @@
 		<id column="indentID" property="indentID" />
 		<result column="customerID" property="customerID" />
 		<result column="totalPrice" property="totalPrice" />
-		<result column="orderTime" property="orderTime" />
+		<result column="indentTime" property="indentTime" />
 		<result column="addressID" property="addressID" />
 		<result column="expressCode" property="expressCode" />
 		<result column="indentState" property="indentState" />
@@ -17,7 +17,7 @@
 		<association property="express" column="{expressCode=expressCode}"
 			select="Mapper.ExpressMapper.findByexpressCode" />
 		<collection property="indentDetaillist" fetchType="lazy"
-			select="Mapper.IndentDetailMapper.getAllDetailbyOrderID" column="{indentID=indentID}">
+			select="Mapper.IndentDetailMapper.getAllDetailbyindentID" column="{indentID=indentID}">
 		</collection>
 	</resultMap>
 
@@ -30,10 +30,10 @@
 		indentID=#{indentID}
 	</delete>
 
-	<select id="getAllIndentItembyCid_and_Aid" resultMap="indentMap1">
-		select *
-		from Indent
-		where customerID = #{customerID} and addressID=#{addressID}
+	<select id="getAllIndentItembycustomerIDandaddressID" resultMap="indentMap1">
+	select *
+	from Indent
+	where customerID = #{customerID} and addressID=#{addressID}
 	</select>
 
 	<insert id="insert" parameterType="indent">

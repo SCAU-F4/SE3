@@ -14,10 +14,10 @@ public class test1 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-//		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
-//		Customer c=cm.findBycustomerID(1);
-//		System.out.println(c);
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
+		Customer c=cm.findBycustomerID(1);
+		System.out.println(c);
 		
 //		 IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
 //		 Indent indent=indentMapper.findById(2);
