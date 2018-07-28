@@ -34,7 +34,7 @@
     <div class="boxshadow">
         <div class="top-main">
             <div id="logo_img">
-                <img src="${pageContext.request.contextPath }/img/logo.png.png" alt="logo">
+                <img src="${pageContext.request.contextPath }/img/logo.png" alt="logo">
             </div>
             <div id="serech_input">
                 <input type="text" value="雅迪电动车只要999">
@@ -167,14 +167,14 @@
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-01 21:58:54</span>
-                                    <span class="Order-id">订单号：13436510</span>
+                                    <span class="Order-time">下单时间：${allindent[0].indentTime}</span>
+                                    <span class="Order-id">订单号：${allindent[0].indentID}</span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
+                                        <img src="${allindent[0].picturePath}" alt="">
+                                        <span>${allindent[0].goodsName}</span>
                                     </div>
                                     <div class="cell">
                                         <span class="deal-state" data-state="5">交易完成</span>
@@ -182,7 +182,7 @@
                                     </div>
                                     <div class="price">
                                         <span>￥</span>
-                                        <span class="number">189</span>
+                                        <span class="number">${allindent[0].goodsPrice}</span>
                                     </div>
                                 </div>
                             </div>
@@ -479,7 +479,7 @@
 		
 		});
 
-		$(".Message-list .save").click(function(){
+/* 		$(".Message-list .save").click(function(){
 			var name=$("#customerName").val();
 			$.ajax({    
 			 contentType:"application/json;charset=utf-8",
@@ -497,7 +497,7 @@
 		         
 				alert("提交失败");
 	         }    
-	     });   
-		</script>
+	     });  */  
+</script>
 </body>
 </html>

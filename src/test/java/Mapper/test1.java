@@ -21,7 +21,7 @@ public class test1 {
 //		System.out.println(c);
 		
 		GoodsTypeMapper cm=ctx.getBean(GoodsTypeMapper.class);
-		GoodsType c=cm.findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType(1, "dress", "femal");
+		GoodsType c=cm.findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType(1, "dress", "female");
 		System.out.println(c);
 		
 //		 IndentMapper indentMapper=ctx.getBean(IndentMapper.class);

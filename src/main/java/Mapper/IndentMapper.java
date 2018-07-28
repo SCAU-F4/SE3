@@ -12,6 +12,9 @@ import bean.Indent;
 public interface IndentMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	Indent findByindentID(int indentID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	List<Indent> findBycustomerID(int customerID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<Indent> findAllIndentItembycustomerIDandaddressID(@Param("customerID") int CustomerID,@Param("addressID") int AddressID);

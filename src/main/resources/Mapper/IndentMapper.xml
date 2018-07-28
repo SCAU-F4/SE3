@@ -26,10 +26,17 @@
 		indentID = #{indentID}
 	</select>
 
-	<select id="findAllIndentItembycustomerIDandaddressID" resultMap="indentMap1">
-	select *
-	from Indent
-	where customerID = #{customerID} and addressID=#{addressID}
+	<select id="findAllIndentItembycustomerIDandaddressID"
+		resultMap="indentMap1">
+		select *
+		from Indent
+		where customerID = #{customerID} and addressID=#{addressID}
+	</select>
+
+	<select id="findBycustomerID" resultMap="indentMap1">
+		select *
+		from Indent
+		where customerID = #{customerID}
 	</select>
 
 	<insert id="insert" parameterType="indent">

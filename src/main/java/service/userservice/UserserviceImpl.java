@@ -1,6 +1,9 @@
 package service.userservice;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,12 +11,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Mapper.CustomerMapper;
+import Mapper.GoodsMapper;
+import Mapper.IndentDetailMapper;
+import Mapper.IndentMapper;
 import bean.Customer;
+import bean.Goods;
+import bean.Indent;
+import bean.IndentDetail;
+import bean.Picture;
 
 @Service
 public class UserserviceImpl implements Userservice{
 	@Autowired
     CustomerMapper customermapper;
+	@Autowired
+	IndentMapper indentmapper;
+	@Autowired
+    GoodsMapper goodsmapper;	
+	@Autowired
+	IndentDetailMapper indentdetailmapper;
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
@@ -81,4 +97,31 @@ public class UserserviceImpl implements Userservice{
     	}
     	return null;
     }
+
+	@Override
+	public List<HashMap<String, String>> getAllIndent(int customerID) {
+		List<HashMap<String, String>> result =new ArrayList<>();
+		List<Indent> indents=indentmapper.findBycustomerID(customerID);
+		for(Indent indent:indents){
+			HashMap<String, String> indentmap=new HashMap<>();
+			int indentID =indent.getIndentID();
+			indentmap.put("indentID", Integer.toString(indentID));
+			Timestamp indentTime =indent.getIndentTime();
+			indentmap.put("indentTime", indentTime.toString());
+			List<IndentDetail> indentdetails =indentdetailmapper.getAllDetailbyindentID(indentID);
+			for(IndentDetail indentDetail:indentdetails){
+				int goodsID =indentDetail.getGoodsID();
+				Goods good=goodsmapper.findBygoodsID(goodsID);
+				String goodsName=good.getGoodsName();
+				indentmap.put("goodsName", goodsName);
+				double goodsPrice=good.getGoodsPrice();
+				indentmap.put("goodsPrice", Double.toString(goodsPrice));
+				Picture picture =good.getPictureList().get(0);
+				String picturePath =picture.getPicturePath();
+				indentmap.put("picturePath", picturePath);
+			}
+			result.add(indentmap);
+		}
+		return result;
+	}
 }

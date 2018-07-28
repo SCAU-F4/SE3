@@ -14,7 +14,7 @@ public class Indent implements Serializable {
 	public int expressCode;
 	public int indentState;
 	public List<IndentDetail> indentDetaillist;// 订单商品表
-	public Express express;// 订单
+	public Express express;// 快递
 
 	public Indent() {
 		super();
@@ -59,11 +59,11 @@ public class Indent implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 
-	public Timestamp getOrderTime() {
+	public Timestamp getIndentTime() {
 		return indentTime;
 	}
 
-	public void setOrderTime(Timestamp orderTime) {
+	public void setIndentTime(Timestamp indentTime) {
 		this.indentTime = indentTime;
 	}
 

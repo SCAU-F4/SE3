@@ -1,6 +1,9 @@
 package controller;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,12 +12,12 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import Mapper.IndentMapper;
 import bean.Customer;
 import service.userservice.Userservice;
 
@@ -60,9 +63,17 @@ public class Usercontroller {
 			return "signup";
 	}
 	
-	@RequestMapping(value ="mycenter")//未完
-	public String mycenter(Model model){
-//		userservice
+	@RequestMapping(value ="mycenter")
+	public String mycenter(Model model,HttpSession httpSession){
+		int customerID=((Customer)httpSession.getAttribute("currentCustomer")).getCustomerID();
+		List<HashMap<String, String>> allindent=userservice.getAllIndent(customerID);
+//		for(HashMap<String, String> map:allindent){
+//			Set<String> keys=map.keySet();
+//			for(String key:keys){
+//				System.out.println(map.get(key));
+//			}
+//		}
+		model.addAttribute("allindent",allindent);
 		return "myCenter";
 	}
 	
