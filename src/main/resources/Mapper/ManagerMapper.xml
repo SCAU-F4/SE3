@@ -13,13 +13,13 @@
   <select id="findBymanagerId" resultMap="managerMap">
     select * from Manager where managerId = #{id}
   </select>
-  <insert id="insert" parameterType="manager">
+  <insert id="insert">
   	insert into Manager values(#{managerID}, #{managerName}, #{managerPwd})
   </insert>
-  <update id="update" parameterType="manager">
+  <update id="update">
     update Manager set managerName=#{managerName}, managerPwd=#{managerPwd} where managerID=#{managerID}
   </update>
-  <delete id="delete" parameterType="manager">
+  <delete id="delete">
     delete from Manager where managerID=#{managerID}
   </delete>
 </mapper>

@@ -23,13 +23,13 @@
   </select>
   
   
-  <insert id="insert" parameterType="evaluate">
+  <insert id="insert">
   	insert into Evaluate values(#{evaluateID}, #{customerID}, #{goodsID}, #{evaluateDate}, #{evaluateGrade}, #{evaluateContent}, #{evaluatePictureID})
   </insert>
-  <update id="update" parameterType="evaluate">
+  <update id="update">
     update Evaluate set customerID=#{customerID}, goodsID=#{goodsID},evaluateDate=#{evaluateDate},evaluateGrade=#{evaluateGrade},evaluateContent=#{evaluateContent},evaluatePictureID=#{evaluatePictureID} where evaluateID=#{evaluateID} 
   </update>
-  <delete id="delete" parameterType="evaluate">
+  <delete id="delete">
     delete from Evaluate where evaluateID=#{evaluateID}
   </delete>
 </mapper>

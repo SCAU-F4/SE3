@@ -21,13 +21,13 @@
   </select>
   
   
-  <insert id="insert" parameterType="picture">
+  <insert id="insert">
   	insert into Picture values(#{goodsID}, #{pictureID}, #{picturePath})
   </insert>
-  <update id="update" parameterType="picture">
+  <update id="update">
     update Picture set picturePath=#{picturePath}  where goodsID=#{goodsID} AND pictureID= #{pictureID}
   </update>
-  <delete id="delete" parameterType="picture">
+  <delete id="delete">
     delete from Picture where goodsID=#{goodsID} AND pictureID= #{pictureID}
   </delete>
 </mapper>

@@ -19,6 +19,7 @@ import bean.Goods;
 import bean.Indent;
 import bean.IndentDetail;
 import bean.Picture;
+import utils.Utils;
 
 @Service
 public class UserserviceImpl implements Userservice{
@@ -108,6 +109,9 @@ public class UserserviceImpl implements Userservice{
 			indentmap.put("indentID", Integer.toString(indentID));
 			Timestamp indentTime =indent.getIndentTime();
 			indentmap.put("indentTime", indentTime.toString());
+			int index =indent.getIndentState();
+			String indentStates=Utils.indentstates[index];
+			indentmap.put("indentStates", indentStates);
 			List<IndentDetail> indentdetails =indentdetailmapper.getAllDetailbyindentID(indentID);
 			for(IndentDetail indentDetail:indentdetails){
 				int goodsID =indentDetail.getGoodsID();
@@ -115,13 +119,29 @@ public class UserserviceImpl implements Userservice{
 				String goodsName=good.getGoodsName();
 				indentmap.put("goodsName", goodsName);
 				double goodsPrice=good.getGoodsPrice();
-				indentmap.put("goodsPrice", Double.toString(goodsPrice));
-				Picture picture =good.getPictureList().get(0);
+				indentmap.put("goodsPrice", Double.toString(goodsPrice));Picture picture =good.getPictureList().get(0);
 				String picturePath =picture.getPicturePath();
 				indentmap.put("picturePath", picturePath);
 			}
 			result.add(indentmap);
 		}
 		return result;
+	}
+
+	@Override
+	public String changeName(int customerID,String customerName) {
+		String error="";
+    	Pattern p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
+    	Matcher m=p.matcher(customerName);
+    	if(m.matches()==false) {
+    		error+="名字字数必须在5到20之间且不有特殊符号";
+    		return error;
+    	}
+    	int sum=customermapper.updatecustomerNameBycustomerID(customerID, customerName);
+    	if(sum!=0) return error;
+    	else {
+    		error+="更新失败";
+    		return error;
+    	}
 	}
 }

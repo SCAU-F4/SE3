@@ -21,16 +21,16 @@
 		select * from IndentDetail where indentID = #{indentID}
 	</select>
 
-	<insert id="insert" parameterType="indentDetail">
+	<insert id="insert">
 		insert into IndentDetail values(#{indentID}, #{goodsID}, #{goodsPrice},
 		#{goodsCount}, #{totalPrice})
 	</insert>
-	<update id="update" parameterType="indentDetail">
+	<update id="update">
 		update IndentDetail set goodsPrice=#{goodsPrice},
 		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
 		indentID=#{indentID} AND goodsID=#{goodsID}
 	</update>
-	<delete id="delete" parameterType="indentDetail">
+	<delete id="delete">
 		delete from IndentDetail where indentID=#{indentID} AND goodsID=#{goodsID}
 	</delete>
 	<select id="getAllDetailbyindentID" resultMap="indentDetailMap">

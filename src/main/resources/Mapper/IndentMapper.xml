@@ -39,20 +39,20 @@
 		where customerID = #{customerID}
 	</select>
 
-	<insert id="insert" parameterType="indent">
+	<insert id="insert">
 		insert into Indent
 		values(#{indentID}, #{customerID}, #{totalPrice},
 		#{indentTime},
 		#{addressID}, #{expressCode},#{indentState})
 	</insert>
 
-	<update id="update" parameterType="indent">
+	<update id="update">
 		update Indent set
 		customerID=#{customerID},
 		totalPrice=#{totalPrice},indentTime=#{indentTime},addressID=#{addressID},expressCode=#{expressCode},indentState=#{indentState}
 		where indentID=#{indentID}
 	</update>
-	<delete id="delete" parameterType="indent">
+	<delete id="delete">
 		delete from Indent where
 		indentID=#{indentID}
 	</delete>

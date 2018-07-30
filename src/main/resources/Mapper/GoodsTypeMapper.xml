@@ -28,7 +28,7 @@
 	</select>
 
 
-	<insert id="insert" parameterType="manager">
+	<insert id="insert">
 		insert into GoodsType values(#{goodsTypeID}, #{goodsMainType},
 		#{goodsDetailType})
 	</insert>

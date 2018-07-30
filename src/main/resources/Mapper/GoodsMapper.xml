@@ -40,7 +40,7 @@
 	</select>
 
 
-	<insert id="insert" parameterType="goods">
+	<insert id="insert">
 		insert into Goods
 		values(#{goodsID}, #{goodsName}, #{goodsTypeID},
 		#{goodsSpecify},
@@ -48,13 +48,13 @@
 		#{sellCount},
 		#{goodsDate}, #{isSell})
 	</insert>
-	<update id="update" parameterType="goods">
+	<update id="update">
 		update Goods set
 		goodsName=#{goodsName},
 		goodsTypeID=#{goodsTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell}
 		where goodsID=#{goodsID}
 	</update>
-	<delete id="delete" parameterType="goods">
+	<delete id="delete">
 		delete from Goods where
 		goodsID=#{goodsID}
 	</delete>

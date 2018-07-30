@@ -67,12 +67,6 @@ public class Usercontroller {
 	public String mycenter(Model model,HttpSession httpSession){
 		int customerID=((Customer)httpSession.getAttribute("currentCustomer")).getCustomerID();
 		List<HashMap<String, String>> allindent=userservice.getAllIndent(customerID);
-//		for(HashMap<String, String> map:allindent){
-//			Set<String> keys=map.keySet();
-//			for(String key:keys){
-//				System.out.println(map.get(key));
-//			}
-//		}
 		model.addAttribute("allindent",allindent);
 		return "myCenter";
 	}
@@ -85,11 +79,13 @@ public class Usercontroller {
 	
 	@RequestMapping(value= "changeName",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public JSONObject changeName(@RequestBody Map<String,String> map){ 
+	public JSONObject changeName(@RequestBody Map<String,String> map,HttpSession httpSession){ 
 		System.out.println(6666666);
 		System.out.println(map.get("customerName"));
 		JSONObject jsonobject=new JSONObject();
 		jsonobject.put("aaa", 2222);
+//		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+//		String result=userservice.changeName(customer.getCustomerID(),customer.getCustomerName());
 		return jsonobject;
 //		JSONObject.
 	}
