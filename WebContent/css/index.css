@@ -17,7 +17,7 @@
     position: relative;
 }
 
-#SE3_header .top-bar .row .col-md-7 a,#SE3_header .top-bar .row .col-md-5 a{
+#SE3_header .top-bar .row .col-md-7 a,#SE3_header .top-bar .row .col-md-5 a,#SE3_header .top-bar .row .col-md-7 p{
     color: #cccccc;
     text-decoration: none;
 }
@@ -315,3 +315,39 @@
 }
 
 /****************************************缂備胶濮村畷顒傦拷鍨耿閺屽﹤顓兼径鍫濅粧缂傚倷鐒﹂幐璇差焽閿燂拷*************************************/
+
+.SE3_tail{
+    height: 120px;
+    background-color: #414141;
+}
+
+.SE3_tail .serve{
+    overflow: hidden;
+}
+
+.SE3_tail .serve .detail_serve{
+    padding-top: 37px;
+    font-size: 18px;
+    color: #FFFFFF;
+    overflow: hidden;
+    float: left;
+    line-height: 50px;
+    left: 10%;
+}
+
+.SE3_tail .serve .detail_serve .car{
+    padding-right: 8px;
+    padding-bottom: 5px;
+}
+
+.SE3_tail .serve .detail_serve img{
+    height: 50px;
+    width: 50px;
+    vertical-align: center;
+    float: left;
+}
+
+.SE3_tail .serve .detail_serve span{
+    vertical-align: center;
+    float: left;
+}
