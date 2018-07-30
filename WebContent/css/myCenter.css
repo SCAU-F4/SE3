@@ -138,3 +138,17 @@
 .panel .panel-heading i{
     cursor: pointer;
 }
+.page{
+	margin:0 300px;
+}
+.page span{
+	margin:0 10px;
+	font-size:16px;
+	color:#333;
+	 cursor: pointer;
+}
+.page span:hover{
+	
+	color:#d0c4af;
+	text-decoration:none;
+}
