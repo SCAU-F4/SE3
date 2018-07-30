@@ -35,7 +35,7 @@
     <div class="boxshadow">
         <div class="top-main">
             <div id="logo_img">
-                <img src="${pageContext.request.contextPath }/img/logo.png" alt="logo">
+                <img src="${pageContext.request.contextPath }/img/icon/logo.png" alt="logo">
             </div>
             <div id="serech_input">
                 <input type="text" value="雅迪电动车只要999">
@@ -53,16 +53,16 @@
                                 <div class="bag-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/xingli.png" alt=""><span>行李箱包</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/nanxing.png" alt=""><span>男士箱包</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/nvxing.png" alt=""><span>女性箱包</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女性箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/qianbao.png" alt=""><span>钱包配件</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -72,16 +72,16 @@
                                 <div class="cloth-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/shirt.png" alt=""><span>时尚衬衫</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/dress.png" alt=""><span>性感长裙</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/ku.png" alt=""><span>潮流裤类</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -90,16 +90,16 @@
                                 <div class="food-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/xiaochi.png" alt=""><span>美味零食</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/shuiguo.png" alt=""><span>水果坚果</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/rou.png" alt=""><span>新鲜肉类</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinliao.png" alt=""><span>饮料酒水</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -108,16 +108,16 @@
                                 <div class="sport-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/wenju.png" alt=""><span>精美文具</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/huwai.png" alt=""><span>运动户外</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinyue.png" alt=""><span>音乐相关</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/yinshi.png" alt=""><span>影视相关</span></div></a>
+                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -195,7 +195,6 @@
 								</div>
                         </div>
                     </div>
-
                     <div class="Message" data-state="1">
                         <h3>账号管理</h3>
 
