@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,161 +164,37 @@
                         </div>
 
                         <div class="Order-list">
-
-
-                            <div class="panel panel-default">
+                    <c:forEach items="${allindent}" var="item" varStatus="status">
+     							<div class="panel panel-default showli" data-page="${status.index}">
                                 <div class="panel-heading">
-                                    <span class="Order-time">下单时间：${allindent[0].indentTime}</span>
-                                    <span class="Order-id">订单号：${allindent[0].indentID}</span>
+                                    <span class="Order-time">下单时间：${item.indentTime}</span>
+                                    <span class="Order-id">订单号：${item.indentID}</span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
                                     <div class="goods">
-                                        <img src="${allindent[0].picturePath}" alt="">
-                                        <span>${allindent[0].goodsName}</span>
+                                        <img src="${item.picturePath}" alt="" width="120">
+                                        <span>${item.goodsName}</span>
                                     </div>
                                     <div class="cell">
-                                        <span class="deal-state" data-state="5">交易完成</span>
-                                        <button class="layui-btn layui-btn-radius">立马评价</button>
+                                        <span class="deal-state" jspstate="${item.indentStates}"></span>
+                                        <!-- <button class="layui-btn layui-btn-radius">立马评价</button> -->
                                     </div>
                                     <div class="price">
                                         <span>￥</span>
-                                        <span class="number">${allindent[0].goodsPrice}</span>
+                                        <span class="number">${item.goodsPrice}</span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-02 21:58:54</span>
-                                    <span class="Order-id">订单号：13436510</span>
-                                    <i class="layui-icon layui-icon-delete pull-right"></i>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/icon/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
-                                    </div>
-                                    <div class="cell">
-                                        <span class="deal-state" data-state="1">待付款</span>
-                                        <button class="layui-btn layui-btn-radius">去付款</button>
-                                    </div>
-                                    <div class="price">
-                                        <span>￥</span>
-                                        <span class="number">189</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-03 21:58:54</span>
-                                    <span class="Order-id">订单号：13436511</span>
-                                    <i class="layui-icon layui-icon-delete pull-right"></i>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/icon/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
-                                    </div>
-                                    <div class="cell">
-                                        <span class="deal-state" data-state="4">待评价</span>
-                                        <button class="layui-btn layui-btn-radius">立马评价</button>
-                                    </div>
-                                    <div class="price">
-                                        <span>￥</span>
-                                        <span class="number">189</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-04 21:58:54</span>
-                                    <span class="Order-id">订单号：13436512</span>
-                                    <i class="layui-icon layui-icon-delete pull-right"></i>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/icon/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
-                                    </div>
-                                    <div class="cell">
-                                        <span class="deal-state" data-state="3">已发货</span>
-                                    </div>
-                                    <div class="price">
-                                        <span>￥</span>
-                                        <span class="number">189</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-06 21:58:54</span>
-                                    <span class="Order-id">订单号：13436514</span>
-                                    <i class="layui-icon layui-icon-delete pull-right"></i>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/icon/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
-                                    </div>
-                                    <div class="cell">
-                                        <span class="deal-state" data-state="3">已发货</span>
-                                    </div>
-                                    <div class="price">
-                                        <span>￥</span>
-                                        <span class="number">189</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-06 21:58:54</span>
-                                    <span class="Order-id">订单号：13436513</span>
-                                    <i class="layui-icon layui-icon-delete pull-right"></i>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/icon/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
-                                    </div>
-                                    <div class="cell">
-                                        <span class="deal-state" data-state="2">待发货</span>
-                                    </div>
-                                    <div class="price">
-                                        <span>￥</span>
-                                        <span class="number">189</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="Order-time">下单时间：2017-06-06 21:58:54</span>
-                                    <span class="Order-id">订单号：13436513</span>
-                                    <i class="layui-icon layui-icon-delete pull-right"></i>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="goods">
-                                        <img src="${pageContext.request.contextPath }/img/icon/dingdan1.png" alt="">
-                                        <span>日系百褶蝴蝶结钱包</span>
-                                    </div>
-                                    <div class="cell">
-                                        <span class="deal-state" data-state="2">待发货</span>
-                                    </div>
-                                    <div class="price">
-                                        <span>￥</span>
-                                        <span class="number">189</span>
-                                    </div>
-                                </div>
-                            </div>
-
+   					</c:forEach>
+								<div class="page">
+										<span id="pre">上一页</span>
+										<select name="pageNumber" id="PageNumber">
+     									 </select>
+									    <span id="last">下一页</span>
+								</div>
                         </div>
                     </div>
-
                     <div class="Message" data-state="1">
                         <h3>账号管理</h3>
 
@@ -476,7 +353,17 @@
 				$("#signin").hide();
 				$("#signup").hide();
 			}
-		
+			/* var i=0;
+			var size='${allindent.size()}';
+			console.log(size);
+			for(i;i<size;i++){
+				var indentTime='${allindent[""+i+""].indentTime}';
+				var indentID='${allindent[""+i+""].indentID}';
+				console.log(indentTime);
+				console.log(indentID);
+			}  */
+			 
+			 
 		});
 
 /* 		$(".Message-list .save").click(function(){
