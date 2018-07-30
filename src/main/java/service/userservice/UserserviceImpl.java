@@ -48,7 +48,7 @@ public class UserserviceImpl implements Userservice{
 		//检验完成，没问题，result必为空
 		customer.setCustomerRegDate(new Timestamp(System.currentTimeMillis()));
 		try {
-			customermapper.IsCustomerNameExist(customer);//判断用户是否重名,不重名则抛出异常，重名则返回用户重名
+			customermapper.IsCustomerNameExist(customer.getCustomerName());//判断用户是否重名,不重名则抛出异常，重名则返回用户重名
 				result="用户重名";
 				return result;
 		} catch (Exception e) {
@@ -135,11 +135,17 @@ public class UserserviceImpl implements Userservice{
     		error+="名字字数必须在5到20之间且不有特殊符号";
     		return error;
     	}
-    	int sum=customermapper.updatecustomerNameBycustomerID(customerID, customerName);
-    	if(sum!=0) return error;
-    	else {
-    		error+="更新失败";
+    	try{
+    		customermapper.IsCustomerNameExist(customerName);
+    		error+="用户重名";
     		return error;
-    	}
+    	}catch (Exception e) {
+    		int sum=customermapper.updatecustomerNameBycustomerID(customerID, customerName);
+        	if(sum!=0) return error;
+        	else {
+        		error+="更新失败";
+        		return error;
+        	}
+		}
 	}
 }

@@ -353,38 +353,32 @@
 				$("#signin").hide();
 				$("#signup").hide();
 			}
-			/* var i=0;
-			var size='${allindent.size()}';
-			console.log(size);
-			for(i;i<size;i++){
-				var indentTime='${allindent[""+i+""].indentTime}';
-				var indentID='${allindent[""+i+""].indentID}';
-				console.log(indentTime);
-				console.log(indentID);
-			}  */
-			 
-			 
 		});
 
-/* 		$(".Message-list .save").click(function(){
-			var name=$("#customerName").val();
+		$(".Message-list .save").click(function(){
+			var customerID="${currentCustomer.customerID}";
+			var customerName=$("#customerName").val();
 			$.ajax({    
-			 contentType:"application/json;charset=utf-8",
-	         type : "post",      
-	         url : "signin",
-	         //dataType:"jsonp",
-			 //data: JSON.stringify({
-			 //"customerName":"name"
-			 //}), 
-			 data:'{"customerName":"name"}',
+			 type : "post",
+			 asynv:false,
+			 url:"changeName",
+			 dataType:"jsonp",
+			 jsonp:"callback",
+			 data:{
+				 customerID:customerID,
+		    	customerName:customerName ,
+				t:new Date()
+			},
+			
 	         success:function(res){     
 						alert("ok");
+						alert(res.result);
 	         },    
 	         error:function(e){ 
-		         
 				alert("提交失败");
 	         }    
-	     });  */  
+	     }); 
+		});  
 </script>
 </body>
 </html>

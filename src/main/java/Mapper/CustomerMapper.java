@@ -20,7 +20,7 @@ public interface CustomerMapper {
 	Customer findBycustomerNameAndcustomerPwd(@Param("customerName") String customerName,@Param("customerPwd") String customerPwd);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	int IsCustomerNameExist(Customer customer);//找到返回一个用户的ID,找不到抛出异常
+	int IsCustomerNameExist(String customerName);//找到返回一个用户的ID,找不到抛出异常
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE)
 	int insert(Customer customer);
