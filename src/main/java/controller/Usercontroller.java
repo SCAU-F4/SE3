@@ -83,6 +83,7 @@ public class Usercontroller {
 	public String changeName(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
 		String customerID=request.getParameter("customerID");
 		String customerName=request.getParameter("customerName");
+		System.out.println(customerName);
 		String result=userservice.changeName(Integer.parseInt(customerID), customerName);
 		if(result=="") {
 			Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
@@ -102,6 +103,10 @@ public class Usercontroller {
 		String newPassword=request.getParameter("newPassword");
 		String rePassword=request.getParameter("rePassword");
 	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+	    if(result=="") {
+	    	Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+	    	customer.setCustomerPwd(newPassword);
+	    }
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";
