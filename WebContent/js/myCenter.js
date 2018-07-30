@@ -255,6 +255,18 @@ $(document).ready(function () {
     			success:function(res)
     			{
     				console.log(res.result);
+    				if(res.result!=""){
+						console.log(res.result);
+							layer.open({
+       				 			title:'修改失败'
+       				 			,content: res.result
+        						,anim: 6 
+    						});
+					}
+					else{
+						$(".tip").fadeIn();
+						$(".tip").delay(1500).fadeOut();
+					}
     			},
     			error:function(es){
     				alert("tijiaoshibia");
