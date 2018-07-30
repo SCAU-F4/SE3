@@ -10,10 +10,12 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Mapper.AddressMapper;
 import Mapper.CustomerMapper;
 import Mapper.GoodsMapper;
 import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
+import bean.Address;
 import bean.Customer;
 import bean.Goods;
 import bean.Indent;
@@ -30,13 +32,12 @@ public class UserserviceImpl implements Userservice{
     GoodsMapper goodsmapper;	
 	@Autowired
 	IndentDetailMapper indentdetailmapper;
+	@Autowired
+	AddressMapper addressmapper;
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
-		try {
-			customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
-		} catch (Exception e) {
-		}
+	    customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
 		return customer;
 	}
 
@@ -101,7 +102,7 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public List<HashMap<String, String>> getAllIndent(int customerID) {
 		List<HashMap<String, String>> result =new ArrayList<>();
-		List<Indent> indents=indentmapper.findBycustomerID(customerID);
+		List<Indent> indents=indentmapper.findBycustomerID(customerID);//即使查询结果为空，也不会抛出异常，只有基本类型会抛出异常
 		for(Indent indent:indents){
 			HashMap<String, String> indentmap=new HashMap<>();
 			int indentID =indent.getIndentID();
@@ -127,25 +128,55 @@ public class UserserviceImpl implements Userservice{
 	}
 
 	@Override
+	public List<Address> getAllAddress(int customerID) {
+		List<Address> addresses=addressmapper.findAddressByCustomoerID(customerID);
+		return addresses;
+	}
+	
+	@Override
 	public String changeName(int customerID,String customerName) {
-		String error="";
+		String result="";
     	Pattern p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
     	Matcher m=p.matcher(customerName);
     	if(m.matches()==false) {
-    		error+="名字字数必须在5到20之间且不有特殊符号";
-    		return error;
+    		result+="名字字数必须在5到20之间且不有特殊符号";
+    		return result;
     	}
     	try{
     		customermapper.IsCustomerNameExist(customerName);
-    		error+="用户重名";
-    		return error;
+    		result+="用户重名";
+    		return result;
     	}catch (Exception e) {
     		int sum=customermapper.updatecustomerNameBycustomerID(customerID, customerName);
-        	if(sum!=0) return error;
+        	if(sum!=0) return result;
         	else {
-        		error+="更新失败";
-        		return error;
+        		result+="更新失败";
+        		return result;
         	}
 		}
 	}
+
+	@Override
+	public String changePassword(int customerID, String oldPassword, String newPassword, String rePassword) {
+		String result="";
+		Customer customer=customermapper.findBycustomerID(customerID);
+		if(!oldPassword.equals(customer.getCustomerPwd())){
+			result+="密码错误";
+			return result;
+		}
+		Pattern p=Pattern.compile("^[A-Za-z0-9]{6,20}$");
+    	Matcher m=p.matcher(newPassword);
+    	if(m.matches()==false){
+    		result+="密码字数必须在6到20之间";
+    		return result;
+    	}
+    	if(!newPassword.equals(rePassword)){
+    		result+="两次密码不一致";
+    		return result;
+    	}
+    	int sum=customermapper.updatecustomerPasswordBycustomerID(customerID, newPassword);
+    	if(sum==0) result+="更新失败";
+		return result;
+	}
+
 }

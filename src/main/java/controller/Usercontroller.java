@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 
+import bean.Address;
 import bean.Customer;
 import service.userservice.Userservice;
 
@@ -66,7 +66,9 @@ public class Usercontroller {
 	public String mycenter(Model model,HttpSession httpSession){
 		int customerID=((Customer)httpSession.getAttribute("currentCustomer")).getCustomerID();
 		List<HashMap<String, String>> allindent=userservice.getAllIndent(customerID);
+		List<Address> addresses=userservice.getAllAddress(customerID);
 		model.addAttribute("allindent",allindent);
+		model.addAttribute("addresses", addresses);
 		return "myCenter";
 	}
 	
@@ -78,13 +80,45 @@ public class Usercontroller {
 	
 	@RequestMapping(value= "changeName",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String changeName(String callback,HttpServletRequest request) throws Exception{ 
+	public String changeName(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
 		String customerID=request.getParameter("customerID");
 		String customerName=request.getParameter("customerName");
 		String result=userservice.changeName(Integer.parseInt(customerID), customerName);
+		if(result=="") {
+			Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+			customer.setCustomerName(customerName);
+		}
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";
 		return res;
 	}
+	
+	@RequestMapping(value= "changePassword",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String changePassword(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+		String customerID=request.getParameter("customerID");
+		String oldPassword=request.getParameter("oldPassword");
+		String newPassword=request.getParameter("newPassword");
+		String rePassword=request.getParameter("rePassword");
+	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
+	
+//	@RequestMapping(value= "addAddress",produces="application/json;charset=utf-8")
+//	@ResponseBody
+//	public String addAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+//		String customerID=request.getParameter("customerID");
+//		String oldPassword=request.getParameter("oldPassword");
+//		String newPassword=request.getParameter("newPassword");
+//		String rePassword=request.getParameter("rePassword");
+//	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+//		Map<String, String> map=new HashMap<>();
+//		map.put("result", result);
+//		String res=callback+"("+JSON.toJSONString(map)+")";
+//		return res;
+//	}
 }

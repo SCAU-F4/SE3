@@ -40,6 +40,9 @@
    <update id="updatecustomerNameBycustomerID" >
     update Customer set customerName=#{customerName} where customerID=#{customerID}
   </update>
+  <update id="updatecustomerPasswordBycustomerID" >
+    update Customer set customerPwd=#{customerPassword} where customerID=#{customerID}
+  </update>
   <delete id="delete" >
     delete from Customer where customerID=#{customerID}
   </delete>

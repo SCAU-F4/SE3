@@ -306,20 +306,11 @@
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td class="addressName">jj昌</td>
-                                        <td class="addressDetail">华南农业大学华山14栋</td>
-                                        <td class="addressPhone">138001380000</td>
-                                        <td class="addressPostcode">523100</td>
+                                        <td class="addressName">${addresses[0].addressName }</td>
+                                        <td class="addressDetail">${addresses[0].addressDetail }</td>
+                                        <td class="addressPhone">${addresses[0].addressPhone }</td>
+                                        <td class="addressPostcode">${addresses[0].addressPostcode }</td>
                                         <td><button class="layui-btn layui-btn-radius layui-btn-primary Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
-                                            <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="addressName">黄jj</td>
-                                        <td class="addressDetail">华南农业大学泰山7栋</td>
-                                        <td class="addressPhone">138001380000</td>
-                                        <td class="addressPostcode">523100</td>
-                                        <td><button class="layui-btn layui-btn-radius layui-btn-primary  Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
                                             <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
                                         </td>
                                     </tr>
