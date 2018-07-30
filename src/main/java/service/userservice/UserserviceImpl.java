@@ -37,6 +37,7 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
+		System.out.println(customer.getCustomerName());
 	    customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
 		return customer;
 	}
