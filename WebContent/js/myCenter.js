@@ -4,13 +4,16 @@ $(document).ready(function () {
         $(".Order-list .showli").removeClass("showli").hide();
         $(this).addClass("active").siblings().removeClass("active");
         var select=$(this).attr("data-select");console.log(select);
+        $(".page").show();
         if (select!=0) {
         	console.log($("span.deal-state[data-state=" + select + "]").text());
-        	$("span.deal-state[data-state=" + select + "]").parents(".panel").addClass("showli").fadeIn().siblings(":not(.showli)").fadeOut();;
+        	$("span.deal-state[data-state=" + select + "]").parents(".panel").addClass("showli").fadeIn().siblings(".panel:not(.showli)").fadeOut();
+        	
         }
         else
         {
             $(".panel").addClass("showli").fadeIn("fast");
+         
         }
     });
 //    点击订单状态分类显示相应的订单
@@ -137,4 +140,30 @@ $(document).ready(function () {
     		alert("已经是最后一页了");
     	}
     });
+    
+    $(".Order-list .cell .deal-state").each(function(){
+    	var jspState=$(this).attr("jspstate");
+    	var dataState=parseInt(jspState)+1;
+    	$(this).attr("data-state",dataState);
+    	if(jspState==0){
+    		$(this).text("待付款");
+    		var button="<button class=\"layui-btn layui-btn-radius\">去付款</button>";
+    		$(this).parent().append(button);	
+    	}
+    	if(jspState==1){
+    		$(this).text("待发货");	
+    	}
+    	if(jspState==2){
+    		$(this).text("已发货");	
+    	}
+    	if(jspState==3){
+    		$(this).text("待评价");	
+    		var button="<button class=\"layui-btn layui-btn-radius\">立马评价</button>";
+    		$(this).parent().append(button);	
+    	}
+    	if(jspState==4){
+    		$(this).text("交易成功");	
+    	}
+    })
+    
 });

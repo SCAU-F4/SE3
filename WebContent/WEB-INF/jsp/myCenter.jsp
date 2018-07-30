@@ -177,8 +177,8 @@
                                         <span>${item.goodsName}</span>
                                     </div>
                                     <div class="cell">
-                                        <span class="deal-state" data-state="5">交易完成</span>
-                                        <button class="layui-btn layui-btn-radius">立马评价</button>
+                                        <span class="deal-state" jspstate="${item.indentStates}"></span>
+                                        <!-- <button class="layui-btn layui-btn-radius">立马评价</button> -->
                                     </div>
                                     <div class="price">
                                         <span>￥</span>
@@ -190,7 +190,6 @@
 								<div class="page">
 										<span id="pre">上一页</span>
 										<select name="pageNumber" id="PageNumber">
-       										
      									 </select>
 									    <span id="last">下一页</span>
 								</div>
