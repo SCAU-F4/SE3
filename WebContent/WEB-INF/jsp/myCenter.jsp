@@ -235,7 +235,7 @@
                                     
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="resetpwd">
-                                    <form action="">
+                                  
                                     <div class="group">
                                         <label>旧密码</label>
                                         <span class="inputgroup"><input type="password" id="oldcustomerPwd" name="oldcustomerPwd">
@@ -260,11 +260,11 @@
                             				<p class="text-danger">密码不一致</p>
                             			</span>
                                     </div>
-                                    <input type="hidden" id="OldPassword" value="${currentCustomer.customerPwd}">
+                                    <input type="hidden" id="OldPassword" value="${currentCustomer.customerPwd}" data-id="${currentCustomer.customerID}">
                                     <div class="group">
                                         <button class="layui-btn layui-btn-radius" id="ResetPwd">确认修改</button>
                                     </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -372,7 +372,7 @@
 			var customerName=$("#customerName").val();
 			$.ajax({    
 			 type : "post",
-			 asynv:false,
+			 async:false, 
 			 url:"changeName",
 			 dataType:"jsonp",
 			 jsonp:"callback",

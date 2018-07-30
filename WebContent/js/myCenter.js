@@ -234,7 +234,32 @@ $(document).ready(function () {
     $("#ResetPwd").click(function(){
     	if($("#oldcustomerPwd").attr("flag")=="true"&&$("#customerPwd").attr("flag")=="true"&&$("#recustomerPwd").attr("flag")=="true"){
     		console.log("ok");
-    		return false;
+    		var id=$("#OldPassword").attr("data-id");
+    		var oldPwd=$("#oldcustomerPwd").val();
+    		var password=$("#customerPwd").val();
+    		var repassword=$("#recustomerPwd").val();
+    		console.log(id+"/"+oldPwd+"/"+password+"/"+repassword);
+    		$.ajax({
+    			type:"post",
+    			async:false,
+    			url:"changePassword",
+    			dataType:"jsonp",
+    			jsonp:"callback",
+    			data:{
+    				customerID:id,
+    				oldPassword:oldPwd,
+    				newPassword:password,
+    				rePassword:repassword,
+    				t:new Date()
+    			},
+    			success:function(res)
+    			{
+    				console.log(res.result);
+    			},
+    			error:function(es){
+    				alert("tijiaoshibia");
+    			}
+    		});
     	}
     });
 });
