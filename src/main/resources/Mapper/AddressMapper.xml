@@ -29,13 +29,13 @@
     where customerID = #{customerID}
   </select>
 
-  <insert id="insert" parameterType="address">
+  <insert id="insert">
   	insert into Address values(#{customerID}, #{addressID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
   </insert>
-  <update id="update" parameterType="address">
+  <update id="update">
     update Address set addressDetail=#{addressDetail}, addressPostcode=#{addressPostcode},addressPhone=#{addressPhone},addressName=#{addressName}where customerID=#{customerID} AND addressID=#{addressID} 
   </update>
-  <delete id="delete" parameterType="address">
+  <delete id="delete">
     delete from Address where customerID=#{customerID} AND addressID=#{addressID}
   </delete>
 </mapper>

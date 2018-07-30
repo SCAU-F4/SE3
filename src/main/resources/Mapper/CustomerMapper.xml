@@ -31,13 +31,16 @@
   select * from Customer where customerName=#{customerName} and customerPwd=#{customerPwd}
   </select>
   
-  <insert id="insert" parameterType="customer">
+  <insert id="insert" >
   	insert into Customer values(#{customerID}, #{customerName}, #{customerPwd}, #{customerPhone}, #{customerEmail}, #{customerRegDate})
   </insert>
-  <update id="update" parameterType="customer">
+  <update id="update" >
     update Customer set customerName=#{customerName}, customerPwd=#{customerPwd},customerPhone=#{customerPhone},customerEmail=#{customerEmail},customerRegDate=#{customerRegDate} where customerID=#{customerID}
   </update>
-  <delete id="delete" parameterType="customer">
+   <update id="updatecustomerNameBycustomerID" >
+    update Customer set customerName=#{customerName} where customerID=#{customerID}
+  </update>
+  <delete id="delete" >
     delete from Customer where customerID=#{customerID}
   </delete>
 </mapper>

@@ -3,6 +3,7 @@ package Mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +27,9 @@ public interface CustomerMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int update(Customer customer);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+	int updatecustomerNameBycustomerID(@Param("customerID") int customerID,@Param("customerName") String customerName);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int delete(Customer customer);

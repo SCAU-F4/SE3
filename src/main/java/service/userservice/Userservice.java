@@ -9,4 +9,5 @@ public interface Userservice {
     public Customer signincheck(Customer customer);
     public String signup(Customer customer,String repassword);
     public List<HashMap<String,String>> getAllIndent(int customerID);
+    public String changeName(int customerID,String customerName);
 }
