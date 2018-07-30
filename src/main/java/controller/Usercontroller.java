@@ -3,21 +3,20 @@ package controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import Mapper.IndentMapper;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
 import bean.Customer;
 import service.userservice.Userservice;
 
@@ -79,14 +78,13 @@ public class Usercontroller {
 	
 	@RequestMapping(value= "changeName",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public JSONObject changeName(@RequestBody Map<String,String> map,HttpSession httpSession){ 
-		System.out.println(6666666);
-		System.out.println(map.get("customerName"));
-		JSONObject jsonobject=new JSONObject();
-		jsonobject.put("aaa", 2222);
-//		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-//		String result=userservice.changeName(customer.getCustomerID(),customer.getCustomerName());
-		return jsonobject;
-//		JSONObject.
+	public String changeName(String callback,HttpServletRequest request) throws Exception{ 
+		String customerID=request.getParameter("customerID");
+		String customerName=request.getParameter("customerName");
+		String result=userservice.changeName(Integer.parseInt(customerID), customerName);
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
 	}
 }
