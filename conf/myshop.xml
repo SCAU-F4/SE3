@@ -17,8 +17,8 @@
 	<!-- <context:component-scan base-package="aspect" /> -->
 	<mvc:annotation-driven />
 
-	 <!-- 开启aop注解 -->
-	<!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+	<!-- 开启aop注解 -->
+	<!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy> -->
 
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
