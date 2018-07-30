@@ -150,10 +150,10 @@
                 <img src="${pageContext.request.contextPath }/img/icon/lunbo3.jpg" alt="...">
             </div>
             <div class="item">
-                <img src="${pageContext.request.contextPath }/img/lunbo4.jpg" alt="...">
+                <img src="${pageContext.request.contextPath }/img/icon/lunbo4.jpg" alt="...">
             </div>
             <div class="item">
-                <img src="${pageContext.request.contextPath }/img/lunbo5.jpg" alt="...">
+                <img src="${pageContext.request.contextPath }/img/icon/lunbo5.jpg" alt="...">
             </div>
         </div>
 
