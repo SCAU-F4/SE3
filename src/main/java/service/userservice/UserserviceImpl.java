@@ -19,7 +19,6 @@ import bean.Goods;
 import bean.Indent;
 import bean.IndentDetail;
 import bean.Picture;
-import utils.Utils;
 
 @Service
 public class UserserviceImpl implements Userservice{
@@ -110,8 +109,7 @@ public class UserserviceImpl implements Userservice{
 			Timestamp indentTime =indent.getIndentTime();
 			indentmap.put("indentTime", indentTime.toString());
 			int index =indent.getIndentState();
-			String indentStates=Utils.indentstates[index];
-			indentmap.put("indentStates", indentStates);
+			indentmap.put("indentStates", Integer.toString(index));
 			List<IndentDetail> indentdetails =indentdetailmapper.getAllDetailbyindentID(indentID);
 			for(IndentDetail indentDetail:indentdetails){
 				int goodsID =indentDetail.getGoodsID();
