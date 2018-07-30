@@ -1,4 +1,4 @@
-package bean;
+	package bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,7 +9,7 @@ public class Address implements Serializable {
 	public String addressDetail;
 	public String addressPostcode;
 	public String addressPhone;
-	public String addressName;
+	public String addressName;//收件人
 	public List<Indent> IndentList;
 
 	public Address() {

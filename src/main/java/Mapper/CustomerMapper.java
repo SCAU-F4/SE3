@@ -30,6 +30,9 @@ public interface CustomerMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int updatecustomerNameBycustomerID(@Param("customerID") int customerID,@Param("customerName") String customerName);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+	int updatecustomerPasswordBycustomerID(@Param("customerID") int customerID,@Param("customerPassword") String customerPassword);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int delete(Customer customer);
