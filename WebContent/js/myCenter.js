@@ -166,4 +166,75 @@ $(document).ready(function () {
     	}
     })
     
+    
+    $("#customerName").blur(function () {
+        var value=$(this).val();
+        var re=/^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$/;
+        if(value.length<5 ||re.test(value)==false){
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+        else{
+            $(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+    });
+    $("#oldcustomerPwd").blur(function(){
+    	var old=$("#OldPassword").val();
+    	if($(this).val()!=old){
+    		$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+    	}
+    	else{
+    		$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+    	}
+    });
+    $("#customerPwd").blur(function () {
+        var value=$(this).val();
+        var re=/^[A-Za-z0-9]{6,20}$/;
+        if (!re.test(value)){
+        	$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+        else{
+        	$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+    });
+    $("#recustomerPwd").blur(function () {
+        var password=$("#customerPwd").val()
+        if ($(this).val()===password && $(this).val()!=""){
+        	$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+        else
+        {
+        	$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+    });
+    
+    $("#ResetPwd").click(function(){
+    	if($("#oldcustomerPwd").attr("flag")=="true"&&$("#customerPwd").attr("flag")=="true"&&$("#recustomerPwd").attr("flag")=="true"){
+    		console.log("ok");
+    		return false;
+    	}
+    });
 });

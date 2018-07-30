@@ -11,6 +11,7 @@
     <title>${currentCustomer.customerName}的管理中心</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/myCenter.css">
 </head>
@@ -213,7 +214,11 @@
                                     
                                     <div class="group">
                                         <label>用户名:</label>
-                                        <span><input type="text" class="customerName" id="customerName" value="${currentCustomer.customerName }"></span>
+                                        <span class="inputgroup"><input type="text" class="customerName" id="customerName" value="${currentCustomer.customerName }">
+                                        		<i class="glyphicon glyphicon-ok text-success"></i>
+                            					<i class="glyphicon glyphicon-remove text-danger"></i>
+                            					<p class="text-danger">用户名不符合规范</p>
+                            					</span>
                                     </div>
                                     <div class="group">
                                          <label>手机号:</label>
@@ -233,18 +238,31 @@
                                     <form action="">
                                     <div class="group">
                                         <label>旧密码</label>
-                                        <span><input type="password" id="oldcustomerPwd" name="oldcustomerPwd"></span>
+                                        <span class="inputgroup"><input type="password" id="oldcustomerPwd" name="oldcustomerPwd">
+                                        	<i class="glyphicon glyphicon-ok text-success"></i>
+                            				<i class="glyphicon glyphicon-remove text-danger"></i>
+                            				<p class="text-danger">请输入正确的旧密码</p>
+                            			</span>
                                     </div>
                                     <div class="group">
                                         <label>新密码</label>
-                                        <span><input type="password" id="customerPwd" name="customerPwd"></span>
+                                        <span class="inputgroup"><input type="password" id="customerPwd" name="customerPwd">
+                                        	<i class="glyphicon glyphicon-ok text-success"></i>
+                            				<i class="glyphicon glyphicon-remove text-danger"></i>
+                            				<p class="text-danger">密码不符合规范</p>
+                            			</span>
                                     </div>
                                     <div class="group">
                                         <label>确定新密码</label>
-                                        <span><input type="password" id="recustomerPwd" name="recustomerPwd"></span>
+                                        <span class="inputgroup"><input type="password" id="recustomerPwd" name="recustomerPwd">
+                                        	<i class="glyphicon glyphicon-ok text-success"></i>
+                            				<i class="glyphicon glyphicon-remove text-danger"></i>
+                            				<p class="text-danger">密码不一致</p>
+                            			</span>
                                     </div>
+                                    <input type="hidden" id="OldPassword" value="${currentCustomer.customerPwd}">
                                     <div class="group">
-                                        <button class="layui-btn layui-btn-radius" type="submit">确认修改</button>
+                                        <button class="layui-btn layui-btn-radius" id="ResetPwd">确认修改</button>
                                     </div>
                                     </form>
                                 </div>
@@ -325,20 +343,21 @@
                                     </tr>
                             </tbody>
                         </table>
-
-
                     </div>
             </div>
          </div>
     </div>
 </section>
+<div class="tip"><h4>修改成功</h4></div>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery.form.js"></script>
+<script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/index.js"></script>
 <script src="${pageContext.request.contextPath }/js/myCenter.js"></script>
 <script>
+
 		$(document).ready(function () {
 			var customer= "${currentCustomer.customerName}";
 			if(customer==""){
@@ -356,6 +375,8 @@
 		});
 
 		$(".Message-list .save").click(function(){
+		    var isTrue=$("#customerName").attr("flag");
+		    if(isTrue=='true'){
 			var customerID="${currentCustomer.customerID}";
 			var customerName=$("#customerName").val();
 			$.ajax({    
@@ -369,15 +390,25 @@
 		    	customerName:customerName ,
 				t:new Date()
 			},
-			
 	         success:function(res){     
-						alert("ok");
-						alert(res.result);
+						if(res.result!=""){
+							console.log(res.result);
+								layer.open({
+           				 			title:'修改失败'
+           				 			,content: res.result
+            						,anim: 6 
+        						});
+						}
+						else{
+							$(".tip").fadeIn();
+							$(".tip").delay(1500).fadeOut();
+						}
 	         },    
 	         error:function(e){ 
 				alert("提交失败");
 	         }    
-	     }); 
+	     	});
+	      } 
 		});  
 </script>
 </body>

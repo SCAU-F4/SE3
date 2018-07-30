@@ -1,4 +1,6 @@
-
+body{
+	position: relative;
+}
 #SE3_header .boxshadow{
     box-shadow: 0px 0px 0px transparent;
     border-bottom: 1.5px solid rgb(234,234,234);
@@ -151,4 +153,33 @@
 	
 	color:#d0c4af;
 	text-decoration:none;
+}
+body .tip{
+	 position: absolute;
+	 top:50%;
+	 left:50%;
+	 width:150px;
+	 height:60px;
+	 background-color: #333;
+     background-color:rgba(0,0,0,0.3);
+     border:1px solid transparent;
+     border-radius: 5px;
+     color:#fff;
+     text-align: center;
+     display:none;
+}
+.inputgroup{
+	 position: relative;
+}
+.inputgroup i{
+	position:absolute;
+	top:2px;
+	right:10px;
+	display:none;
+}
+.inputgroup p{
+	position:absolute;
+	top:-2px;
+	right:-120px;
+	display:none;
 }
