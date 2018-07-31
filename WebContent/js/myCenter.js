@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	 var $modify;
 	 var addrId;
+	 var $delete;
     $(".Order-top>ul>li").click(function () {
         $(".Order-list .showli").removeClass("showli").hide();
         $(this).addClass("active").siblings().removeClass("active");
@@ -28,7 +29,35 @@ $(document).ready(function () {
 //点击左侧菜单显示相应的div
   
     $(".Address-table").on("click",".Address-delect",function () {
-        $(this).parents("tr").remove();
+    	var deleteId=$(this).parents("td").siblings(".addressName").attr("data-addrId");
+    	$delete=$(this)
+    	console.log(deleteId);
+    	$.ajax({
+    		type:"post",
+			async:false,
+			url:"deleteAddress",
+			dataType:"jsonp",
+			jsonp:"callback",
+			data:{
+				addressID:deleteId,
+				t:new Date()
+			},
+			success:function(res){
+				if(res.result==""){
+				$delete.parents("tr").remove();
+				$(".tip").find("h4").text("删除成功")
+				$(".tip").fadeIn();
+				$(".tip").delay(1500).fadeOut();
+				}
+				else{
+					alert(res.result);
+				}
+			},
+			error:function(e){
+				alert("shibia");
+			}
+    	});
+//        $(this).parents("tr").remove();
     });
 //删除地址
       
