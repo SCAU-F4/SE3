@@ -37,7 +37,6 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
-		System.out.println(customer.getCustomerName());
 	    customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
 		return customer;
 	}
@@ -177,6 +176,39 @@ public class UserserviceImpl implements Userservice{
     	}
     	int sum=customermapper.updatecustomerPasswordBycustomerID(customerID, newPassword);
     	if(sum==0) result+="更新失败";
+		return result;
+	}
+
+	@Override
+	public String addAddress(int customerID,String addressDetail, String addressPostcode, String addressPhone, String addressName) {
+		String result="";
+		if(addressDetail=="") {
+			result+="地址不能为空";
+			return result;
+		}
+		Pattern p=Pattern.compile("^[0-9]{6}$");
+    	Matcher m=p.matcher(addressPostcode);
+    	if(m.matches()==false) {
+    		result+="邮政编码格式不对";
+    		return result;
+    	}
+		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
+    	m=p.matcher(addressName);
+    	if(m.matches()==false) {
+    		result+="名字字数必须在5到20之间且不有特殊符号";
+    		return result;
+    	}
+    	p=Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
+    	m=p.matcher(addressPhone);
+    	if(m.matches()==false){
+    		result+="手机号格式不对";
+    		return result;
+    	}
+    	Address address=new Address(customerID,0,addressDetail,addressPostcode,addressPhone,addressName,null);
+    	int sum=addressmapper.insert(address);
+    	if(sum==0){
+    		result+="插入失败";
+    	}
 		return result;
 	}
 
