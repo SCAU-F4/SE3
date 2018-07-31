@@ -178,9 +178,9 @@ public class UserserviceImpl implements Userservice{
     	if(sum==0) result+="更新失败";
 		return result;
 	}
-
+   /*当addressID=-1时，用户使用地址添加功能，不为-1时，用户在修改地址*/
 	@Override
-	public String addAddress(int customerID,String addressDetail, String addressPostcode, String addressPhone, String addressName) {
+	public String addressService(int customerID,int addressID,String addressDetail, String addressPostcode, String addressPhone, String addressName) {
 		String result="";
 		if(addressDetail=="") {
 			result+="地址不能为空";
@@ -192,10 +192,10 @@ public class UserserviceImpl implements Userservice{
     		result+="邮政编码格式不对";
     		return result;
     	}
-		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
+		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$");
     	m=p.matcher(addressName);
     	if(m.matches()==false) {
-    		result+="名字字数必须在5到20之间且不有特殊符号";
+    		result+="名字字数必须在2到8之间且不有特殊符号";
     		return result;
     	}
     	p=Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
@@ -204,10 +204,18 @@ public class UserserviceImpl implements Userservice{
     		result+="手机号格式不对";
     		return result;
     	}
-    	Address address=new Address(customerID,0,addressDetail,addressPostcode,addressPhone,addressName,null);
-    	int sum=addressmapper.insert(address);
-    	if(sum==0){
-    		result+="插入失败";
+    	Address address=new Address(customerID,addressID,addressDetail,addressPostcode,addressPhone,addressName,null);
+    	if(addressID==-1){
+    		int sum=addressmapper.insert(address);
+    		if(sum==0){
+    			result+="插入失败";
+    		}
+    	}
+    	else {
+    		int sum=addressmapper.update(address);
+    		if(sum==0){
+    			result+="更新失败";
+    		}
     	}
 		return result;
 	}
