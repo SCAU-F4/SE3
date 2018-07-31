@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.EvaluatePictureMapper">
+
+  <resultMap type="evaluatePicture" id="evaluatePictureMap">
+  	<id column="evaluateID" property="evaluateID"/>
+  	<result column="pictureID" property="pictureID"/>
+  </resultMap>
+
+  <select id="findByevaluateIDANDpictureID" resultMap="evaluatePictureMap">
+    select * from EvaluatePicture where evaluateID = #{evaluateID} AND pictureID=#{pictureID}
+  </select>
+  
+  <select id="findEvaluatePictureByevaluateID" resultMap="evaluatePictureMap">
+    select * from EvaluatePicture where evaluateID = #{evaluateID}
+  </select>
+  
+  
+  <insert id="insert">
+  	insert into EvaluatePicture values(#{evaluateID}, #{pictureID})
+  </insert>
+  
+  <delete id="delete">
+    delete from EvaluatePicture where evaluateID=#{evaluateID} AND pictureID=#{pictureID}
+  </delete>
+</mapper>
