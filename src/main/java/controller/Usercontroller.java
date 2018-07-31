@@ -111,16 +111,21 @@ public class Usercontroller {
 		return res;
 	}
 	
-	@RequestMapping(value= "addAddress",produces="application/json;charset=utf-8")
+	@RequestMapping(value= {"addAddress","changeAddress"},produces="application/json;charset=utf-8")//增加或修改地址
 	@ResponseBody
-	public String addAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+	public String addressService(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
 		String addressDetail=request.getParameter("addressDetail");
 		String addressPostcode=request.getParameter("addressPostcode");
 		String addressPhone=request.getParameter("addressPhone");
 		String addressName=request.getParameter("addressName");
+		String temp=request.getParameter("addressID");
+		int addressID=-1;
+		if(temp!=""){
+			addressID=Integer.parseInt(temp);
+			}
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		int customerID=customer.getCustomerID();
-	    String result=userservice.addAddress(customerID,addressDetail, addressPostcode, addressPhone, addressName);
+	    String result=userservice.addressService(customerID,addressID,addressDetail, addressPostcode, addressPhone, addressName);
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";

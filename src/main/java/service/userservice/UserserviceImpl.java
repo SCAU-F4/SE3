@@ -178,9 +178,9 @@ public class UserserviceImpl implements Userservice{
     	if(sum==0) result+="更新失败";
 		return result;
 	}
-
+   /*当addressID=-1时，用户使用地址添加功能，不为-1时，用户在修改地址*/
 	@Override
-	public String addAddress(int customerID,String addressDetail, String addressPostcode, String addressPhone, String addressName) {
+	public String addressService(int customerID,int addressID,String addressDetail, String addressPostcode, String addressPhone, String addressName) {
 		String result="";
 		if(addressDetail=="") {
 			result+="地址不能为空";
@@ -204,10 +204,18 @@ public class UserserviceImpl implements Userservice{
     		result+="手机号格式不对";
     		return result;
     	}
-    	Address address=new Address(customerID,0,addressDetail,addressPostcode,addressPhone,addressName,null);
-    	int sum=addressmapper.insert(address);
-    	if(sum==0){
-    		result+="插入失败";
+    	Address address=new Address(customerID,addressID,addressDetail,addressPostcode,addressPhone,addressName,null);
+    	if(addressID==-1){
+    		int sum=addressmapper.insert(address);
+    		if(sum==0){
+    			result+="插入失败";
+    		}
+    	}
+    	else {
+    		int sum=addressmapper.update(address);
+    		if(sum==0){
+    			result+="更新失败";
+    		}
     	}
 		return result;
 	}
