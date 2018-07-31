@@ -13,12 +13,18 @@
   	<result column="evaluateContent" property="evaluateContent"/>
   	<result column="evaluatePictureID" property="evaluatePictureID"/>
   </resultMap>
+  
+  <resultMap type="evaluate" id="evaluateMap1" extends="evaluateMap">
+		<collection property="evaluatePictureList" fetchType="lazy"
+			select="Mapper.EvaluatePictureMapper.findEvaluatePictureByevaluateID" column="{evaluateID=evaluateID}">
+		</collection>
+	</resultMap>
 
-  <select id="findByevaluateID" resultMap="evaluateMap">
+  <select id="findByevaluateID" resultMap="evaluateMap1">
     select * from Evaluate where evaluateID = #{evaluateID}
   </select>
   
-  <select id="findEvaluateByGoodsID" resultMap="evaluateMap">
+  <select id="findEvaluateByGoodsID" resultMap="evaluateMap1">
     select * from Evaluate where goodsID = #{goodsID}
   </select>
   
