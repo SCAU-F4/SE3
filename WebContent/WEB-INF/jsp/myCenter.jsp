@@ -281,25 +281,38 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <h4 class="modal-title" id="myModalLabel">地址管理</h4>
                                         </div>
-                                        <form action="">
+                                       
                                         <div class="modal-body">
-
-
                                                     <div class="group">
                                                         <label>用户地址</label>
-                                                        <span><input type="text" id="addressDetail" name="addressDetail"></span>
+                                                        <span class="inputgroup"><input type="text" id="addressDetail" name="addressDetail">
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">请输入正确的地址</p></span>
                                                     </div>
                                                     <div class="group">
                                                         <label>邮政编码</label>
-                                                        <span><input type="text" id="addressPostcode" name="addressPostcode"></span>
+                                                        <span class="inputgroup"><input type="text" id="addressPostcode" name="addressPostcode">
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">输入正确的邮政编码</p>
+                                                        </span>
                                                     </div>
                                                     <div class="group">
                                                         <label>联系电话</label>
-                                                        <span><input type="text" id="addressPhone" name="addressPhone"></span>
+                                                        <span class="inputgroup addrphone"><input type="text" id="addressPhone" name="addressPhone"> 
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">请输入正确的电话号码</p>
+                                                        </span>
                                                     </div>
                                                     <div class="group">
                                                         <label>收件人</label>
-                                                        <span><input type="text" id="addressName" name="addressName"></span>
+                                                        <span class="inputgroup"><input type="text" id="addressName" name="addressName">
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">请输入正确的收件人</p>
+                                                        </span>
                                                     </div>
                                         </div>
                                         <div class="modal-footer">
@@ -307,7 +320,7 @@
                                              <button type="button" class="layui-btn-primary layui-btn layui-btn-radius Address-mod" data-dismiss="modal">确认修改</button>
                                             <!--<button class="layui-btn layui-btn-radius layui-btn-primary Address-addsubmit" >确认添加</button>-->
                                         </div>
-                                        </form>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -323,15 +336,18 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                                    <c:forEach items="${addresses}" var="item" varStatus="status">
                                     <tr>
-                                        <td class="addressName">${addresses[0].addressName }</td>
-                                        <td class="addressDetail">${addresses[0].addressDetail }</td>
-                                        <td class="addressPhone">${addresses[0].addressPhone }</td>
-                                        <td class="addressPostcode">${addresses[0].addressPostcode }</td>
+                                        <td class="addressName" data-addrId="${item.addressID }">${item.addressName }</td>
+                                        <td class="addressDetail">${item.addressDetail }</td>
+                                        <td class="addressPhone">${item.addressPhone }</td>
+                                        <td class="addressPostcode">${item.addressPostcode }</td>
                                         <td><button class="layui-btn layui-btn-radius layui-btn-primary Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
                                             <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
                                         </td>
                                     </tr>
+                                    </c:forEach>
                             </tbody>
                         </table>
                     </div>

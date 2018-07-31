@@ -29,7 +29,7 @@
     where customerID = #{customerID}
   </select>
 
-  <insert id="insert">
+  <insert id="insert" keyProperty="addressID" useGeneratedKeys="true">
   	insert into Address(customerID,addressDetail,addressPostcode,addressPhone,addressName) values(#{customerID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
   </insert>
   <update id="update">
