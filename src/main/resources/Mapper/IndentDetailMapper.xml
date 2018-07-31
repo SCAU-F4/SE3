@@ -40,4 +40,8 @@
 		Indent.indentID=IndentDetail.indentID
 		where Indent.indentID =#{indentID} <!-- 传的参数要传上面定义的intentid -->
 	</select>
+	<delete id="deleteByindentID">
+		delete from IndentDetail where indentID=#{indentID}
+	</delete>
+	
 </mapper>

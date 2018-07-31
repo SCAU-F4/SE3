@@ -14,9 +14,13 @@
   </resultMap>
 
 	<resultMap type="customer" id="customerMap1" extends="customerMap">
+	<association property="cart" column="{customerID=customerID}"
+			select="Mapper.CartMapper.findBycustomerID" />
 		<collection property="addressList" fetchType="lazy"
 			select="Mapper.AddressMapper.findAddressByCustomoerID" column="{customerID=customerID}">
 		</collection>
+		
+		
 	</resultMap>
 	
   <select id="findBycustomerID" resultMap="customerMap1">

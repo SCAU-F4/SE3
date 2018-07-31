@@ -17,6 +17,9 @@ public interface IndentMapper {
 	int findindentStateByindentID(int indentID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	int findexpressCodeByindentID(int indentID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<Indent> findBycustomerID(int customerID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
@@ -33,4 +36,7 @@ public interface IndentMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int delete(Indent indent);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int deleteByindentID(int indentID);
 }

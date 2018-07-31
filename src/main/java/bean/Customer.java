@@ -13,6 +13,7 @@ public class Customer implements Serializable {
 	public String customerEmail;
 	public Timestamp customerRegDate;
 	public List<Address> addressList;
+	public Cart cart;// 购物车
 
 	public Customer() {
 		super();
@@ -20,7 +21,7 @@ public class Customer implements Serializable {
 	}
 
 	public Customer(int customerID, String customerName, String customerPwd, String customerPhone, String customerEmail,
-			Timestamp customerRegDate, List<Address> addressList) {
+			Timestamp customerRegDate, List<Address> addressList, Cart cart) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -29,6 +30,7 @@ public class Customer implements Serializable {
 		this.customerEmail = customerEmail;
 		this.customerRegDate = customerRegDate;
 		this.addressList = addressList;
+		this.cart = cart;
 	}
 
 	public int getCustomerID() {
@@ -87,11 +89,19 @@ public class Customer implements Serializable {
 		this.addressList = addressList;
 	}
 
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", customerName=" + customerName + ", customerPwd=" + customerPwd
 				+ ", customerPhone=" + customerPhone + ", customerEmail=" + customerEmail + ", customerRegDate="
-				+ customerRegDate + ", addressList=" + addressList + "]";
+				+ customerRegDate + ", addressList=" + addressList + ", cart=" + cart + "]";
 	}
 
 }

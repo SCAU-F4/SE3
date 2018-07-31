@@ -31,6 +31,12 @@
 		indentState from Indent where
 		indentID = #{indentID}
 	</select>
+	
+	<select id="findexpressCodeByindentID" resultType="java.lang.Integer">
+		select expressCode
+        from Indent where
+		indentID = #{indentID}
+	</select>
 
 	<select id="findAllIndentItembycustomerIDandaddressID"
 		resultMap="indentMap1">
@@ -67,6 +73,10 @@
 		where indentID=#{indentID}
 	</update>
 	<delete id="delete">
+		delete from Indent where
+		indentID=#{indentID}
+	</delete>
+	<delete id="deleteByindentID">
 		delete from Indent where
 		indentID=#{indentID}
 	</delete>

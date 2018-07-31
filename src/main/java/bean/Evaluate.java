@@ -3,8 +3,9 @@ package bean;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
-public class Evaluate implements Serializable{
+public class Evaluate implements Serializable {
 	public int evaluateID;
 	public int customerID;
 	public int goodsID;
@@ -12,6 +13,7 @@ public class Evaluate implements Serializable{
 	public int evaluateGrade;
 	public String evaluateContent;
 	public int evaluatePictureID;
+	List<EvaluatePicture> evaluatePictureList;
 
 	public Evaluate() {
 		super();
@@ -19,7 +21,7 @@ public class Evaluate implements Serializable{
 	}
 
 	public Evaluate(int evaluateID, int customerID, int goodsID, Timestamp evaluateDate, int evaluateGrade,
-			String evaluateContent, int evaluatePictureID) {
+			String evaluateContent, int evaluatePictureID, List<EvaluatePicture> evaluatePictureList) {
 		super();
 		this.evaluateID = evaluateID;
 		this.customerID = customerID;
@@ -28,6 +30,7 @@ public class Evaluate implements Serializable{
 		this.evaluateGrade = evaluateGrade;
 		this.evaluateContent = evaluateContent;
 		this.evaluatePictureID = evaluatePictureID;
+		this.evaluatePictureList = evaluatePictureList;
 	}
 
 	public int getEvaluateID() {
@@ -86,11 +89,20 @@ public class Evaluate implements Serializable{
 		this.evaluatePictureID = evaluatePictureID;
 	}
 
+	public List<EvaluatePicture> getEvaluatePictureList() {
+		return evaluatePictureList;
+	}
+
+	public void setEvaluatePictureList(List<EvaluatePicture> evaluatePictureList) {
+		this.evaluatePictureList = evaluatePictureList;
+	}
+
 	@Override
 	public String toString() {
 		return "Evaluate [evaluateID=" + evaluateID + ", customerID=" + customerID + ", goodsID=" + goodsID
 				+ ", evaluateDate=" + evaluateDate + ", evaluateGrade=" + evaluateGrade + ", evaluateContent="
-				+ evaluateContent + ", evaluatePictureID=" + evaluatePictureID + "]";
+				+ evaluateContent + ", evaluatePictureID=" + evaluatePictureID + ", evaluatePictureList="
+				+ evaluatePictureList + "]";
 	}
 
 }
