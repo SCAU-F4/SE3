@@ -6,7 +6,7 @@
 
   <resultMap type="address" id="addressMap">
   	<id column="customerID" property="customerID"/>
-  	<result column="addressID" property="addressID"/>
+  	<id column="addressID" property="addressID"/>
   	<result column="addressDetail" property="addressDetail"/>
   	<result column="addressPostcode" property="addressPostcode"/>
   	<result column="addressPhone" property="addressPhone"/>
