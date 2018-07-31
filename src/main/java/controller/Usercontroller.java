@@ -120,12 +120,25 @@ public class Usercontroller {
 		String addressName=request.getParameter("addressName");
 		String temp=request.getParameter("addressID");
 		int addressID=-1;
-		if(temp!=""){
+		if(temp!=null){
 			addressID=Integer.parseInt(temp);
 			}
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		int customerID=customer.getCustomerID();
 	    String result=userservice.addressService(customerID,addressID,addressDetail, addressPostcode, addressPhone, addressName);
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
+	
+	@RequestMapping(value= "deleteAddress",produces="application/json;charset=utf-8")//增加或修改地址
+	@ResponseBody
+	public String deleteAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+		String addressID=request.getParameter("addressID");
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		int customerID=customer.getCustomerID();
+	    String result=userservice.deleteAddress(customerID, Integer.parseInt(addressID));
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";
