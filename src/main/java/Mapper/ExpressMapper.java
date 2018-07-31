@@ -23,5 +23,5 @@ public interface ExpressMapper {
 	int delete(Express express);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int deleteByexpresscode(int expressCode);
+	int deleteByexpressCode(int expressCode);
 }

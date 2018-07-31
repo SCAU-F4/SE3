@@ -258,7 +258,7 @@ public class UserserviceImpl implements Userservice{
 				return result;
 			}
 			indentdetailmapper.deleteByindentID(indentID);
-			expressmapper.deleteByexpresscode(expressCode);
+			expressmapper.deleteByexpressCode(expressCode);
 		}
 		return result;
 	}
