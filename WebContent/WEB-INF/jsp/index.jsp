@@ -176,7 +176,7 @@
             <div class="Title"><h1>人气推荐</h1></div>
             <div class="col-md-4 left">
                     <div class="Lagerimg">
-                        <a href="#">
+                        <a href="products/detail">
                             <img src="${pageContext.request.contextPath }/img/icon/lagerimg.png" alt="">
                         </a>
                     </div>
