@@ -131,4 +131,17 @@ public class Usercontroller {
 		String res=callback+"("+JSON.toJSONString(map)+")";
 		return res;
 	}
+	
+	@RequestMapping(value= "deleteAddress",produces="application/json;charset=utf-8")//增加或修改地址
+	@ResponseBody
+	public String deleteAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+		String addressID=request.getParameter("addressID");
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		int customerID=customer.getCustomerID();
+	    String result=userservice.deleteAddress(customerID, Integer.parseInt(addressID));
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
 }

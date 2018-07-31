@@ -14,4 +14,5 @@ public interface Userservice {
     public String changeName(int customerID,String customerName);
     public String changePassword(int customerID,String oldPassword,String newPassword,String rePassword);
     public String addressService(int customerID,int addressID,String addressDetail,String addressPostcode,String addressPhone,String addressName);
+    public String deleteAddress(int customerID,int addressID);
 }

@@ -220,4 +220,14 @@ public class UserserviceImpl implements Userservice{
 		return result;
 	}
 
+	@Override
+	public String deleteAddress(int customerID, int addressID) {
+		String result="";
+		int sum=addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
+		if(sum==0){
+			result+="删除失败";
+		}
+		return result;
+	}
+
 }

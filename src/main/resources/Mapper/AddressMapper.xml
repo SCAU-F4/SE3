@@ -38,4 +38,7 @@
   <delete id="delete">
     delete from Address where customerID=#{customerID} AND addressID=#{addressID}
   </delete>
+  <delete id="deleteBycustomerIDAndaddressID">
+    delete from Address where customerID=#{customerID} AND addressID=#{addressID}
+  </delete>
 </mapper>
