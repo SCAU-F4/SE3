@@ -22,4 +22,7 @@
   <delete id="delete">
     delete from Express where expressCode=#{expressCode}
   </delete>
+  <delete id="deleteByexpressCode">
+    delete from Express where expressCode=#{expressCode}
+  </delete>
 </mapper>

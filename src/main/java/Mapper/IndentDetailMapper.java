@@ -28,4 +28,7 @@ public interface IndentDetailMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int delete(IndentDetail indentdetail);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+	int deleteByindentID(int indentID);
 }

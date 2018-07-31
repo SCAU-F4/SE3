@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import Mapper.AddressMapper;
 import Mapper.CustomerMapper;
+import Mapper.ExpressMapper;
 import Mapper.GoodsMapper;
 import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
@@ -34,6 +35,8 @@ public class UserserviceImpl implements Userservice{
 	IndentDetailMapper indentdetailmapper;
 	@Autowired
 	AddressMapper addressmapper;
+	@Autowired
+	ExpressMapper expressmapper;
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
@@ -243,13 +246,20 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public String deleteIndent(int indentID) {
 		String result="";
-//		int state=indentmapper.findindentStateByindentID(indentID);
-//		if(state<=2){
-//			result+="该订单尚未完成，不能删除";
-//		}
-//		else {
-//			int sum =indentmapper
-//		}
+		int state=indentmapper.findindentStateByindentID(indentID);
+		if(state<=2){
+			result+="该订单尚未完成，不能删除";
+		}
+		else {
+			int expressCode=indentmapper.findexpressCodeByindentID(indentID);
+			int sum =indentmapper.deleteByindentID(indentID);//做成事务好点
+			if(sum==0){
+				result+="删除失败";
+				return result;
+			}
+			indentdetailmapper.deleteByindentID(indentID);
+			expressmapper.deleteByexpresscode(expressCode);
+		}
 		return result;
 	}
 
