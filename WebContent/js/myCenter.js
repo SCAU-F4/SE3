@@ -393,7 +393,7 @@ $(document).ready(function () {
     			success:function(res)
     			{
     				if(res.result==""){
-    				var text="<tr>"+"<td class='addressName'>"+name+"</td>"+"<td class='addressDetail'>"+address+"</td>"
+    				var text="<tr>"+"<td class='addressName' data-addrId='"+res.addressID+"'>"+name+"</td>"+"<td class='addressDetail'>"+address+"</td>"
     	            +"<td class='addressPhone'>"+phone+"</td>"+"<td class='addressPostcode'>"+postcode+"</td>"+ "<td><button class='layui-btn layui-btn-radius layui-btn-primary Address-modify' data-target='#myModal' data-toggle='modal'>修改</button>"+"<button class='layui-btn layui-btn-radius layui-btn-primary Address-delect'>删除</button></td>";
     	            $(".Address-table tbody").append(text);
     				}

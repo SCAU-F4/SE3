@@ -149,7 +149,7 @@ public class Usercontroller {
 		return res;
 	}
 	
-	@RequestMapping(value= "deleteIndent",produces="application/json;charset=utf-8")
+/*	@RequestMapping(value= "deleteIndent",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String deleteIndent(String callback,HttpServletRequest request) throws Exception{ 
 		String indentID=request.getParameter("indentID");
@@ -158,5 +158,5 @@ public class Usercontroller {
 		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";
 		return res;
-	}
+	}*/
 }
