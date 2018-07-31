@@ -15,6 +15,9 @@ public interface IndentMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<Indent> findBycustomerID(int customerID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	int isIndentexitByaddressID(int addressID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<Indent> findAllIndentItembycustomerIDandaddressID(@Param("customerID") int CustomerID,@Param("addressID") int AddressID);

@@ -38,6 +38,10 @@
 		from Indent
 		where customerID = #{customerID}
 	</select>
+	
+	<select id="isIndentexitByaddressID" resultType="java.lang.Integer">
+		select count(indentID) from Indent where addressID=#{addressID}
+	</select>
 
 	<insert id="insert">
 		insert into Indent

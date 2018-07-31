@@ -212,12 +212,15 @@ public class UserserviceImpl implements Userservice{
     		}
     	}
     	else {
-    		int sum=addressmapper.update(address);
+    		int sum =indentmapper.isIndentexitByaddressID(addressID);
+    		if(sum!=0){
+    			result+="该地址已被下单，不能更改";
+    			return result;
+    		}
+    		sum=addressmapper.update(address);
     		if(sum==0){
     			result+="更新失败";
     		}
-    		
-    		
     	}
 		return result;
 	}
@@ -225,10 +228,16 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public String deleteAddress(int customerID, int addressID) {
 		String result="";
-		int sum=addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
+		int sum =indentmapper.isIndentexitByaddressID(addressID);
+		if(sum!=0){
+			result+="该地址已被下单，不能删除";
+			return result;
+		}
+		sum=addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
 		if(sum==0){
 			result+="删除失败";
 		}
+		
 		return result;
 	}
 
