@@ -339,8 +339,7 @@
 
                                     <c:forEach items="${addresses}" var="item" varStatus="status">
                                     <tr>
-                                    	<input type="hidden" value="${item.addressID }" class="addressID"/>
-                                        <td class="addressName">${item.addressName }</td>
+                                        <td class="addressName" data-addrId="${item.addressID }">${item.addressName }</td>
                                         <td class="addressDetail">${item.addressDetail }</td>
                                         <td class="addressPhone">${item.addressPhone }</td>
                                         <td class="addressPostcode">${item.addressPostcode }</td>

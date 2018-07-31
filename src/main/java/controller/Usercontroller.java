@@ -120,7 +120,7 @@ public class Usercontroller {
 		String addressName=request.getParameter("addressName");
 		String temp=request.getParameter("addressID");
 		int addressID=-1;
-		if(temp!=""){
+		if(temp!=null){
 			addressID=Integer.parseInt(temp);
 			}
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");

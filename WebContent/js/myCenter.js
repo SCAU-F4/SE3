@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	 var $modify;
+	 var addrId;
     $(".Order-top>ul>li").click(function () {
         $(".Order-list .showli").removeClass("showli").hide();
         $(this).addClass("active").siblings().removeClass("active");
@@ -59,22 +60,77 @@ $(document).ready(function () {
         $(".Address-addsubmit").hide();
         $(".Address-mod").show();
         // $("#addressDetail").
-        $("#addressName").val(name);
-        $("#addressDetail").val(address);
-        $("#addressPostcode").val(postcode);
-        $("#addressPhone").val(phone);
+        $("#addressName").val(name).attr("flag","true");
+        $("#addressDetail").val(address).attr("flag","true");
+        $("#addressPostcode").val(postcode).attr("flag","true");
+        $("#addressPhone").val(phone).attr("flag","true");
+        $(".modal-body .group .inputgroup i.glyphicon-ok").show();
+        addrId=$(this).parents("td").siblings(".addressName").attr("data-addrId");
+        console.log(addrId);
 });
 //地址修改
-    
+    $(".close").click(function(){
+    	 $("#addressName").val("");
+         $("#addressDetail").val("");
+         $("#addressPhone").val("");
+         $("#addressPostcode").val("");
+         $(".modal-body .group .inputgroup i,.modal-body .group .inputgroup p").hide();
+    });
     $(".Address-mod").click(function () {
-        $modify.parents("td").siblings(".addressName").text($("#addressName").val());
-        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
-        $modify.parents("td").siblings(".addressPhone").text($("#addressPhone").val());
-        $modify.parents("td").siblings(".addressPostcode").text($("#addressPostcode").val());
-        $("#addressName").val("");
-        $("#addressDetail").val("");
-        $("#addressPhone").val("");
-        $("#addressPostcode").val("");
+    	var addressflag=$("#addressDetail").attr("flag");
+        var postcodeflag=$("#addressPostcode").attr("flag");
+        var phoneflag=$("#addressPhone").attr("flag");
+        var nameflag=$("#addressName").attr("flag"); 
+        
+        var address=$("#addressDetail").val();
+        var postcode=$("#addressPostcode").val();
+        var phone=$("#addressPhone").val();
+        var name=$("#addressName").val();
+        console.log(address+"//"+postcode+"//"+phone+"//"+name+"//"+addrId);
+        if(addressflag=="true"&&postcodeflag=="true"&&phoneflag=="true"&&nameflag=="true")
+        {
+        	$.ajax({
+        		type:"post",
+    			async:false,
+    			url:"changeAddress",
+    			dataType:"jsonp",
+    			jsonp:"callback",
+    			data:{
+    				addressDetail:address,
+    				addressPostcode:postcode,
+    				addressPhone:phone,
+    				addressName:name,
+    				addressID:addrId,
+    				t:new Date()
+    			},
+    			success:function(res){
+    				if(res.result==""){
+    						$modify.parents("td").siblings(".addressName").text($("#addressName").val());
+    				        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
+    				        $modify.parents("td").siblings(".addressPhone").text($("#addressPhone").val());
+    				        $modify.parents("td").siblings(".addressPostcode").text($("#addressPostcode").val());
+    				        $("#addressName").val("");
+    				        $("#addressDetail").val("");
+    				        $("#addressPhone").val("");
+    				        $("#addressPostcode").val("");
+    				}
+    				else{
+    					alert(res.result);
+    				}
+    			},
+    			error:function(e){
+    				alert("false");
+    			}
+        	});
+        }
+//        $modify.parents("td").siblings(".addressName").text($("#addressName").val());
+//        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
+//        $modify.parents("td").siblings(".addressPhone").text($("#addressPhone").val());
+//        $modify.parents("td").siblings(".addressPostcode").text($("#addressPostcode").val());
+//        $("#addressName").val("");
+//        $("#addressDetail").val("");
+//        $("#addressPhone").val("");
+//        $("#addressPostcode").val("");
     });
 //地址修改
     
@@ -324,6 +380,7 @@ $(document).ready(function () {
         else{
             var text="<laber class='text-danger'>请输入正确信息</laber>"
             $(".modal-body").append(text);
+            $(".modal-body .group .inputgroup i.glyphicon-remove,.modal-body .group .inputgroup p").show();
             return false;
         }
     });
@@ -372,5 +429,8 @@ $(document).ready(function () {
     		});
     	}
     });
-    
+    $(".addressName").each(function(){
+    	 console.log($(this).attr("data-addrId"));
+    });
+
 });
