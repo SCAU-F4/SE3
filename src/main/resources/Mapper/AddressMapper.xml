@@ -30,7 +30,7 @@
   </select>
 
   <insert id="insert">
-  	insert into Address values(#{customerID}, #{addressID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
+  	insert into Address(customerID,addressDetail,addressPostcode,addressPhone,addressName) values(#{customerID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
   </insert>
   <update id="update">
     update Address set addressDetail=#{addressDetail}, addressPostcode=#{addressPostcode},addressPhone=#{addressPhone},addressName=#{addressName}where customerID=#{customerID} AND addressID=#{addressID} 

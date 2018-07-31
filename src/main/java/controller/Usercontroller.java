@@ -35,7 +35,6 @@ public class Usercontroller {
 	public String signin(Customer customer, Model model, HttpSession session) {
 		String result = "";
 		customer = userservice.signincheck(customer);
-//		System.out.println(customer);
 		if (customer == null) {
 			result += "用户名或密码不正确";
 			model.addAttribute("error", result);
@@ -83,7 +82,6 @@ public class Usercontroller {
 	public String changeName(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
 		String customerID=request.getParameter("customerID");
 		String customerName=request.getParameter("customerName");
-		System.out.println(customerName);
 		String result=userservice.changeName(Integer.parseInt(customerID), customerName);
 		if(result=="") {
 			Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
@@ -113,17 +111,19 @@ public class Usercontroller {
 		return res;
 	}
 	
-//	@RequestMapping(value= "addAddress",produces="application/json;charset=utf-8")
-//	@ResponseBody
-//	public String addAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-//		String customerID=request.getParameter("customerID");
-//		String oldPassword=request.getParameter("oldPassword");
-//		String newPassword=request.getParameter("newPassword");
-//		String rePassword=request.getParameter("rePassword");
-//	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
-//		Map<String, String> map=new HashMap<>();
-//		map.put("result", result);
-//		String res=callback+"("+JSON.toJSONString(map)+")";
-//		return res;
-//	}
+	@RequestMapping(value= "addAddress",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String addAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+		String addressDetail=request.getParameter("addressDetail");
+		String addressPostcode=request.getParameter("addressPostcode");
+		String addressPhone=request.getParameter("addressPhone");
+		String addressName=request.getParameter("addressName");
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		int customerID=customer.getCustomerID();
+	    String result=userservice.addAddress(customerID,addressDetail, addressPostcode, addressPhone, addressName);
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
 }
