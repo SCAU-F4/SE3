@@ -192,10 +192,10 @@ public class UserserviceImpl implements Userservice{
     		result+="邮政编码格式不对";
     		return result;
     	}
-		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
+		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$");
     	m=p.matcher(addressName);
     	if(m.matches()==false) {
-    		result+="名字字数必须在5到20之间且不有特殊符号";
+    		result+="名字字数必须在2到8之间且不有特殊符号";
     		return result;
     	}
     	p=Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
