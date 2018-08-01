@@ -7,7 +7,7 @@
 	<resultMap type="goods" id="goodsMap">
 		<id column="goodsID" property="goodsID" />
 		<result column="goodsName" property="goodsName" />
-		<result column="goodsTypeID" property="goodsTypeID" />
+		<result column="goodsMainTypeID" property="goodsMainTypeID" />
 		<result column="goodsSpecify" property="goodsSpecify" />
 		<result column="goodsBrief" property="goodsBrief" />
 		<result column="goodsPrice" property="goodsPrice" />
@@ -15,6 +15,7 @@
 		<result column="sellCount" property="sellCount" />
 		<result column="goodsDate" property="goodsDate" />
 		<result column="isSell" property="isSell" />
+		<result column="goodsSecondaryTypeID" property="goodsSecondaryTypeID" />
 	</resultMap>
 
 	<resultMap type="goods" id="goodsMap1" extends="goodsMap">
@@ -33,25 +34,25 @@
 	</select>
 
 
-	<select id="findGoodsBygoodsTypeID" resultMap="goodsMap1">
+	<select id="findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID" resultMap="goodsMap1">
 		select *
 		from Goods
-		where goodsTypeID = #{goodsTypeID}
+		where goodsMainTypeID = #{goodsMainTypeID} AND goodsSecondaryTypeID= #{goodsSecondaryTypeID}
 	</select>
 
 
 	<insert id="insert">
 		insert into Goods
-		values(#{goodsID}, #{goodsName}, #{goodsTypeID},
+		values(#{goodsID}, #{goodsName}, #{goodsMainTypeID},
 		#{goodsSpecify},
 		#{goodsBrief}, #{goodsPrice}, #{goodsCount},
 		#{sellCount},
-		#{goodsDate}, #{isSell})
+		#{goodsDate}, #{isSell}, #{goodsSecondaryTypeID})
 	</insert>
 	<update id="update">
 		update Goods set
 		goodsName=#{goodsName},
-		goodsTypeID=#{goodsTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell}
+		goodsMainTypeID=#{goodsMainTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell}, goodsSecondaryTypeID=#{goodsSecondaryTypeID}
 		where goodsID=#{goodsID}
 	</update>
 	<delete id="delete">
