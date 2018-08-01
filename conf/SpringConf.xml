@@ -88,8 +88,8 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 
-	<bean id="GoodsTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.GoodsTypeMapper" />
+	<bean id="GoodsMainTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="Mapper.GoodsMainTypeMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.GoodsMainTypeMapper">
+
+	<resultMap type="goodsMainType" id="goodsMainTypeMap">
+		<id column="goodsMainTypeID" property="goodsMainTypeID" />
+		<result column="goodsMainType" property="goodsMainType" />
+	</resultMap>
+
+	<resultMap type="goodsMainType" id="goodsMainTypeMap1"
+		extends="goodsMainTypeMap">
+		<collection property="goodsSecondaryTypeList" fetchType="lazy"
+			select="Mapper.GoodsSecondaryTypeMapper.findBygoodsMainTypeID"
+			column="{goodsMainTypeID=goodsMainTypeID}">
+		</collection>
+	</resultMap>
+
+
+
+	<select id="findByGoodsMainTypeID" resultMap="goodsMainTypeMap1">
+		select * from
+		GoodsMainType where goodsMainTypeID = #{goodsMainTypeID}
+	</select>
+
+
+	<select id="findAllGoodsMainTypes" resultMap="goodsMainTypeMap1">
+		select * from
+		GoodsMainType
+	</select>
+
+	<insert id="insert">
+		insert into GoodsMainType values(#{goodsMainTypeID},
+		#{goodsMainType})
+	</insert>
+	
+	<update id="update">
+		update GoodsMainType set
+		goodsMainType=#{goodsMainType}
+		where goodsMainTypeID=#{goodsMainTypeID}
+	</update>
+	
+	<delete id="delete">
+		delete from GoodsMainType
+	   where goodsMainTypeID=#{goodsMainTypeID}
+	</delete>
+	
+	
+</mapper>

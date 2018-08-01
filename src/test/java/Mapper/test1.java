@@ -11,8 +11,8 @@ import bean.CartDetail;
 import bean.Customer;
 import bean.EvaluatePicture;
 import bean.Goods;
+import bean.GoodsMainType;
 import bean.GoodsSecondaryType;
-import bean.GoodsType;
 import bean.IndentDetail;
 
 
@@ -21,7 +21,15 @@ public class test1 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsSecondaryTypeMapper goodsSecondaryTypeMapper=ctx.getBean(GoodsSecondaryTypeMapper.class);
+		GoodsMainTypeMapper goodsMainTypeMapper=ctx.getBean(GoodsMainTypeMapper.class);
+		GoodsMainType goodsMaintype=goodsMainTypeMapper.findByGoodsMainTypeID(99);
+		goodsMaintype.setGoodsMainType("wocfewfimafewrfewfewfwfewef");
+		goodsMaintype.setGoodsMainTypeID(78);
+		List list=goodsMainTypeMapper.findAllGoodsMainTypes();
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
 //		System.out.println(goodsSecondaryTypeMapper.findBygoodsSecondaryTypeID(15));
 		
 //		CustomerMapper cm=ctx.getBean(CustomerMapper.class);

@@ -16,7 +16,7 @@
   
   
   <select id="findBypictureID" resultMap="pictureMap">
-    select * from Picture pictureID= #{pictureID}
+    select * from Picture where pictureID= #{pictureID}
   </select>
   
   <select id="findGoodsAllPictures" resultMap="pictureMap">
