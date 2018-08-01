@@ -533,5 +533,5 @@ body{
 }
 
 #SE3_header .navbar .container-fluid .collapse>ul>li a{
-    border-bottom: 3px #fff solid ;
+    border-bottom: 3px transparent solid ;
 }
