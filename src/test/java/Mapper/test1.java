@@ -10,6 +10,8 @@ import bean.Cart;
 import bean.CartDetail;
 import bean.Customer;
 import bean.EvaluatePicture;
+import bean.Goods;
+import bean.GoodsSecondaryType;
 import bean.GoodsType;
 import bean.IndentDetail;
 
@@ -19,9 +21,8 @@ public class test1 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
-		System.out.println(customerMapper.findBycustomerID(1));
-
+		GoodsSecondaryTypeMapper goodsSecondaryTypeMapper=ctx.getBean(GoodsSecondaryTypeMapper.class);
+//		System.out.println(goodsSecondaryTypeMapper.findBygoodsSecondaryTypeID(15));
 		
 //		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
 //		Customer c=cm.findBycustomerID(1);

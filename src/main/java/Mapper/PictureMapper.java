@@ -14,6 +14,9 @@ public interface PictureMapper {
 	Picture findBygoodsIDAndpictureID(@Param("goodsID") int goodsID,@Param("pictureID")int pictureID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	Picture findBypictureID(@Param("pictureID")int pictureID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<Picture> findGoodsAllPictures(@Param("goodsID")int goodsID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
