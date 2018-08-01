@@ -21,5 +21,12 @@ $(document).ready(function () {
                 $(this).find("div").fadeOut("fast").removeClass("flag");
             }
         });
-
+    $(".shopping-cart").hover(function () {
+        $(".cart-show-area").show();
+   },function () {
+       $(".cart-show-area").hide();
+   });
+   $(".back-top").click(function () {
+       $("html,body").animate({scrollTop:0},"slow");
+   })
 });
