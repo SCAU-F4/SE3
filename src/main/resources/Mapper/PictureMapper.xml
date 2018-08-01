@@ -4,34 +4,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mapper.PictureMapper">
 
-  <resultMap type="picture" id="pictureMap">
-  	<id column="goodsID" property="goodsID"/>
-  	<id column="pictureID" property="pictureID"/>
-  	<result column="picturePath" property="picturePath"/>
-  </resultMap>
+	<resultMap type="picture" id="pictureMap">
+		<id column="goodsID" property="goodsID" />
+		<id column="pictureID" property="pictureID" />
+		<result column="picturePath" property="picturePath" />
+	</resultMap>
 
-  <select id="findBygoodsIDAndpictureID" resultMap="pictureMap">
-    select * from Picture where goodsID = #{goodsID} AND pictureID= #{pictureID}
-  </select>
-  
-  
-  <select id="findBypictureID" resultMap="pictureMap">
-    select * from Picture where pictureID= #{pictureID}
-  </select>
-  
-  <select id="findGoodsAllPictures" resultMap="pictureMap">
-    select * 
-    from Picture where goodsID = #{goodsID}
-  </select>
-  
-  
-  <insert id="insert">
-  	insert into Picture values(#{goodsID}, #{pictureID}, #{picturePath})
-  </insert>
-  <update id="update">
-    update Picture set picturePath=#{picturePath}  where goodsID=#{goodsID} AND pictureID= #{pictureID}
-  </update>
-  <delete id="delete">
-    delete from Picture where goodsID=#{goodsID} AND pictureID= #{pictureID}
-  </delete>
+	<select id="findBygoodsIDAndpictureID" resultMap="pictureMap">
+		select * from Picture where goodsID = #{goodsID} AND pictureID= #{pictureID}
+	</select>
+
+
+	<select id="findBypictureID" resultMap="pictureMap">
+		select * from Picture where pictureID= #{pictureID}
+	</select>
+
+	<select id="findGoodsAllPictures" resultMap="pictureMap">
+		select *
+		from Picture where goodsID = #{goodsID}
+	</select>
+
+
+	<insert id="insert">
+		insert into Picture values(#{goodsID}, #{pictureID}, #{picturePath})
+	</insert>
+	<update id="update">
+		update Picture set picturePath=#{picturePath} where goodsID=#{goodsID} AND
+		pictureID= #{pictureID}
+	</update>
+	<delete id="delete">
+		delete from Picture where goodsID=#{goodsID} AND pictureID= #{pictureID}
+	</delete>
 </mapper>

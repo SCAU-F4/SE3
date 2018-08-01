@@ -8,15 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bean.middle.indexbean;
-import service.goodservice.Goodservice;
+import service.welcomeservice.Welcomeservice;
 
 @Controller
 public class Welcomecontroller {
 	@Autowired
-	Goodservice goodservice;
+	Welcomeservice welcomeservice;
     @RequestMapping("")
     public String welcome(Model model){
-    	List<indexbean> indexs=null;
+    	List<indexbean> indexs=welcomeservice.initIndex();
     	model.addAttribute("indexs", indexs);
     	return "index";
     }

@@ -13,10 +13,10 @@ public class test1 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMainTypeMapper goodsMainTypeMapper=ctx.getBean(GoodsMainTypeMapper.class);
-		GoodsMainType goodsMaintype=goodsMainTypeMapper.findByGoodsMainTypeID(99);
-		System.out.println(goodsMaintype);
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		GoodsMainTypeMapper goodsMainTypeMapper=ctx.getBean(GoodsMainTypeMapper.class);
+//		GoodsMainType goodsMaintype=goodsMainTypeMapper.findByGoodsMainTypeID(99);
+//		System.out.println(goodsMaintype);
 //		goodsMaintype.setGoodsMainType("wocfewfimafewrfewfewfwfewef");
 //		goodsMaintype.setGoodsMainTypeID(78);
 //		List list=goodsMainTypeMapper.findAllGoodsMainTypes();

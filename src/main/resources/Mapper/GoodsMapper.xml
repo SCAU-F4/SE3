@@ -33,26 +33,38 @@
 		goodsID = #{goodsID}
 	</select>
 
+	<select id="findBygoodsMainTypeID" resultMap="goodsMap1">
+		select * from Goods
+		where
+		goodsMainTypeID = #{goodsMainTypeID}
+	</select>
 
-	<select id="findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID" resultMap="goodsMap1">
+
+	<select id="findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID"
+		resultMap="goodsMap1">
 		select *
 		from Goods
-		where goodsMainTypeID = #{goodsMainTypeID} AND goodsSecondaryTypeID= #{goodsSecondaryTypeID}
+		where goodsMainTypeID = #{goodsMainTypeID}
+		AND goodsSecondaryTypeID= #{goodsSecondaryTypeID}
 	</select>
 
 
 	<insert id="insert">
 		insert into Goods
-		values(#{goodsID}, #{goodsName}, #{goodsMainTypeID},
+		values(#{goodsID}, #{goodsName},
+		#{goodsMainTypeID},
 		#{goodsSpecify},
-		#{goodsBrief}, #{goodsPrice}, #{goodsCount},
+		#{goodsBrief}, #{goodsPrice},
+		#{goodsCount},
 		#{sellCount},
-		#{goodsDate}, #{isSell}, #{goodsSecondaryTypeID})
+		#{goodsDate}, #{isSell},
+		#{goodsSecondaryTypeID})
 	</insert>
 	<update id="update">
 		update Goods set
 		goodsName=#{goodsName},
-		goodsMainTypeID=#{goodsMainTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell}, goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+		goodsMainTypeID=#{goodsMainTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell},
+		goodsSecondaryTypeID=#{goodsSecondaryTypeID}
 		where goodsID=#{goodsID}
 	</update>
 	<delete id="delete">

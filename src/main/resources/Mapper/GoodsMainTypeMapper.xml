@@ -13,7 +13,10 @@
 	<resultMap type="goodsMainType" id="goodsMainTypeMap1"
 		extends="goodsMainTypeMap">
 		<association property="picture" column="{pictureID=pictureID}"
-			select="Mapper.PictureMapper.findBypictureID" />
+			fetchType="lazy" select="Mapper.PictureMapper.findBypictureID" />
+		<collection property="goodsList" fetchType="lazy"
+			select="Mapper.GoodsMapper.findBygoodsMainTypeID" column="{goodsMainTypeID=goodsMainTypeID}">
+		</collection>
 		<collection property="goodsSecondaryTypeList" fetchType="lazy"
 			select="Mapper.GoodsSecondaryTypeMapper.findBygoodsMainTypeID"
 			column="{goodsMainTypeID=goodsMainTypeID}">
@@ -37,17 +40,18 @@
 		insert into GoodsMainType values(#{goodsMainTypeID},
 		#{goodsMainType},#{pictureID})
 	</insert>
-	
+
 	<update id="update">
 		update GoodsMainType set
 		goodsMainType=#{goodsMainType}
 		where goodsMainTypeID=#{goodsMainTypeID}
 	</update>
-	
+
 	<delete id="delete">
 		delete from GoodsMainType
-	   where goodsMainTypeID=#{goodsMainTypeID}
+		where
+		goodsMainTypeID=#{goodsMainTypeID}
 	</delete>
-	
-	
+
+
 </mapper>

@@ -4,50 +4,56 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mapper.CustomerMapper">
 
-  <resultMap type="customer" id="customerMap">
-  	<id column="customerID" property="customerID"/>
-  	<result column="customerName" property="customerName"/>
-  	<result column="customerPwd" property="customerPwd"/>
-  	<result column="customerPhone" property="customerPhone"/>
-  	<result column="customerEmail" property="customerEmail"/>
-  	<result column="customerRegDate" property="customerRegDate"/>
-  </resultMap>
+	<resultMap type="customer" id="customerMap">
+		<id column="customerID" property="customerID" />
+		<result column="customerName" property="customerName" />
+		<result column="customerPwd" property="customerPwd" />
+		<result column="customerPhone" property="customerPhone" />
+		<result column="customerEmail" property="customerEmail" />
+		<result column="customerRegDate" property="customerRegDate" />
+	</resultMap>
 
 	<resultMap type="customer" id="customerMap1" extends="customerMap">
-	<association property="cart" column="{customerID=customerID}"
-			select="Mapper.CartMapper.findBycustomerID" />
+		<association property="cart" column="{customerID=customerID}"
+			fetchType="lazy" select="Mapper.CartMapper.findBycustomerID" />
 		<collection property="addressList" fetchType="lazy"
 			select="Mapper.AddressMapper.findAddressByCustomoerID" column="{customerID=customerID}">
 		</collection>
-		
-		
+
+
 	</resultMap>
-	
-  <select id="findBycustomerID" resultMap="customerMap1">
-    select * from Customer where customerID = #{id}
-  </select>
-  
-  <select id="IsCustomerNameExist" resultType="java.lang.Integer">
-     select customerID from Customer where customerName = #{customerName}
-  </select>
-  
-  <select id="findBycustomerNameAndcustomerPwd" resultMap="customerMap1">
-  select * from Customer where customerName=#{customerName} and customerPwd=#{customerPwd}
-  </select>
-  
-  <insert id="insert" >
-  	insert into Customer values(#{customerID}, #{customerName}, #{customerPwd}, #{customerPhone}, #{customerEmail}, #{customerRegDate})
-  </insert>
-  <update id="update" >
-    update Customer set customerName=#{customerName}, customerPwd=#{customerPwd},customerPhone=#{customerPhone},customerEmail=#{customerEmail},customerRegDate=#{customerRegDate} where customerID=#{customerID}
-  </update>
-   <update id="updatecustomerNameBycustomerID" >
-    update Customer set customerName=#{customerName} where customerID=#{customerID}
-  </update>
-  <update id="updatecustomerPasswordBycustomerID" >
-    update Customer set customerPwd=#{customerPassword} where customerID=#{customerID}
-  </update>
-  <delete id="delete" >
-    delete from Customer where customerID=#{customerID}
-  </delete>
+
+	<select id="findBycustomerID" resultMap="customerMap1">
+		select * from Customer where customerID = #{id}
+	</select>
+
+	<select id="IsCustomerNameExist" resultType="java.lang.Integer">
+		select customerID from Customer where customerName = #{customerName}
+	</select>
+
+	<select id="findBycustomerNameAndcustomerPwd" resultMap="customerMap1">
+		select * from Customer where customerName=#{customerName} and
+		customerPwd=#{customerPwd}
+	</select>
+
+	<insert id="insert">
+		insert into Customer values(#{customerID}, #{customerName}, #{customerPwd},
+		#{customerPhone}, #{customerEmail}, #{customerRegDate})
+	</insert>
+	<update id="update">
+		update Customer set customerName=#{customerName},
+		customerPwd=#{customerPwd},customerPhone=#{customerPhone},customerEmail=#{customerEmail},customerRegDate=#{customerRegDate}
+		where customerID=#{customerID}
+	</update>
+	<update id="updatecustomerNameBycustomerID">
+		update Customer set customerName=#{customerName} where
+		customerID=#{customerID}
+	</update>
+	<update id="updatecustomerPasswordBycustomerID">
+		update Customer set customerPwd=#{customerPassword} where
+		customerID=#{customerID}
+	</update>
+	<delete id="delete">
+		delete from Customer where customerID=#{customerID}
+	</delete>
 </mapper>

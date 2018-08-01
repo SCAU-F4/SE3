@@ -4,41 +4,50 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mapper.AddressMapper">
 
-  <resultMap type="address" id="addressMap">
-  	<id column="customerID" property="customerID"/>
-  	<id column="addressID" property="addressID"/>
-  	<result column="addressDetail" property="addressDetail"/>
-  	<result column="addressPostcode" property="addressPostcode"/>
-  	<result column="addressPhone" property="addressPhone"/>
-  	<result column="addressName" property="addressName"/>
-  </resultMap>
-  
-  <resultMap type="address" id="addressMap1" extends="addressMap">
+	<resultMap type="address" id="addressMap">
+		<id column="customerID" property="customerID" />
+		<id column="addressID" property="addressID" />
+		<result column="addressDetail" property="addressDetail" />
+		<result column="addressPostcode" property="addressPostcode" />
+		<result column="addressPhone" property="addressPhone" />
+		<result column="addressName" property="addressName" />
+	</resultMap>
+
+	<resultMap type="address" id="addressMap1" extends="addressMap">
 		<collection property="IndentList" fetchType="lazy"
-			select="Mapper.IndentMapper.findAllIndentItembycustomerIDandaddressID" column="{customerID=customerID},{addressID=addressID}">
+			select="Mapper.IndentMapper.findAllIndentItembycustomerIDandaddressID"
+			column="{customerID=customerID},{addressID=addressID}">
 		</collection>
 	</resultMap>
 
-  <select id="findBycustomerIDAndaddressID" resultMap="addressMap1">
-    select * from Address where customerID = #{customerID} AND addressID=#{addressID}
-  </select>
-    
-  <select id="findAddressByCustomoerID" resultMap="addressMap1">
-    select *
-    from Address 
-    where customerID = #{customerID}
-  </select>
+	<select id="findBycustomerIDAndaddressID" resultMap="addressMap1">
+		select * from Address where customerID = #{customerID} AND
+		addressID=#{addressID}
+	</select>
 
-  <insert id="insert" keyProperty="addressID" useGeneratedKeys="true">
-  	insert into Address(customerID,addressDetail,addressPostcode,addressPhone,addressName) values(#{customerID}, #{addressDetail}, #{addressPostcode}, #{addressPhone}, #{addressName})
-  </insert>
-  <update id="update">
-    update Address set addressDetail=#{addressDetail}, addressPostcode=#{addressPostcode},addressPhone=#{addressPhone},addressName=#{addressName}where customerID=#{customerID} AND addressID=#{addressID} 
-  </update>
-  <delete id="delete">
-    delete from Address where customerID=#{customerID} AND addressID=#{addressID}
-  </delete>
-  <delete id="deleteBycustomerIDAndaddressID">
-    delete from Address where customerID=#{customerID} AND addressID=#{addressID}
-  </delete>
+	<select id="findAddressByCustomoerID" resultMap="addressMap1">
+		select *
+		from Address
+		where customerID = #{customerID}
+	</select>
+
+	<insert id="insert" keyProperty="addressID" useGeneratedKeys="true">
+		insert into
+		Address(customerID,addressDetail,addressPostcode,addressPhone,addressName)
+		values(#{customerID}, #{addressDetail}, #{addressPostcode},
+		#{addressPhone}, #{addressName})
+	</insert>
+	<update id="update">
+		update Address set addressDetail=#{addressDetail},
+		addressPostcode=#{addressPostcode},addressPhone=#{addressPhone},addressName=#{addressName}where
+		customerID=#{customerID} AND addressID=#{addressID}
+	</update>
+	<delete id="delete">
+		delete from Address where customerID=#{customerID} AND
+		addressID=#{addressID}
+	</delete>
+	<delete id="deleteBycustomerIDAndaddressID">
+		delete from Address where customerID=#{customerID} AND
+		addressID=#{addressID}
+	</delete>
 </mapper>

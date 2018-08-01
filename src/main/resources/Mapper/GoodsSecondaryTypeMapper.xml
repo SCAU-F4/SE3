@@ -15,7 +15,7 @@
 	<resultMap type="goodsSecondaryType" id="goodsSecondaryTypeMap1"
 		extends="goodsSecondaryTypeMap">
 		<association property="picture" column="{pictureID=pictureID}"
-			select="Mapper.PictureMapper.findBypictureID" />
+			fetchType="lazy" select="Mapper.PictureMapper.findBypictureID" />
 
 		<collection property="goodsList" fetchType="lazy"
 			select="Mapper.GoodsMapper.findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID"
@@ -43,7 +43,7 @@
 		#{goodsSecondaryTypeExplain},
 		#{pictureID})
 	</insert>
-	
+
 	<update id="update">
 		update GoodsSecondaryType set
 		goodsMainTypeID=#{goodsMainTypeID},
@@ -52,6 +52,7 @@
 	</update>
 	<delete id="delete">
 		delete from GoodsSecondaryType
-		where goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+		where
+		goodsSecondaryTypeID=#{goodsSecondaryTypeID}
 	</delete>
 </mapper>

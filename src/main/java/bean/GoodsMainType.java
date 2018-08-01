@@ -8,19 +8,30 @@ public class GoodsMainType implements Serializable {
 	public String goodsMainType;
 	public int pictureID;
 	public Picture picture;
+	public List<Goods> goodsList;
 	public List<GoodsSecondaryType> goodsSecondaryTypeList;
-	
-	public GoodsMainType(){
-		
+
+	public GoodsMainType() {
+
 	}
 
 	public GoodsMainType(int goodsMainTypeID, String goodsMainType, int pictureID, Picture picture,
-			List<GoodsSecondaryType> goodsSecondaryTypeList) {
+			List<Goods> goodsList, List<GoodsSecondaryType> goodsSecondaryTypeList) {
+		super();
 		this.goodsMainTypeID = goodsMainTypeID;
 		this.goodsMainType = goodsMainType;
 		this.pictureID = pictureID;
 		this.picture = picture;
+		this.goodsList = goodsList;
 		this.goodsSecondaryTypeList = goodsSecondaryTypeList;
+	}
+
+	public List<Goods> getGoodsList() {
+		return goodsList;
+	}
+
+	public void setGoodsList(List<Goods> goodsList) {
+		this.goodsList = goodsList;
 	}
 
 	public int getGoodsMainTypeID() {

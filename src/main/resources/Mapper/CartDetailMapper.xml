@@ -12,22 +12,27 @@
 	</resultMap>
 
 	<select id="findBycartIDAndgoodsID" resultMap="cartDetailMap">
-		select * from CartDetail where cartID = #{cartID} AND
+		select * from
+		CartDetail where cartID = #{cartID} AND
 		goodsID=#{goodsID}
 	</select>
 
 	<select id="getAllDetailbycartID" resultMap="cartDetailMap">
-		select * from CartDetail  where cartID = #{cartID}
+		select * from
+		CartDetail where cartID = #{cartID}
 	</select>
 
 	<insert id="insert">
-		insert into CartDetail values(#{cartID}, #{goodsID}, #{goodsCount}, #{totalPrice})
+		insert into CartDetail values(#{cartID}, #{goodsID},
+		#{goodsCount}, #{totalPrice})
 	</insert>
 	<update id="update">
-		update CartDetail set goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
+		update CartDetail set
+		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
 		cartID=#{cartID} AND goodsID=#{goodsID}
 	</update>
 	<delete id="delete">
-		delete from CartDetail where cartID=#{cartID} AND goodsID=#{goodsID}
+		delete from CartDetail where cartID=#{cartID} AND
+		goodsID=#{goodsID}
 	</delete>
 </mapper>
