@@ -17,10 +17,6 @@ public class Welcomecontroller {
     @RequestMapping("")
     public String welcome(Model model){
     	List<indexbean> indexs=welcomeservice.initIndex();
-//    	for(indexbean i:indexs){
-//    		System.out.println(i);
-//    	}
-//    	System.out.println("------------------------------");
     	model.addAttribute("indexs", indexs);
     	return "index";
     }

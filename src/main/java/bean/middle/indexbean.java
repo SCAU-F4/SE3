@@ -7,11 +7,11 @@ import bean.Goods;
 import bean.GoodsSecondaryType;
 
 public class indexbean {
-	public String mainType;
-	public String mainTypePicture;
-	public List<GoodsSecondaryType> secondaryTypes;
-	public int mainTypeId;
-	public Goods[] goods = new Goods[4];
+	private String mainType;
+	private String mainTypePicture;
+	private List<GoodsSecondaryType> secondaryTypes;
+	private int mainTypeId;
+	private Goods[] goods = new Goods[4];
 
 	public indexbean() {
 

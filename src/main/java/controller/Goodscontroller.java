@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bean.Goods;
+import bean.GoodsSecondaryType;
+import bean.middle.categorybean;
 import service.goodservice.Goodservice;
 
 @Controller
@@ -19,11 +21,9 @@ public class Goodscontroller {
 	@Autowired
 	Goodservice goodservice;
 	@RequestMapping(value="list",method=RequestMethod.GET)  
-	public String listGoods(Model model,@RequestParam(value="categoryId") int categoryID,@RequestParam(value="subcategoryId") int subcategoryID){
-			List<Goods> goodslist=null;
-			model.addAttribute("GoodsList", goodslist);
-//			model.addAttribute("category", categoryName);
-//			model.addAttribute("subcategorylist",subcategorylist);
+	public String getcategory(Model model,@RequestParam(value="categoryId") int categoryID,@RequestParam(value="subcategoryId") int subcategoryID){
+			categorybean category=goodservice.getcategory(categoryID);
+			model.addAttribute("category", category);
 		return "classify";
 	}
 	

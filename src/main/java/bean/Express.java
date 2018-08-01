@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class Express implements Serializable{
-	public int expressCode;
-	public Timestamp expressDate;
-	public String expressState;
+	private int expressCode;
+	private Timestamp expressDate;
+	private String expressState;
 
 	public Express() {
 		super();

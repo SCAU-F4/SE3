@@ -3,9 +3,9 @@ package bean;
 import java.io.Serializable;
 
 public class Picture implements Serializable{
-	public int goodsID;
-	public int pictureID;
-	public String picturePath;
+	private int goodsID;
+	private int pictureID;
+	private String picturePath;
 
 	public Picture() {
 		super();

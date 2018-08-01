@@ -8,20 +8,20 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Goods implements Serializable {
-	public int goodsID;
-	public String goodsName;
-	public int goodsMainTypeID;
-	public String goodsSpecify;
-	public String goodsBrief;
-	public double goodsPrice;
-	public int goodsCount;
-	public int sellCount;
-	public Timestamp goodsDate;
-	public int isSell;
-	public int goodsSecondaryTypeID;
-	public List<Picture> pictureList;
-	public List<Evaluate> evaluateList;
-	public Goods() {
+	private int goodsID;
+	private String goodsName;
+	private int goodsMainTypeID;
+	private String goodsSpecify;
+	private String goodsBrief;
+	private double goodsPrice;
+	private int goodsCount;
+	private int sellCount;
+	private Timestamp goodsDate;
+	private int isSell;
+	private int goodsSecondaryTypeID;
+	private List<Picture> pictureList;
+	private List<Evaluate> evaluateList;
+	private Goods() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

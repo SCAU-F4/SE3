@@ -3,10 +3,10 @@ package bean;
 import java.io.Serializable;
 
 public class CartDetail implements Serializable{
-	public int cartID;
-	public int goodsID;
-	public int goodsCount;
-	public double totalPrice;
+	private int cartID;
+	private int goodsID;
+	private int goodsCount;
+	private double totalPrice;
 
 	public CartDetail() {
 		super();

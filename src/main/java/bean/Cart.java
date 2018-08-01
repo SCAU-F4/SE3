@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Cart implements Serializable{
-	public int cartID;
-	public int customerID;
-	public double totalPrice;
-	public List<CartDetail> CartDetailList;
+	private int cartID;
+	private int customerID;
+	private double totalPrice;
+	private List<CartDetail> CartDetailList;
 
 	public Cart() {
 		super();
