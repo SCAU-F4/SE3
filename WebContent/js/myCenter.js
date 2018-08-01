@@ -2,20 +2,33 @@ $(document).ready(function () {
 	 var $modify;
 	 var addrId;
 	 var $delete;
+	 var $deleteIndent;
     $(".Order-top>ul>li").click(function () {
         $(".Order-list .showli").removeClass("showli").hide();
+        $(".isNoPanel").hide();
+    	$(".page").show();
         $(this).addClass("active").siblings().removeClass("active");
         var select=$(this).attr("data-select");console.log(select);
         $(".page").show();
         if (select!=0) {
         	console.log($("span.deal-state[data-state=" + select + "]").text());
         	$("span.deal-state[data-state=" + select + "]").parents(".panel").addClass("showli").fadeIn().siblings(".panel:not(.showli)").fadeOut();
-        	
+        	var $test=$(".panel.showli");
+            if($test.length==0){
+            	$(".isNoPanel").show();
+            	$(".page").hide();
+            }
         }
         else
         {
             $(".panel").addClass("showli").fadeIn("fast");
-         
+            $(".isNoPanel").hide();
+        	$(".page").show();
+        	var $test=$(".panel.showli");
+            if($test.length==0){
+            	$(".isNoPanel").show();
+            	$(".page").hide();
+            }
         }
     });
 //    点击订单状态分类显示相应的订单
@@ -69,13 +82,49 @@ $(document).ready(function () {
     
     $(".search-button").click(function () {
         $("div.panel").hide();
+        $(".isNoPanel").hide();
+    	$(".page").show();
         var orderid=$("#search").val();
-       $(".Order-id:contains("+orderid+")").parents(".panel").show();
+       $(".panel-body .goods span:contains("+orderid+")").parents(".panel").show();
+       if($(".panel-body .goods span:contains("+orderid+")").length==0){
+    	    $(".isNoPanel").show();
+       		$(".page").hide();
+       }
     });
 //订单号查询
     
     $(".panel .panel-heading").on("click","i",function () {
-        $(this).parents(".panel").remove();
+    	var indentId=$(this).siblings(".Order-id").attr("data-indentID");
+    	$deleteIndent=$(this);
+    	$.ajax({
+    		type:"post",
+			async:false,
+			url:"deleteIndent",
+			dataType:"jsonp",
+			jsonp:"callback",
+			data:{
+				indentID:indentId,
+				t:new Date()
+			},
+			success:function(res){
+				if(res.result=="")
+					{
+					$deleteIndent.parents(".panel").remove();
+					 	$(".tip").find("h4").text("删除成功");
+						$(".tip").fadeIn();
+						$(".tip").delay(1500).fadeOut();
+					}
+				else{
+					$(".tip").find("h4").text(res.result);
+					$(".tip").fadeIn();
+					$(".tip").delay(1500).fadeOut();
+				}
+			},
+			error:function(e){
+				alert("失败");
+			}
+    	});
+//        $(this).parents(".panel").remove();
     });
 //删除订单
     
@@ -461,5 +510,10 @@ $(document).ready(function () {
     $(".addressName").each(function(){
     	 console.log($(this).attr("data-addrId"));
     });
+    var $test=$(".panel.showli");
+    if($test.length==0){
+    	$(".isNoPanel").show();
+    	$(".page").hide();
+    }
 
 });
