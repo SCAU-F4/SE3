@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-07-31 21:10:43
+Date: 2018-08-01 21:44:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -117,6 +117,7 @@ CREATE TABLE `evaluatepicture` (
 -- ----------------------------
 -- Records of evaluatepicture
 -- ----------------------------
+INSERT INTO `evaluatepicture` VALUES ('1', '1');
 
 -- ----------------------------
 -- Table structure for `express`
@@ -141,7 +142,7 @@ DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
   `goodsID` int(5) NOT NULL AUTO_INCREMENT,
   `goodsName` varchar(50) NOT NULL,
-  `goodsTypeID` int(5) NOT NULL,
+  `goodsMainTypeID` int(5) NOT NULL,
   `goodsSpecify` varchar(50) NOT NULL,
   `goodsBrief` varchar(100) NOT NULL,
   `goodsPrice` double(8,2) NOT NULL,
@@ -149,29 +150,48 @@ CREATE TABLE `goods` (
   `sellCount` int(5) NOT NULL,
   `goodsDate` datetime(6) NOT NULL,
   `isSell` int(2) NOT NULL,
+  `goodsSecondaryTypeID` int(5) NOT NULL,
   PRIMARY KEY (`goodsID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', '剑指OFFER', '1', '求职神器，强烈推荐', '求职神书', '20.00', '1', '1', '2018-07-27 19:08:34.000000', '1');
+INSERT INTO `goods` VALUES ('1', 'sdfjl', '99', '13', '31', '324.00', '34', '53', '2018-08-01 10:03:02.000000', '1', '1');
 
 -- ----------------------------
--- Table structure for `goodstype`
+-- Table structure for `goodsmaintype`
 -- ----------------------------
-DROP TABLE IF EXISTS `goodstype`;
-CREATE TABLE `goodstype` (
-  `goodsTypeID` int(5) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `goodsmaintype`;
+CREATE TABLE `goodsmaintype` (
+  `goodsMainTypeID` int(5) NOT NULL AUTO_INCREMENT,
   `goodsMainType` varchar(50) NOT NULL,
-  `goodsDetailType` varchar(50) NOT NULL,
-  PRIMARY KEY (`goodsTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  `pictureID` int(5) NOT NULL,
+  PRIMARY KEY (`goodsMainTypeID`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of goodstype
+-- Records of goodsmaintype
 -- ----------------------------
-INSERT INTO `goodstype` VALUES ('1', 'dress', 'female');
+INSERT INTO `goodsmaintype` VALUES ('99', 'haha', '99');
+
+-- ----------------------------
+-- Table structure for `goodssecondarytype`
+-- ----------------------------
+DROP TABLE IF EXISTS `goodssecondarytype`;
+CREATE TABLE `goodssecondarytype` (
+  `goodsSecondaryTypeID` int(5) NOT NULL,
+  `goodsMainTypeID` int(5) NOT NULL,
+  `goodsSecondaryType` varchar(50) NOT NULL,
+  `goodsSecondaryTypeExplain` varchar(50) NOT NULL,
+  `pictureID` int(5) NOT NULL,
+  PRIMARY KEY (`goodsSecondaryTypeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of goodssecondarytype
+-- ----------------------------
+INSERT INTO `goodssecondarytype` VALUES ('1', '99', '15', '1', '1');
 
 -- ----------------------------
 -- Table structure for `indent`
