@@ -50,75 +50,75 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="home"><a href="/SE3-F4">首页<span class="sr-only">首页</span></a></li>
-                            <li class="bag-li"><a href="#">箱包配饰</a>
+                            <li class="bag-li"><a href="/SE3-F4/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
                                 <div class="bag-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=1"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=2"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女性箱包</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=3"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女士箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=4"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
 
-                            <li class="cloth-li"><a href="#">服装</a>
+                            <li class="cloth-li"><a href="/SE3-F4/products/list?categoryId=2&subcategoryId=-1">服装</a>
                                 <div class="cloth-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=5"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=6"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=7"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=8"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="food-li"><a href="#">饮食</a>
+                            <li class="food-li"><a href="/SE3-F4/products/list?categoryId=3&subcategoryId=-1">饮食</a>
                                 <div class="food-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=9"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=10"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=11"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=12"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="sport-li"><a href="#">文体</a>
+                            <li class="sport-li"><a href="/SE3-F4/products/list?categoryId=4&subcategoryId=-1">文体</a>
                                 <div class="sport-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=13"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=14"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=15"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=16"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -156,7 +156,7 @@
                             </ul>
                             <div class="Order-search">
                                 <div class="input-group">
-                                    <input type="text"  placeholder="请输入搜索的订单号" id="search">
+                                    <input type="text"  placeholder="请输入搜索的商品名" id="search">
                                     <div class="input-group-addon">
                                         <button class="layui-icon layui-icon-search search-button" style="border: 0px"></button>
                                     </div>
@@ -169,7 +169,7 @@
      							<div class="panel panel-default showli" data-page="${status.index}">
                                 <div class="panel-heading">
                                     <span class="Order-time">下单时间：${item.indentTime}</span>
-                                    <span class="Order-id">订单号：${item.indentID}</span>
+                                    <span class="Order-id" data-indentID="${item.indentID }">订单号：${item.indentID}</span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
@@ -188,6 +188,7 @@
                                 </div>
                             </div>
    					</c:forEach>
+   						 <div class="isNoPanel"><i class="layui-icon layui-icon-404"></i><span>目前还没有找到符合的订单哦</span></div>
 								<div class="page">
 										<span id="pre">上一页</span>
 										<select name="pageNumber" id="PageNumber">
