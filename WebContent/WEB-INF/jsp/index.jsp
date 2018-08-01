@@ -45,75 +45,75 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="home active"><a href="/SE3-F4">首页<span class="sr-only">首页</span></a></li>
-                    <li class="bag-li"><a href="/goods/{goodsTypeID}">箱包配饰</a>
+                    <li class="bag-li"><a href="/SE3-F4/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
                         <div class="bag-li container downmenu">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
+                                    <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=1"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
                                 </li>
                                 <li>
-                                    <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
+                                    <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=2"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
                                 </li>
                                 <li>
-                                    <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女性箱包</span></div></a>
+                                    <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=3"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女士箱包</span></div></a>
                                 </li>
                                 <li>
-                                    <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
+                                    <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=4"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
                                 </li>
                             </ul>
                         </div>
                     </li>
 
-                    <li class="cloth-li"><a href="#">服装</a>
+                    <li class="cloth-li"><a href="/SE3-F4/products/list?categoryId=2&subcategoryId=-1">服装</a>
                         <div class="cloth-li container downmenu">
                             <ul class="nav navbar-nav">
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=5"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=6"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=7"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=8"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
                             </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="food-li"><a href="#">饮食</a>
+                    <li class="food-li"><a href="/SE3-F4/products/list?categoryId=3&subcategoryId=-1">饮食</a>
                         <div class="food-li container downmenu">
                             <ul class="nav navbar-nav">
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=9"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=10"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=11"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=12"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
                             </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="sport-li"><a href="#">文体</a>
+                    <li class="sport-li"><a href="/SE3-F4/products/list?categoryId=4&subcategoryId=-1">文体</a>
                         <div class="sport-li container downmenu">
                             <ul class="nav navbar-nav">
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=13"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=14"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=15"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
                             </li>
                             <li>
-                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
+                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=16"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
                             </li>
                             </ul>
                     </div>
@@ -284,8 +284,8 @@
             <h1>箱包配饰</h1>
             <ol class="breadcrumb">
                 <li class="text-muted"><a href="#" class="text-muted">行李箱</a></li>
-                <li class="text-muted"><a href="#" class="text-muted">女士包袋</a></li>
-                <li class="text-muted"><a href="#" class="text-muted">男士包袋</a></li>
+                <li class="text-muted"><a href="#" class="text-muted">女士箱包</a></li>
+                <li class="text-muted"><a href="#" class="text-muted">男士箱包</a></li>
                 <li class="text-muted"><a href="#" class="text-muted">钱包配件</a></li>
             </ol>
             </div>
@@ -356,252 +356,6 @@
             </div>
         </div>
     </div>
-</section>
-
-<!--服装-->
-<section class="SE3_product">
-    <div class="container">
-        <div class="row">
-            <div class="producttitle">
-                <h1>箱包配饰</h1>
-                <ol class="breadcrumb">
-                    <li class="text-muted"><a href="#" class="text-muted">行李箱</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">女士包袋</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">男士包袋</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">钱包配件</a></li>
-                </ol>
-            </div>
-            <div class="col-md-12">
-                <img src="${pageContext.request.contextPath }/img/icon/xiebig.jpg" alt="" width="1100">
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product7.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>金属流苏小方包</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">299</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product8.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>24寸山海经印花PC铝框拉杆箱</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">539</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product9.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4> 多功能商务旅行袋</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">369</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product10.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>头层牛皮长款拉链钱包</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">269</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--饮食-->
-<section class="SE3_product">
-    <div class="container">
-        <div class="row">
-            <div class="producttitle">
-                <h1>箱包配饰</h1>
-                <ol class="breadcrumb">
-                    <li class="text-muted"><a href="#" class="text-muted">行李箱</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">女士包袋</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">男士包袋</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">钱包配件</a></li>
-                </ol>
-            </div>
-            <div class="col-md-12">
-                <img src="${pageContext.request.contextPath }/img/icon/xiebig.jpg" alt="" width="1100">
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product7.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>金属流苏小方包</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">299</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product8.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>24寸山海经印花PC铝框拉杆箱</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">539</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product9.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4> 多功能商务旅行袋</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">369</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product10.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>头层牛皮长款拉链钱包</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">269</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--文体-->
-<section class="SE3_product">
-    <div class="container">
-        <div class="row">
-            <div class="producttitle">
-                <h1>箱包配饰</h1>
-                <ol class="breadcrumb">
-                    <li class="text-muted"><a href="#" class="text-muted">行李箱</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">女士包袋</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">男士包袋</a></li>
-                    <li class="text-muted"><a href="#" class="text-muted">钱包配件</a></li>
-                </ol>
-            </div>
-            <div class="col-md-12">
-                <img src="${pageContext.request.contextPath }/img/icon/xiebig.jpg" alt="" width="1100">
-            </div>
-        </div>
-        <div class="row">
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product7.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>金属流苏小方包</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">299</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product8.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>24寸山海经印花PC铝框拉杆箱</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">539</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product9.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4> 多功能商务旅行袋</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">369</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-md-3">
-                <div class="littleimg">
-                    <a href="#">
-                        <img src="${pageContext.request.contextPath }/img/product/product10.png" alt="">
-                    </a>
-                </div>
-                <div class="littleimg-title">
-                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
-                    <div class="littleimg-title-name">
-                        <h4>头层牛皮长款拉链钱包</h4>
-                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">269</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%-- ${currentCustomer.customerName} --%>
 </section>
 
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
