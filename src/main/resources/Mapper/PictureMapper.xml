@@ -6,7 +6,7 @@
 
   <resultMap type="picture" id="pictureMap">
   	<id column="goodsID" property="goodsID"/>
-  	<result column="pictureID" property="pictureID"/>
+  	<id column="pictureID" property="pictureID"/>
   	<result column="picturePath" property="picturePath"/>
   </resultMap>
 
