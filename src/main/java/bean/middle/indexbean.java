@@ -4,28 +4,26 @@ import java.util.Arrays;
 import java.util.List;
 
 import bean.Goods;
+import bean.GoodsSecondaryType;
 
 public class indexbean {
 	public String mainType;
 	public String mainTypePicture;
-	public List<String> secondaryTypes;
+	public List<GoodsSecondaryType> secondaryTypes;
 	public int mainTypeId;
-	public List<Integer> secondaryTypeIds;
 	public Goods[] goods = new Goods[4];
-
 
 	public indexbean() {
 
 	}
 
-	public indexbean(String mainType, String mainTypePicture, List<String> secondaryTypes, int mainTypeId,
-			List<Integer> secondaryTypeIds, Goods[] goods) {
+	public indexbean(String mainType, String mainTypePicture, List<GoodsSecondaryType> secondaryTypes, int mainTypeId,
+			Goods[] goods) {
 		super();
 		this.mainType = mainType;
 		this.mainTypePicture = mainTypePicture;
 		this.secondaryTypes = secondaryTypes;
 		this.mainTypeId = mainTypeId;
-		this.secondaryTypeIds = secondaryTypeIds;
 		this.goods = goods;
 	}
 
@@ -45,11 +43,11 @@ public class indexbean {
 		this.mainTypePicture = mainTypePicture;
 	}
 
-	public List<String> getSecondaryTypes() {
+	public List<GoodsSecondaryType> getSecondaryTypes() {
 		return secondaryTypes;
 	}
 
-	public void setSecondaryTypes(List<String> secondaryTypes) {
+	public void setSecondaryTypes(List<GoodsSecondaryType> secondaryTypes) {
 		this.secondaryTypes = secondaryTypes;
 	}
 
@@ -59,14 +57,6 @@ public class indexbean {
 
 	public void setMainTypeId(int mainTypeId) {
 		this.mainTypeId = mainTypeId;
-	}
-
-	public List<Integer> getSecondaryTypeIds() {
-		return secondaryTypeIds;
-	}
-
-	public void setSecondaryTypeIds(List<Integer> secondaryTypeIds) {
-		this.secondaryTypeIds = secondaryTypeIds;
 	}
 
 	public Goods[] getGoods() {
@@ -80,7 +70,7 @@ public class indexbean {
 	@Override
 	public String toString() {
 		return "indexbean [mainType=" + mainType + ", mainTypePicture=" + mainTypePicture + ", secondaryTypes="
-				+ secondaryTypes + ", mainTypeId=" + mainTypeId + ", secondaryTypeIds=" + secondaryTypeIds + ", goods="
-				+ Arrays.toString(goods) + "]";
+				+ secondaryTypes + ", mainTypeId=" + mainTypeId + ", goods=" + Arrays.toString(goods) + "]";
 	}
+
 }

@@ -319,22 +319,20 @@
         </div>
     </div>
 </section>
-
-<!--箱包配饰-->
+<c:forEach items="${indexs}" var="item" varStatus="status">
 <section class="SE3_product">
     <div class="container">
         <div class="row">
             <div class="producttitle">
-            <h1>箱包配饰</h1>
+            <h1>${item.mainType }</h1>
             <ol class="breadcrumb">
-                <li class="text-muted"><a href="#" class="text-muted">行李箱</a></li>
-                <li class="text-muted"><a href="#" class="text-muted">女士箱包</a></li>
-                <li class="text-muted"><a href="#" class="text-muted">男士箱包</a></li>
-                <li class="text-muted"><a href="#" class="text-muted">钱包配件</a></li>
+            <c:forEach items="${item.secondaryTypes}" var="secondaryType" varStatus="status">
+                <li class="text-muted"><a href="/SE3-F4/products/list?categoryId=${item.mainTypeId}&subcategoryId=${secondaryType.goodsSecondaryTypeID}" class="text-muted">${secondaryType.goodsSecondaryType}</a></li>
+            </c:forEach>
             </ol>
             </div>
             <div class="col-md-12">
-                <img src="${pageContext.request.contextPath }/img/icon/xiebig.jpg" alt="" width="1100">
+                <img src="${item.mainTypePicture}" alt="" width="1100">
             </div>
         </div>
         <div class="row">
@@ -401,6 +399,7 @@
         </div>
     </div>
 </section>
+</c:forEach>
 <div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
