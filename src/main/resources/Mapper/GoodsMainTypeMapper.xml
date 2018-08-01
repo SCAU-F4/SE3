@@ -7,10 +7,13 @@
 	<resultMap type="goodsMainType" id="goodsMainTypeMap">
 		<id column="goodsMainTypeID" property="goodsMainTypeID" />
 		<result column="goodsMainType" property="goodsMainType" />
+		<result column="pictureID" property="pictureID" />
 	</resultMap>
 
 	<resultMap type="goodsMainType" id="goodsMainTypeMap1"
 		extends="goodsMainTypeMap">
+		<association property="picture" column="{pictureID=pictureID}"
+			select="Mapper.PictureMapper.findBypictureID" />
 		<collection property="goodsSecondaryTypeList" fetchType="lazy"
 			select="Mapper.GoodsSecondaryTypeMapper.findBygoodsMainTypeID"
 			column="{goodsMainTypeID=goodsMainTypeID}">
@@ -32,7 +35,7 @@
 
 	<insert id="insert">
 		insert into GoodsMainType values(#{goodsMainTypeID},
-		#{goodsMainType})
+		#{goodsMainType},#{pictureID})
 	</insert>
 	
 	<update id="update">
