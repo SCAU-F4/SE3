@@ -156,7 +156,7 @@
                             </ul>
                             <div class="Order-search">
                                 <div class="input-group">
-                                    <input type="text"  placeholder="请输入搜索的订单号" id="search">
+                                    <input type="text"  placeholder="请输入搜索的商品名" id="search">
                                     <div class="input-group-addon">
                                         <button class="layui-icon layui-icon-search search-button" style="border: 0px"></button>
                                     </div>
@@ -169,7 +169,7 @@
      							<div class="panel panel-default showli" data-page="${status.index}">
                                 <div class="panel-heading">
                                     <span class="Order-time">下单时间：${item.indentTime}</span>
-                                    <span class="Order-id">订单号：${item.indentID}</span>
+                                    <span class="Order-id" data-indentID="${item.indentID }">订单号：${item.indentID}</span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
@@ -188,6 +188,7 @@
                                 </div>
                             </div>
    					</c:forEach>
+   						 <div class="isNoPanel"><i class="layui-icon layui-icon-404"></i><span>目前还没有找到符合的订单哦</span></div>
 								<div class="page">
 										<span id="pre">上一页</span>
 										<select name="pageNumber" id="PageNumber">

@@ -186,3 +186,15 @@ body .tip{
 .modal-body .inputgroup.addrphone p{
 	right:-140px;
 }
+.isNoPanel{
+ 	margin:0 300px;
+ 	display:none;
+}.isNoPanel i{
+	font-size:100px;
+	display:block;
+	    text-align: center;
+	    margin-left:-120px;
+}
+.isNoPanel span{
+	display:inline-block;
+}
