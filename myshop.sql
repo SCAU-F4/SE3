@@ -12,7 +12,7 @@ File Encoding         : 65001
 
 Date: 2018-08-02 01:03:55
 */
-
+use myshop;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
