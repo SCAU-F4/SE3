@@ -6,7 +6,6 @@
 
 	<resultMap type="evaluate" id="evaluateMap">
 		<id column="evaluateID" property="evaluateID" />
-		<result column="customerID" property="customerID" />
 		<result column="goodsID" property="goodsID" />
 		<result column="evaluateDate" property="evaluateDate" />
 		<result column="evaluateGrade" property="evaluateGrade" />
@@ -14,6 +13,8 @@
 	</resultMap>
 
 	<resultMap type="evaluate" id="evaluateMap1" extends="evaluateMap">
+		<association property="customer" column="{customerID=customerID}"
+			fetchType="lazy" select="Mapper.CustomerMapper.findBycustomerID" />
 		<collection property="evaluatePictureList" fetchType="lazy"
 			select="Mapper.EvaluatePictureMapper.findEvaluatePictureByevaluateID"
 			column="{evaluateID=evaluateID}">
@@ -21,17 +22,21 @@
 	</resultMap>
 
 	<select id="findByevaluateID" resultMap="evaluateMap1">
-		select * from Evaluate where evaluateID = #{evaluateID}
+		select * from Evaluate
+		where evaluateID = #{evaluateID}
 	</select>
 
 	<select id="findEvaluateByGoodsID" resultMap="evaluateMap1">
-		select * from Evaluate where goodsID = #{goodsID}
+		select * from
+		Evaluate where goodsID = #{goodsID}
 	</select>
 
 
 	<insert id="insert">
-		insert into Evaluate values(#{evaluateID}, #{customerID}, #{goodsID},
-		#{evaluateDate}, #{evaluateGrade}, #{evaluateContent})
+		insert into Evaluate values(#{evaluateID},
+		#{customerID}, #{goodsID},
+		#{evaluateDate}, #{evaluateGrade},
+		#{evaluateContent})
 	</insert>
 	<update id="updateByevaluateID">
 		update Evaluate set customerID=#{customerID},
