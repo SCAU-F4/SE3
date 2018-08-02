@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-02 01:03:55
+Date: 2018-08-02 10:29:07
 */
 use myshop;
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,9 +41,9 @@ DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `cartID` int(5) NOT NULL,
   `customerID` int(5) NOT NULL,
-  `totalPrice` double(8,0) NOT NULL,
-  PRIMARY KEY (`cartID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `totalPrice` double(8,2) NOT NULL,
+  PRIMARY KEY (`cartID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of cart
@@ -57,9 +57,9 @@ CREATE TABLE `cartdetail` (
   `cartID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
   `goodsCount` int(5) NOT NULL,
-  `totalPrice` double(8,0) NOT NULL,
-  PRIMARY KEY (`cartID`,`goodsID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `totalPrice` double(8,2) NOT NULL,
+  PRIMARY KEY (`cartID`,`goodsID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of cartdetail
@@ -91,8 +91,8 @@ INSERT INTO `customer` VALUES ('2', '123444', '123123', '13123123123', '11@qq.co
 DROP TABLE IF EXISTS `evaluate`;
 CREATE TABLE `evaluate` (
   `evaluateID` int(5) NOT NULL AUTO_INCREMENT,
-  `customerID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
+  `customerID` int(5) NOT NULL,
   `evaluateDate` datetime(6) NOT NULL,
   `evaluateGrade` int(5) NOT NULL,
   `evaluateContent` varchar(255) NOT NULL,
@@ -111,8 +111,8 @@ DROP TABLE IF EXISTS `evaluatepicture`;
 CREATE TABLE `evaluatepicture` (
   `evaluateID` int(5) NOT NULL,
   `pictureID` int(5) NOT NULL,
-  PRIMARY KEY (`evaluateID`,`pictureID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`evaluateID`,`pictureID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of evaluatepicture
@@ -143,6 +143,7 @@ CREATE TABLE `goods` (
   `goodsID` int(5) NOT NULL AUTO_INCREMENT,
   `goodsName` varchar(50) NOT NULL,
   `goodsMainTypeID` int(5) NOT NULL,
+  `goodsSecondaryTypeID` int(5) NOT NULL,
   `goodsSpecify` varchar(50) NOT NULL,
   `goodsBrief` varchar(100) NOT NULL,
   `goodsPrice` double(8,2) NOT NULL,
@@ -150,14 +151,13 @@ CREATE TABLE `goods` (
   `sellCount` int(5) NOT NULL,
   `goodsDate` datetime(6) NOT NULL,
   `isSell` int(2) NOT NULL,
-  `goodsSecondaryTypeID` int(5) NOT NULL,
-  PRIMARY KEY (`goodsID`) USING BTREE
+  PRIMARY KEY (`goodsID`,`goodsSpecify`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('1', 'sdfjl', '99', '13', '31', '324.00', '34', '53', '2018-08-01 10:03:02.000000', '1', '1');
+INSERT INTO `goods` VALUES ('1', 'sdfjl', '99', '1', '13', '31', '324.00', '34', '53', '2018-08-01 10:03:02.000000', '1');
 
 -- ----------------------------
 -- Table structure for `goodsmaintype`
@@ -167,7 +167,7 @@ CREATE TABLE `goodsmaintype` (
   `goodsMainTypeID` int(5) NOT NULL AUTO_INCREMENT,
   `goodsMainType` varchar(50) NOT NULL,
   `pictureID` int(5) NOT NULL,
-  PRIMARY KEY (`goodsMainTypeID`)
+  PRIMARY KEY (`goodsMainTypeID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -188,8 +188,8 @@ CREATE TABLE `goodssecondarytype` (
   `goodsSecondaryType` varchar(50) NOT NULL,
   `goodsSecondaryTypeExplain` varchar(50) NOT NULL,
   `pictureID` int(5) NOT NULL,
-  PRIMARY KEY (`goodsSecondaryTypeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`goodsSecondaryTypeID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of goodssecondarytype
@@ -221,15 +221,15 @@ CREATE TABLE `indent` (
   `totalPrice` double(8,2) NOT NULL,
   `indentTime` datetime(6) NOT NULL,
   `addressID` int(5) NOT NULL,
-  `expressCode` int(18) NOT NULL,
   `indentState` int(2) NOT NULL,
+  `expressCode` int(18) NOT NULL,
   PRIMARY KEY (`indentID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indent
 -- ----------------------------
-INSERT INTO `indent` VALUES ('1', '1', '20.00', '2018-07-27 19:00:28.000000', '1', '1', '0');
+INSERT INTO `indent` VALUES ('1', '1', '20.00', '2018-07-27 19:00:28.000000', '1', '0', '1');
 
 -- ----------------------------
 -- Table structure for `indentdetail`

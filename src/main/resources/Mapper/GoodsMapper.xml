@@ -6,9 +6,9 @@
 
 	<resultMap type="goods" id="goodsMap">
 		<id column="goodsID" property="goodsID" />
+		<id column="goodsSpecify" property="goodsSpecify" />
 		<result column="goodsName" property="goodsName" />
 		<result column="goodsMainTypeID" property="goodsMainTypeID" />
-		<result column="goodsSpecify" property="goodsSpecify" />
 		<result column="goodsBrief" property="goodsBrief" />
 		<result column="goodsPrice" property="goodsPrice" />
 		<result column="goodsCount" property="goodsCount" />

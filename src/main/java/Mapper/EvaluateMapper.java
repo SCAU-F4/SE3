@@ -20,8 +20,8 @@ public interface EvaluateMapper {
 	int insert(Evaluate evaluate);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
-	int update(Evaluate evaluate);
+	int updateByevaluateID(Evaluate evaluate);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
-	int delete(Evaluate evaluate);
+	int deleteByevaluateID(Evaluate evaluate);
 }

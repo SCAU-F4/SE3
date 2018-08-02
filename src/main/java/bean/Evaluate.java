@@ -7,12 +7,11 @@ import java.util.List;
 
 public class Evaluate implements Serializable {
 	private int evaluateID;
-	private int customerID;
 	private int goodsID;
 	private Timestamp evaluateDate;
 	private int evaluateGrade;
 	private String evaluateContent;
-	private int evaluatePictureID;
+	private Customer customer;
 	private List<EvaluatePicture> evaluatePictureList;
 
 	public Evaluate() {
@@ -20,16 +19,15 @@ public class Evaluate implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Evaluate(int evaluateID, int customerID, int goodsID, Timestamp evaluateDate, int evaluateGrade,
-			String evaluateContent, int evaluatePictureID, List<EvaluatePicture> evaluatePictureList) {
+	public Evaluate(int evaluateID, int goodsID, Timestamp evaluateDate, int evaluateGrade, String evaluateContent,
+			Customer customer, List<EvaluatePicture> evaluatePictureList) {
 		super();
 		this.evaluateID = evaluateID;
-		this.customerID = customerID;
 		this.goodsID = goodsID;
 		this.evaluateDate = evaluateDate;
 		this.evaluateGrade = evaluateGrade;
 		this.evaluateContent = evaluateContent;
-		this.evaluatePictureID = evaluatePictureID;
+		this.customer = customer;
 		this.evaluatePictureList = evaluatePictureList;
 	}
 
@@ -39,14 +37,6 @@ public class Evaluate implements Serializable {
 
 	public void setEvaluateID(int evaluateID) {
 		this.evaluateID = evaluateID;
-	}
-
-	public int getCustomerID() {
-		return customerID;
-	}
-
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
 	}
 
 	public int getGoodsID() {
@@ -81,12 +71,12 @@ public class Evaluate implements Serializable {
 		this.evaluateContent = evaluateContent;
 	}
 
-	public int getEvaluatePictureID() {
-		return evaluatePictureID;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setEvaluatePictureID(int evaluatePictureID) {
-		this.evaluatePictureID = evaluatePictureID;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public List<EvaluatePicture> getEvaluatePictureList() {
@@ -99,10 +89,9 @@ public class Evaluate implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Evaluate [evaluateID=" + evaluateID + ", customerID=" + customerID + ", goodsID=" + goodsID
-				+ ", evaluateDate=" + evaluateDate + ", evaluateGrade=" + evaluateGrade + ", evaluateContent="
-				+ evaluateContent + ", evaluatePictureID=" + evaluatePictureID + ", evaluatePictureList="
-				+ evaluatePictureList + "]";
+		return "Evaluate [evaluateID=" + evaluateID + ", goodsID=" + goodsID + ", evaluateDate=" + evaluateDate
+				+ ", evaluateGrade=" + evaluateGrade + ", evaluateContent=" + evaluateContent + ", customer=" + customer
+				+ ", evaluatePictureList=" + evaluatePictureList + "]";
 	}
 
 }

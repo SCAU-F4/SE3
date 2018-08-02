@@ -6,17 +6,17 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import bean.Evaluate;
 import bean.GoodsMainType;
 
 
 public class test1 {
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-//		GoodsMainTypeMapper goodsMainTypeMapper=ctx.getBean(GoodsMainTypeMapper.class);
-//		GoodsMainType goodsMaintype=goodsMainTypeMapper.findByGoodsMainTypeID(99);
-//		System.out.println(goodsMaintype);
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);
+		Evaluate evaluate=evaluatemapper.findByevaluateID(1);
+		System.out.println(evaluate);
 //		goodsMaintype.setGoodsMainType("wocfewfimafewrfewfewfwfewef");
 //		goodsMaintype.setGoodsMainTypeID(78);
 //		List list=goodsMainTypeMapper.findAllGoodsMainTypes();
