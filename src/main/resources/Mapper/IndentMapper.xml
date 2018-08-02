@@ -15,7 +15,7 @@
 	</resultMap>
 	<resultMap type="indent" id="indentMap1" extends="indentMap">
 		<association property="express" column="{expressCode=expressCode}"
-			select="Mapper.ExpressMapper.findByexpressCode" />
+			fetchType="lazy" select="Mapper.ExpressMapper.findByexpressCode" />
 		<collection property="indentDetaillist" fetchType="lazy"
 			select="Mapper.IndentDetailMapper.getAllDetailbyindentID" column="{indentID=indentID}">
 		</collection>
@@ -26,11 +26,25 @@
 		indentID = #{indentID}
 	</select>
 
+	<select id="findindentStateByindentID" resultType="java.lang.Integer">
+		select
+		indentState from Indent where
+		indentID = #{indentID}
+	</select>
+
+	<select id="findexpressCodeByindentID" resultType="java.lang.Integer">
+		select
+		expressCode
+		from Indent where
+		indentID = #{indentID}
+	</select>
+
 	<select id="findAllIndentItembycustomerIDandaddressID"
 		resultMap="indentMap1">
 		select *
 		from Indent
-		where customerID = #{customerID} and addressID=#{addressID}
+		where customerID = #{customerID} and
+		addressID=#{addressID}
 	</select>
 
 	<select id="findBycustomerID" resultMap="indentMap1">
@@ -39,11 +53,18 @@
 		where customerID = #{customerID}
 	</select>
 
+	<select id="isIndentexitByaddressID" resultType="java.lang.Integer">
+		select
+		count(indentID) from Indent where addressID=#{addressID}
+	</select>
+
 	<insert id="insert">
 		insert into Indent
-		values(#{indentID}, #{customerID}, #{totalPrice},
+		values(#{indentID}, #{customerID},
+		#{totalPrice},
 		#{indentTime},
-		#{addressID}, #{expressCode},#{indentState})
+		#{addressID},
+		#{expressCode},#{indentState})
 	</insert>
 
 	<update id="update">
@@ -53,6 +74,10 @@
 		where indentID=#{indentID}
 	</update>
 	<delete id="delete">
+		delete from Indent where
+		indentID=#{indentID}
+	</delete>
+	<delete id="deleteByindentID">
 		delete from Indent where
 		indentID=#{indentID}
 	</delete>

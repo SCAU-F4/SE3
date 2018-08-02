@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.CartDetailMapper">
+
+	<resultMap type="cartDetail" id="cartDetailMap">
+		<id column="cartID" property="cartID" />
+		<id column="goodsID" property="goodsID" />
+		<result column="goodsCount" property="goodsCount" />
+		<result column="totalPrice" property="totalPrice" />
+	</resultMap>
+
+	<select id="findBycartIDAndgoodsID" resultMap="cartDetailMap">
+		select * from
+		CartDetail where cartID = #{cartID} AND
+		goodsID=#{goodsID}
+	</select>
+
+	<select id="getAllDetailbycartID" resultMap="cartDetailMap">
+		select * from
+		CartDetail where cartID = #{cartID}
+	</select>
+
+	<insert id="insert">
+		insert into CartDetail values(#{cartID}, #{goodsID},
+		#{goodsCount}, #{totalPrice})
+	</insert>
+	<update id="update">
+		update CartDetail set
+		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
+		cartID=#{cartID} AND goodsID=#{goodsID}
+	</update>
+	<delete id="delete">
+		delete from CartDetail where cartID=#{cartID} AND
+		goodsID=#{goodsID}
+	</delete>
+</mapper>

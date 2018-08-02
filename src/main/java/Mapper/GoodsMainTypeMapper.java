@@ -7,16 +7,24 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import bean.GoodsType;
+import bean.GoodsMainType;
 
-public interface GoodsTypeMapper {
+
+
+public interface GoodsMainTypeMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	GoodsType findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType(@Param("goodsTypeID") int goodsTypeID,@Param("goodsMainType") String goodsMainType,@Param("goodsDetailType") String goodsDetailType);
+	GoodsMainType findByGoodsMainTypeID(@Param("goodsMainTypeID") int goodsMainTypeID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	List<GoodsType> findAllGoodsTypes();
+	List<GoodsMainType> findAllGoodsMainTypes();
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE)
-	int insert(GoodsType goodstype);
+	int insert(GoodsMainType goodsmaintype);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int update(GoodsMainType goodsmaintype);
+
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int delete(GoodsMainType goodsmaintype);
 
 }

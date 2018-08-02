@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import Mapper.AddressMapper;
 import Mapper.CustomerMapper;
+import Mapper.ExpressMapper;
 import Mapper.GoodsMapper;
 import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
@@ -34,6 +35,8 @@ public class UserserviceImpl implements Userservice{
 	IndentDetailMapper indentdetailmapper;
 	@Autowired
 	AddressMapper addressmapper;
+	@Autowired
+	ExpressMapper expressmapper;
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
@@ -118,7 +121,8 @@ public class UserserviceImpl implements Userservice{
 				String goodsName=good.getGoodsName();
 				indentmap.put("goodsName", goodsName);
 				double goodsPrice=good.getGoodsPrice();
-				indentmap.put("goodsPrice", Double.toString(goodsPrice));Picture picture =good.getPictureList().get(0);
+				indentmap.put("goodsPrice", Double.toString(goodsPrice));
+				Picture picture =good.getPictureList().get(0);
 				String picturePath =picture.getPicturePath();
 				indentmap.put("picturePath", picturePath);
 			}
@@ -180,44 +184,46 @@ public class UserserviceImpl implements Userservice{
 	}
    /*当addressID=-1时，用户使用地址添加功能，不为-1时，用户在修改地址*/
 	@Override
-	public String addressService(int customerID,int addressID,String addressDetail, String addressPostcode, String addressPhone, String addressName) {
+	public String addressService(Address address) {
 		String result="";
-		if(addressDetail=="") {
+		if(address.getAddressDetail()=="") {
 			result+="地址不能为空";
 			return result;
 		}
 		Pattern p=Pattern.compile("^[0-9]{6}$");
-    	Matcher m=p.matcher(addressPostcode);
+    	Matcher m=p.matcher(address.getAddressPostcode());
     	if(m.matches()==false) {
     		result+="邮政编码格式不对";
     		return result;
     	}
 		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$");
-    	m=p.matcher(addressName);
+    	m=p.matcher(address.getAddressName());
     	if(m.matches()==false) {
     		result+="名字字数必须在2到8之间且不有特殊符号";
     		return result;
     	}
     	p=Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
-    	m=p.matcher(addressPhone);
+    	m=p.matcher(address.getAddressPhone());
     	if(m.matches()==false){
     		result+="手机号格式不对";
     		return result;
     	}
-    	Address address=new Address(customerID,addressID,addressDetail,addressPostcode,addressPhone,addressName,null);
-    	if(addressID==-1){
+    	if(address.getAddressID()==-1){
     		int sum=addressmapper.insert(address);
     		if(sum==0){
     			result+="插入失败";
     		}
     	}
     	else {
-    		int sum=addressmapper.update(address);
+    		int sum =indentmapper.isIndentexitByaddressID(address.getAddressID());
+    		if(sum!=0){
+    			result+="该地址已被下单，不能更改";
+    			return result;
+    		}
+    		sum=addressmapper.update(address);
     		if(sum==0){
     			result+="更新失败";
     		}
-    		
-    		
     	}
 		return result;
 	}
@@ -225,9 +231,35 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public String deleteAddress(int customerID, int addressID) {
 		String result="";
-		int sum=addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
+		int sum =indentmapper.isIndentexitByaddressID(addressID);
+		if(sum!=0){
+			result+="该地址已被下单，不能删除";
+			return result;
+		}
+		sum=addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
 		if(sum==0){
 			result+="删除失败";
+		}
+		
+		return result;
+	}
+
+	@Override
+	public String deleteIndent(int indentID) {
+		String result="";
+		int state=indentmapper.findindentStateByindentID(indentID);
+		if(state<=2){
+			result+="该订单尚未完成，不能删除";
+		}
+		else {
+			int expressCode=indentmapper.findexpressCodeByindentID(indentID);
+			int sum =indentmapper.deleteByindentID(indentID);//做成事务好点
+			if(sum==0){
+				result+="删除失败";
+				return result;
+			}
+			indentdetailmapper.deleteByindentID(indentID);
+			expressmapper.deleteByexpressCode(expressCode);
 		}
 		return result;
 	}

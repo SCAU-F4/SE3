@@ -119,15 +119,19 @@ public class Usercontroller {
 		String addressPhone=request.getParameter("addressPhone");
 		String addressName=request.getParameter("addressName");
 		String temp=request.getParameter("addressID");
-		int addressID=-1;
+		int addressID=-1;//-1是增加地址
 		if(temp!=null){
 			addressID=Integer.parseInt(temp);
 			}
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		int customerID=customer.getCustomerID();
-	    String result=userservice.addressService(customerID,addressID,addressDetail, addressPostcode, addressPhone, addressName);
+		Address address =new Address(customerID,addressID,addressDetail, addressPostcode, addressPhone, addressName,null);
+	    String result=userservice.addressService(address);
+	    String newaddressID=String.valueOf(address.getAddressID());
+	    System.out.println(newaddressID);
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
+		map.put("addressID",newaddressID);
 		String res=callback+"("+JSON.toJSONString(map)+")";
 		return res;
 	}
@@ -139,6 +143,17 @@ public class Usercontroller {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		int customerID=customer.getCustomerID();
 	    String result=userservice.deleteAddress(customerID, Integer.parseInt(addressID));
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
+	
+	@RequestMapping(value= "deleteIndent",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String deleteIndent(String callback,HttpServletRequest request) throws Exception{ 
+		String indentID=request.getParameter("indentID");
+	    String result=userservice.deleteIndent(Integer.parseInt(indentID));
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";

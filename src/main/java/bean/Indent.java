@@ -6,15 +6,15 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Indent implements Serializable {
-	public int indentID;
-	public int customerID;
-	public double totalPrice;
-	public Timestamp indentTime;
-	public int addressID;
-	public int expressCode;
-	public int indentState;
-	public List<IndentDetail> indentDetaillist;// 订单商品表
-	public Express express;// 快递
+	private int indentID;
+	private int customerID;
+	private double totalPrice;
+	private Timestamp indentTime;
+	private int addressID;
+	private int expressCode;
+	private int indentState;
+	private List<IndentDetail> indentDetaillist;// 订单商品表
+	private Express express;// 快递
 
 	public Indent() {
 		super();

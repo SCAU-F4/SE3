@@ -4,22 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mapper.ExpressMapper">
 
-  <resultMap type="express" id="expressMap">
-  	<id column="expressCode" property="expressCode"/>
-  	<result column="expressDate" property="expressDate"/>
-  	<result column="expressState" property="expressState"/>
-  </resultMap>
+	<resultMap type="express" id="expressMap">
+		<id column="expressCode" property="expressCode" />
+		<result column="expressDate" property="expressDate" />
+		<result column="expressState" property="expressState" />
+	</resultMap>
 
-  <select id="findByexpressCode" resultMap="expressMap">
-    select * from Express where expressCode = #{expressCode}
-  </select>
-  <insert id="insert">
-  	insert into Express values(#{expressCode}, #{expressDate}, #{expressState})
-  </insert>
-  <update id="update">
-    update Express set expressDate=#{expressDate},expressState=#{expressState}  where expressCode=#{expressCode}
-  </update>
-  <delete id="delete">
-    delete from Express where expressCode=#{expressCode}
-  </delete>
+	<select id="findByexpressCode" resultMap="expressMap">
+		select * from Express where expressCode = #{expressCode}
+	</select>
+	<insert id="insert">
+		insert into Express values(#{expressCode}, #{expressDate}, #{expressState})
+	</insert>
+	<update id="update">
+		update Express set expressDate=#{expressDate},expressState=#{expressState}
+		where expressCode=#{expressCode}
+	</update>
+	<delete id="delete">
+		delete from Express where expressCode=#{expressCode}
+	</delete>
+	<delete id="deleteByexpressCode">
+		delete from Express where expressCode=#{expressCode}
+	</delete>
 </mapper>

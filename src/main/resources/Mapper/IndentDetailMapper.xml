@@ -13,16 +13,19 @@
 	</resultMap>
 
 	<select id="findByindentIDAndgoodsID" resultMap="indentDetailMap">
-		select * from IndentDetail where indentID = #{indentID} AND
+		select * from
+		IndentDetail where indentID = #{indentID} AND
 		goodsID=#{goodsID}
 	</select>
 
 	<select id="findAllDetailByindentID" resultMap="indentDetailMap">
-		select * from IndentDetail where indentID = #{indentID}
+		select * from
+		IndentDetail where indentID = #{indentID}
 	</select>
 
 	<insert id="insert">
-		insert into IndentDetail values(#{indentID}, #{goodsID}, #{goodsPrice},
+		insert into IndentDetail values(#{indentID},
+		#{goodsID}, #{goodsPrice},
 		#{goodsCount}, #{totalPrice})
 	</insert>
 	<update id="update">
@@ -31,13 +34,19 @@
 		indentID=#{indentID} AND goodsID=#{goodsID}
 	</update>
 	<delete id="delete">
-		delete from IndentDetail where indentID=#{indentID} AND goodsID=#{goodsID}
+		delete from IndentDetail where indentID=#{indentID}
+		AND goodsID=#{goodsID}
 	</delete>
 	<select id="getAllDetailbyindentID" resultMap="indentDetailMap">
 		select
 		indent.indentID,goodsID,goodsPrice,goodsCount,IndentDetail.totalPrice
 		from Indent inner join IndentDetail on
 		Indent.indentID=IndentDetail.indentID
-		where Indent.indentID =#{indentID} <!-- 传的参数要传上面定义的intentid -->
+		where Indent.indentID
+		=#{indentID} <!-- 传的参数要传上面定义的intentid -->
 	</select>
+	<delete id="deleteByindentID">
+		delete from IndentDetail where indentID=#{indentID}
+	</delete>
+
 </mapper>

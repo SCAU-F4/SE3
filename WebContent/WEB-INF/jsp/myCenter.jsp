@@ -28,6 +28,47 @@
                         <a href="signin" id="signin">登录</a>
                         <a href="mycenter" id="myCenter">个人中心</a>
                         <a href="signout" id="signout">注销</a>
+                        <div class="shopping-cart">
+                            <i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
+                            <div class="cart-show-area">
+                                <div class="cart-top-area">
+                                    <div class="cart-item">
+                                           <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10.png" alt="" height="50"></div>
+                                            <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
+                                            <div class="cart-introduce text-muted">底油亮油色</div>
+                                            <div class="cart-number">x <span class="indentNumber">1</span></div>
+                                            <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
+                                            <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+
+                                        </div>
+                                    <div class="cart-item">
+                                        <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10.png" alt="" height="50"></div>
+                                        <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
+                                        <div class="cart-introduce text-muted">底油亮油色</div>
+                                        <div class="cart-number">x <span class="indentNumber">1</span></div>
+                                        <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
+                                        <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10.png" alt="" height="50"></div>
+                                        <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
+                                        <div class="cart-introduce text-muted">底油亮油色</div>
+                                        <div class="cart-number">x <span class="indentNumber">1</span></div>
+                                        <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
+                                        <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+                                    </div>
+
+                                </div>
+                                <div class="cart-bottom-area">
+                                    <div class="allPrice">
+                                       <div class="pricedetail">商品总价 ：</div>
+                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
+                                    </div>
+                                    <div class="buy"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></div>
+                                </div>
+
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -50,75 +91,75 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="home"><a href="/SE3-F4">首页<span class="sr-only">首页</span></a></li>
-                            <li class="bag-li"><a href="#">箱包配饰</a>
+                            <li class="bag-li"><a href="/SE3-F4/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
                                 <div class="bag-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=1"><div><img src="${pageContext.request.contextPath }/img/icon/xingli.png" alt=""><span>行李箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=2"><div><img src="${pageContext.request.contextPath }/img/icon/nanxing.png" alt=""><span>男士箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女性箱包</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=3"><div><img src="${pageContext.request.contextPath }/img/icon/nvxing.png" alt=""><span>女士箱包</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=1&subcategoryId=4"><div><img src="${pageContext.request.contextPath }/img/icon/qianbao.png" alt=""><span>钱包配件</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
 
-                            <li class="cloth-li"><a href="#">服装</a>
+                            <li class="cloth-li"><a href="/SE3-F4/products/list?categoryId=2&subcategoryId=-1">服装</a>
                                 <div class="cloth-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=5"><div><img src="${pageContext.request.contextPath }/img/icon/Tshirt.png" alt=""><span>清爽短袖</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=6"><div><img src="${pageContext.request.contextPath }/img/icon/shirt.png" alt=""><span>时尚衬衫</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=7"><div><img src="${pageContext.request.contextPath }/img/icon/dress.png" alt=""><span>性感长裙</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=2&subcategoryId=8"><div><img src="${pageContext.request.contextPath }/img/icon/ku.png" alt=""><span>潮流裤类</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="food-li"><a href="#">饮食</a>
+                            <li class="food-li"><a href="/SE3-F4/products/list?categoryId=3&subcategoryId=-1">饮食</a>
                                 <div class="food-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=9"><div><img src="${pageContext.request.contextPath }/img/icon/xiaochi.png" alt=""><span>美味零食</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=10"><div><img src="${pageContext.request.contextPath }/img/icon/shuiguo.png" alt=""><span>水果坚果</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=11"><div><img src="${pageContext.request.contextPath }/img/icon/rou.png" alt=""><span>新鲜肉类</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=3&subcategoryId=12"><div><img src="${pageContext.request.contextPath }/img/icon/yinliao.png" alt=""><span>饮料酒水</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="sport-li"><a href="#">文体</a>
+                            <li class="sport-li"><a href="/SE3-F4/products/list?categoryId=4&subcategoryId=-1">文体</a>
                                 <div class="sport-li container downmenu">
                                     <ul class="nav navbar-nav">
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=13"><div><img src="${pageContext.request.contextPath }/img/icon/wenju.png" alt=""><span>精美文具</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=14"><div><img src="${pageContext.request.contextPath }/img/icon/huwai.png" alt=""><span>运动户外</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=15"><div><img src="${pageContext.request.contextPath }/img/icon/yinyue.png" alt=""><span>音乐相关</span></div></a>
                                         </li>
                                         <li>
-                                            <a href="#"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
+                                            <a href="/SE3-F4/products/list?categoryId=4&subcategoryId=16"><div><img src="${pageContext.request.contextPath }/img/icon/yinshi.png" alt=""><span>影视相关</span></div></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -156,7 +197,7 @@
                             </ul>
                             <div class="Order-search">
                                 <div class="input-group">
-                                    <input type="text"  placeholder="请输入搜索的订单号" id="search">
+                                    <input type="text"  placeholder="请输入搜索的商品名" id="search">
                                     <div class="input-group-addon">
                                         <button class="layui-icon layui-icon-search search-button" style="border: 0px"></button>
                                     </div>
@@ -169,7 +210,7 @@
      							<div class="panel panel-default showli" data-page="${status.index}">
                                 <div class="panel-heading">
                                     <span class="Order-time">下单时间：${item.indentTime}</span>
-                                    <span class="Order-id">订单号：${item.indentID}</span>
+                                    <span class="Order-id" data-indentID="${item.indentID }">订单号：${item.indentID}</span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
@@ -188,6 +229,7 @@
                                 </div>
                             </div>
    					</c:forEach>
+   						 <div class="isNoPanel"><i class="layui-icon layui-icon-404"></i><span>目前还没有找到符合的订单哦</span></div>
 								<div class="page">
 										<span id="pre">上一页</span>
 										<select name="pageNumber" id="PageNumber">
@@ -281,25 +323,38 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <h4 class="modal-title" id="myModalLabel">地址管理</h4>
                                         </div>
-                                        <form action="">
+                                       
                                         <div class="modal-body">
-
-
                                                     <div class="group">
                                                         <label>用户地址</label>
-                                                        <span><input type="text" id="addressDetail" name="addressDetail"></span>
+                                                        <span class="inputgroup"><input type="text" id="addressDetail" name="addressDetail">
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">请输入正确的地址</p></span>
                                                     </div>
                                                     <div class="group">
                                                         <label>邮政编码</label>
-                                                        <span><input type="text" id="addressPostcode" name="addressPostcode"></span>
+                                                        <span class="inputgroup"><input type="text" id="addressPostcode" name="addressPostcode">
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">输入正确的邮政编码</p>
+                                                        </span>
                                                     </div>
                                                     <div class="group">
                                                         <label>联系电话</label>
-                                                        <span><input type="text" id="addressPhone" name="addressPhone"></span>
+                                                        <span class="inputgroup addrphone"><input type="text" id="addressPhone" name="addressPhone"> 
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">请输入正确的电话号码</p>
+                                                        </span>
                                                     </div>
                                                     <div class="group">
                                                         <label>收件人</label>
-                                                        <span><input type="text" id="addressName" name="addressName"></span>
+                                                        <span class="inputgroup"><input type="text" id="addressName" name="addressName">
+                                                        <i class="glyphicon glyphicon-ok text-success"></i>
+                            							<i class="glyphicon glyphicon-remove text-danger"></i>
+                            							<p class="text-danger">请输入正确的收件人</p>
+                                                        </span>
                                                     </div>
                                         </div>
                                         <div class="modal-footer">
@@ -307,7 +362,7 @@
                                              <button type="button" class="layui-btn-primary layui-btn layui-btn-radius Address-mod" data-dismiss="modal">确认修改</button>
                                             <!--<button class="layui-btn layui-btn-radius layui-btn-primary Address-addsubmit" >确认添加</button>-->
                                         </div>
-                                        </form>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -323,15 +378,18 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                                    <c:forEach items="${addresses}" var="item" varStatus="status">
                                     <tr>
-                                        <td class="addressName">${addresses[0].addressName }</td>
-                                        <td class="addressDetail">${addresses[0].addressDetail }</td>
-                                        <td class="addressPhone">${addresses[0].addressPhone }</td>
-                                        <td class="addressPostcode">${addresses[0].addressPostcode }</td>
+                                        <td class="addressName" data-addrId="${item.addressID }">${item.addressName }</td>
+                                        <td class="addressDetail">${item.addressDetail }</td>
+                                        <td class="addressPhone">${item.addressPhone }</td>
+                                        <td class="addressPostcode">${item.addressPostcode }</td>
                                         <td><button class="layui-btn layui-btn-radius layui-btn-primary Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
                                             <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
                                         </td>
                                     </tr>
+                                    </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -339,6 +397,7 @@
          </div>
     </div>
 </section>
+<div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
 <div class="tip"><h4>修改成功</h4></div>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery.form.js"></script>
@@ -356,12 +415,14 @@
 				$("#signout").hide();
 				$("#signin").show();
 				$("#signup").show();
+				$(".shopping-cart").hide();
 			}
 			else{
 				$("#myCenter").show();
 				$("#signout").show();
 				$("#signin").hide();
 				$("#signup").hide();
+				$(".shopping-cart").show();
 			}
 		});
 

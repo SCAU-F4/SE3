@@ -6,23 +6,31 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import bean.Customer;
-import bean.GoodsType;
-import bean.IndentDetail;
+import bean.GoodsMainType;
 
 
 public class test1 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		GoodsMainTypeMapper goodsMainTypeMapper=ctx.getBean(GoodsMainTypeMapper.class);
+//		GoodsMainType goodsMaintype=goodsMainTypeMapper.findByGoodsMainTypeID(99);
+//		System.out.println(goodsMaintype);
+//		goodsMaintype.setGoodsMainType("wocfewfimafewrfewfewfwfewef");
+//		goodsMaintype.setGoodsMainTypeID(78);
+//		List list=goodsMainTypeMapper.findAllGoodsMainTypes();
+//		for(int i=0;i<list.size();i++)
+//		{
+//			System.out.println(list.get(i));
+//		}
+//		System.out.println(goodsSecondaryTypeMapper.findBygoodsSecondaryTypeID(15));
+		
 //		CustomerMapper cm=ctx.getBean(CustomerMapper.class);
 //		Customer c=cm.findBycustomerID(1);
 //		System.out.println(c);
 		
-		GoodsTypeMapper cm=ctx.getBean(GoodsTypeMapper.class);
-		GoodsType c=cm.findBygoodsTypeIDAndgoodsMainTypeAndgoodsDetailType(1, "dress", "female");
-		System.out.println(c);
+		
 		
 //		 IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
 //		 Indent indent=indentMapper.findById(2);
@@ -197,6 +205,7 @@ public class test1 {
 //			
 //		}
 
+		
 	}
 
 }

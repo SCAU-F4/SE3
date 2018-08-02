@@ -6,13 +6,14 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Customer implements Serializable {
-	public int customerID;
-	public String customerName;
-	public String customerPwd;
-	public String customerPhone;
-	public String customerEmail;
-	public Timestamp customerRegDate;
-	public List<Address> addressList;
+	private int customerID;
+	private String customerName;
+	private String customerPwd;
+	private String customerPhone;
+	private String customerEmail;
+	private Timestamp customerRegDate;
+	private List<Address> addressList;
+	private Cart cart;// 购物车
 
 	public Customer() {
 		super();
@@ -20,7 +21,7 @@ public class Customer implements Serializable {
 	}
 
 	public Customer(int customerID, String customerName, String customerPwd, String customerPhone, String customerEmail,
-			Timestamp customerRegDate, List<Address> addressList) {
+			Timestamp customerRegDate, List<Address> addressList, Cart cart) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -29,6 +30,7 @@ public class Customer implements Serializable {
 		this.customerEmail = customerEmail;
 		this.customerRegDate = customerRegDate;
 		this.addressList = addressList;
+		this.cart = cart;
 	}
 
 	public int getCustomerID() {
@@ -87,11 +89,19 @@ public class Customer implements Serializable {
 		this.addressList = addressList;
 	}
 
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", customerName=" + customerName + ", customerPwd=" + customerPwd
 				+ ", customerPhone=" + customerPhone + ", customerEmail=" + customerEmail + ", customerRegDate="
-				+ customerRegDate + ", addressList=" + addressList + "]";
+				+ customerRegDate + ", addressList=" + addressList + ", cart=" + cart + "]";
 	}
 
 }

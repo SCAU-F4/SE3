@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.Customer;
-import bean.GoodsType;
+
 
 public interface CustomerMapper {
 

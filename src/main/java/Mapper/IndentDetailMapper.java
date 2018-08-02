@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import bean.GoodsType;
+
 import bean.IndentDetail;
 
 public interface IndentDetailMapper {
@@ -28,4 +28,7 @@ public interface IndentDetailMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int delete(IndentDetail indentdetail);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+	int deleteByindentID(int indentID);
 }

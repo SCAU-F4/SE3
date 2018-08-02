@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.GoodsSecondaryTypeMapper">
+
+	<resultMap type="goodsSecondaryType" id="goodsSecondaryTypeMap">
+		<id column="goodsSecondaryTypeID" property="goodsSecondaryTypeID" />
+		<result column="goodsMainTypeID" property="goodsMainTypeID" />
+		<result column="goodsSecondaryType" property="goodsSecondaryType" />
+		<result column="goodsSecondaryTypeExplain" property="goodsSecondaryTypeExplain" />
+		<result column="pictureID" property="pictureID" />
+	</resultMap>
+
+	<resultMap type="goodsSecondaryType" id="goodsSecondaryTypeMap1"
+		extends="goodsSecondaryTypeMap">
+		<association property="picture" column="{pictureID=pictureID}"
+			fetchType="lazy" select="Mapper.PictureMapper.findBypictureID" />
+
+		<collection property="goodsList" fetchType="lazy"
+			select="Mapper.GoodsMapper.findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID"
+			column="{goodsMainTypeID=goodsMainTypeID},{goodsSecondaryTypeID=goodsSecondaryTypeID}">
+		</collection>
+	</resultMap>
+
+
+	<select id="findBygoodsSecondaryTypeID" resultMap="goodsSecondaryTypeMap1">
+		select * from
+		GoodsSecondaryType where
+		goodsSecondaryTypeID = #{goodsSecondaryTypeID}
+	</select>
+
+	<select id="findBygoodsMainTypeID" resultMap="goodsSecondaryTypeMap1">
+		select * from
+		GoodsSecondaryType where
+		goodsMainTypeID = #{goodsMainTypeID}
+	</select>
+
+	<insert id="insert">
+		insert into GoodsSecondaryType
+		values(#{goodsSecondaryTypeID}, #{goodsMainTypeID},
+		#{goodsSecondaryType},
+		#{goodsSecondaryTypeExplain},
+		#{pictureID})
+	</insert>
+
+	<update id="update">
+		update GoodsSecondaryType set
+		goodsMainTypeID=#{goodsMainTypeID},
+		goodsSecondaryType=#{goodsSecondaryType},goodsSecondaryTypeExplain=#{goodsSecondaryTypeExplain},pictureID=#{pictureID}
+		where goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+	</update>
+	<delete id="delete">
+		delete from GoodsSecondaryType
+		where
+		goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+	</delete>
+</mapper>

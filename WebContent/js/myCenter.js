@@ -1,19 +1,34 @@
 $(document).ready(function () {
 	 var $modify;
+	 var addrId;
+	 var $delete;
+	 var $deleteIndent;
     $(".Order-top>ul>li").click(function () {
         $(".Order-list .showli").removeClass("showli").hide();
+        $(".isNoPanel").hide();
+    	$(".page").show();
         $(this).addClass("active").siblings().removeClass("active");
         var select=$(this).attr("data-select");console.log(select);
         $(".page").show();
         if (select!=0) {
         	console.log($("span.deal-state[data-state=" + select + "]").text());
         	$("span.deal-state[data-state=" + select + "]").parents(".panel").addClass("showli").fadeIn().siblings(".panel:not(.showli)").fadeOut();
-        	
+        	var $test=$(".panel.showli");
+            if($test.length==0){
+            	$(".isNoPanel").show();
+            	$(".page").hide();
+            }
         }
         else
         {
             $(".panel").addClass("showli").fadeIn("fast");
-         
+            $(".isNoPanel").hide();
+        	$(".page").show();
+        	var $test=$(".panel.showli");
+            if($test.length==0){
+            	$(".isNoPanel").show();
+            	$(".page").hide();
+            }
         }
     });
 //    点击订单状态分类显示相应的订单
@@ -27,28 +42,38 @@ $(document).ready(function () {
 //点击左侧菜单显示相应的div
   
     $(".Address-table").on("click",".Address-delect",function () {
-        $(this).parents("tr").remove();
+    	var deleteId=$(this).parents("td").siblings(".addressName").attr("data-addrId");
+    	$delete=$(this)
+    	console.log(deleteId);
+    	$.ajax({
+    		type:"post",
+			async:false,
+			url:"deleteAddress",
+			dataType:"jsonp",
+			jsonp:"callback",
+			data:{
+				addressID:deleteId,
+				t:new Date()
+			},
+			success:function(res){
+				if(res.result==""){
+				$delete.parents("tr").remove();
+				$(".tip").find("h4").text("删除成功")
+				$(".tip").fadeIn();
+				$(".tip").delay(1500).fadeOut();
+				}
+				else{
+					alert(res.result);
+				}
+			},
+			error:function(e){
+				alert("shibia");
+			}
+    	});
+//        $(this).parents("tr").remove();
     });
 //删除地址
-    
-    $(".Address-addsubmit").click(function () {
-        var address=$("#addressDetail").val();
-        var postcode=$("#addressPostcode").val();
-        var phone=$("#addressPhone").val();
-        var name=$("#addressName").val();
-        if (address!=""&&postcode!=""&&phone!=""&&name!=""){
-            var text="<tr>"+"<td class='addressName'>"+name+"</td>"+"<td class='addressDetail'>"+address+"</td>"
-            +"<td class='addressPhone'>"+phone+"</td>"+"<td class='addressPostcode'>"+postcode+"</td>"+ "<td><button class='layui-btn layui-btn-radius layui-btn-primary Address-modify' data-target='#myModal' data-toggle='modal'>修改</button>"+"<button class='layui-btn layui-btn-radius layui-btn-primary Address-delect'>删除</button></td>";
-            $(".Address-table tbody").append(text);
-        }
-        else{
-            var text="<laber class='text-danger'>不能为空</laber>"
-            $(".modal-body").append(text);
-            return false;
-        }
-    });
-//添加地址细节
-    
+      
     $(".Address-add").click(function () {
         $(".Address-addsubmit").show();
         $(".Address-mod").hide();
@@ -57,13 +82,49 @@ $(document).ready(function () {
     
     $(".search-button").click(function () {
         $("div.panel").hide();
+        $(".isNoPanel").hide();
+    	$(".page").show();
         var orderid=$("#search").val();
-       $(".Order-id:contains("+orderid+")").parents(".panel").show();
+       $(".panel-body .goods span:contains("+orderid+")").parents(".panel").show();
+       if($(".panel-body .goods span:contains("+orderid+")").length==0){
+    	    $(".isNoPanel").show();
+       		$(".page").hide();
+       }
     });
 //订单号查询
     
     $(".panel .panel-heading").on("click","i",function () {
-        $(this).parents(".panel").remove();
+    	var indentId=$(this).siblings(".Order-id").attr("data-indentID");
+    	$deleteIndent=$(this);
+    	$.ajax({
+    		type:"post",
+			async:false,
+			url:"deleteIndent",
+			dataType:"jsonp",
+			jsonp:"callback",
+			data:{
+				indentID:indentId,
+				t:new Date()
+			},
+			success:function(res){
+				if(res.result=="")
+					{
+					$deleteIndent.parents(".panel").remove();
+					 	$(".tip").find("h4").text("删除成功");
+						$(".tip").fadeIn();
+						$(".tip").delay(1500).fadeOut();
+					}
+				else{
+					$(".tip").find("h4").text(res.result);
+					$(".tip").fadeIn();
+					$(".tip").delay(1500).fadeOut();
+				}
+			},
+			error:function(e){
+				alert("失败");
+			}
+    	});
+//        $(this).parents(".panel").remove();
     });
 //删除订单
     
@@ -77,22 +138,77 @@ $(document).ready(function () {
         $(".Address-addsubmit").hide();
         $(".Address-mod").show();
         // $("#addressDetail").
-        $("#addressName").val(name);
-        $("#addressDetail").val(address);
-        $("#addressPostcode").val(postcode);
-        $("#addressPhone").val(phone);
+        $("#addressName").val(name).attr("flag","true");
+        $("#addressDetail").val(address).attr("flag","true");
+        $("#addressPostcode").val(postcode).attr("flag","true");
+        $("#addressPhone").val(phone).attr("flag","true");
+        $(".modal-body .group .inputgroup i.glyphicon-ok").show();
+        addrId=$(this).parents("td").siblings(".addressName").attr("data-addrId");
+        console.log(addrId);
 });
 //地址修改
-    
+    $(".close").click(function(){
+    	 $("#addressName").val("");
+         $("#addressDetail").val("");
+         $("#addressPhone").val("");
+         $("#addressPostcode").val("");
+         $(".modal-body .group .inputgroup i,.modal-body .group .inputgroup p").hide();
+    });
     $(".Address-mod").click(function () {
-        $modify.parents("td").siblings(".addressName").text($("#addressName").val());
-        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
-        $modify.parents("td").siblings(".addressPhone").text($("#addressPhone").val());
-        $modify.parents("td").siblings(".addressPostcode").text($("#addressPostcode").val());
-        $("#addressName").val("");
-        $("#addressDetail").val("");
-        $("#addressPhone").val("");
-        $("#addressPostcode").val("");
+    	var addressflag=$("#addressDetail").attr("flag");
+        var postcodeflag=$("#addressPostcode").attr("flag");
+        var phoneflag=$("#addressPhone").attr("flag");
+        var nameflag=$("#addressName").attr("flag"); 
+        
+        var address=$("#addressDetail").val();
+        var postcode=$("#addressPostcode").val();
+        var phone=$("#addressPhone").val();
+        var name=$("#addressName").val();
+        console.log(address+"//"+postcode+"//"+phone+"//"+name+"//"+addrId);
+        if(addressflag=="true"&&postcodeflag=="true"&&phoneflag=="true"&&nameflag=="true")
+        {
+        	$.ajax({
+        		type:"post",
+    			async:false,
+    			url:"changeAddress",
+    			dataType:"jsonp",
+    			jsonp:"callback",
+    			data:{
+    				addressDetail:address,
+    				addressPostcode:postcode,
+    				addressPhone:phone,
+    				addressName:name,
+    				addressID:addrId,
+    				t:new Date()
+    			},
+    			success:function(res){
+    				if(res.result==""){
+    						$modify.parents("td").siblings(".addressName").text($("#addressName").val());
+    				        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
+    				        $modify.parents("td").siblings(".addressPhone").text($("#addressPhone").val());
+    				        $modify.parents("td").siblings(".addressPostcode").text($("#addressPostcode").val());
+    				        $("#addressName").val("");
+    				        $("#addressDetail").val("");
+    				        $("#addressPhone").val("");
+    				        $("#addressPostcode").val("");
+    				}
+    				else{
+    					alert(res.result);
+    				}
+    			},
+    			error:function(e){
+    				alert("false");
+    			}
+        	});
+        }
+//        $modify.parents("td").siblings(".addressName").text($("#addressName").val());
+//        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
+//        $modify.parents("td").siblings(".addressPhone").text($("#addressPhone").val());
+//        $modify.parents("td").siblings(".addressPostcode").text($("#addressPostcode").val());
+//        $("#addressName").val("");
+//        $("#addressDetail").val("");
+//        $("#addressPhone").val("");
+//        $("#addressPostcode").val("");
     });
 //地址修改
     
@@ -230,6 +346,123 @@ $(document).ready(function () {
             $(this).attr("flag","false");
         }
     });
+    $("#addressDetail").blur(function () {
+        if ($(this).val()!=""){
+        	$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+        else
+        {
+        	$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+    });
+    
+    $("#addressPostcode").blur(function () {
+        var value=$(this).val();
+        var re=/^[0-9]{6}$/;
+        if (!re.test(value)){
+        	$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+        else{
+        	$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+    });
+    
+    $("#addressPhone").blur(function () {
+        var value=$(this).val();
+        var re=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+        if (!re.test(value)){
+        	$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+        else{
+        	$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+    });
+    
+    $("#addressName").blur(function () {
+        var value=$(this).val();
+        var re=/^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$/
+        if (!re.test(value)){
+        	$(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-remove").show("fast");
+            $(this).parent().parent().find("p").fadeIn("fast");
+            $(this).attr("flag","false");
+        }
+        else{
+        	$(this).parent().parent().find("p").fadeOut("fast");
+            $(this).parent().find("i").hide("fast");
+            $(this).parent().find(".glyphicon-ok").show("fast");
+            $(this).attr("flag","true");
+        }
+    });
+    
+    $(".Address-addsubmit").click(function () {
+        var addressflag=$("#addressDetail").attr("flag");
+        var postcodeflag=$("#addressPostcode").attr("flag");
+        var phoneflag=$("#addressPhone").attr("flag");
+        var nameflag=$("#addressName").attr("flag"); 
+        
+        var address=$("#addressDetail").val();
+        var postcode=$("#addressPostcode").val();
+        var phone=$("#addressPhone").val();
+        var name=$("#addressName").val();
+        
+        if (addressflag=="true"&&postcodeflag=="true"&&phoneflag=="true"&&nameflag=="true"){
+            
+        	$.ajax({
+        		type:"post",
+    			async:false,
+    			url:"addAddress",
+    			dataType:"jsonp",
+    			jsonp:"callback",
+    			data:{
+    				addressDetail:address,
+    				addressPostcode:postcode,
+    				addressPhone:phone,
+    				addressName:name,
+    				t:new Date()
+    			},
+    			success:function(res)
+    			{
+    				if(res.result==""){
+    				var text="<tr>"+"<td class='addressName' data-addrId='"+res.addressID+"'>"+name+"</td>"+"<td class='addressDetail'>"+address+"</td>"
+    	            +"<td class='addressPhone'>"+phone+"</td>"+"<td class='addressPostcode'>"+postcode+"</td>"+ "<td><button class='layui-btn layui-btn-radius layui-btn-primary Address-modify' data-target='#myModal' data-toggle='modal'>修改</button>"+"<button class='layui-btn layui-btn-radius layui-btn-primary Address-delect'>删除</button></td>";
+    	            $(".Address-table tbody").append(text);
+    				}
+    				else{
+    					alert(res.result);
+    				}
+    			},
+    			error:function(e){
+    				alert("false");
+    			}
+        	});   	    
+        }
+        else{
+            var text="<laber class='text-danger'>请输入正确信息</laber>"
+            $(".modal-body").append(text);
+            $(".modal-body .group .inputgroup i.glyphicon-remove,.modal-body .group .inputgroup p").show();
+            return false;
+        }
+    });
+    
     
     $("#ResetPwd").click(function(){
     	if($("#oldcustomerPwd").attr("flag")=="true"&&$("#customerPwd").attr("flag")=="true"&&$("#recustomerPwd").attr("flag")=="true"){
@@ -274,4 +507,13 @@ $(document).ready(function () {
     		});
     	}
     });
+    $(".addressName").each(function(){
+    	 console.log($(this).attr("data-addrId"));
+    });
+    var $test=$(".panel.showli");
+    if($test.length==0){
+    	$(".isNoPanel").show();
+    	$(".page").hide();
+    }
+
 });
