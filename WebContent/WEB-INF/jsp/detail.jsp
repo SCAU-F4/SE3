@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,7 +135,7 @@
         <div class="picture">
 
             <div class="view">
-                <img src="${pageContext.request.contextPath }/img/bao1.jpg">
+                <img src="${pageContext.request.contextPath }/img/product/product12_1.png">
             </div>
 
         </div>
@@ -384,9 +383,9 @@
             <br>
             <br>
             <div>
-                <div class="head">网易严选的订单如何配送？</div>
+                <div class="head">华农有货的订单如何配送？</div>
                 <div class="text">
-                    网易严选会根据商品所在地、顾客所在地和商品的尺寸重量优选物流配送商，确保优质用户体验。目前暂不支持自选快递，具体物流信息可在下单成功后“我的订单-追踪物流”中查看。
+                    华农有货会根据商品所在地、顾客所在地和商品的尺寸重量优选物流配送商，确保优质用户体验。目前暂不支持自选快递。
                 </div>
             </div>
             <br>
@@ -425,7 +424,7 @@
             <ul>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right1.jpg">
+                        <img src="${pageContext.request.contextPath }/img/product/right1.png">
                     </a>
                     <a href="index.html">
                         <div class="name">谷风一木 手帕纸</div>
@@ -434,7 +433,7 @@
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right2.jpg">
+                        <img src="${pageContext.request.contextPath }/img/product/right2.png">
                     </a>
                     <a href="index.html">
                         <div class="name">严选礼品卡 100元面值</div>
@@ -443,7 +442,7 @@
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right3.jpg">
+                        <img src="${pageContext.request.contextPath }/img/product/right3.png">
                     </a>
                     <a href="index.html">
                         <div class="name">玩趣彩虹四季拖鞋</div>
@@ -452,7 +451,7 @@
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right4.jpg">
+                        <img src="${pageContext.request.contextPath }/img/product/right4.png">
                     </a>
                     <a href="index.html">
                         <div class="name">美国制造 除甲醛空气净化剂227g</div>
@@ -461,7 +460,7 @@
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right5.jpg">
+                        <img src="${pageContext.request.contextPath }/img/product/right5.png">
                     </a>
                     <a href="index.html">
                         <div class="name">绿豆糕</div>
@@ -470,7 +469,7 @@
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right6.jpg">
+                        <img src="${pageContext.request.contextPath }/img/product/right6.png">
                     </a>
                     <a href="index.html">
                         <div class="name">懒人抹布</div>
