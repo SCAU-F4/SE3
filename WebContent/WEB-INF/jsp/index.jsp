@@ -321,7 +321,107 @@
 </section>
 
 <!--箱包配饰-->
+
+<%-- <c:forEach items="${indexs}" var="item" varStatus="status">
 <section class="SE3_product">
+    <div class="container">
+        <div class="row">
+            <div class="producttitle">
+            <h1>${item.MainType }</h1>
+            <ol class="breadcrumb">
+            	<c:forEach items="${item.SecondaryTypes}" var="SecondaryTypesitem" varStatus="status">
+                <li class="text-muted"><a href="#" class="text-muted">${SecondaryTypesitem }</a></li>
+                </c:forEach>
+            </ol>
+            </div>
+            <div class="col-md-12">
+                <img src="${item.MainTypePicture }" alt="" width="1100">
+            </div>
+        </div>
+        <div class="row">
+        
+         <c:forEach items="${item.Goods}" var="good" varStatus="status">
+          <div class="product col-md-3">
+                <div class="littleimg">
+                    <a href="#">
+                        <img src="${pageContext.request.contextPath }/img/product/product7.png" alt="">
+                    </a>
+                </div>
+                <div class="littleimg-title">
+                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
+                    <div class="littleimg-title-name">
+                        <h4>金属流苏小方包</h4>
+                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">299</span></div>
+                    </div>
+                </div>
+            </div>
+         
+		</c:forEach> 
+            <div class="product col-md-3">
+                <div class="littleimg">
+                    <a href="#">
+                        <img src="${pageContext.request.contextPath }/img/product/product7.png" alt="">
+                    </a>
+                </div>
+                <div class="littleimg-title">
+                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
+                    <div class="littleimg-title-name">
+                        <h4>金属流苏小方包</h4>
+                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">299</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product col-md-3">
+                <div class="littleimg">
+                    <a href="#">
+                        <img src="${pageContext.request.contextPath }/img/product/product8.png" alt="">
+                    </a>
+                </div>
+                <div class="littleimg-title">
+                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
+                    <div class="littleimg-title-name">
+                        <h4>24寸山海经印花PC铝框拉杆箱</h4>
+                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">539</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product col-md-3">
+                <div class="littleimg">
+                    <a href="#">
+                        <img src="${pageContext.request.contextPath }/img/product/product9.png" alt="">
+                    </a>
+                </div>
+                <div class="littleimg-title">
+                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
+                    <div class="littleimg-title-name">
+                        <h4> 多功能商务旅行袋</h4>
+                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">369</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product col-md-3">
+                <div class="littleimg">
+                    <a href="#">
+                        <img src="${pageContext.request.contextPath }/img/product/product10.png" alt="">
+                    </a>
+                </div>
+                <div class="littleimg-title">
+                    <div class="littleimg-title-top"><span style="background-color: #fff;"></span></div>
+                    <div class="littleimg-title-name">
+                        <h4>头层牛皮长款拉链钱包</h4>
+                        <div class="littleimg-title-price"><span class="text-danger">¥</span><span class="text-danger">269</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</c:forEach> --%>
+
+ <section class="SE3_product">
     <div class="container">
         <div class="row">
             <div class="producttitle">
@@ -334,7 +434,7 @@
             </ol>
             </div>
             <div class="col-md-12">
-                <img src="${pageContext.request.contextPath }/img/icon/xiebig.jpg" alt="" width="1100">
+                <img src="${pageContext.request.contextPath }/img/icon/category1.jpg" alt="" width="1100">
             </div>
         </div>
         <div class="row">
