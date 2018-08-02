@@ -28,8 +28,9 @@ public class Goodscontroller {
 	}
 	
 	@RequestMapping(value = "detail/{goodsID}")
-	public String goodsDetail(@PathVariable int goodsID) {
-		System.out.println(goodsID);
+	public String goodsDetail(Model model,@PathVariable int goodsID) {
+		Goods good=goodservice.getgood(goodsID);
+		model.addAttribute("good", good);
 		return "detail";
 	}
 }

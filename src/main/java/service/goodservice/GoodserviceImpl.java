@@ -27,4 +27,8 @@ public class GoodserviceImpl implements Goodservice{
 		result.setGoodssecondarytypelist(goodssecondarytypemapper.findBygoodsMainTypeID(categoryID));
 		return result;
 	}
+	@Override
+	public Goods getgood(int goodsID) {
+		return goodsmapper.findBygoodsID(goodsID);
+	}
 }
