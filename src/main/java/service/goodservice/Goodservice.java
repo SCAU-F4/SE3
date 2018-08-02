@@ -3,7 +3,9 @@ package service.goodservice;
 import java.util.List;
 
 import bean.Goods;
+import bean.GoodsSecondaryType;
+import bean.middle.categorybean;
 
 public interface Goodservice {
-   public List<Goods> listGoods(int categoryID,int subcategoryID);
+	public categorybean getcategory(int categoryID);
 }

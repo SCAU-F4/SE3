@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-01 21:44:08
+Date: 2018-08-02 01:03:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -173,7 +173,10 @@ CREATE TABLE `goodsmaintype` (
 -- ----------------------------
 -- Records of goodsmaintype
 -- ----------------------------
-INSERT INTO `goodsmaintype` VALUES ('99', 'haha', '99');
+INSERT INTO `goodsmaintype` VALUES ('1', '箱包配饰', '1');
+INSERT INTO `goodsmaintype` VALUES ('2', '服装', '2');
+INSERT INTO `goodsmaintype` VALUES ('3', '饮食', '3');
+INSERT INTO `goodsmaintype` VALUES ('4', '文体', '4');
 
 -- ----------------------------
 -- Table structure for `goodssecondarytype`
@@ -191,7 +194,22 @@ CREATE TABLE `goodssecondarytype` (
 -- ----------------------------
 -- Records of goodssecondarytype
 -- ----------------------------
-INSERT INTO `goodssecondarytype` VALUES ('1', '99', '15', '1', '1');
+INSERT INTO `goodssecondarytype` VALUES ('1', '1', '行李箱包', '轻奢行李箱陪你走天下', '5');
+INSERT INTO `goodssecondarytype` VALUES ('2', '1', '男士箱包', 'MK制造商', '6');
+INSERT INTO `goodssecondarytype` VALUES ('3', '1', '女士箱包', 'Alexander McQueen制造商', '7');
+INSERT INTO `goodssecondarytype` VALUES ('4', '1', '钱包配件', 'TUMI制造商', '8');
+INSERT INTO `goodssecondarytype` VALUES ('5', '2', '清爽短袖', '自在而潇洒的穿着感', '9');
+INSERT INTO `goodssecondarytype` VALUES ('6', '2', '时尚衬衫', '经典百搭 精致设计', '10');
+INSERT INTO `goodssecondarytype` VALUES ('7', '2', '性感长裙', '舒适好穿搭', '11');
+INSERT INTO `goodssecondarytype` VALUES ('8', '2', '潮流裤类', '高质感面料 休闲商务两适宜', '12');
+INSERT INTO `goodssecondarytype` VALUES ('9', '3', '美味零食', '原香鲜材，以小食之味，带来味蕾惊喜', '13');
+INSERT INTO `goodssecondarytype` VALUES ('10', '3', '水果坚果', '品尝与收获到的是自然的味道', '14');
+INSERT INTO `goodssecondarytype` VALUES ('11', '3', '新鲜肉类', '真嗜肉者，都爱这一味，佳肴美馔真滋味', '15');
+INSERT INTO `goodssecondarytype` VALUES ('12', '3', '饮料酒水', '美酒佳酿，用心典藏', '16');
+INSERT INTO `goodssecondarytype` VALUES ('13', '4', '精美文具', '找回书写的力量', '17');
+INSERT INTO `goodssecondarytype` VALUES ('14', '4', '运动户外', 'MUJI、Nike等制造商出品', '18');
+INSERT INTO `goodssecondarytype` VALUES ('15', '4', '音乐相关', '经典音乐，用心典藏，瑞鸣音乐大师匠心打造', '19');
+INSERT INTO `goodssecondarytype` VALUES ('16', '4', '影视相关', '漫威DC系列影视周边', '20');
 
 -- ----------------------------
 -- Table structure for `indent`
@@ -255,9 +273,28 @@ CREATE TABLE `picture` (
   `pictureID` int(5) NOT NULL AUTO_INCREMENT,
   `picturePath` varchar(100) NOT NULL,
   PRIMARY KEY (`pictureID`,`goodsID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of picture
 -- ----------------------------
-INSERT INTO `picture` VALUES ('1', '1', '/SE3-F4/img/product/product1.png');
+INSERT INTO `picture` VALUES ('-1', '1', '/SE3-F4/img/icon/category1.jpg');
+INSERT INTO `picture` VALUES ('-1', '2', '/SE3-F4/img/icon/category2.jpg');
+INSERT INTO `picture` VALUES ('-1', '3', '/SE3-F4/img/icon/category3.jpg');
+INSERT INTO `picture` VALUES ('-1', '4', '/SE3-F4/img/icon/category4.jpg');
+INSERT INTO `picture` VALUES ('-1', '5', '/SE3-F4/img/icon/xingli.png');
+INSERT INTO `picture` VALUES ('-1', '6', '/SE3-F4/img/icon/nanxing.png');
+INSERT INTO `picture` VALUES ('-1', '7', '/SE3-F4/img/icon/nvxing.png');
+INSERT INTO `picture` VALUES ('-1', '8', '/SE3-F4/img/icon/qianbao.png');
+INSERT INTO `picture` VALUES ('-1', '9', '/SE3-F4/img/icon/Tshirt.png');
+INSERT INTO `picture` VALUES ('-1', '10', '/SE3-F4/img/icon/shirt.png');
+INSERT INTO `picture` VALUES ('-1', '11', '/SE3-F4/img/icon/dress.png');
+INSERT INTO `picture` VALUES ('-1', '12', '/SE3-F4/img/icon/ku.png');
+INSERT INTO `picture` VALUES ('-1', '13', '/SE3-F4/img/icon/xiaochi.png');
+INSERT INTO `picture` VALUES ('-1', '14', '/SE3-F4/img/icon/shuiguo.png');
+INSERT INTO `picture` VALUES ('-1', '15', '/SE3-F4/img/icon/rou.png');
+INSERT INTO `picture` VALUES ('-1', '16', '/SE3-F4/img/icon/yinliao.png');
+INSERT INTO `picture` VALUES ('-1', '17', '/SE3-F4/img/icon/wenju.png');
+INSERT INTO `picture` VALUES ('-1', '18', '/SE3-F4/img/icon/huwai.png');
+INSERT INTO `picture` VALUES ('-1', '19', '/SE3-F4/img/icon/yinyue.png');
+INSERT INTO `picture` VALUES ('-1', '20', '/SE3-F4/img/icon/yinshi.png');

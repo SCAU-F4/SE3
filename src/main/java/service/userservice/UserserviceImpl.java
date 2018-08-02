@@ -121,7 +121,8 @@ public class UserserviceImpl implements Userservice{
 				String goodsName=good.getGoodsName();
 				indentmap.put("goodsName", goodsName);
 				double goodsPrice=good.getGoodsPrice();
-				indentmap.put("goodsPrice", Double.toString(goodsPrice));Picture picture =good.getPictureList().get(0);
+				indentmap.put("goodsPrice", Double.toString(goodsPrice));
+				Picture picture =good.getPictureList().get(0);
 				String picturePath =picture.getPicturePath();
 				indentmap.put("picturePath", picturePath);
 			}

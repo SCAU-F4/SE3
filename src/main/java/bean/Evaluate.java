@@ -6,14 +6,14 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Evaluate implements Serializable {
-	public int evaluateID;
-	public int customerID;
-	public int goodsID;
-	public Timestamp evaluateDate;
-	public int evaluateGrade;
-	public String evaluateContent;
-	public int evaluatePictureID;
-	List<EvaluatePicture> evaluatePictureList;
+	private int evaluateID;
+	private int customerID;
+	private int goodsID;
+	private Timestamp evaluateDate;
+	private int evaluateGrade;
+	private String evaluateContent;
+	private int evaluatePictureID;
+	private List<EvaluatePicture> evaluatePictureList;
 
 	public Evaluate() {
 		super();

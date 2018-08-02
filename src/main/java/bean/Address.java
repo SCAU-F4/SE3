@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Address implements Serializable {
-	public int customerID;
-	public int addressID;
-	public String addressDetail;
-	public String addressPostcode;
-	public String addressPhone;
-	public String addressName;//收件人
-	public List<Indent> IndentList;
+	private int customerID;
+	private int addressID;
+	private String addressDetail;
+	private String addressPostcode;
+	private String addressPhone;
+	private String addressName;//收件人
+	private List<Indent> IndentList;
 
 	public Address() {
 		super();

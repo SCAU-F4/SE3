@@ -30,25 +30,15 @@ public class WelcomeserviceImpl implements Welcomeservice {
 			bean.setMainType(goodsmaintype.getGoodsMainType());
 			bean.setMainTypeId(goodsmaintype.getGoodsMainTypeID());
 			bean.setMainTypePicture(goodsmaintype.getPicture().getPicturePath());
-			List<String> secondaryTypes=new ArrayList<>();
-			List<Integer> secondaryTypeIds=new ArrayList<>();
-			List<GoodsSecondaryType> goodsSecondaryTypes=goodsmaintype.getGoodsSecondaryTypeList();
-			for(GoodsSecondaryType goodssecondarytype:goodsSecondaryTypes){
-				String secondaryType=goodssecondarytype.getGoodsSecondaryType();
-				secondaryTypes.add(secondaryType);
-				Integer secondaryTypeId=goodssecondarytype.getGoodsSecondaryTypeID();
-				secondaryTypeIds.add(secondaryTypeId);
-			}
-			bean.setSecondaryTypes(secondaryTypes);
-			bean.setSecondaryTypeIds(secondaryTypeIds);
-			List<Goods> goods=goodsmaintype.getGoodsList();
-			Goods good[]=new Goods[4];
-			Random random=new Random();
-			for(int i=0;i<4;i++){
-			    int index=random.nextInt(goods.size());
-			    good[i]=goods.get(index);
-			}
-			bean.setGoods(good);
+			bean.setSecondaryTypes(goodsmaintype.getGoodsSecondaryTypeList());
+//			List<Goods> goods=goodsmaintype.getGoodsList();
+//			Goods good[]=new Goods[4];
+//			Random random=new Random();
+//			for(int i=0;i<4;i++){
+//			    int index=random.nextInt(goods.size());
+//			    good[i]=goods.get(index);
+//			}
+//			bean.setGoods(good);
 			result.add(bean);
 		}
 		return result;

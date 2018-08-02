@@ -6,14 +6,14 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Customer implements Serializable {
-	public int customerID;
-	public String customerName;
-	public String customerPwd;
-	public String customerPhone;
-	public String customerEmail;
-	public Timestamp customerRegDate;
-	public List<Address> addressList;
-	public Cart cart;// 购物车
+	private int customerID;
+	private String customerName;
+	private String customerPwd;
+	private String customerPhone;
+	private String customerEmail;
+	private Timestamp customerRegDate;
+	private List<Address> addressList;
+	private Cart cart;// 购物车
 
 	public Customer() {
 		super();

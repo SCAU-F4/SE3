@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class GoodsMainType implements Serializable {
-	public int goodsMainTypeID;
-	public String goodsMainType;
-	public int pictureID;
-	public Picture picture;
-	public List<Goods> goodsList;
-	public List<GoodsSecondaryType> goodsSecondaryTypeList;
+	private int goodsMainTypeID;
+	private String goodsMainType;
+	private int pictureID;
+	private Picture picture;
+	private List<Goods> goodsList;
+	private List<GoodsSecondaryType> goodsSecondaryTypeList;
 
 	public GoodsMainType() {
 

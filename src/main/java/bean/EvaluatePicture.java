@@ -3,8 +3,8 @@ package bean;
 import java.io.Serializable;
 
 public class EvaluatePicture implements Serializable {
-	public int evaluateID;
-	public int pictureID;
+	private int evaluateID;
+	private int pictureID;
 
 	public EvaluatePicture() {
 		super();

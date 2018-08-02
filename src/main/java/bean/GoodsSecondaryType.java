@@ -3,13 +3,13 @@ package bean;
 import java.util.List;
 
 public class GoodsSecondaryType {
-	public int goodsSecondaryTypeID;
-	public int goodsMainTypeID;
-	public String goodsSecondaryType;
-	public String goodsSecondaryTypeExplain;
-	public int pictureID;
-	public List<Goods> goodsList;
-	public Picture picture;
+	private int goodsSecondaryTypeID;
+	private int goodsMainTypeID;
+	private String goodsSecondaryType;
+	private String goodsSecondaryTypeExplain;
+	private int pictureID;
+	private List<Goods> goodsList;
+	private Picture picture;
 
 	public GoodsSecondaryType() {
 		super();

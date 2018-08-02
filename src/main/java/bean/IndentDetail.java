@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 public class IndentDetail implements Serializable {
-	public int indentID;
-	public int goodsID;
-	public double goodsPrice;
-	public int goodsCount;
-	public double totalPrice;
+	private int indentID;
+	private int goodsID;
+	private double goodsPrice;
+	private int goodsCount;
+	private double totalPrice;
 
 	public IndentDetail() {
 		super();

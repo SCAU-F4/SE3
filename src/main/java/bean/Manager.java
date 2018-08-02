@@ -3,9 +3,9 @@ package bean;
 import java.io.Serializable;
 
 public class Manager implements Serializable{
-	public int managerID;
-	public String managerName;
-	public String managerPwd;
+	private int managerID;
+	private String managerName;
+	private String managerPwd;
 
 	public Manager() {
 		super();
