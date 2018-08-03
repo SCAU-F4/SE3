@@ -181,6 +181,7 @@
 	</header>
 
 	<section class="SE3_classify">
+		<div class="BFC" id="BFCBOX">
 		<div class="box">
 			<div class="classify-top">
 				<div class="classify">
@@ -216,13 +217,17 @@
 							var="good" varStatus="status">
 						<div class="classify-item">
 							<div class="image">
-								<img
+								<a href="/SE3-F4/products/detail/${good.goodsID}">
+									<img
 									src="${good.pictureList[0].picturePath }"
 									alt="" width="220">
+								
 							</div>
 							<div class="introduce">
 								<div>
+									<a href="/SE3-F4/products/detail/${good.goodsID}">
 									<span>${good.goodsName }</span>
+									</a>
 								</div>
 								<div class="pri">
 									<span class="text-danger">￥${good.goodsPrice }</span>
@@ -235,6 +240,8 @@
 				</div>
 			</c:forEach>
 		</div>
+		</div>
+		
 	</section>
 
 	<section class="SE3_tail">
@@ -258,5 +265,28 @@
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
+	
+	<script>
+		$(document).ready(function () {
+			var $item1=$(".classify-items:eq(0)").find(".classify-item");
+			
+			var $item2=$(".classify-items:eq(1)").find(".classify-item");
+		
+			var $item3=$(".classify-items:eq(2)").find(".classify-item");
+			
+			var $item4=$(".classify-items:eq(3)").find(".classify-item");
+		
+			var item1Num=Math.ceil($item1.length/4);
+			var item2Num=Math.ceil($item2.length/4);
+			var item3Num=Math.ceil($item3.length/4);
+			var item4Num=Math.ceil($item4.length/4);
+			
+			var str=item1Num*340+item2Num*340+item3Num*340+item4Num*340+1100;
+			var str2=item1Num*340+item2Num*340+item3Num*340+item4Num*340+900;
+			console.log(str+"px");
+		 	$(".SE3_classify").height(str); 
+		 	$(".box").height(str2);
+		});
+	</script>
 </body>
 </html>
