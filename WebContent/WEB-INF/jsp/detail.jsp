@@ -23,10 +23,10 @@
                 <div class="row">
                     <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                     <div class="col-md-5 top-right">
-                        <a href="user/signup" id="signup">注册</a>
-                        <a href="user/signin" id="signin">登录</a>
-                        <a href="user/mycenter" id="myCenter">个人中心</a>
-                        <a href="user/signout" id="signout">注销</a>
+                        <a href="${pageContext.request.contextPath }/user/signup" id="signup">注册</a>
+                        <a href="${pageContext.request.contextPath }/user/signin" id="signin">登录</a>
+                        <a href="${pageContext.request.contextPath }/user/mycenter" id="myCenter">个人中心</a>
+                        <a href="${pageContext.request.contextPath }/user/signout" id="signout">注销</a>
                     </div>
                 </div>
         </div>
@@ -135,18 +135,18 @@
         <div class="picture">
 
             <div class="view">
-                <img src="${pageContext.request.contextPath }/img/product/product12_1.png">
+                <img src="${pageContext.request.contextPath }/img/product/product1_1.png">
             </div>
 
         </div>
 
         <div class="list">
             <ul>
-                <li class="active"><img src="${pageContext.request.contextPath }/img/product/product12_1.png"></li>
-                <li><img src="${pageContext.request.contextPath }/img/product/product12_2.png"></li>
-                <li><img src="${pageContext.request.contextPath }/img/product/product12_3.png"></li>
-                <li><img src="${pageContext.request.contextPath }/img/product/product12_4.png"></li>
-                <li><img src="${pageContext.request.contextPath }/img/product/product12_5.png"></li>
+                <li class="active"><img src="${pageContext.request.contextPath }/img/product/product1_1.png"></li>
+                <li><img src="${pageContext.request.contextPath }/img/product/product1_2.jpg"></li>
+                <li><img src="${pageContext.request.contextPath }/img/product/product1_3.jpg"></li>
+                <li><img src="${pageContext.request.contextPath }/img/product/product1_4.jpg"></li>
+                <li><img src="${pageContext.request.contextPath }/img/product/product1_5.jpg"></li>
             </ul>
         </div>
 
@@ -226,7 +226,7 @@
         </ul>
 
         <div class="detail_picture" data-select="0">
-            <img src="${pageContext.request.contextPath }/img/product/product12_6.png">
+            <img src="${pageContext.request.contextPath }/img/product/product1_6.jpg">
         </div>
 
         <div class="evaluate" data-select="1">
@@ -424,55 +424,55 @@
             <ul>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right1.png">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_1.png">
                     </a>
                     <a href="index.html">
-                        <div class="name">谷风一木 手帕纸</div>
+                        <div class="name">24寸原创山海经PC铝框拉杆箱</div>
                     </a>
                     <div class="price">¥5.9</div>
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right2.png">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_2.png">
                     </a>
                     <a href="index.html">
-                        <div class="name">严选礼品卡 100元面值</div>
+                        <div class="name">女式典雅真丝长吊带睡裙</div>
                     </a>
                     <div class="price">¥100</div>
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right3.png">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_3.png">
                     </a>
                     <a href="index.html">
-                        <div class="name">玩趣彩虹四季拖鞋</div>
+                        <div class="name">幸运桃心链条单肩包</div>
                     </a>
                     <div class="price">¥19.9</div>
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right4.png">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_4.png">
                     </a>
                     <a href="index.html">
-                        <div class="name">美国制造 除甲醛空气净化剂227g</div>
+                        <div class="name">爱的乐章黑巧克力礼盒</div>
                     </a>
                     <div class="price">¥45</div>
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right5.png">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_5.png">
                     </a>
                     <a href="index.html">
-                        <div class="name">绿豆糕</div>
+                        <div class="name">千层星云酥</div>
                     </a>
                     <div class="price">¥12.9</div>
                 </li>
                 <li>
                     <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/right6.png">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_6.png">
                     </a>
                     <a href="index.html">
-                        <div class="name">懒人抹布</div>
+                        <div class="name">瓦坎达图腾 杯垫</div>
                     </a>
                     <div class="price">¥13.99</div>
                 </li>
@@ -503,6 +503,7 @@
         </div>
     </div>
 </section>
+
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>

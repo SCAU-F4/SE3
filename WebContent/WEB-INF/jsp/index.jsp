@@ -20,10 +20,10 @@
                 <div class="row">
                     <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                     <div class="col-md-5 top-right">
-                        <a href="user/signup" id="signup">注册</a>
-                        <a href="user/signin" id="signin">登录</a>
-                        <a href="user/mycenter" id="myCenter">个人中心</a>
-                         <a href="user/signout" id="signout">注销</a>
+                        <a href="${pageContext.request.contextPath }/user/signup" id="signup">注册</a>
+                        <a href="${pageContext.request.contextPath }/user/signin" id="signin">登录</a>
+                        <a href="${pageContext.request.contextPath }/user/mycenter" id="myCenter">个人中心</a>
+                         <a href="${pageContext.request.contextPath }/user/signout" id="signout">注销</a>
                           <div class="shopping-cart">
                             <i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
                             <div class="cart-show-area">
@@ -401,6 +401,24 @@
 </section>
 </c:forEach>
 <div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
+
+<section class="SE3_tail">
+    <div class="serve">
+        <div class="col-md-4 detail_serve">
+            <img src="${pageContext.request.contextPath }/img/icon/shield.png">
+            <span>30天无忧退换货</span>
+        </div>
+        <div class="col-md-4 detail_serve">
+            <img class="car" src="${pageContext.request.contextPath }/img/icon/car.png">
+            <span>满88元免邮费</span>
+        </div>
+        <div class="col-md-4 detail_serve">
+            <img src="${pageContext.request.contextPath }/img/icon/nong.png">
+            <span>华农有货品质保证</span>
+        </div>
+    </div>
+</section>
+
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>

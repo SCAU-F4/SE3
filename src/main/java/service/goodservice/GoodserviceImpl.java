@@ -7,6 +7,7 @@ import Mapper.GoodsMainTypeMapper;
 import Mapper.GoodsMapper;
 import Mapper.GoodsSecondaryTypeMapper;
 import bean.Goods;
+import bean.GoodsSecondaryType;
 import bean.middle.categorybean;
 
 @Service
