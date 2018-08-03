@@ -24,9 +24,10 @@
 						<p>好的生活，没那么贵</p>
 					</div>
 					<div class="col-md-5 top-right">
-						<a href="user/signup" id="signup">注册</a> <a href="user/signin"
-							id="signin">登录</a> <a href="user/mycenter" id="myCenter">个人中心</a>
-						<a href="user/signout" id="signout">注销</a>
+						<a href="${pageContext.request.contextPath }/user/signup" id="signup">注册</a>
+                        <a href="${pageContext.request.contextPath }/user/signin" id="signin">登录</a>
+                        <a href="${pageContext.request.contextPath }/user/mycenter" id="myCenter">个人中心</a>
+                         <a href="${pageContext.request.contextPath }/user/signout" id="signout">注销</a>
 						  <div class="shopping-cart">
                             <i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
                             <div class="cart-show-area">
@@ -94,7 +95,7 @@
 							<ul class="nav navbar-nav">
 								<li class="home active"><a href="/SE3-F4">首页<span
 										class="sr-only">首页</span></a></li>
-								<li class="bag-li"><a
+								<li class="bag-li" data-chose="1"><a
 									href="/SE3-F4/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
 									<div class="bag-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -125,7 +126,7 @@
 										</ul>
 									</div></li>
 
-								<li class="cloth-li"><a
+								<li class="cloth-li" data-chose="2"><a
 									href="/SE3-F4/products/list?categoryId=2&subcategoryId=-1">服装</a>
 									<div class="cloth-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -155,7 +156,7 @@
 													</div></a></li>
 										</ul>
 									</div></li>
-								<li class="food-li"><a
+								<li class="food-li" data-chose="3"><a
 									href="/SE3-F4/products/list?categoryId=3&subcategoryId=-1">饮食</a>
 									<div class="food-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -185,7 +186,7 @@
 													</div></a></li>
 										</ul>
 									</div></li>
-								<li class="sport-li"><a
+								<li class="sport-li" data-chose="4"><a
 									href="/SE3-F4/products/list?categoryId=4&subcategoryId=-1">文体</a>
 									<div class="sport-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -258,12 +259,13 @@
 					 <div class="classify-items">
 					 <c:forEach items="${subcategory.goodsList}"
 							var="good" varStatus="status">
+							 <input type="hidden" class="goodsMaintype" value="${good.goodsMainTypeID}"/>
 						<div class="classify-item">
 							<div class="image">
 								<a href="/SE3-F4/products/detail/${good.goodsID}">
 									<img
 									src="${good.pictureList[0].picturePath }"
-									alt="" width="220">
+									alt="" width="220" height="220">
 								
 							</div>
 							<div class="introduce">
@@ -348,6 +350,10 @@
 		 	$(".box").height(str2);
 		 	$(".SE3_tail").show();
 		});
+		var mainType=$(".goodsMaintype:eq(0)").val();
+		console.log(mainType);
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li.active").removeClass("active");
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="+mainType+"]").addClass("active");
 	</script>
 </body>
 </html>
