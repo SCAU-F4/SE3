@@ -11,7 +11,7 @@ import bean.Goods;
 
 public interface GoodsMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Goods findBygoodsID(int goodsID);
+	List<Goods> findBygoodsID(int goodsID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	Goods findBygoodsIDAndgoodsSpecify(@Param("goodsID")int goodsID,@Param("goodsSpecify")String goodsSpecify);
