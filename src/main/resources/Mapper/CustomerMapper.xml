@@ -24,7 +24,7 @@
 	</resultMap>
 
 	<select id="findBycustomerID" resultMap="customerMap1">
-		select * from Customer where customerID = #{id}
+		select * from Customer where customerID = #{customerID}
 	</select>
 
 	<select id="IsCustomerNameExist" resultType="java.lang.Integer">

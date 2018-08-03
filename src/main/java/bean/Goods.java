@@ -21,7 +21,7 @@ public class Goods implements Serializable {
 	private int goodsSecondaryTypeID;
 	private List<Picture> pictureList;
 	private List<Evaluate> evaluateList;
-	private Goods() {
+	public Goods() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

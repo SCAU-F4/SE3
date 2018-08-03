@@ -7,6 +7,7 @@
 	<resultMap type="indentDetail" id="indentDetailMap">
 		<id column="indentID" property="indentID" />
 		<id column="goodsID" property="goodsID" />
+		<id column="goodsSpecify" property="goodsSpecify" />
 		<result column="goodsPrice" property="goodsPrice" />
 		<result column="goodsCount" property="goodsCount" />
 		<result column="totalPrice" property="totalPrice" />
@@ -26,24 +27,21 @@
 	<insert id="insert">
 		insert into IndentDetail values(#{indentID},
 		#{goodsID}, #{goodsPrice},
-		#{goodsCount}, #{totalPrice})
+		#{goodsCount}, #{totalPrice},#{goodsSpecify})
 	</insert>
 	<update id="update">
 		update IndentDetail set goodsPrice=#{goodsPrice},
 		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
-		indentID=#{indentID} AND goodsID=#{goodsID}
+		indentID=#{indentID} AND goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
 	</update>
 	<delete id="delete">
 		delete from IndentDetail where indentID=#{indentID}
-		AND goodsID=#{goodsID}
+		AND goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
 	</delete>
 	<select id="getAllDetailbyindentID" resultMap="indentDetailMap">
-		select
-		indent.indentID,goodsID,goodsPrice,goodsCount,IndentDetail.totalPrice
-		from Indent inner join IndentDetail on
-		Indent.indentID=IndentDetail.indentID
-		where Indent.indentID
-		=#{indentID} <!-- 传的参数要传上面定义的intentid -->
+		select *
+		from indentDetail
+		where indentID=#{indentID} 
 	</select>
 	<delete id="deleteByindentID">
 		delete from IndentDetail where indentID=#{indentID}
