@@ -31,14 +31,14 @@ public class WelcomeserviceImpl implements Welcomeservice {
 			bean.setMainTypeId(goodsmaintype.getGoodsMainTypeID());
 			bean.setMainTypePicture(goodsmaintype.getPicture().getPicturePath());
 			bean.setSecondaryTypes(goodsmaintype.getGoodsSecondaryTypeList());
-//			List<Goods> goods=goodsmaintype.getGoodsList();
-//			Goods good[]=new Goods[4];
-//			Random random=new Random();
-//			for(int i=0;i<4;i++){
-//			    int index=random.nextInt(goods.size());
-//			    good[i]=goods.get(index);
-//			}
-//			bean.setGoods(good);
+			List<Goods> goods=goodsmaintype.getGoodsList();
+			Goods good[]=new Goods[4];
+			Random random=new Random();
+			for(int i=0;i<4;i++){
+			    int index=random.nextInt(goods.size());
+			    good[i]=goods.get(index);
+			}
+			bean.setGoods(good);
 			result.add(bean);
 		}
 		return result;
