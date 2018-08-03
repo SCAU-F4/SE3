@@ -211,13 +211,13 @@
 						</div>
 						<p class="text-muted">${subcategory.goodsSecondaryTypeExplain}</p>
 					</div>
-					<%-- <div class="classify-items">
-					 <c:forEach items="${category.goodssecondarytypelist.goodsList}"
+					 <div class="classify-items">
+					 <c:forEach items="${subcategory.goodsList}"
 							var="good" varStatus="status">
 						<div class="classify-item">
 							<div class="image">
 								<img
-									src="${good.pictureList[0] }"
+									src="${good.pictureList[0].picturePath }"
 									alt="" width="220">
 							</div>
 							<div class="introduce">
@@ -231,7 +231,7 @@
 							</div>
 						</div>
 						</c:forEach> 
-					</div> --%>
+					</div>
 				</div>
 			</c:forEach>
 		</div>
