@@ -44,7 +44,13 @@
 		where
 		goodsMainTypeID = #{goodsMainTypeID}
 	</select>
-
+	<select id="findBygoodsMainTypeIDGroupBygoodsID" resultMap="goodsMap1">
+		select * from Goods
+		group by goodsID
+		having
+		goodsMainTypeID =
+		#{goodsMainTypeID}
+	</select>
 
 	<select id="findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID"
 		resultMap="goodsMap1">

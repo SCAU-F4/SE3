@@ -9,15 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Mapper.GoodsMainTypeMapper;
+import Mapper.GoodsMapper;
 import Mapper.GoodsSecondaryTypeMapper;
 import bean.Goods;
 import bean.GoodsMainType;
-import bean.GoodsSecondaryType;
 import bean.middle.indexbean;
 
 @Service
 public class WelcomeserviceImpl implements Welcomeservice {
 
+	@Autowired
+	GoodsMapper goodsmapper;
 	@Autowired
 	GoodsMainTypeMapper goodsmaintypemapper;
 	@Autowired
@@ -33,7 +35,7 @@ public class WelcomeserviceImpl implements Welcomeservice {
 			bean.setMainTypeId(goodsmaintype.getGoodsMainTypeID());
 			bean.setMainTypePicture(goodsmaintype.getPicture().getPicturePath());
 			bean.setSecondaryTypes(goodsmaintype.getGoodsSecondaryTypeList());
-			List<Goods> goods = goodsmaintype.getGoodsList();
+			List<Goods> goods = goodsmapper.findBygoodsMainTypeIDGroupBygoodsID(goodsmaintype.getGoodsMainTypeID());
 			Goods good[] = new Goods[4];
 			Random random = new Random();
 			HashSet<Integer> pool = new HashSet<>();
