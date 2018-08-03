@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>华农有货</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/layui/css/layui.css">
+	href="${pageContext.request.contextPath }//layui/css/layui.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/bootstrap.css">
+	href="${pageContext.request.contextPath }//css/bootstrap.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/index.css">
+	href="${pageContext.request.contextPath }//css/index.css">
 </head>
 <body>
 	<!--头-->
@@ -476,7 +476,7 @@
 							<c:forEach items="${item.secondaryTypes}" var="secondaryType"
 								varStatus="status">
 								<li class="text-muted"><a
-									href="${pageContext.request.contextPath }/products/list?categoryId=${item.mainTypeId}&subcategoryId=${secondaryType.goodsSecondaryTypeID}"
+									href="${pageContext.request.contextPath }//products/list?categoryId=${item.mainTypeId}&subcategoryId=${secondaryType.goodsSecondaryTypeID}"
 									class="text-muted">${secondaryType.goodsSecondaryType}</a></li>
 							</c:forEach>
 						</ol>
@@ -489,9 +489,9 @@
 					<c:forEach items="${item.goods}" var="good" varStatus="status">
 						<div class="product col-md-3">
 							<div class="littleimg">
-								<a href="${pageContext.request.contextPath }products/detail/${good.goodsID}"> <img
-									src="${good.pictureList[0].picturePath}"
-									alt="">
+								<a
+									href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+									<img src="${good.pictureList[0].picturePath}" alt="">
 								</a>
 							</div>
 							<div class="littleimg-title">
@@ -518,25 +518,26 @@
 	<section class="SE3_tail">
 		<div class="serve">
 			<div class="col-md-4 detail_serve">
-				<img src="${pageContext.request.contextPath }/img/icon/shield.png">
+				<img src="${pageContext.request.contextPath }//img/icon/shield.png">
 				<span>30天无忧退换货</span>
 			</div>
 			<div class="col-md-4 detail_serve">
 				<img class="car"
-					src="${pageContext.request.contextPath }/img/icon/car.png"> <span>满88元免邮费</span>
+					src="${pageContext.request.contextPath }//img/icon/car.png">
+				<span>满88元免邮费</span>
 			</div>
 			<div class="col-md-4 detail_serve">
-				<img src="${pageContext.request.contextPath }/img/icon/nong.png">
+				<img src="${pageContext.request.contextPath }//img/icon/nong.png">
 				<span>华农有货品质保证</span>
 			</div>
 		</div>
 	</section>
 
-	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
+	<script src="${pageContext.request.contextPath }//layui/layui.js"></script>
 	<script
-		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
-	<script src="${pageContext.request.contextPath }/js/index.js"></script>
+		src="${pageContext.request.contextPath }//js/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.request.contextPath }//js/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath }//js/index.js"></script>
 	<script>
 		$(document).ready(function() {
 			var customer = "${currentCustomer.customerName}";
