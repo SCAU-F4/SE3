@@ -422,6 +422,49 @@
 		$(
 				"#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="
 						+ mainType + "]").addClass("active");
+/* 		$(document).ready(function () {
+		var mainType=$(".goodsMaintype:eq(0)").val();
+		console.log(mainType);
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li.active").removeClass("active");
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="+mainType+"]").addClass("active");
+		var customer= "${currentCustomer.customerName}";
+			if(customer==""){
+				$("#myCenter").hide();
+				$("#signout").hide();
+				$("#signin").show();
+				$("#signup").show();
+				$(".shopping-cart").hide();
+			}
+			else{
+				$("#myCenter").show();
+				$("#signout").show();
+				$("#signin").hide();
+				$("#signup").hide();
+				$(".shopping-cart").show();
+			}
+		
+			var $item1=$(".classify-items:eq(0)").find(".classify-item");
+			
+			var $item2=$(".classify-items:eq(1)").find(".classify-item");
+		
+			var $item3=$(".classify-items:eq(2)").find(".classify-item");
+			
+			var $item4=$(".classify-items:eq(3)").find(".classify-item");
+		
+			var item1Num=Math.ceil($item1.length/4);
+			var item2Num=Math.ceil($item2.length/4);
+			var item3Num=Math.ceil($item3.length/4);
+			var item4Num=Math.ceil($item4.length/4);
+			
+			var str=item1Num*340+item2Num*340+item3Num*340+item4Num*340+1100;
+			var str2=item1Num*340+item2Num*340+item3Num*340+item4Num*340+900;
+			console.log(str+"px");
+		 	$(".SE3_classify").height(str); 
+		 	$(".box").height(str2);
+		 	$(".SE3_tail").show();
+		 	
+		});
+		 */
 	</script>
 </body>
 </html>
