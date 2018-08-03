@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${category.categoryType}</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/bootstrap.css">
 <link rel="stylesheet"
@@ -26,6 +27,48 @@
 						<a href="user/signup" id="signup">注册</a> <a href="user/signin"
 							id="signin">登录</a> <a href="user/mycenter" id="myCenter">个人中心</a>
 						<a href="user/signout" id="signout">注销</a>
+						  <div class="shopping-cart">
+                            <i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
+                            <div class="cart-show-area">
+                                <div class="cart-top-area">
+                                    <div class="cart-item">
+                                           <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10_1.png" alt="" height="50"></div>
+                                            <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
+                                            <div class="cart-introduce text-muted">底油亮油色</div>
+                                            <div class="cart-number">x <span class="indentNumber">1</span></div>
+                                            <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
+                                            <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+
+                                        </div>
+                                    <div class="cart-item">
+                                        <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10_1.png" alt="" height="50"></div>
+                                        <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
+                                        <div class="cart-introduce text-muted">底油亮油色</div>
+                                        <div class="cart-number">x <span class="indentNumber">1</span></div>
+                                        <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
+                                        <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10_1.png" alt="" height="50"></div>
+                                        <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
+                                        <div class="cart-introduce text-muted">底油亮油色</div>
+                                        <div class="cart-number">x <span class="indentNumber">1</span></div>
+                                        <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
+                                        <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+                                    </div>
+
+                                </div>
+                                <div class="cart-bottom-area">
+                                    <div class="allPrice">
+                                       <div class="pricedetail">商品总价 ：</div>
+                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
+                                    </div>
+                                    <div class="buy"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    
 					</div>
 				</div>
 			</div>
@@ -260,7 +303,8 @@
 			</div>
 		</div>
 	</section>
-
+<div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
+<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
@@ -268,6 +312,22 @@
 	
 	<script>
 		$(document).ready(function () {
+		var customer= "${currentCustomer.customerName}";
+			if(customer==""){
+				$("#myCenter").hide();
+				$("#signout").hide();
+				$("#signin").show();
+				$("#signup").show();
+				$(".shopping-cart").hide();
+			}
+			else{
+				$("#myCenter").show();
+				$("#signout").show();
+				$("#signin").hide();
+				$("#signup").hide();
+				$(".shopping-cart").show();
+			}
+		
 			var $item1=$(".classify-items:eq(0)").find(".classify-item");
 			
 			var $item2=$(".classify-items:eq(1)").find(".classify-item");
