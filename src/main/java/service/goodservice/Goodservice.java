@@ -8,5 +8,5 @@ import bean.middle.categorybean;
 
 public interface Goodservice {
 	public categorybean getcategory(int categoryID);
-	public Goods getgood(int goodsID);
+	public List<Goods> getgood(int goodsID);
 }

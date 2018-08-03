@@ -1,5 +1,7 @@
 package service.goodservice;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,7 @@ public class GoodserviceImpl implements Goodservice{
 		return result;
 	}
 	@Override
-	public Goods getgood(int goodsID) {
+	public List<Goods> getgood(int goodsID) {
 		return goodsmapper.findBygoodsID(goodsID);
 	}
 }
