@@ -1,17 +1,29 @@
 .SE3_classify{
     width: 100%;
+    	display:flex;
     background-color: #f5f5f5;
-    height: 1600px;
+/*    height: 3400px; */  
+    
+
+}
+.SE3_classify .BFC{
+	display:flex;
+	  width: 100%;
+    background-color: #f5f5f5;
+ /*    height: 8400px;  */
     position: relative;
 
 }
-.SE3_classify .box{
+
+.SE3_classify #BFCBOX .box{
+	
     width: 1000px;
-    height: 1500px;
+    height:100%;
     background: #fff;
     position: absolute;
     top:50px;
-    left: 237px;
+    left: 18%;
+   
 }
 .SE3_classify .box .classify-top>div{
     position: absolute;
@@ -34,27 +46,37 @@
     margin-left:35px;
 }
 .SE3_classify .box .classify-main{
+	
     position: relative;
     top: 130px;
     left: 0;
     width: 1000px;
-    height: 500px;
+/*      height: 2000px;  */ 
 }
 .SE3_classify .box .classify-main .classify-icon{
-    width:150px;
+	
+    width:150px;   
     margin: 0 auto;
 }
 .SE3_classify .box .classify-main .classify-icon span{
+	margin-top:10px;
+	display:inline-block;
+	height:44px;
+	line-height:44px;
     font-size: 22px;
     font-weight: bold;
+}
+.SE3_classify .box .classify-main .classify-icon p{
+	 text-align: center;
 }
 .SE3_classify .box .classify-main .classify-icon img{
     margin-left: 12px;
 }
 .SE3_classify .box .classify-main .classify-items{
+
     margin: 40px auto;
     width: 1000px;
-    height: 800px;
+/*     height: 800px;  */
     display: flex;
     flex-wrap:wrap;
 
@@ -76,6 +98,14 @@
 .SE3_classify .box .classify-main .classify-item .introduce span{
         font-weight: bold;
 }
+.SE3_classify .box .classify-main .classify-item .introduce a{
+        color:#333;
+       text-decoration:none;
+}
+.SE3_classify .box .classify-main .classify-item .introduce a:hover{
+        color:#d0c4af;
+       text-decoration:none;
+}
 .SE3_classify .box .classify-main .classify-item .introduce>div.pri span{
     border-bottom: 0.8px  rgb(234, 234, 234) solid;
     padding: 2px 15px;
@@ -85,4 +115,9 @@
 }
 .SE3_classify .box .classify-main .classify-item .introduce p{
     font-size: 13px;
+}
+.SE3_tail{
+	display:none;
+	 position: relative;
+	 bottom:0px;
 }
