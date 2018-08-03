@@ -314,6 +314,10 @@
 	
 	<script>
 		$(document).ready(function () {
+		var mainType=$(".goodsMaintype:eq(0)").val();
+		console.log(mainType);
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li.active").removeClass("active");
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="+mainType+"]").addClass("active");
 		var customer= "${currentCustomer.customerName}";
 			if(customer==""){
 				$("#myCenter").hide();
@@ -349,11 +353,9 @@
 		 	$(".SE3_classify").height(str); 
 		 	$(".box").height(str2);
 		 	$(".SE3_tail").show();
+		 	
 		});
-		var mainType=$(".goodsMaintype:eq(0)").val();
-		console.log(mainType);
-		$("#SE3_header .navbar .container-fluid .collapse > ul > li.active").removeClass("active");
-		$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="+mainType+"]").addClass("active");
+		
 	</script>
 </body>
 </html>
