@@ -28,9 +28,14 @@
 	</resultMap>
 
 
-	<select id="findBygoodsID" resultMap="goodsMap1">
+    <select id="findBygoodsID" resultMap="goodsMap1">
 		select * from Goods where
-		goodsID = #{goodsID}
+		goodsID = #{goodsID} 
+	</select>
+
+	<select id="findBygoodsIDAndgoodsSpecify" resultMap="goodsMap1">
+		select * from Goods where
+		goodsID = #{goodsID} and goodsSpecify=#{goodsSpecify}
 	</select>
 
 	<select id="findBygoodsMainTypeID" resultMap="goodsMap1">

@@ -117,7 +117,8 @@ public class UserserviceImpl implements Userservice{
 			List<IndentDetail> indentdetails =indentdetailmapper.getAllDetailbyindentID(indentID);
 			for(IndentDetail indentDetail:indentdetails){
 				int goodsID =indentDetail.getGoodsID();
-				Goods good=goodsmapper.findBygoodsID(goodsID);
+				String goodsSpecify=indentDetail.getGoodsSpecify();
+				Goods good=goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
 				String goodsName=good.getGoodsName();
 				indentmap.put("goodsName", goodsName);
 				double goodsPrice=good.getGoodsPrice();
