@@ -29,8 +29,8 @@ public class Goodscontroller {
 	
 	@RequestMapping(value = "detail/{goodsID}")
 	public String goodsDetail(Model model,@PathVariable int goodsID) {
-		Goods good=goodservice.getgood(goodsID);
-		model.addAttribute("good", good);
+		List<Goods> goods=goodservice.getgood(goodsID);
+		model.addAttribute("goods", goods);
 		return "detail";
 	}
 }
