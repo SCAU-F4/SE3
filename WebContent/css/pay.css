@@ -1,0 +1,71 @@
+.SE3_pay {
+    width: 900px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.SE3_pay > div:first-child {
+    overflow: hidden;
+}
+
+.SE3_pay > div:first-child > div:first-child {
+    float: left;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.SE3_pay > div:first-child > div:last-child {
+    float: right;
+    font-size: 22px;
+}
+
+.SE3_pay > div:first-child > div:last-child > span:last-child {
+    color: #ac2925;
+}
+
+.SE3_pay > div:nth-child(2) {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #efefef;
+    text-align: center;
+}
+
+.SE3_pay > div:nth-child(2) > div {
+    height: 42px;
+    padding-left: 21px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #efefef;
+    line-height: 41px;
+    color: #999;
+    font-size: 14px;
+}
+
+.SE3_pay img {
+    width: 250px;
+    margin: 50px;
+}
+
+.SE3_pay img:last-child {
+    width: 250px;
+    margin: 40px 50px 50px 50px;
+}
+
+.SE3_pay > span {
+    margin-top: 20px;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    display: inline-block;
+    float: right;
+}
+
+.SE3_pay > span:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}

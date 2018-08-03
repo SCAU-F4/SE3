@@ -401,6 +401,24 @@
 </section>
 </c:forEach>
 <div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
+
+<section class="SE3_tail">
+    <div class="serve">
+        <div class="col-md-4 detail_serve">
+            <img src="${pageContext.request.contextPath }/img/icon/shield.png">
+            <span>30天无忧退换货</span>
+        </div>
+        <div class="col-md-4 detail_serve">
+            <img class="car" src="${pageContext.request.contextPath }/img/icon/car.png">
+            <span>满88元免邮费</span>
+        </div>
+        <div class="col-md-4 detail_serve">
+            <img src="${pageContext.request.contextPath }/img/icon/nong.png">
+            <span>华农有货品质保证</span>
+        </div>
+    </div>
+</section>
+
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
