@@ -6,6 +6,7 @@ import java.util.List;
 public class IndentDetail implements Serializable {
 	private int indentID;
 	private int goodsID;
+	private String goodsSpecify;
 	private double goodsPrice;
 	private int goodsCount;
 	private double totalPrice;
@@ -15,13 +16,15 @@ public class IndentDetail implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public IndentDetail(int indentID, int goodsID, double goodsPrice, int goodsCount, double totalPrice) {
+	public IndentDetail(int indentID, int goodsID, double goodsPrice, int goodsCount, double totalPrice,
+			String goodsSpecify) {
 		super();
 		this.indentID = indentID;
 		this.goodsID = goodsID;
 		this.goodsPrice = goodsPrice;
 		this.goodsCount = goodsCount;
 		this.totalPrice = totalPrice;
+		this.setGoodsSpecify(goodsSpecify);
 	}
 
 	public int getIndentID() {
@@ -64,10 +67,18 @@ public class IndentDetail implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 
+	public String getGoodsSpecify() {
+		return goodsSpecify;
+	}
+
+	public void setGoodsSpecify(String goodsSpecify) {
+		this.goodsSpecify = goodsSpecify;
+	}
+
 	@Override
 	public String toString() {
-		return "IndentDetail [indentID=" + indentID + ", goodsID=" + goodsID + ", goodsPrice=" + goodsPrice
-				+ ", goodsCount=" + goodsCount + ", totalPrice=" + totalPrice + "]";
+		return "IndentDetail [indentID=" + indentID + ", goodsID=" + goodsID + ", goodsSpecify=" + goodsSpecify
+				+ ", goodsPrice=" + goodsPrice + ", goodsCount=" + goodsCount + ", totalPrice=" + totalPrice + "]";
 	}
 
 }
