@@ -56,7 +56,6 @@
 										<div class="close">
 											<i class="layui-icon layui-icon-close"></i>
 										</div>
-
 									</div>
 									<div class="cart-item">
 										<div class="cart-img">
@@ -141,60 +140,59 @@
 								<li class="home active"><a href="/SE3-F4">首页<span
 										class="sr-only">首页</span></a></li>
 								<li class="bag-li"><a
-									href="${pageContext.request.contextPath }products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
+									href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
 									<div class="bag-li container downmenu">
 										<ul class="nav navbar-nav">
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=1&subcategoryId=1"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=1"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/xingli.png"
 															alt=""><span>行李箱包</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=1&subcategoryId=2"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=2"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/nanxing.png"
 															alt=""><span>男士箱包</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=1&subcategoryId=3"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=3"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/nvxing.png"
 															alt=""><span>女士箱包</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=1&subcategoryId=4"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=4"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/qianbao.png"
 															alt=""><span>钱包配件</span>
 													</div></a></li>
 										</ul>
 									</div></li>
-
 								<li class="cloth-li"><a
-									href="${pageContext.request.contextPath }products/list?categoryId=2&subcategoryId=-1">服装</a>
+									href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=-1">服装</a>
 									<div class="cloth-li container downmenu">
 										<ul class="nav navbar-nav">
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=2&subcategoryId=5"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=5"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/Tshirt.png"
 															alt=""><span>清爽短袖</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=2&subcategoryId=6"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=6"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/shirt.png"
 															alt=""><span>时尚衬衫</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=2&subcategoryId=7"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=7"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/dress.png"
 															alt=""><span>性感长裙</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=2&subcategoryId=8"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=8"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/ku.png"
 															alt=""><span>潮流裤类</span>
@@ -202,29 +200,29 @@
 										</ul>
 									</div></li>
 								<li class="food-li"><a
-									href="${pageContext.request.contextPath }products/list?categoryId=3&subcategoryId=-1">饮食</a>
+									href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=-1">饮食</a>
 									<div class="food-li container downmenu">
 										<ul class="nav navbar-nav">
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=3&subcategoryId=9"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=9"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/xiaochi.png"
 															alt=""><span>美味零食</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=3&subcategoryId=10"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=10"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/shuiguo.png"
 															alt=""><span>水果坚果</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=3&subcategoryId=11"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=11"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/rou.png"
 															alt=""><span>新鲜肉类</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=3&subcategoryId=12"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=12"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/yinliao.png"
 															alt=""><span>饮料酒水</span>
@@ -232,29 +230,29 @@
 										</ul>
 									</div></li>
 								<li class="sport-li"><a
-									href="${pageContext.request.contextPath }products/list?categoryId=4&subcategoryId=-1">文体</a>
+									href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=-1">文体</a>
 									<div class="sport-li container downmenu">
 										<ul class="nav navbar-nav">
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=4&subcategoryId=13"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=13"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/wenju.png"
 															alt=""><span>精美文具</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=4&subcategoryId=14"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=14"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/huwai.png"
 															alt=""><span>运动户外</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=4&subcategoryId=15"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=15"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/yinyue.png"
 															alt=""><span>音乐相关</span>
 													</div></a></li>
 											<li><a
-												href="${pageContext.request.contextPath }products/list?categoryId=4&subcategoryId=16"><div>
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=16"><div>
 														<img
 															src="${pageContext.request.contextPath }/img/icon/yinshi.png"
 															alt=""><span>影视相关</span>
@@ -298,30 +296,48 @@
 						<div class="classify-icon">
 							<div>
 								<img src="${subcategory.picture.picturePath} " alt=""><span>${subcategory.goodsSecondaryType}</span>
-							</div>
-							<p class="text-muted">${subcategory.goodsSecondaryTypeExplain}</p>
-						</div>
-						<div class="classify-items">
-							<c:forEach items="${subcategory.goodsList}" var="good"
-								varStatus="status">
-								<div class="classify-item">
-									<div class="image">
-										<a href="${pageContext.request.contextPath }products/detail/${good.goodsID}"> <img
-											src="${good.pictureList[0].picturePath }" alt="" width="220"
-											height="220">
-									</div>
-									<div class="introduce">
-										<div>
-											<a href="${pageContext.request.contextPath }products/detail/${good.goodsID}"> <span>${good.goodsName }</span>
-											</a>
+								<div class="classify-items">
+									<c:forEach items="${subcategory.goodsList}" var="good"
+										varStatus="status">
+										<input type="hidden" class="goodsMaintype"
+											value="${good.goodsMainTypeID}" />
+										<div class="classify-item">
+											<div class="image">
+												<a href="/SE3-F4/products/detail/${good.goodsID}"> <img
+													src="${good.pictureList[0].picturePath }" alt=""
+													width="220" height="220"></a>
+											</div>
+											<p class="text-muted">${subcategory.goodsSecondaryTypeExplain}</p>
 										</div>
-										<div class="pri">
-											<span class="text-danger">￥${good.goodsPrice }</span>
-										</div>
-										<p class="text-muted">${good.goodsBrief }</p>
+									</c:forEach>
+									<div class="classify-items">
+										<c:forEach items="${subcategory.goodsList}" var="good"
+											varStatus="status">
+											<div class="classify-item">
+												<div class="image">
+													<a
+														href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+														<img src="${good.pictureList[0].picturePath }" alt=""
+														width="220" height="220">
+													</a>
+												</div>
+												<div class="introduce">
+													<div>
+														<a
+															href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+															<span>${good.goodsName }</span>
+														</a>
+													</div>
+													<div class="pri">
+														<span class="text-danger">￥${good.goodsPrice }</span>
+													</div>
+													<p class="text-muted">${good.goodsBrief }</p>
+												</div>
+											</div>
+										</c:forEach>
 									</div>
 								</div>
-							</c:forEach>
+							</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -399,6 +415,13 @@
 					$(".box").height(str2);
 					$(".SE3_tail").show();
 				});
+		var mainType = $(".goodsMaintype:eq(0)").val();
+		console.log(mainType);
+		$("#SE3_header .navbar .container-fluid .collapse > ul > li.active")
+				.removeClass("active");
+		$(
+				"#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="
+						+ mainType + "]").addClass("active");
 	</script>
 </body>
 </html>
