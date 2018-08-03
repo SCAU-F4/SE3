@@ -1,0 +1,602 @@
+
+.SE3_buy {
+    background-color: #FFF;
+}
+
+.SE3_buy .address {
+    width: 1090px;
+    margin: 100px auto 0 auto;
+}
+
+.SE3_buy .address .buy_head {
+    width: 100%;
+    border: 1px solid #e8e8e8;
+    padding-left: 21px;
+    height: 42px;
+    background-color: #f5f5f5;
+}
+
+.SE3_buy .address .buy_head span {
+    line-height: 41px;
+    font-size: 14px;
+    color: #999;
+}
+
+.SE3_buy .address .address_detail {
+    overflow: hidden;
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+}
+
+.SE3_buy .address .address_detail .left {
+    float: left;
+    font-size: 14px;
+}
+
+.SE3_buy .address .address_detail .left .modify {
+    width: 100px;
+    height: 30px;
+    color: #b4a078;
+    border: 1px solid #b4a078;
+    background-color: #f5f3ef;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 28px;
+    margin-left: 80px;
+    margin-top: 0;
+}
+
+.SE3_buy .address .address_detail .left .modify span {
+    line-height: 28px;
+    vertical-align: center;
+}
+
+.SE3_buy .address .address_detail .left .text {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.SE3_buy .address .address_detail .left .text span:first-child {
+    color: #999;
+    width: 70px;
+    text-align: right;
+    display: inline-block;
+}
+
+.SE3_buy .address .address_detail .left .text span:last-child {
+    color: #030303;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.SE3_buy .address .address_detail .right {
+    float: right;
+    width: 280px;
+    text-align: center;
+    margin: 30px 0;
+    border-left: 1px solid #e8e8e8;
+}
+
+.SE3_buy .address .address_detail .right span {
+    width: 144px;
+    height: 42px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.SE3_buy .address .address_detail .right .change_btn {
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .address_detail .right .new_btn {
+    color: #b4a078;
+    border: 1px solid #b4a078;
+    background-color: #f5f3ef;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .glyphicon {
+    display: none;
+    line-height: 32px;
+}
+
+.SE3_buy .address .address_text .glyphicon{
+    line-height: 70px;
+}
+
+.SE3_buy .address .glyphicon .glyphicon-ok{
+    color: #4cae4c;
+}
+
+.SE3_buy .address .glyphicon .glyphicon-remove {
+    color: #ac2925;
+}
+
+.SE3_buy .address .modify_address {
+    overflow: hidden;
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+    display: none;
+}
+
+.SE3_buy .address .modify_address .left {
+    float: left;
+    font-size: 14px;
+}
+
+.SE3_buy .address .modify_address .left span {
+    width: 67px;
+    margin-right: 20px;
+    display: inline-block;
+    text-align: right;
+}
+
+.SE3_buy .address .modify_address .left .short_input {
+    width: 200px;
+    height: 34px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    padding-left: 9px;
+    margin-top: 10px;
+}
+
+.SE3_buy .address .modify_address .left div:nth-child(2) {
+    overflow: hidden;
+}
+
+.SE3_buy .address .modify_address .left div:nth-child(2) div {
+    float: left;
+}
+
+.SE3_buy .address .modify_address .left div:nth-child(2) div:first-child {
+    margin-right: 40px;
+}
+
+.SE3_buy .address .modify_address .left > div:last-child {
+    margin-top: 10px;
+}
+
+.SE3_buy .address .modify_address .left .address_text span {
+    vertical-align: top;
+    padding-top: 5px;
+}
+
+.SE3_buy .address .modify_address .left .address_text textarea {
+    width: 560px;
+    height: 70px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    padding-left: 9px;
+    vertical-align: top;
+    resize: none;
+}
+
+.SE3_buy .address .modify_address .right {
+    float: right;
+    border-left: 1px solid #e8e8e8;
+    width: 280px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.SE3_buy .address .modify_address .right span {
+    width: 144px;
+    height: 42px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.SE3_buy .address .modify_address .right .save_btn {
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .modify_address .right .cancel_btn {
+    color: #b4a078;
+    border: 1px solid #b4a078;
+    background-color: #f5f3ef;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .add_address {
+    overflow: hidden;
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+    display: none;
+}
+
+.SE3_buy .address .add_address .left {
+    float: left;
+    font-size: 14px;
+}
+
+.SE3_buy .address .add_address .left span {
+    width: 67px;
+    margin-right: 20px;
+    display: inline-block;
+    text-align: right;
+}
+
+.phone_div {
+    width: 320px;
+}
+
+.SE3_buy .address .add_address .left .short_input {
+    width: 200px;
+    height: 34px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    padding-left: 9px;
+    margin-top: 10px;
+}
+
+.SE3_buy .address .add_address .left div:nth-child(2) {
+    overflow: hidden;
+}
+
+.SE3_buy .address .add_address .left div:nth-child(2) div {
+    float: left;
+}
+
+.SE3_buy .address .add_address .left div:nth-child(2) div:first-child {
+    margin-right: 40px;
+}
+
+.SE3_buy .address .add_address .left > div:last-child {
+    margin-top: 10px;
+}
+
+.SE3_buy .address .add_address .left .address_text span {
+    vertical-align: top;
+    padding-top: 5px;
+}
+
+.SE3_buy .address .add_address .left .address_text textarea {
+    width: 560px;
+    height: 70px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    padding-left: 9px;
+    vertical-align: top;
+    resize: none;
+}
+
+.SE3_buy .address .add_address .right {
+    float: right;
+    border-left: 1px solid #e8e8e8;
+    width: 280px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.SE3_buy .address .add_address .right span {
+    width: 144px;
+    height: 42px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.SE3_buy .address .add_address .right .save_btn {
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .add_address .right .cancel_btn {
+    color: #b4a078;
+    border: 1px solid #b4a078;
+    background-color: #f5f3ef;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .change_address {
+    overflow: hidden;
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+    font-size: 14px;
+    display: none;
+}
+
+.SE3_buy .address .change_address .left {
+    float: left;
+}
+
+.SE3_buy .address .change_address .left .choose {
+    margin: 10px;
+    padding: 5px 20px 20px 20px;
+    border: 1px solid #e8e8e8;
+    cursor: pointer;
+    width: 670px;
+}
+
+.SE3_buy .address .change_address .left .choose .text {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.SE3_buy .address .change_address .left .choose .text span:first-child {
+    color: #999;
+    width: 70px;
+    text-align: right;
+    display: inline-block;
+}
+
+.SE3_buy .address .change_address .left .choose .text span:last-child {
+    color: #030303;
+    padding-left: 10px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.SE3_buy .address .change_address .left .choose .second {
+    overflow: hidden;
+}
+
+.SE3_buy .address .change_address .left .choose .second div:first-child{
+    float: left;
+    width: 250px;
+}
+
+.SE3_buy .address .change_address .left .choose .second div:last-child{
+    float: left;
+}
+
+.SE3_buy .address .change_address .right {
+    float: right;
+    width: 280px;
+    text-align: center;
+    margin: 20px 0;
+    border-left: 1px solid #e8e8e8;
+}
+
+.SE3_buy .address .change_address .right span {
+    width: 144px;
+    height: 42px;
+    line-height: 40px;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+.SE3_buy .address .change_address .right .choose_btn {
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .change_address .right .no_choose_btn {
+    color: #b4a078;
+    border: 1px solid #b4a078;
+    background-color: #f5f3ef;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+.SE3_buy .goods {
+    width: 1090px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.SE3_buy .goods .detail {
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 0 20px;
+    position: relative;
+}
+
+.SE3_buy .goods .detail > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 42px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.SE3_buy .goods .detail table {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+}
+
+.SE3_buy .goods .detail table th {
+    text-align: center;
+    font-weight: 400;
+}
+
+.SE3_buy .goods .detail table th:first-child {
+    text-align: left;
+}
+
+.SE3_buy .goods .detail table td {
+    padding: 20px 0;
+    border-top: 1px dashed #dedede;
+}
+
+.SE3_buy .goods .detail table tr:first-child td {
+    border-top: 0;
+}
+
+.SE3_buy .goods .detail table tr td:first-child {
+    text-align: left;
+    overflow: hidden;
+}
+
+.SE3_buy .goods .detail .table_head {
+    height: 42px;
+    color: #999;
+}
+
+.SE3_buy .goods .detail .table_head {
+    height: 42px;
+    color: #999;
+}
+
+.SE3_buy .goods .detail table img {
+    width: 100px;
+    height: 100px;
+    background-color: #f4f4f4;
+    float: left;
+}
+
+.SE3_buy .goods .detail .goods_detail {
+    padding-left: 10px;
+    padding-top: 2px;
+    float: left;
+}
+
+.SE3_buy .goods .detail .goods_name {
+    line-height: 24px;
+}
+
+.SE3_buy .goods .detail .goods_classify {
+    line-height: 22px;
+    font-size: 12px;
+    color: #999;
+}
+
+.SE3_buy .goods .pay {
+    padding: 40px 40px 40px 40px;
+    background-color: #f5f5f5;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+    overflow: hidden;
+}
+
+.SE3_buy .goods .pay > div {
+    float: right;
+    text-align: right;
+}
+
+.SE3_buy .goods .pay .pay_text {
+    width: 280px;
+    display: block;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.SE3_buy .goods .pay .pay_text .price {
+    width: 160px;
+    display: inline-block;
+}
+
+.SE3_buy .goods .pay .total_text {
+    padding-top: 24px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.SE3_buy .goods .pay .pay_text .total {
+    font-weight: 700;
+    color: #d4282d;
+    font-size: 20px;
+}
+
+.SE3_buy .goods .pay .pay_btn {
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    display: inline-block;
+}
+
+.SE3_buy .goods .pay .re_address {
+    font-size: 13px;
+    text-align: right;
+    line-height: 22px;
+    margin-top: 15px;
+}
+
+.SE3_buy .goods .pay .re_address span:first-child {
+    margin-right: 10px;
+}
+
+
+
+
+
+.SE3_buy .address .address_detail .left .modify:hover {
+    background-color: #FFF;
+}
+
+.SE3_buy .address .address_detail .right .change_btn:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}
+
+.SE3_buy .address .address_detail .right .new_btn:hover {
+    background-color: #FFF;
+}
+
+.SE3_buy .address .modify_address .right .save_btn:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}
+
+.SE3_buy .address .modify_address .right .cancel_btn:hover {
+    background-color: #FFF;
+}
+
+.SE3_buy .address .add_address .right .save_btn:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}
+
+.SE3_buy .address .add_address .right .cancel_btn:hover {
+    background-color: #FFF;
+}
+
+.SE3_buy .address .change_address .left .choose.active {
+    border: 2px solid #b4a078;
+}
+
+.SE3_buy .address .change_address .right .choose_btn:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}
+
+.SE3_buy .address .change_address .right .no_choose_btn:hover {
+    background-color: #FFF;
+}
+
+.SE3_buy .goods .pay .pay_btn:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}

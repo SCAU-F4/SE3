@@ -20,7 +20,6 @@
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
 <body>
-
 	<!--头-->
 	<header id="SE3_header">
 		<!--上部分-->
@@ -449,54 +448,71 @@
 
 		</div>
 
-		<div class="right">
-			<div class="head">
-				<span>24小时热销榜</span>
-			</div>
-			<div class="body">
-				<ul>
-					<li><a href="index.html"> <img
-							src="${pageContext.request.contextPath }/img/product/right1.png">
-					</a> <a href="index.html">
-							<div class="name">谷风一木 手帕纸</div>
-					</a>
-						<div class="price">¥5.9</div></li>
-					<li><a href="index.html"> <img
-							src="${pageContext.request.contextPath }/img/product/right2.png">
-					</a> <a href="index.html">
-							<div class="name">严选礼品卡 100元面值</div>
-					</a>
-						<div class="price">¥100</div></li>
-					<li><a href="index.html"> <img
-							src="${pageContext.request.contextPath }/img/product/right3.png">
-					</a> <a href="index.html">
-							<div class="name">玩趣彩虹四季拖鞋</div>
-					</a>
-						<div class="price">¥19.9</div></li>
-					<li><a href="index.html"> <img
-							src="${pageContext.request.contextPath }/img/product/right4.png">
-					</a> <a href="index.html">
-							<div class="name">美国制造 除甲醛空气净化剂227g</div>
-					</a>
-						<div class="price">¥45</div></li>
-					<li><a href="index.html"> <img
-							src="${pageContext.request.contextPath }/img/product/right5.png">
-					</a> <a href="index.html">
-							<div class="name">绿豆糕</div>
-					</a>
-						<div class="price">¥12.9</div></li>
-					<li><a href="index.html"> <img
-							src="${pageContext.request.contextPath }/img/product/right6.png">
-					</a> <a href="index.html">
-							<div class="name">懒人抹布</div>
-					</a>
-						<div class="price">¥13.99</div></li>
-				</ul>
-			</div>
+		
+		<div><div class="right">
+        <div class="head">
+            <span>24小时热销榜</span>
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_1.png">
+                    </a>
+                    <a href="index.html">
+                        <div class="name">24寸原创山海经PC铝框拉杆箱</div>
+                    </a>
+                    <div class="price">¥5.9</div>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_2.png">
+                    </a>
+                    <a href="index.html">
+                        <div class="name">女式典雅真丝长吊带睡裙</div>
+                    </a>
+                    <div class="price">¥100</div>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_3.png">
+                    </a>
+                    <a href="index.html">
+                        <div class="name">幸运桃心链条单肩包</div>
+                    </a>
+                    <div class="price">¥19.9</div>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_4.png">
+                    </a>
+                    <a href="index.html">
+                        <div class="name">爱的乐章黑巧克力礼盒</div>
+                    </a>
+                    <div class="price">¥45</div>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_5.png">
+                    </a>
+                    <a href="index.html">
+                        <div class="name">千层星云酥</div>
+                    </a>
+                    <div class="price">¥12.9</div>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <img src="${pageContext.request.contextPath }/img/product/detail_right_6.png">
+                    </a>
+                    <a href="index.html">
+                        <div class="name">瓦坎达图腾 杯垫</div>
+                    </a>
+                    <div class="price">¥13.99</div>
+                </li>
+            </ul>
+        </div>
+    </div>
 		</div>
-
-
-		<div></div>
 
 
 	</section>
