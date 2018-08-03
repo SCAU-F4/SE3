@@ -22,8 +22,8 @@
             <div class="row">
                 <div class="col-md-7 text-muted"><a href="/SE3-F4">好的生活，没那么贵</a></div>
                 <div class="col-md-5 top-right">
-                    <a href="signup">注册</a>
-                    <a href="signin">登录</a>
+                    <a href="${pageContext.request.contextPath }/signup">注册</a>
+                    <a href="${pageContext.request.contextPath }/signin">登录</a>
                 </div>
             </div>
         </div>

@@ -23,10 +23,10 @@
                 <div class="row">
                     <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                     <div class="col-md-5 top-right">
-                        <a href="user/signup" id="signup">注册</a>
-                        <a href="user/signin" id="signin">登录</a>
-                        <a href="user/mycenter" id="myCenter">个人中心</a>
-                        <a href="user/signout" id="signout">注销</a>
+                        <a href="${pageContext.request.contextPath }/user/signup" id="signup">注册</a>
+                        <a href="${pageContext.request.contextPath }/user/signin" id="signin">登录</a>
+                        <a href="${pageContext.request.contextPath }/user/mycenter" id="myCenter">个人中心</a>
+                        <a href="${pageContext.request.contextPath }/user/signout" id="signout">注销</a>
                     </div>
                 </div>
         </div>

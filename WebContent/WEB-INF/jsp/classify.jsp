@@ -23,9 +23,14 @@
 						<p>好的生活，没那么贵</p>
 					</div>
 					<div class="col-md-5 top-right">
-						<a href="user/signup" id="signup">注册</a> <a href="user/signin"
-							id="signin">登录</a> <a href="user/mycenter" id="myCenter">个人中心</a>
-						<a href="user/signout" id="signout">注销</a>
+						<a href="${pageContext.request.contextPath }/user/signup"
+							id="signup">注册</a> <a
+							href="${pageContext.request.contextPath }/user/signin"
+							id="signin">登录</a> <a
+							href="${pageContext.request.contextPath }/user/mycenter"
+							id="myCenter">个人中心</a> <a
+							href="${pageContext.request.contextPath }/user/signout"
+							id="signout">注销</a>
 					</div>
 				</div>
 			</div>
@@ -211,26 +216,25 @@
 						</div>
 						<p class="text-muted">${subcategory.goodsSecondaryTypeExplain}</p>
 					</div>
-					 <div class="classify-items">
-					 <c:forEach items="${subcategory.goodsList}"
-							var="good" varStatus="status">
-						<div class="classify-item">
-							<div class="image">
-								<img
-									src="${good.pictureList[0].picturePath }"
-									alt="" width="220">
-							</div>
-							<div class="introduce">
-								<div>
-									<span>${good.goodsName }</span>
+					<div class="classify-items">
+						<c:forEach items="${subcategory.goodsList}" var="good"
+							varStatus="status">
+							<div class="classify-item">
+								<div class="image">
+									<img src="${good.pictureList[0].picturePath }" alt=""
+										width="220">
 								</div>
-								<div class="pri">
-									<span class="text-danger">￥${good.goodsPrice }</span>
+								<div class="introduce">
+									<div>
+										<span>${good.goodsName }</span>
+									</div>
+									<div class="pri">
+										<span class="text-danger">￥${good.goodsPrice }</span>
+									</div>
+									<p class="text-muted">${good.goodsBrief }</p>
 								</div>
-								<p class="text-muted">${good.goodsBrief }</p>
 							</div>
-						</div>
-						</c:forEach> 
+						</c:forEach>
 					</div>
 				</div>
 			</c:forEach>
