@@ -23,7 +23,7 @@
 			select="Mapper.PictureMapper.findGoodsAllPictures" column="{goodsID=goodsID}">
 		</collection>
 		<collection property="evaluateList" fetchType="lazy"
-			select="Mapper.EvaluateMapper.findEvaluateByGoodsID" column="{goodsID=goodsID}">
+			select="Mapper.EvaluateMapper.findEvaluateByGoodsIDAndgoodsSpecify" column="{goodsID=goodsID},{goodsSpecify=goodsSpecify}">
 		</collection>
 	</resultMap>
 
