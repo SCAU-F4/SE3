@@ -238,7 +238,7 @@
                                     </c:forEach>
                                 </div>
                                 <div class="panel-footer">
-                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥${indent.totalPrice} <strong class="totalPrice">${indent.totalPrice}</strong></span></div>
+                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥<strong class="totalPrice">${indent.totalPrice}</strong></span></div>
 
                                 	<div class="cell pull-right">
                                 	 <span class="target"></span>
