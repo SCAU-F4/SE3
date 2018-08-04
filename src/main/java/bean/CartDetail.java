@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 public class CartDetail implements Serializable {
 	private int cartID;
-	private int goodsID;
-	private String goodsSpecify;
+	private Goods good;
 	private int goodsCount;
 	private double totalPrice;
 
@@ -14,11 +13,10 @@ public class CartDetail implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartDetail(int cartID, int goodsID, String goodsSpecify, int goodsCount, double totalPrice) {
+	public CartDetail(int cartID, Goods good, int goodsCount, double totalPrice) {
 		super();
 		this.cartID = cartID;
-		this.goodsID = goodsID;
-		this.goodsSpecify = goodsSpecify;
+		this.good = good;
 		this.goodsCount = goodsCount;
 		this.totalPrice = totalPrice;
 	}
@@ -31,20 +29,12 @@ public class CartDetail implements Serializable {
 		this.cartID = cartID;
 	}
 
-	public int getGoodsID() {
-		return goodsID;
+	public Goods getGood() {
+		return good;
 	}
 
-	public void setGoodsID(int goodsID) {
-		this.goodsID = goodsID;
-	}
-
-	public String getGoodsSpecify() {
-		return goodsSpecify;
-	}
-
-	public void setGoodsSpecify(String goodsSpecify) {
-		this.goodsSpecify = goodsSpecify;
+	public void setGood(Goods good) {
+		this.good = good;
 	}
 
 	public int getGoodsCount() {
@@ -65,8 +55,7 @@ public class CartDetail implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CartDetail [cartID=" + cartID + ", goodsID=" + goodsID + ", goodsSpecify=" + goodsSpecify
-				+ ", goodsCount=" + goodsCount + ", totalPrice=" + totalPrice + "]";
+		return "CartDetail [cartID=" + cartID + ", good=" + good + ", goodsCount=" + goodsCount + ", totalPrice="
+				+ totalPrice + "]";
 	}
-
 }
