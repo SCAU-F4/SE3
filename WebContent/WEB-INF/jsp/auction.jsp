@@ -32,12 +32,6 @@
 						<p>好的生活，没那么贵</p>
 					</div>
 					<div class="col-md-5 top-right">
-<<<<<<< HEAD:WebContent/WEB-INF/jsp/buy.jsp
-						<a href="user/signup" id="signup">注册</a> <a href="user/signin"
-							id="signin">登录</a> <a href="user/mycenter" id="myCenter">个人中心</a>
-						<a href="user/signout" id="signout">注销</a>
-						
-=======
 						<a href="${pageContext.request.contextPath }/user/signup"
 							id="signup">注册</a> <a
 							href="${pageContext.request.contextPath }/user/signin"
@@ -46,7 +40,6 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
->>>>>>> 085c68546d09e71d7ad4f8338cdbb565997dfdf7:WebContent/WEB-INF/jsp/auction.jsp
 					</div>
 				</div>
 			</div>
@@ -58,9 +51,9 @@
 					<img src="${pageContext.request.contextPath }/img/icon/logo.png"
 						alt="logo">
 				</div>
-				<div id="serech_input">
-					<input type="text" value="雅迪电动车只要999"> <i
-						class="glyphicon glyphicon-search"></i>
+			  <div id="serech_input">
+					<input type="text" placeholder="雅迪电动车只要999"> 
+					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->

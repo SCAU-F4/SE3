@@ -128,8 +128,8 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" value="雅迪电动车只要999"> <i
-						class="glyphicon glyphicon-search"></i>
+					<input type="text" placeholder="雅迪电动车只要999"> 
+					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->

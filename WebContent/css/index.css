@@ -63,11 +63,15 @@
     border: 0;
     border-bottom: #d0c4af 2px solid;
 }
-#SE3_header .top-main #serech_input i{
+#SE3_header .top-main #serech_input a{
     padding-right: 1px;
     margin-top: 15px;
     font-size: 18px;
     color: #d0c4af;
+}
+#SE3_header .top-main #serech_input a:hover{
+	 color: #d0c4af;
+	    text-decoration: none;
 }
 #SE3_header .navbar .container-fluid{
     padding: 0;
