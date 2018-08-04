@@ -11,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Mapper.AddressMapper;
+import Mapper.CartMapper;
 import Mapper.CustomerMapper;
 import Mapper.ExpressMapper;
 import Mapper.GoodsMapper;
 import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
 import bean.Address;
+import bean.Cart;
 import bean.Customer;
 import bean.Goods;
 import bean.Indent;
@@ -37,6 +39,8 @@ public class UserserviceImpl implements Userservice{
 	AddressMapper addressmapper;
 	@Autowired
 	ExpressMapper expressmapper;
+	@Autowired
+	CartMapper cartmapper;
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
@@ -57,6 +61,7 @@ public class UserserviceImpl implements Userservice{
 				return result;
 		} catch (Exception e) {
 			if(customermapper.insert(customer)!=0) {
+				cartmapper.insert(new Cart(customer.getCustomerID(),customer.getCustomerID(),0,null));
 				return null;
 			}
 			else {
@@ -105,39 +110,9 @@ public class UserserviceImpl implements Userservice{
     }
 
 	@Override
-	public List<HashMap<String, String>> getAllIndent(int customerID) {
-		List<HashMap<String, String>> result =new ArrayList<>();
+	public List<Indent> getAllIndent(int customerID) {
 		List<Indent> indents=indentmapper.findBycustomerID(customerID);//即使查询结果为空，也不会抛出异常，只有基本类型会抛出异常
-		for(Indent indent:indents){
-			HashMap<String, String> indentmap=new HashMap<>();
-			int indentID =indent.getIndentID();
-			indentmap.put("indentID", Integer.toString(indentID));
-			Timestamp indentTime =indent.getIndentTime();
-			indentmap.put("indentTime", indentTime.toString());
-			int index =indent.getIndentState();
-			indentmap.put("indentStates", Integer.toString(index));
-			List<IndentDetail> indentdetails =indentdetailmapper.getAllDetailbyindentID(indentID);
-			for(IndentDetail indentDetail:indentdetails){
-				int goodsID =indentDetail.getGoodsID();
-				String goodsSpecify=indentDetail.getGoodsSpecify();
-				Goods good=goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
-				String goodsName=good.getGoodsName();
-				indentmap.put("goodsName", goodsName);
-				double goodsPrice=good.getGoodsPrice();
-				indentmap.put("goodsPrice", Double.toString(goodsPrice));
-				Picture picture =good.getPictureList().get(0);
-				String picturePath =picture.getPicturePath();
-				indentmap.put("picturePath", picturePath);
-			}
-			result.add(indentmap);
-		}
-		return result;
-	}
-
-	@Override
-	public List<Address> getAllAddress(int customerID) {
-		List<Address> addresses=addressmapper.findAddressByCustomoerID(customerID);
-		return addresses;
+		return indents;
 	}
 	
 	@Override

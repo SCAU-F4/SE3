@@ -6,42 +6,45 @@
 
 	<resultMap type="indentDetail" id="indentDetailMap">
 		<id column="indentID" property="indentID" />
-		<id column="goodsID" property="goodsID" />
-		<id column="goodsSpecify" property="goodsSpecify" />
-		<result column="goodsPrice" property="goodsPrice" />
 		<result column="goodsCount" property="goodsCount" />
 		<result column="totalPrice" property="totalPrice" />
 	</resultMap>
 
-	<select id="findByindentIDAndgoodsID" resultMap="indentDetailMap">
+	<resultMap type="indentDetail" id="indentDetailMap1" extends="indentDetailMap">
+		<association property="good"
+			column="{goodsID=goodsID},{goodsSpecify=goodsSpecify}" fetchType="lazy"
+			select="Mapper.GoodsMapper.findBygoodsIDAndgoodsSpecify" />
+	</resultMap>
+
+	<select id="findByindentIDAndgoodsID" resultMap="indentDetailMap1">
 		select * from
 		IndentDetail where indentID = #{indentID} AND
 		goodsID=#{goodsID}
 	</select>
 
-	<select id="findAllDetailByindentID" resultMap="indentDetailMap">
+	<select id="findAllDetailByindentID" resultMap="indentDetailMap1">
 		select * from
 		IndentDetail where indentID = #{indentID}
 	</select>
 
 	<insert id="insert">
-		insert into IndentDetail values(#{indentID},
-		#{goodsID}, #{goodsPrice},
-		#{goodsCount}, #{totalPrice},#{goodsSpecify})
+		insert into IndentDetail values(#{indentID},#{good.goodsID},#{goodsCount},#{totalPrice},#{good.goodsSpecify})
 	</insert>
 	<update id="update">
-		update IndentDetail set goodsPrice=#{goodsPrice},
+		update IndentDetail set
 		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
-		indentID=#{indentID} AND goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
+		indentID=#{indentID} AND goodsID=#{good.goodsID} AND
+		goodsSpecify=#{good.goodsSpecify}
 	</update>
 	<delete id="delete">
 		delete from IndentDetail where indentID=#{indentID}
-		AND goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
+		AND goodsID=#{good.goodsID} AND goodsSpecify=#{good.goodsSpecify}
 	</delete>
-	<select id="getAllDetailbyindentID" resultMap="indentDetailMap">
+	<select id="getAllDetailbyindentID" resultMap="indentDetailMap1">
 		select *
-		from indentDetail
-		where indentID=#{indentID} 
+		from
+		indentDetail
+		where indentID=#{indentID}
 	</select>
 	<delete id="deleteByindentID">
 		delete from IndentDetail where indentID=#{indentID}

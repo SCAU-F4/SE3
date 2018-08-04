@@ -18,6 +18,7 @@ import com.alibaba.fastjson.JSON;
 
 import bean.Address;
 import bean.Customer;
+import bean.Indent;
 import service.userservice.Userservice;
 
 @Controller
@@ -63,11 +64,10 @@ public class Usercontroller {
 	
 	@RequestMapping(value ="mycenter")
 	public String mycenter(Model model,HttpSession httpSession){
-		int customerID=((Customer)httpSession.getAttribute("currentCustomer")).getCustomerID();
-		List<HashMap<String, String>> allindent=userservice.getAllIndent(customerID);
-		List<Address> addresses=userservice.getAllAddress(customerID);
-		model.addAttribute("allindent",allindent);
-		model.addAttribute("addresses", addresses);
+		Customer customer=(Customer)httpSession.getAttribute("currentCustomer");
+		int customerID=customer.getCustomerID();
+		List<Indent> allindent=userservice.getAllIndent(customerID);
+        model.addAttribute("allindent",allindent);
 		return "myCenter";
 	}
 	
@@ -135,7 +135,7 @@ public class Usercontroller {
 		return res;
 	}
 	
-	@RequestMapping(value= "deleteAddress",produces="application/json;charset=utf-8")//增加或修改地址
+	@RequestMapping(value= "deleteAddress",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String deleteAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
 		String addressID=request.getParameter("addressID");
