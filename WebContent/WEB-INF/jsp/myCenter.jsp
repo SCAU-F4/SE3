@@ -41,7 +41,7 @@
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsBrief}">${cartList.good.goodsBrief}</a>
+											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
 										</div>
 										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 										<div class="cart-number">
@@ -238,7 +238,8 @@
                                     </c:forEach>
                                 </div>
                                 <div class="panel-footer">
-                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥${indent.totalPrice} <strong class="totalPrice"></strong></span></div>
+                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥<strong class="totalPrice">${indent.totalPrice}</strong></span></div>
+
                                 	<div class="cell pull-right">
                                 	 <span class="target"></span>
                               	<button class="layui-btn layui-btn-radius"></button></div>

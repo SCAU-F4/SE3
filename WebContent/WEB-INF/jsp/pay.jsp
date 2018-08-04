@@ -52,7 +52,7 @@
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsBrief}">${cartList.good.goodsBrief}</a>
+											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
 										</div>
 										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 										<div class="cart-number">
