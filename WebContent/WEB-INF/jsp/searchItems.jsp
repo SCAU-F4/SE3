@@ -33,7 +33,7 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
-					<div class="shopping-cart">
+						<div class="shopping-cart">
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
@@ -98,17 +98,20 @@
 											<i class="layui-icon layui-icon-close"></i>
 										</div>
 									</div>
-                                </div>
-                                <div class="cart-bottom-area">
-                                    <div class="allPrice">
-                                       <div class="pricedetail">商品总价 ：</div>
-                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
-                                    </div>
-                                    <div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+								</div>
+								<div class="cart-bottom-area">
+									<div class="allPrice">
+										<div class="pricedetail">商品总价 ：</div>
+										<div class="pricedetailnumber">
+											<span class="priceNum text-danger">￥1000</span>
+										</div>
+									</div>
+									<div class="buy">
+										<a href="${pageContext.request.contextPath }/user/auction"><button
+												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
-                                </div>
+								</div>
 							</div>
 						</div>
 
@@ -124,8 +127,9 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> 
-					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
+					<input type="text" placeholder="雅迪电动车只要999"> <a
+						href="${pageContext.request.contextPath }/products/searchitems"
+						class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -135,7 +139,8 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="home active"><a href="${pageContext.request.contextPath }">首页<span
+								<li class="home active"><a
+									href="${pageContext.request.contextPath }">首页<span
 										class="sr-only">首页</span></a></li>
 								<li class="bag-li" data-chose="1"><a
 									href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
@@ -267,10 +272,10 @@
 	</header>
 
 	<section class="SE3_classify">
-    <div class="BFC" id="BFCBOX">
-        <div class="box">
-            <div class="classify-top">
-           <!--   <div class="classify">
+		<div class="BFC" id="BFCBOX">
+			<div class="box">
+				<div class="classify-top">
+					<!--   <div class="classify">
                 <ul class="classify-list">
                     <li class="Title">分类：</li>
                     <li>全部</li>
@@ -280,42 +285,47 @@
                     </c:forEach>
                 </ul>
             </div> -->
-                <div class="sort">
-                    <ul class="sort-list">
-                        <li class="Title">排序：</li>
-                        <li>默认</li>
-                        <li>价格</li>
-                        <li>上架时间</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="classify-main">
-                <div class="classify-items">
-                    <!--forEach写在这里-->
-                    <div class="classify-item">
-                        <div class="image">
-                            <a
-                                    href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
-                                <img src="${pageContext.request.contextPath }/lib/img/bag1.png" alt=""
-                                     width="220" height="220">
-                            </a>
-                        </div>
-                        <div class="introduce">
-                            <div>
-                                <a href="${pageContext.request.contextPath }/lib/products/detail/${good.goodsID}"> <span>${good.goodsName }</span>
-                                </a>
-                            </div>
-                            <div class="pri">
-                                <span class="text-danger">￥${good.goodsPrice }</span>
-                            </div>
-                            <p class="text-muted">${good.goodsBrief }</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+					<div class="sort">
+						<ul class="sort-list">
+							<li class="Title">排序：</li>
+							<li>默认</li>
+							<li>价格</li>
+							<li>上架时间</li>
+						</ul>
+					</div>
+				</div>
+				<div class="classify-main">
+					<div class="classify-items">
+						<c:forEach items="${goodsList}" var="good"
+							varStatus="status">
+							<div class="classify-item">
+								<div class="image">
+									<a
+										href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+										<img
+										src="${good.pictureList[0].picturePath }"
+										alt="" width="220" height="220">
+									</a>
+								</div>
+								<div class="introduce">
+									<div>
+										<a
+											href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+											<span>${good.goodsName }</span>
+										</a>
+									</div>
+									<div class="pri">
+										<span class="text-danger">￥${good.goodsPrice }</span>
+									</div>
+									<p class="text-muted">${good.goodsBrief }</p>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section class="SE3_tail">
 		<div class="serve">
@@ -370,19 +380,19 @@
 								$(".shopping-cart").show();
 							}
 
-							  var $item1 = $(".classify-items:eq(0)").find(
-                    ".classify-item");
+							var $item1 = $(".classify-items:eq(0)").find(
+									".classify-item");
 
-                var item1Num = Math.ceil($item1.length / 4);
+							var item1Num = Math.ceil($item1.length / 4);
 
-                var str = item1Num * 340 + 500;
-                var str2 = item1Num * 340  + 400;
-                var str3= item1Num * 340  + 200;
-                console.log(str + "px");
-                $(".SE3_classify").height(str);
-                $(".box").height(str2);
-                $(".classify-items").height(str3);
-                $(".SE3_tail").show();
+							var str = item1Num * 340 + 500;
+							var str2 = item1Num * 340 + 400;
+							var str3 = item1Num * 340 + 200;
+							console.log(str + "px");
+							$(".SE3_classify").height(str);
+							$(".box").height(str2);
+							$(".classify-items").height(str3);
+							$(".SE3_tail").show();
 
 						});
 	</script>

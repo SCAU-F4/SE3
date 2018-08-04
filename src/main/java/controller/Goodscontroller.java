@@ -47,18 +47,26 @@ public class Goodscontroller {
 	@RequestMapping(value= "add2Cart",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String add2Cart(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-		
+		String goodsID = request.getParameter("goodsID");
+		String goodsSpecify = request.getParameter("goodsSpecify");
+		String goodsCount =request.getParameter("goodsCount");
+		String goodsPrice=request.getParameter("goodsPrice");
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		int cartID=customer.getCart().getCartID();
+		String result=goodservice.add2Cart(Integer.parseInt(goodsID), goodsSpecify, Integer.parseInt(goodsCount), Double.parseDouble(goodsPrice), cartID);
+		if(result==""){
+			
+		}
 		Map<String, String> map=new HashMap<>();
-//		map.put("result", result);
+		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";
 		return res;
 	}
 	
 	@RequestMapping(value="searchitems")
-	public String searchItems(Model model,String Name){
+	public String searchItems(Model model,@RequestParam("Name") String Name){
 		List<Goods> goods=goodservice.searchItems(Name);
-		for(Goods good:goods)
-		System.out.println(good);
+		for(Goods good:goods) System.out.println(good);
 		model.addAttribute("goodsList", goods);
 		return "searchItems";
 	}
