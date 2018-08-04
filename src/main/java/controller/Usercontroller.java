@@ -102,11 +102,12 @@ public class Usercontroller {
 		String newPassword = request.getParameter("newPassword");
 		String rePassword = request.getParameter("rePassword");
 		String result = userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+		Map<String, String> map = new HashMap<>();
 		if (result == "") {
 			Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
 			customer.setCustomerPwd(newPassword);
+			map.put("password", newPassword);
 		}
-		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
@@ -187,5 +188,10 @@ public class Usercontroller {
 	@RequestMapping(value = "auction")
 	public String aution() {
 		return "auction";
+	}
+	
+	@RequestMapping(value="pay")
+	public String pay(){
+		return "pay";
 	}
 }

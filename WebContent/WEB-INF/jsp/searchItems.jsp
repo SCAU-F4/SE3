@@ -66,7 +66,7 @@
 									<div class="allPrice">
 										<div class="pricedetail">商品总价 ：</div>
 										<div class="pricedetailnumber">
-											<span class="priceNum text-danger">￥${cart.totalPrice}</span>
+											<span class="priceNum text-danger">￥${currentCustomer.cart.totalPrice}</span>
 										</div>
 									</div>
 									<div class="buy">
