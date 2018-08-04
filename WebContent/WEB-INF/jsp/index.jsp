@@ -124,8 +124,8 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> <i
-						class="glyphicon glyphicon-search"></i>
+					<input type="text" placeholder="雅迪电动车只要999"> 
+					<a href="#" class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -486,7 +486,7 @@
 							<div class="littleimg">
 								<a
 									href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
-									<img src="${good.pictureList[0].picturePath}" alt="">
+									<img src="${good.pictureList[0].picturePath}" alt="" width="220" >
 								</a>
 							</div>
 							<div class="littleimg-title">

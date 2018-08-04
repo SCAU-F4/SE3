@@ -24,51 +24,86 @@
             <div class="row">
                 <div class="col-md-7 text-muted"><p>好的生活，没那么贵</p></div>
                 <div class="col-md-5 top-right">
-                   		<a href="${pageContext.request.contextPath }/user/signup" id="signup">注册</a> <a
-							href="${pageContext.request.contextPath }/user/signin"
-							id="signin">登录</a> <a href="${pageContext.request.contextPath }/user/mycenter" id="myCenter">个人中心</a>
-                        <a href="${pageContext.request.contextPath }/user/signout" id="signout">注销</a>
-                        <div class="shopping-cart">
-                            <i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
-                            <div class="cart-show-area">
-                                <div class="cart-top-area">
-                                    <div class="cart-item">
-                                           <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10.png" alt="" height="50"></div>
-                                            <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
-                                            <div class="cart-introduce text-muted">底油亮油色</div>
-                                            <div class="cart-number">x <span class="indentNumber">1</span></div>
-                                            <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
-                                            <div class="close"><i class="layui-icon layui-icon-close"></i></div>
+                   		<a href="${pageContext.request.contextPath }/user/signup" id="signup">注册</a>
+                        <a href="${pageContext.request.contextPath }/user/signin" id="signin">登录</a>
+                        <a href="${pageContext.request.contextPath }/user/mycenter" id="myCenter">个人中心</a>
+                         <a href="${pageContext.request.contextPath }/user/signout" id="signout">注销</a>
+                      <div class="shopping-cart">
+							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
+							<div class="cart-show-area">
+								<div class="cart-top-area">
+									<div class="cart-item">
+										<div class="cart-img">
+											<img
+												src="${pageContext.request.contextPath }/img/product/product10.png"
+												alt="" height="50">
+										</div>
+										<div class="cart-name">
+											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+										</div>
+										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-number">
+											x <span class="indentNumber">1</span>
+										</div>
+										<div class="cart-price text-danger">
+											￥ <span class="indentMoney">100</span>
+										</div>
+										<div class="close">
+											<i class="layui-icon layui-icon-close"></i>
+										</div>
 
-                                        </div>
-                                    <div class="cart-item">
-                                        <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10.png" alt="" height="50"></div>
-                                        <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
-                                        <div class="cart-introduce text-muted">底油亮油色</div>
-                                        <div class="cart-number">x <span class="indentNumber">1</span></div>
-                                        <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
-                                        <div class="close"><i class="layui-icon layui-icon-close"></i></div>
-                                    </div>
-                                    <div class="cart-item">
-                                        <div class="cart-img"><img src="${pageContext.request.contextPath }/img/product/product10.png" alt="" height="50"></div>
-                                        <div class="cart-name"><a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a></div>
-                                        <div class="cart-introduce text-muted">底油亮油色</div>
-                                        <div class="cart-number">x <span class="indentNumber">1</span></div>
-                                        <div class="cart-price text-danger">￥ <span class="indentMoney">100</span></div>
-                                        <div class="close"><i class="layui-icon layui-icon-close"></i></div>
-                                    </div>
-
+									</div>
+									<div class="cart-item">
+										<div class="cart-img">
+											<img
+												src="${pageContext.request.contextPath }/img/product/product10.png"
+												alt="" height="50">
+										</div>
+										<div class="cart-name">
+											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+										</div>
+										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-number">
+											x <span class="indentNumber">1</span>
+										</div>
+										<div class="cart-price text-danger">
+											￥ <span class="indentMoney">100</span>
+										</div>
+										<div class="close">
+											<i class="layui-icon layui-icon-close"></i>
+										</div>
+									</div>
+									<div class="cart-item">
+										<div class="cart-img">
+											<img
+												src="${pageContext.request.contextPath }/img/product/product10.png"
+												alt="" height="50">
+										</div>
+										<div class="cart-name">
+											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+										</div>
+										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-number">
+											x <span class="indentNumber">1</span>
+										</div>
+										<div class="cart-price text-danger">
+											￥ <span class="indentMoney">100</span>
+										</div>
+										<div class="close">
+											<i class="layui-icon layui-icon-close"></i>
+										</div>
+									</div>
                                 </div>
                                 <div class="cart-bottom-area">
                                     <div class="allPrice">
                                        <div class="pricedetail">商品总价 ：</div>
                                         <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
                                     </div>
-                                    <div class="buy"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></div>
+                                    <div class="buy">
+                                    <a href="#"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></a></div>
                                 </div>
-
-                            </div>
-                        </div>
+							</div>
+						</div>
                 </div>
             </div>
         </div>
