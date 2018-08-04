@@ -56,7 +56,9 @@ public class UserserviceImpl implements Userservice{
 				result="用户重名";
 				return result;
 		} catch (Exception e) {
-			if(customermapper.insert(customer)!=0) return null;
+			if(customermapper.insert(customer)!=0) {
+				return null;
+			}
 			else {
 				result ="插入失败";
 			}

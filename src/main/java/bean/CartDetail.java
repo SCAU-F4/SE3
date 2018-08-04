@@ -2,9 +2,10 @@ package bean;
 
 import java.io.Serializable;
 
-public class CartDetail implements Serializable{
+public class CartDetail implements Serializable {
 	private int cartID;
 	private int goodsID;
+	private String goodsSpecify;
 	private int goodsCount;
 	private double totalPrice;
 
@@ -13,10 +14,11 @@ public class CartDetail implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartDetail(int cartID, int goodsID, int goodsCount, double totalPrice) {
+	public CartDetail(int cartID, int goodsID, String goodsSpecify, int goodsCount, double totalPrice) {
 		super();
 		this.cartID = cartID;
 		this.goodsID = goodsID;
+		this.goodsSpecify = goodsSpecify;
 		this.goodsCount = goodsCount;
 		this.totalPrice = totalPrice;
 	}
@@ -37,6 +39,14 @@ public class CartDetail implements Serializable{
 		this.goodsID = goodsID;
 	}
 
+	public String getGoodsSpecify() {
+		return goodsSpecify;
+	}
+
+	public void setGoodsSpecify(String goodsSpecify) {
+		this.goodsSpecify = goodsSpecify;
+	}
+
 	public int getGoodsCount() {
 		return goodsCount;
 	}
@@ -55,8 +65,8 @@ public class CartDetail implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CartDetail [cartID=" + cartID + ", goodsID=" + goodsID + ", goodsCount=" + goodsCount + ", totalPrice="
-				+ totalPrice + "]";
+		return "CartDetail [cartID=" + cartID + ", goodsID=" + goodsID + ", goodsSpecify=" + goodsSpecify
+				+ ", goodsCount=" + goodsCount + ", totalPrice=" + totalPrice + "]";
 	}
 
 }

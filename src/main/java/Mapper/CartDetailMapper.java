@@ -13,7 +13,7 @@ import bean.CartDetail;
 
 public interface CartDetailMapper {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	CartDetail findBycartIDAndgoodsID(@Param("cartID") int cartID, @Param("goodsID") int goodsID);
+	CartDetail findBycartIDAndgoodsIDAndgoodsSpecify(@Param("cartID") int cartID, @Param("goodsID") int goodsID,@Param("goodsSpecify") String goodsSpecify);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	List<CartDetail> getAllDetailbycartID(@Param("cartID") int cartID);
