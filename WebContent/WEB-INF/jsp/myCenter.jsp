@@ -32,7 +32,7 @@
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.CartDetailList}" var="cartList" varStatus="status">
+									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
 										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-item">
 										<div class="cart-img">
@@ -238,7 +238,7 @@
                                     </c:forEach>
                                 </div>
                                 <div class="panel-footer">
-                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥<strong class="totalPrice"></strong></span></div>
+                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥${indent.totalPrice} <strong class="totalPrice"></strong></span></div>
                                 	<div class="cell pull-right">
                                 	 <span class="target"></span>
                               	<button class="layui-btn layui-btn-radius"></button></div>
