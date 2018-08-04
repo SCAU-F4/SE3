@@ -99,15 +99,21 @@
 											<i class="layui-icon layui-icon-close"></i>
 										</div>
 									</div>
-                                </div>
-                                <div class="cart-bottom-area">
-                                    <div class="allPrice">
-                                       <div class="pricedetail">商品总价 ：</div>
-                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
-                                    </div>
-                                    <div class="buy">
-                                    <a href="#"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></a></div>
-                                </div>
+
+								</div>
+								<div class="cart-bottom-area">
+									<div class="allPrice">
+										<div class="pricedetail">商品总价 ：</div>
+										<div class="pricedetailnumber">
+											<span class="priceNum text-danger">￥1000</span>
+										</div>
+									</div>
+									<div class="buy">
+										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										</a>
+									</div>
+								</div>
+
 							</div>
 						</div>
 

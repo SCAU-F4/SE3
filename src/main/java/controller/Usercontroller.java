@@ -158,4 +158,9 @@ public class Usercontroller {
 		String res=callback+"("+JSON.toJSONString(map)+")";
 		return res;
 	}
+	
+	@RequestMapping(value="auction")
+	public String aution(){
+		return "auction";
+	}
 }

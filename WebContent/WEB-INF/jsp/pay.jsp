@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +31,92 @@
 						<p>好的生活，没那么贵</p>
 					</div>
 					<div class="col-md-5 top-right">
-						<a href="user/signup" id="signup">注册</a> <a href="user/signin"
-							id="signin">登录</a> <a href="user/mycenter" id="myCenter">个人中心</a>
-						<a href="user/signout" id="signout">注销</a>
+						<a href="${pageContext.request.contextPath }/user/signup"
+							id="signup">注册</a> <a
+							href="${pageContext.request.contextPath }/user/signin"
+							id="signin">登录</a> <a
+							href="${pageContext.request.contextPath }/user/mycenter"
+							id="myCenter">个人中心</a> <a
+							href="${pageContext.request.contextPath }/user/signout"
+							id="signout">注销</a>
+							<div class="shopping-cart">
+							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
+							<div class="cart-show-area">
+								<div class="cart-top-area">
+									<div class="cart-item">
+										<div class="cart-img">
+											<img
+												src="${pageContext.request.contextPath }/img/product/product10.png"
+												alt="" height="50">
+										</div>
+										<div class="cart-name">
+											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+										</div>
+										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-number">
+											x <span class="indentNumber">1</span>
+										</div>
+										<div class="cart-price text-danger">
+											￥ <span class="indentMoney">100</span>
+										</div>
+										<div class="close">
+											<i class="layui-icon layui-icon-close"></i>
+										</div>
+
+									</div>
+									<div class="cart-item">
+										<div class="cart-img">
+											<img
+												src="${pageContext.request.contextPath }/img/product/product10.png"
+												alt="" height="50">
+										</div>
+										<div class="cart-name">
+											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+										</div>
+										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-number">
+											x <span class="indentNumber">1</span>
+										</div>
+										<div class="cart-price text-danger">
+											￥ <span class="indentMoney">100</span>
+										</div>
+										<div class="close">
+											<i class="layui-icon layui-icon-close"></i>
+										</div>
+									</div>
+									<div class="cart-item">
+										<div class="cart-img">
+											<img
+												src="${pageContext.request.contextPath }/img/product/product10.png"
+												alt="" height="50">
+										</div>
+										<div class="cart-name">
+											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+										</div>
+										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-number">
+											x <span class="indentNumber">1</span>
+										</div>
+										<div class="cart-price text-danger">
+											￥ <span class="indentMoney">100</span>
+										</div>
+										<div class="close">
+											<i class="layui-icon layui-icon-close"></i>
+										</div>
+									</div>
+                                </div>
+                                <div class="cart-bottom-area">
+                                    <div class="allPrice">
+                                       <div class="pricedetail">商品总价 ：</div>
+                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
+                                    </div>
+                                    <div class="buy">
+										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										</a>
+									</div>
+                                </div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -39,7 +125,8 @@
 		<div class="boxshadow">
 			<div class="top-main">
 				<div id="logo_img">
-					<img src="lib/img/icon/logo.png" alt="logo">
+					<img src="${pageContext.request.contextPath }/img/icon/logo.png"
+						alt="logo">
 				</div>
 				<div id="serech_input">
 					<input type="text" value="雅迪电动车只要999"> <i
@@ -53,107 +140,128 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="home active"><a href="${pageContext.request.contextPath }">首页<span
+								<li class="home active"><a
+									href="${pageContext.request.contextPath }">首页<span
 										class="sr-only">首页</span></a></li>
-								<li class="bag-li"><a href="#">箱包配饰</a>
+								<li class="bag-li"><a
+									href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
 									<div class="bag-li container downmenu">
 										<ul class="nav navbar-nav">
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/xingli.png" alt=""><span>行李箱包</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/nanxing.png" alt=""><span>男士箱包</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/nvxing.png" alt=""><span>女性箱包</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/qianbao.png" alt=""><span>钱包配件</span>
-													</div>
-											</a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=1"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/xingli.png"
+															alt=""><span>行李箱包</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=2"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/nanxing.png"
+															alt=""><span>男士箱包</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=3"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/nvxing.png"
+															alt=""><span>女士箱包</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=4"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/qianbao.png"
+															alt=""><span>钱包配件</span>
+													</div></a></li>
 										</ul>
 									</div></li>
 
-								<li class="cloth-li"><a href="#">服装</a>
+								<li class="cloth-li"><a
+									href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=-1">服装</a>
 									<div class="cloth-li container downmenu">
 										<ul class="nav navbar-nav">
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/Tshirt.png" alt=""><span>清爽短袖</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/shirt.png" alt=""><span>时尚衬衫</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/dress.png" alt=""><span>性感长裙</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/ku.png" alt=""><span>潮流裤类</span>
-													</div>
-											</a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=5"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/Tshirt.png"
+															alt=""><span>清爽短袖</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=6"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/shirt.png"
+															alt=""><span>时尚衬衫</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=7"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/dress.png"
+															alt=""><span>性感长裙</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=8"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/ku.png"
+															alt=""><span>潮流裤类</span>
+													</div></a></li>
 										</ul>
 									</div></li>
-								<li class="food-li"><a href="#">饮食</a>
+								<li class="food-li"><a
+									href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=-1">饮食</a>
 									<div class="food-li container downmenu">
 										<ul class="nav navbar-nav">
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/xiaochi.png" alt=""><span>美味零食</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/shuiguo.png" alt=""><span>水果坚果</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/rou.png" alt=""><span>新鲜肉类</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/yinliao.png" alt=""><span>饮料酒水</span>
-													</div>
-											</a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=9"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/xiaochi.png"
+															alt=""><span>美味零食</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=10"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/shuiguo.png"
+															alt=""><span>水果坚果</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=11"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/rou.png"
+															alt=""><span>新鲜肉类</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=12"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/yinliao.png"
+															alt=""><span>饮料酒水</span>
+													</div></a></li>
 										</ul>
 									</div></li>
-								<li class="sport-li"><a href="#">文体</a>
+								<li class="sport-li"><a
+									href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=-1">文体</a>
 									<div class="sport-li container downmenu">
 										<ul class="nav navbar-nav">
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/wenju.png" alt=""><span>精美文具</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/huwai.png" alt=""><span>运动户外</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/yinyue.png" alt=""><span>音乐相关</span>
-													</div>
-											</a></li>
-											<li><a href="#">
-													<div>
-														<img src="lib/img/icon/yinshi.png" alt=""><span>影视相关</span>
-													</div>
-											</a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=13"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/wenju.png"
+															alt=""><span>精美文具</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=14"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/huwai.png"
+															alt=""><span>运动户外</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=15"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/yinyue.png"
+															alt=""><span>音乐相关</span>
+													</div></a></li>
+											<li><a
+												href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=16"><div>
+														<img
+															src="${pageContext.request.contextPath }/img/icon/yinshi.png"
+															alt=""><span>影视相关</span>
+													</div></a></li>
 										</ul>
 									</div></li>
 							</ul>

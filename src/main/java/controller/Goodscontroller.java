@@ -44,21 +44,22 @@ public class Goodscontroller {
 		return "detail";
 	}
 	
-//	@RequestMapping(value= "changePassword",produces="application/json;charset=utf-8")
-//	@ResponseBody
-//	public String changePassword(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-//		String customerID=request.getParameter("customerID");
-//		String oldPassword=request.getParameter("oldPassword");
-//		String newPassword=request.getParameter("newPassword");
-//		String rePassword=request.getParameter("rePassword");
-//	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
-//	    if(result=="") {
-//	    	Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-//	    	customer.setCustomerPwd(newPassword);
-//	    }
-//		Map<String, String> map=new HashMap<>();
+	@RequestMapping(value= "add2Cart",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String add2Cart(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+	
+		Map<String, String> map=new HashMap<>();
 //		map.put("result", result);
-//		String res=callback+"("+JSON.toJSONString(map)+")";
-//		return res;
-//	}
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
+	
+	@RequestMapping(value="searchitems")
+	public String searchItems(Model model,String Name){
+		List<Goods> goods=goodservice.searchItems(Name);
+		for(Goods good:goods)
+		System.out.println(good);
+		model.addAttribute("goodsList", goods);
+		return "searchItems";
+	}
 }
