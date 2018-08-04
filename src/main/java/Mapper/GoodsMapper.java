@@ -20,6 +20,9 @@ public interface GoodsMapper {
 	List<Goods> findBygoodsMainTypeID(int goodsMainTypeID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	List<Goods> findBygoodsMainTypeIDGroupBygoodsID(int goodsMainTypeID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	List<Goods> findGoodsBygoodsMainTypeIDandgoodsSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)

@@ -128,7 +128,6 @@ public class Usercontroller {
 		Address address =new Address(customerID,addressID,addressDetail, addressPostcode, addressPhone, addressName,null);
 	    String result=userservice.addressService(address);
 	    String newaddressID=String.valueOf(address.getAddressID());
-	    System.out.println(newaddressID);
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);
 		map.put("addressID",newaddressID);

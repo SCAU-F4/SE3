@@ -10,6 +10,7 @@
 		<result column="evaluateDate" property="evaluateDate" />
 		<result column="evaluateGrade" property="evaluateGrade" />
 		<result column="evaluateContent" property="evaluateContent" />
+		<result column="goodsSpecify" property="goodsSpecify" />
 	</resultMap>
 
 	<resultMap type="evaluate" id="evaluateMap1" extends="evaluateMap">
@@ -26,9 +27,11 @@
 		where evaluateID = #{evaluateID}
 	</select>
 
-	<select id="findEvaluateByGoodsID" resultMap="evaluateMap1">
-		select * from
-		Evaluate where goodsID = #{goodsID}
+	<select id="findEvaluateByGoodsIDAndgoodsSpecify" resultMap="evaluateMap1">
+		select * 
+		from Evaluate 
+		where goodsID = #{goodsID} and goodsSpecify=#{goodsSpecify}
+		order by evaluateDate
 	</select>
 
 

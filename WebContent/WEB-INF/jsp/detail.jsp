@@ -205,8 +205,8 @@
 
 			<div class="list">
 				<ul>
-					<c:forEach items="${goods[0].pictureList}" begin="0" end="4" var="picture"
-						varStatus="status">
+					<c:forEach items="${goods[0].pictureList}" begin="0" end="4"
+						var="picture" varStatus="status">
 						<li class="active"><img src="${picture.picturePath}"></li>
 					</c:forEach>
 				</ul>
@@ -236,9 +236,8 @@
 					<div class="name">规格：</div>
 					<div class="specify">
 						<ul>
-							<c:forEach items="${goods}" var="good"
-						varStatus="status">
-							<li class="option">${good.goodsSpecify }</li>
+							<c:forEach items="${goods}" var="good" varStatus="status">
+								<li class="option">${good.goodsSpecify }</li>
 							</c:forEach>
 						</ul>
 					</div>
@@ -278,8 +277,7 @@
 			</ul>
 
 			<div class="detail_picture" data-select="0">
-				<img
-					src="${goods[0].pictureList[5].picturePath}">
+				<img src="${goods[0].pictureList[5].picturePath}">
 			</div>
 
 			<div class="evaluate" data-select="1">
@@ -448,70 +446,65 @@
 
 		</div>
 
-		
-		<div><div class="right">
-        <div class="head">
-            <span>24小时热销榜</span>
-        </div>
-        <div class="body">
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/detail_right_1.png">
-                    </a>
-                    <a href="index.html">
-                        <div class="name">24寸原创山海经PC铝框拉杆箱</div>
-                    </a>
-                    <div class="price">¥5.9</div>
-                </li>
-                <li>
-                    <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/detail_right_2.png">
-                    </a>
-                    <a href="index.html">
-                        <div class="name">女式典雅真丝长吊带睡裙</div>
-                    </a>
-                    <div class="price">¥100</div>
-                </li>
-                <li>
-                    <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/detail_right_3.png">
-                    </a>
-                    <a href="index.html">
-                        <div class="name">幸运桃心链条单肩包</div>
-                    </a>
-                    <div class="price">¥19.9</div>
-                </li>
-                <li>
-                    <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/detail_right_4.png">
-                    </a>
-                    <a href="index.html">
-                        <div class="name">爱的乐章黑巧克力礼盒</div>
-                    </a>
-                    <div class="price">¥45</div>
-                </li>
-                <li>
-                    <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/detail_right_5.png">
-                    </a>
-                    <a href="index.html">
-                        <div class="name">千层星云酥</div>
-                    </a>
-                    <div class="price">¥12.9</div>
-                </li>
-                <li>
-                    <a href="index.html">
-                        <img src="${pageContext.request.contextPath }/img/product/detail_right_6.png">
-                    </a>
-                    <a href="index.html">
-                        <div class="name">瓦坎达图腾 杯垫</div>
-                    </a>
-                    <div class="price">¥13.99</div>
-                </li>
-            </ul>
-        </div>
-    </div>
+
+		<div>
+			<div class="right">
+				<div class="head">
+					<span>24小时热销榜</span>
+				</div>
+				<div class="body">
+					<ul>
+						<li><a
+							href="${pageContext.request.contextPath }/products/detail/1">
+								<img
+								src="${pageContext.request.contextPath }/img/product/detail_right_1.png">
+						</a> <a href="${pageContext.request.contextPath }/products/detail/1">
+								<div class="name">24寸原创山海经PC铝框拉杆箱</div>
+						</a>
+							<div class="price">¥5.9</div></li>
+						<li><a
+							href="${pageContext.request.contextPath }/products/detail/34">
+								<img
+								src="${pageContext.request.contextPath }/img/product/detail_right_2.png">
+						</a> <a href="${pageContext.request.contextPath }/products/detail/34">
+								<div class="name">女式典雅真丝长吊带睡裙</div>
+						</a>
+							<div class="price">¥100</div></li>
+						<li><a
+							href="${pageContext.request.contextPath }/products/detail/15">
+								<img
+								src="${pageContext.request.contextPath }/img/product/detail_right_3.png">
+						</a> <a href="${pageContext.request.contextPath }/products/detail/15">
+								<div class="name">幸运桃心链条单肩包</div>
+						</a>
+							<div class="price">¥19.9</div></li>
+						<li><a
+							href="${pageContext.request.contextPath }/products/detail/40">
+								<img
+								src="${pageContext.request.contextPath }/img/product/detail_right_4.png">
+						</a> <a href="${pageContext.request.contextPath }/products/detail/40">
+								<div class="name">爱的乐章黑巧克力礼盒</div>
+						</a>
+							<div class="price">¥45</div></li>
+						<li><a
+							href="${pageContext.request.contextPath }/products/detail/43">
+								<img
+								src="${pageContext.request.contextPath }/img/product/detail_right_5.png">
+						</a> <a href="${pageContext.request.contextPath }/products/detail/43">
+								<div class="name">千层星云酥</div>
+						</a>
+							<div class="price">¥12.9</div></li>
+						<li><a
+							href="${pageContext.request.contextPath }/products/detail/78">
+								<img
+								src="${pageContext.request.contextPath }/img/product/detail_right_6.png">
+						</a> <a href="${pageContext.request.contextPath }/products/detail/78">
+								<div class="name">瓦坎达图腾 杯垫</div>
+						</a>
+							<div class="price">¥13.99</div></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 
