@@ -238,7 +238,7 @@
                                     </c:forEach>
                                 </div>
                                 <div class="panel-footer">
-                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥<strong class="totalPrice"></strong></span></div>
+                                <div class="cell pull-left" style="margin-top:1%;"><span class="text-danger">总价：￥<strong class="totalPrice text-danger"></strong></span></div>
                                 	<div class="cell pull-right">
                                 	 <span class="target"></span>
                               	<button class="layui-btn layui-btn-radius"></button></div>
