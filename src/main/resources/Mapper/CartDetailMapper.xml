@@ -6,34 +6,38 @@
 
 	<resultMap type="cartDetail" id="cartDetailMap">
 		<id column="cartID" property="cartID" />
-		<id column="goodsID" property="goodsID" />
-		<id column="goodsSpecify" property="goodsSpecify"/>
 		<result column="goodsCount" property="goodsCount" />
 		<result column="totalPrice" property="totalPrice" />
 	</resultMap>
-
+	<resultMap type="cartDetail" id="cartDetailMap1" extends="cartDetailMap">
+		<association property="good"
+			column="{goodsID=goodsID},{goodsSpecify=goodsSpecify}" fetchType="lazy"
+			select="Mapper.GoodsMapper.findBygoodsIDAndgoodsSpecify" />
+	</resultMap>
+	
 	<select id="findBycartIDAndgoodsIDAndgoodsSpecify" resultMap="cartDetailMap">
 		select * from
 		CartDetail where cartID = #{cartID} AND
 		goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
 	</select>
 
-	<select id="getAllDetailbycartID" resultMap="cartDetailMap">
+	<select id="getAllDetailbycartID" resultMap="cartDetailMap1">
 		select * from
 		CartDetail where cartID = #{cartID}
 	</select>
 
 	<insert id="insert">
-		insert into CartDetail values(#{cartID}, #{goodsID},
-		#{goodsCount}, #{totalPrice},#{goodsSpecify})
+		insert into CartDetail values(#{cartID}, #{good.goodsID},
+		#{goodsCount}, #{totalPrice},#{good.goodsSpecify})
 	</insert>
 	<update id="update">
 		update CartDetail set
 		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
-		cartID=#{cartID} AND goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
+		cartID=#{cartID} AND goodsID=#{good.goodsID} AND
+		goodsSpecify=#{good.goodsSpecify}
 	</update>
 	<delete id="delete">
 		delete from CartDetail where cartID=#{cartID} AND
-		goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
+		goodsID=#{good.goodsID} AND goodsSpecify=#{good.goodsSpecify}
 	</delete>
 </mapper>

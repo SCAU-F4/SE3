@@ -10,4 +10,5 @@ public interface Goodservice {
 	public categorybean getcategory(int categoryID);
 	public List<Goods> getgood(int goodsID);
 	public List<Goods> searchItems(String goodsName);
+	public String add2Cart(int goodsID,String goodsSpecify,int goodsCount,double goodsPrice,int cartID);
 }

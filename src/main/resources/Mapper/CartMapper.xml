@@ -24,6 +24,11 @@
 	<select id="findBycustomerID" resultMap="cartMap1">
 		select * from Cart where customerID = #{customerID}
 	</select>
+	
+	
+	<select id="findtotalPriceByCartID" resultType="java.lang.Double">
+		select totalPrice from Cart where cartID = #{cartID}
+	</select>
 
 	<insert id="insert">
 		insert into Cart values(#{cartID}, #{customerID}, #{totalPrice})
@@ -32,6 +37,12 @@
 		update Cart set customerID=#{customerID},totalPrice=#{totalPrice} where
 		cartID=#{cartID}
 	</update>
+	
+	<update id="updatetotalPriceBycartID">
+		update Cart set totalPrice=#{totalPrice} where
+		cartID=#{cartID}
+	</update>
+	
 	<delete id="delete">
 		delete from Cart where cartID=#{cartID}
 	</delete>
