@@ -39,85 +39,54 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
-							<div class="shopping-cart">
+						<div class="shopping-cart">
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<div class="cart-item">
+									<c:forEach items="${currentCustomer.cart.CartDetailList}" var="cartList" varStatus="status">
+										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
+										<div class="cart-item">
 										<div class="cart-img">
 											<img
-												src="${pageContext.request.contextPath }/img/product/product10.png"
+												src="${cartList.good.pictureList[0].picturePath}"
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
-											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
+											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsBrief}">${cartList.good.goodsBrief}</a>
 										</div>
-										<div class="cart-introduce text-muted">底油亮油色</div>
+										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 										<div class="cart-number">
-											x <span class="indentNumber">1</span>
+											x <span class="indentNumber">${cartList.goodsCount}</span>
 										</div>
 										<div class="cart-price text-danger">
-											￥ <span class="indentMoney">100</span>
-										</div>
-										<div class="close">
-											<i class="layui-icon layui-icon-close"></i>
-										</div>
-
-									</div>
-									<div class="cart-item">
-										<div class="cart-img">
-											<img
-												src="${pageContext.request.contextPath }/img/product/product10.png"
-												alt="" height="50">
-										</div>
-										<div class="cart-name">
-											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
-										</div>
-										<div class="cart-introduce text-muted">底油亮油色</div>
-										<div class="cart-number">
-											x <span class="indentNumber">1</span>
-										</div>
-										<div class="cart-price text-danger">
-											￥ <span class="indentMoney">100</span>
+											￥ <span class="indentMoney">${cartList.totalPrice}</span>
 										</div>
 										<div class="close">
 											<i class="layui-icon layui-icon-close"></i>
 										</div>
 									</div>
-									<div class="cart-item">
-										<div class="cart-img">
-											<img
-												src="${pageContext.request.contextPath }/img/product/product10.png"
-												alt="" height="50">
-										</div>
-										<div class="cart-name">
-											<a href="" title="小方盖系列 水性可撕指甲油">小方盖系列 水性可撕指甲油</a>
-										</div>
-										<div class="cart-introduce text-muted">底油亮油色</div>
-										<div class="cart-number">
-											x <span class="indentNumber">1</span>
-										</div>
-										<div class="cart-price text-danger">
-											￥ <span class="indentMoney">100</span>
-										</div>
-										<div class="close">
-											<i class="layui-icon layui-icon-close"></i>
+								
+									</c:forEach>
+								</div>
+								<div class="cart-bottom-area">
+									<div class="allPrice">
+										<div class="pricedetail">商品总价 ：</div>
+										<div class="pricedetailnumber">
+											<span class="priceNum text-danger">￥${cart.totalPrice}</span>
 										</div>
 									</div>
-                                </div>
-                                <div class="cart-bottom-area">
-                                    <div class="allPrice">
-                                       <div class="pricedetail">商品总价 ：</div>
-                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
-                                    </div>
-                                    <div class="buy">
+									<div class="buy">
 										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
-                                </div>
+								</div>
+
 							</div>
+						
 						</div>
 					</div>
+					
+					
 				</div>
 			</div>
 		</div>
