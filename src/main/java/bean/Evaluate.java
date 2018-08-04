@@ -11,6 +11,7 @@ public class Evaluate implements Serializable {
 	private Timestamp evaluateDate;
 	private int evaluateGrade;
 	private String evaluateContent;
+	private String goodsSpecify;
 	private Customer customer;
 	private List<EvaluatePicture> evaluatePictureList;
 
@@ -20,13 +21,14 @@ public class Evaluate implements Serializable {
 	}
 
 	public Evaluate(int evaluateID, int goodsID, Timestamp evaluateDate, int evaluateGrade, String evaluateContent,
-			Customer customer, List<EvaluatePicture> evaluatePictureList) {
+			String goodsSpecify, Customer customer, List<EvaluatePicture> evaluatePictureList) {
 		super();
 		this.evaluateID = evaluateID;
 		this.goodsID = goodsID;
 		this.evaluateDate = evaluateDate;
 		this.evaluateGrade = evaluateGrade;
 		this.evaluateContent = evaluateContent;
+		this.goodsSpecify = goodsSpecify;
 		this.customer = customer;
 		this.evaluatePictureList = evaluatePictureList;
 	}
@@ -71,6 +73,14 @@ public class Evaluate implements Serializable {
 		this.evaluateContent = evaluateContent;
 	}
 
+	public String getGoodsSpecify() {
+		return goodsSpecify;
+	}
+
+	public void setGoodsSpecify(String goodsSpecify) {
+		this.goodsSpecify = goodsSpecify;
+	}
+
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -90,8 +100,8 @@ public class Evaluate implements Serializable {
 	@Override
 	public String toString() {
 		return "Evaluate [evaluateID=" + evaluateID + ", goodsID=" + goodsID + ", evaluateDate=" + evaluateDate
-				+ ", evaluateGrade=" + evaluateGrade + ", evaluateContent=" + evaluateContent + ", customer=" + customer
-				+ ", evaluatePictureList=" + evaluatePictureList + "]";
+				+ ", evaluateGrade=" + evaluateGrade + ", evaluateContent=" + evaluateContent + ", goodsSpecify="
+				+ goodsSpecify + ", customer=" + customer + ", evaluatePictureList=" + evaluatePictureList + "]";
 	}
 
 }

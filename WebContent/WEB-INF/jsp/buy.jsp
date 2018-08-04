@@ -54,7 +54,7 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="home active"><a href="/SE3-F4">首页<span
+								<li class="home active"><a href="${pageContext.request.contextPath }">首页<span
 										class="sr-only">首页</span></a></li>
 								<li class="bag-li"><a href="#">箱包配饰</a>
 									<div class="bag-li container downmenu">

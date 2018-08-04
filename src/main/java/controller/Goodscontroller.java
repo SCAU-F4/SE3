@@ -1,6 +1,11 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+
+import bean.Customer;
+import bean.Evaluate;
 import bean.Goods;
 import bean.GoodsSecondaryType;
 import bean.middle.categorybean;
@@ -33,4 +43,22 @@ public class Goodscontroller {
 		model.addAttribute("goods", goods);
 		return "detail";
 	}
+	
+//	@RequestMapping(value= "changePassword",produces="application/json;charset=utf-8")
+//	@ResponseBody
+//	public String changePassword(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+//		String customerID=request.getParameter("customerID");
+//		String oldPassword=request.getParameter("oldPassword");
+//		String newPassword=request.getParameter("newPassword");
+//		String rePassword=request.getParameter("rePassword");
+//	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+//	    if(result=="") {
+//	    	Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+//	    	customer.setCustomerPwd(newPassword);
+//	    }
+//		Map<String, String> map=new HashMap<>();
+//		map.put("result", result);
+//		String res=callback+"("+JSON.toJSONString(map)+")";
+//		return res;
+//	}
 }
