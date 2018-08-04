@@ -109,7 +109,8 @@
 										</div>
 									</div>
 									<div class="buy">
-										<button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										</a>
 									</div>
 								</div>
 
