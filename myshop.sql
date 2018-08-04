@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-04 15:52:41
+Date: 2018-08-04 16:49:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `address` (
   `addressPhone` varchar(11) NOT NULL,
   `addressName` varchar(20) NOT NULL,
   PRIMARY KEY (`addressID`,`customerID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -135,7 +135,6 @@ CREATE TABLE `express` (
 -- ----------------------------
 -- Records of express
 -- ----------------------------
-INSERT INTO `express` VALUES ('1', '2018-07-27 19:04:21.000000', '0');
 
 -- ----------------------------
 -- Table structure for `goods`
@@ -388,7 +387,7 @@ CREATE TABLE `indent` (
   `indentState` int(2) NOT NULL,
   `expressCode` int(18) NOT NULL,
   PRIMARY KEY (`indentID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indent
@@ -413,6 +412,7 @@ CREATE TABLE `indentdetail` (
 -- ----------------------------
 INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '白色');
 INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '红色');
+INSERT INTO `indentdetail` VALUES ('1', '75', '1', '66.00', '复仇者联盟');
 
 -- ----------------------------
 -- Table structure for `manager`

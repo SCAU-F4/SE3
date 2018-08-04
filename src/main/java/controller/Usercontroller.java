@@ -61,106 +61,132 @@ public class Usercontroller {
 		else
 			return "signup";
 	}
-	
-	@RequestMapping(value ="mycenter")
-	public String mycenter(Model model,HttpSession httpSession){
-		Customer customer=(Customer)httpSession.getAttribute("currentCustomer");
-		int customerID=customer.getCustomerID();
-		List<Indent> allindent=userservice.getAllIndent(customerID);
-        model.addAttribute("allindent",allindent);
+
+	@RequestMapping(value = "mycenter")
+	public String mycenter(Model model, HttpSession httpSession) {
+		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
+		int customerID = customer.getCustomerID();
+		List<Indent> allindent = userservice.getAllIndent(customerID);
+		model.addAttribute("allindent", allindent);
 		return "myCenter";
 	}
-	
-	@RequestMapping(value ="signout")
-	public String signout(HttpSession session){
-        session.removeAttribute("currentCustomer");
+
+	@RequestMapping(value = "signout")
+	public String signout(HttpSession session) {
+		session.removeAttribute("currentCustomer");
 		return "redirect:/";
 	}
-	
-	@RequestMapping(value= "changeName",produces="application/json;charset=utf-8")
+
+	@RequestMapping(value = "changeName", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String changeName(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-		String customerID=request.getParameter("customerID");
-		String customerName=request.getParameter("customerName");
-		String result=userservice.changeName(Integer.parseInt(customerID), customerName);
-		if(result=="") {
-			Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+	public String changeName(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		String customerID = request.getParameter("customerID");
+		String customerName = request.getParameter("customerName");
+		String result = userservice.changeName(Integer.parseInt(customerID), customerName);
+		if (result == "") {
+			Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
 			customer.setCustomerName(customerName);
 		}
-		Map<String, String> map=new HashMap<>();
+		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
-		String res=callback+"("+JSON.toJSONString(map)+")";
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	@RequestMapping(value= "changePassword",produces="application/json;charset=utf-8")
+
+	@RequestMapping(value = "changePassword", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String changePassword(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-		String customerID=request.getParameter("customerID");
-		String oldPassword=request.getParameter("oldPassword");
-		String newPassword=request.getParameter("newPassword");
-		String rePassword=request.getParameter("rePassword");
-	    String result=userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
-	    if(result=="") {
-	    	Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-	    	customer.setCustomerPwd(newPassword);
-	    }
-		Map<String, String> map=new HashMap<>();
+	public String changePassword(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		String customerID = request.getParameter("customerID");
+		String oldPassword = request.getParameter("oldPassword");
+		String newPassword = request.getParameter("newPassword");
+		String rePassword = request.getParameter("rePassword");
+		String result = userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+		if (result == "") {
+			Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
+			customer.setCustomerPwd(newPassword);
+		}
+		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
-		String res=callback+"("+JSON.toJSONString(map)+")";
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	@RequestMapping(value= {"addAddress","changeAddress"},produces="application/json;charset=utf-8")//增加或修改地址
+
+	@RequestMapping(value = { "addAddress", "changeAddress" }, produces = "application/json;charset=utf-8") // 增加或修改地址
 	@ResponseBody
-	public String addressService(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-		String addressDetail=request.getParameter("addressDetail");
-		String addressPostcode=request.getParameter("addressPostcode");
-		String addressPhone=request.getParameter("addressPhone");
-		String addressName=request.getParameter("addressName");
-		String temp=request.getParameter("addressID");
-		int addressID=-1;//-1是增加地址
-		if(temp!=null){
-			addressID=Integer.parseInt(temp);
+	public String addressService(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		String addressDetail = request.getParameter("addressDetail");
+		String addressPostcode = request.getParameter("addressPostcode");
+		String addressPhone = request.getParameter("addressPhone");
+		String addressName = request.getParameter("addressName");
+		String temp = request.getParameter("addressID");
+		int addressID = -1;// -1是增加地址
+		boolean flag = true;// true是增加地址，false是修改地址
+		if (temp != null) {// 修改地址
+			addressID = Integer.parseInt(temp);
+			flag = false;
+		}
+		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
+		int customerID = customer.getCustomerID();
+		Address address = new Address(customerID, addressID, addressDetail, addressPostcode, addressPhone, addressName,
+				null);
+		String result = userservice.addressService(address);
+		if (result == "") {
+			if (flag == true)
+				customer.getAddressList().add(address);
+			else {
+				for (Address oldaddress : customer.getAddressList()) {
+					if (oldaddress.getAddressID() == address.getAddressID()) {
+						customer.getAddressList().remove(oldaddress);
+						customer.getAddressList().add(address);
+						break;
+					}
+				}
 			}
-		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		int customerID=customer.getCustomerID();
-		Address address =new Address(customerID,addressID,addressDetail, addressPostcode, addressPhone, addressName,null);
-	    String result=userservice.addressService(address);
-	    String newaddressID=String.valueOf(address.getAddressID());
-		Map<String, String> map=new HashMap<>();
+		}
+		String newaddressID = String.valueOf(address.getAddressID());
+		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
-		map.put("addressID",newaddressID);
-		String res=callback+"("+JSON.toJSONString(map)+")";
+		map.put("addressID", newaddressID);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	@RequestMapping(value= "deleteAddress",produces="application/json;charset=utf-8")
+
+	@RequestMapping(value = "deleteAddress", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String deleteAddress(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-		String addressID=request.getParameter("addressID");
-		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		int customerID=customer.getCustomerID();
-	    String result=userservice.deleteAddress(customerID, Integer.parseInt(addressID));
-		Map<String, String> map=new HashMap<>();
+	public String deleteAddress(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		String addressID = request.getParameter("addressID");
+		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
+		int customerID = customer.getCustomerID();
+		String result = userservice.deleteAddress(customerID, Integer.parseInt(addressID));
+		if(result==""){
+			for (Address oldaddress : customer.getAddressList()) {
+				if (oldaddress.getAddressID() == Integer.parseInt(addressID)) {
+					customer.getAddressList().remove(oldaddress);
+					break;
+				}
+			}
+		}
+		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
-		String res=callback+"("+JSON.toJSONString(map)+")";
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	@RequestMapping(value= "deleteIndent",produces="application/json;charset=utf-8")
-	@ResponseBody
-	public String deleteIndent(String callback,HttpServletRequest request) throws Exception{ 
-		String indentID=request.getParameter("indentID");
-	    String result=userservice.deleteIndent(Integer.parseInt(indentID));
-		Map<String, String> map=new HashMap<>();
+
+	@RequestMapping(value = "deleteIndent", produces = "application/json;charset=utf-8")
+	@ResponseBody//危险，没维护currentCustomer对象，不能从该对象里调取订单
+	public String deleteIndent(String callback, HttpServletRequest request) throws Exception {
+		String indentID = request.getParameter("indentID");
+		String result = userservice.deleteIndent(Integer.parseInt(indentID));
+		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
-		String res=callback+"("+JSON.toJSONString(map)+")";
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	@RequestMapping(value="auction")
-	public String aution(){
+
+	@RequestMapping(value = "auction")
+	public String aution() {
 		return "auction";
 	}
 }
