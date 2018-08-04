@@ -63,11 +63,15 @@
     border: 0;
     border-bottom: #d0c4af 2px solid;
 }
-#SE3_header .top-main #serech_input i{
+#SE3_header .top-main #serech_input a{
     padding-right: 1px;
     margin-top: 15px;
     font-size: 18px;
     color: #d0c4af;
+}
+#SE3_header .top-main #serech_input a:hover{
+	 color: #d0c4af;
+	    text-decoration: none;
 }
 #SE3_header .navbar .container-fluid{
     padding: 0;
@@ -315,9 +319,19 @@
     color: #333;
     text-decoration: none;
 }
+.SE3_product .container .row .product{
+	margin-top:10px;
+	
+}
 .SE3_product .container .row .product .littleimg{
+	width:220px;
+	height:220px;
 }
 
+.SE3_product .container .row .product .littleimg-title{
+	width:220px;
+	
+}
 .SE3_product{
 
 }
@@ -504,10 +518,15 @@
     position: relative;
     width: 100%;
 }
-#SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-bottom-area .buy{
-    position: relative;
+/* #SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-bottom-area .buy{
+   position: relative;
     display: inline-block;
-    bottom: 35px;
+    bottom: 35px; 
+} */
+#SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-bottom-area .buy a{
+	position: absolute;
+	bottom:30px;
+	right:5px;
 }
 .back-top{
     position: fixed;
