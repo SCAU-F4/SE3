@@ -43,7 +43,7 @@
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.CartDetailList}" var="cartList" varStatus="status">
+									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
 										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-item">
 										<div class="cart-img">

@@ -10,9 +10,8 @@
 		<result column="totalPrice" property="totalPrice" />
 	</resultMap>
 
-
 	<resultMap type="cart" id="cartMap1" extends="cartMap">
-		<collection property="CartDetailList" fetchType="lazy"
+		<collection property="cartDetailList" fetchType="lazy"
 			select="Mapper.CartDetailMapper.getAllDetailbycartID" column="{cartID=cartID}">
 		</collection>
 	</resultMap>

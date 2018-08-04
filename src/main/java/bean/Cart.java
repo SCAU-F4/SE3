@@ -7,7 +7,7 @@ public class Cart implements Serializable{
 	private int cartID;
 	private int customerID;
 	private double totalPrice;
-	private List<CartDetail> CartDetailList;
+	private List<CartDetail> cartDetailList;
 
 	public Cart() {
 		super();
@@ -19,7 +19,7 @@ public class Cart implements Serializable{
 		this.cartID = cartID;
 		this.customerID = customerID;
 		this.totalPrice = totalPrice;
-		CartDetailList = cartDetailList;
+		this.cartDetailList = cartDetailList;
 	}
 
 	public int getCartID() {
@@ -47,17 +47,17 @@ public class Cart implements Serializable{
 	}
 
 	public List<CartDetail> getCartDetailList() {
-		return CartDetailList;
+		return cartDetailList;
 	}
 
 	public void setCartDetailList(List<CartDetail> cartDetailList) {
-		CartDetailList = cartDetailList;
+		this.cartDetailList = cartDetailList;
 	}
 
 	@Override
 	public String toString() {
 		return "Cart [cartID=" + cartID + ", customerID=" + customerID + ", totalPrice=" + totalPrice
-				+ ", CartDetailList=" + CartDetailList + "]";
+				+ ", cartDetailList=" + cartDetailList + "]";
 	}
 
 }
