@@ -15,10 +15,16 @@
 			select="Mapper.GoodsMapper.findBygoodsIDAndgoodsSpecify" />
 	</resultMap>
 	
-	<select id="findBycartIDAndgoodsIDAndgoodsSpecify" resultMap="cartDetailMap">
+	<select id="findBycartIDAndgoodsIDAndgoodsSpecify" resultMap="cartDetailMap1">
 		select * from
 		CartDetail where cartID = #{cartID} AND
 		goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
+	</select>
+	
+	<select id="isCartDetailExist" resultType="java.lang.Integer">
+		select count(*) from
+		CartDetail where cartID = #{cartID} AND
+		goodsID=#{good.goodsID} AND goodsSpecify=#{good.goodsSpecify}
 	</select>
 
 	<select id="getAllDetailbycartID" resultMap="cartDetailMap1">
