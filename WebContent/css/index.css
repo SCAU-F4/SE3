@@ -504,10 +504,15 @@
     position: relative;
     width: 100%;
 }
-#SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-bottom-area .buy{
-    position: relative;
+/* #SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-bottom-area .buy{
+   position: relative;
     display: inline-block;
-    bottom: 35px;
+    bottom: 35px; 
+} */
+#SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-bottom-area .buy a{
+	position: absolute;
+	bottom:30px;
+	right:5px;
 }
 .back-top{
     position: fixed;

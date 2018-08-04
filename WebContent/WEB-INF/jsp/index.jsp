@@ -60,7 +60,8 @@
                                        <div class="pricedetail">商品总价 ：</div>
                                         <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
                                     </div>
-                                    <div class="buy"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></div>
+                                    <div class="buy">
+                                    <a href="#"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button></a></div>
                                 </div>
 
                             </div>
