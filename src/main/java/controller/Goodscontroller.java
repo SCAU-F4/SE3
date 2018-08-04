@@ -47,15 +47,18 @@ public class Goodscontroller {
 	@RequestMapping(value= "add2Cart",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String add2Cart(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+		String result="非法操作";
 		String goodsID = request.getParameter("goodsID");
 		String goodsSpecify = request.getParameter("goodsSpecify");
-		String goodsCount =request.getParameter("goodsCount");
-		String goodsPrice=request.getParameter("goodsPrice");
-		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		int cartID=customer.getCart().getCartID();
-		String result=goodservice.add2Cart(Integer.parseInt(goodsID), goodsSpecify, Integer.parseInt(goodsCount), Double.parseDouble(goodsPrice), cartID);
-		if(result==""){
-			
+		String goodsCount =request.getParameter("goodsCount");//增量，不是总量
+		if(Integer.parseInt(goodsCount)!=0){
+			Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+			if(Integer.parseInt(goodsCount)>0){
+				result=goodservice.add2Cart(Integer.parseInt(goodsID), goodsSpecify, Integer.parseInt(goodsCount),customer);
+			}
+			else {
+				result=goodservice.removefromCart(Integer.parseInt(goodsID), goodsSpecify, Integer.parseInt(goodsCount), customer);
+			}
 		}
 		Map<String, String> map=new HashMap<>();
 		map.put("result", result);

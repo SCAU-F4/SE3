@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: acery
 Build-Jdk: 1.8.0_112
+=======
+Built-By: msi
+Build-Jdk: 1.8.0_121
+>>>>>>> 52da62674440b43e42e233d9dee61e5c2fd7eb5c
 Created-By: Maven Integration for Eclipse
 

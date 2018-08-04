@@ -111,6 +111,10 @@ body{
 	width:70px;
 	text-align:center;
 }
+.panel-footer span:first-child{
+	width:150px;
+}
+
 .panel-footer .cell{
 	margin-left:0px;
 }

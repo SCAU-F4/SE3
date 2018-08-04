@@ -42,16 +42,17 @@
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.CartDetailList}" var="cartList" varStatus="status">
+									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
 										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-item">
+										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-img">
 											<img
 												src="${cartList.good.pictureList[0].picturePath}"
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsBrief}">${cartList.good.goodsBrief}</a>
+											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
 										</div>
 										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 										<div class="cart-number">
@@ -573,6 +574,7 @@
 			</div>
 		</div>
 	</section>
+	<div class="tip"><h4>修改成功</h4></div>
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
@@ -597,7 +599,88 @@
 				$("#signup").hide();
 				$(".shopping-cart").show();
 			}
+			
+			$(".detail_add").click(function(){
+				if(customer == ""){
+					$(".tip h4").text("请先登陆");
+					$(".tip").fadeIn();
+					$(".tip").delay(1500).fadeOut().delay(300,function(){
+					$(location).attr('href', '${pageContext.request.contextPath }/user/signin');
+					}); 
+				}
+				else{
+				console.log($(".detail_specify .specify .active").length);
+					if(check($(".detail_specify .specify .active").length)){
+							var goodID="${goods[0].goodsID}";
+							var goodPic="${goods[0].pictureList[0].picturePath}";
+							var goodName="${goods[0].goodsName }";
+							var goodPrice="${goods[0].goodsPrice }";
+							var goodBrief="${goods[0].goodsBrief}";
+							var goodNum=$(".detail_num .num input").val();
+							var goodSpecify=$(".detail_specify .specify .active").text();
+							console.log(goodID+"//"+goodPic+"//"+goodName+"//"+goodPrice+"//"+goodNum+"//"+goodSpecify);
+							  var str="<div class=\"cart-item\">" +
+        "<input type=\"hidden\" value=\""+goodID+"\" class=\"cartGoodsID\"/>" +
+        "<div class=\"cart-img\">" +
+        "<img" +
+        "\tsrc=\""+goodPic+"\"" +
+        "\talt=\"\" height=\"50\">" +
+        "</div>" +
+        "<div class=\"cart-name\">" +
+        "<a href=\"${pageContext.request.contextPath }/products/detail/"+goodID+"\" title=\""+goodName+"\">"+goodName+"</a>" +
+        "</div>" +
+        "<div class=\"cart-introduce text-muted\">"+goodSpecify+"</div>" +
+        "<div class=\"cart-number\">" +
+        "x <span class=\"indentNumber\">"+goodNum+"</span>" +
+        "</div>" +
+        "<div class=\"cart-price text-danger\">" +
+        "￥ <span class=\"indentMoney\">"+goodPrice+"</span>" +
+        "</div>" +
+        "<div class=\"close\">" +
+        "<i class=\"layui-icon layui-icon-close\"></i>" +
+        "</div>";
+       						
+       						$.ajax({    
+								 type : "post",
+			 					 async:false, 
+								 url:"add2Cart",
+			 					 dataType:"jsonp",
+			 					 jsonp:"callback",
+			 					 data:{
+									goodsID:goodID,
+		    						goodsSpecify:goodSpecify,
+		    						goodsCount:goodNum,
+		    						goodsPrice:goodPrice,
+									t:new Date()
+									},
+									success:function(res){
+										if(res.result=="")
+										{
+										 $(".cart-top-area").append(str);
+										}
+										else{
+											alert(res.result);
+										}
+									},error:function(e){
+										alert("失败了");
+									}
+       						
+					});
+					}
+					}
+			});
 		});
+		function check(a){
+		if(a==0){
+					$(".tip h4").text("请选择规格");
+					$(".tip").fadeIn();
+					$(".tip").delay(1500).fadeOut();
+					return false;
+		  }
+		  else{
+		  			  return true;
+		  }
+		}
 	</script>
 </body>
 </html>
