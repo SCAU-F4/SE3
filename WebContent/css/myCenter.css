@@ -76,26 +76,50 @@ body{
 .Order-list .panel .panel-heading span{
     padding-right: 100px;
 }
+.panel-body .items{
+	width:800px;
+	border-bottom:1.5px #f5f5f5 dashed;
+	 position: relative;
+}
 
-.cell{
+.panel-body .items .cell{
     width: 100px;
-    height: 70px;
-    margin-left: 200px;
+   position: relative;
+   top:15px;
+   right:10%;
 }
 .price{
-    margin-left: 100px;
+    position: relative;
      width: 100px;
      height: 70px;
+     left:25%;
     text-align: center;
  }
-.panel-body div,.cell span{
+ .panel-body .goods{
+ position: relative;
+ right:22%;
+ }
+.panel-body .goods span{
+	display:inline-block;
+	width:120px;
+}
+.panel-body div,.cell span,.panel-footer span{
     text-align: center;
     display: inline-block;
+    
+}.panel-footer span{
+	width:70px;
+	text-align:center;
 }
-.cell button{
+.panel-footer .cell{
+	margin-left:0px;
+}
+.cell button,.panel-footer button{
     background: #d0c4af;
 }
-
+.panel-footer{
+	overflow:hidden;
+}
 .show-area .Message,.show-area .Address{
     display: none;
 }
@@ -141,7 +165,8 @@ body{
     cursor: pointer;
 }
 .page{
-	margin:0 300px;
+	float:left;
+	margin:10px 300px;
 }
 .page span{
 	margin:0 10px;
