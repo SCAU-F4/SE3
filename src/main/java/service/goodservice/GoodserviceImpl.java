@@ -10,7 +10,6 @@ import Mapper.CartMapper;
 import Mapper.GoodsMainTypeMapper;
 import Mapper.GoodsMapper;
 import Mapper.GoodsSecondaryTypeMapper;
-import bean.Cart;
 import bean.CartDetail;
 import bean.Customer;
 import bean.Goods;

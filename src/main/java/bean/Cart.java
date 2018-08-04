@@ -3,11 +3,13 @@ package bean;
 import java.io.Serializable;
 import java.util.List;
 
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 	private int cartID;
 	private int customerID;
 	private double totalPrice;
 	private List<CartDetail> cartDetailList;
+
+	private static final long serialVersionUID = 1L;
 
 	public Cart() {
 		super();

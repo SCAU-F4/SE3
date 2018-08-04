@@ -7,6 +7,8 @@ public class Picture implements Serializable{
 	private int pictureID;
 	private String picturePath;
 
+	private static final long serialVersionUID = 1L;
+
 	public Picture() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -129,8 +129,7 @@ public class Usercontroller {
 		}
 		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
 		int customerID = customer.getCustomerID();
-		Address address = new Address(customerID, addressID, addressDetail, addressPostcode, addressPhone, addressName,
-				null);
+		Address address = new Address(customerID, addressID, addressDetail, addressPostcode, addressPhone, addressName);
 		String result = userservice.addressService(address);
 		if (result == "") {
 			if (flag == true)

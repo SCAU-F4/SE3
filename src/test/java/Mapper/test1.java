@@ -1,22 +1,15 @@
 package Mapper;
 
 import java.io.IOException;
-import java.util.List;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import bean.Evaluate;
-import bean.GoodsMainType;
 
 
 public class test1 {
 
 	public static void main(String[] args) throws IOException {
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);
-		Evaluate evaluate=evaluatemapper.findByevaluateID(1);
-		System.out.println(evaluate);
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);
+//		Evaluate evaluate=evaluatemapper.findByevaluateID(1);
+//		System.out.println(evaluate);
 //		goodsMaintype.setGoodsMainType("wocfewfimafewrfewfewfwfewef");
 //		goodsMaintype.setGoodsMainTypeID(78);
 //		List list=goodsMainTypeMapper.findAllGoodsMainTypes();
