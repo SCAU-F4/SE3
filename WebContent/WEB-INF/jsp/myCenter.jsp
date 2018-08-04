@@ -252,29 +252,38 @@
                                 </div>
                                 <div class="panel-body">
                                 <c:forEach items="${indent.indentDetaillist}" var="indentDetail" varStatus="status">
+                                    <div class="items">
                                     <div class="goods">
                                         <img src="${indentDetail.good.pictureList[0].picturePath}" alt="" width="120">
                                         <span>${indentDetail.good.goodsName}</span>
                                     </div>
                                     <div class="cell">
-                                        <span class="deal-state" jspstate="${indent.indentState}"></span>
-                                        <!-- <button class="layui-btn layui-btn-radius">立马评价</button> -->
+                                        <span class="deal-state" jspstate="${indent.indentState}">数量：${indentDetail.goodsCount}</span>
+                                         <span>样式类型：${indentDetail.good.goodsSpecify}</span> 
                                     </div>
                                     <div class="price">
                                         <span>￥</span>
                                         <span class="number">${indentDetail.good.goodsPrice}</span>
                                     </div>
+                                    </div>
                                     </c:forEach>
                                 </div>
+                                <div class="panel-footer">
+                                <div class="cell pull-left" style="margin-top:1%;"><span>总价：￥<strong class="totalPrice"></strong></span></div>
+                                	<div class="cell pull-right">
+                                	 <span class="target"></span>
+                              	<button class="layui-btn layui-btn-radius"></button></div>
+                               		
+                                </div>	
                             </div>
    					</c:forEach>
    						 <div class="isNoPanel"><i class="layui-icon layui-icon-404"></i><span>目前还没有找到符合的订单哦</span></div>
-								<div class="page">
+								 <div class="page">
 										<span id="pre">上一页</span>
 										<select name="pageNumber" id="PageNumber">
      									 </select>
 									    <span id="last">下一页</span>
-								</div>
+								</div>  
                         </div>
                     </div>
                     <div class="Message" data-state="1">

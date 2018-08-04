@@ -256,29 +256,40 @@ $(document).ready(function () {
     		alert("已经是最后一页了");
     	}
     });
+/*    var totalPrice=0;
+    $(".totalPrice").each(function(){
+    	
+    	totalPrice=parseFloat(totalPrice+parseFloat($(this).parents(".panel").find("span.number").text()));
+    	console.log(totalPrice);
+    });*/
     
     $(".Order-list .cell .deal-state").each(function(){
+    	var flag=0;
     	var jspState=$(this).attr("jspstate");
     	var dataState=parseInt(jspState)+1;
     	$(this).attr("data-state",dataState);
+    	var $target=$(this).parents(".panel-body").siblings(".panel-footer").find(".target:eq(0)");
+    	console.log($target);
+    	$target.attr("data-state",dataState);
     	if(jspState==0){
-    		$(this).text("待付款");
-    		var button="<button class=\"layui-btn layui-btn-radius\">去付款</button>";
-    		$(this).parent().append(button);	
+    		$target.text("待付款");
+    		$target.parent().find("button").text("去付款");
     	}
     	if(jspState==1){
-    		$(this).text("待发货");	
+    		$target.text("待发货");	
+    		$target.parent().find("button").remove();
     	}
     	if(jspState==2){
-    		$(this).text("已发货");	
+    		$target.text("已发货");
+    		$target.parent().find("button").remove();
     	}
     	if(jspState==3){
-    		$(this).text("待评价");	
-    		var button="<button class=\"layui-btn layui-btn-radius\">立马评价</button>";
-    		$(this).parent().append(button);	
+    		$target.text("待评价");	
+    		$target.parent().find("button").text("去评价");
     	}
     	if(jspState==4){
-    		$(this).text("交易成功");	
+    		$target.text("交易成功");	
+    		$target.parent().find("button").remove();
     	}
     })
     
