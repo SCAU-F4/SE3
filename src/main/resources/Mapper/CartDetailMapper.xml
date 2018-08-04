@@ -7,14 +7,15 @@
 	<resultMap type="cartDetail" id="cartDetailMap">
 		<id column="cartID" property="cartID" />
 		<id column="goodsID" property="goodsID" />
+		<id column="goodsSpecify" property="goodsSpecify"/>
 		<result column="goodsCount" property="goodsCount" />
 		<result column="totalPrice" property="totalPrice" />
 	</resultMap>
 
-	<select id="findBycartIDAndgoodsID" resultMap="cartDetailMap">
+	<select id="findBycartIDAndgoodsIDAndgoodsSpecify" resultMap="cartDetailMap">
 		select * from
 		CartDetail where cartID = #{cartID} AND
-		goodsID=#{goodsID}
+		goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
 	</select>
 
 	<select id="getAllDetailbycartID" resultMap="cartDetailMap">
@@ -24,15 +25,15 @@
 
 	<insert id="insert">
 		insert into CartDetail values(#{cartID}, #{goodsID},
-		#{goodsCount}, #{totalPrice})
+		#{goodsCount}, #{totalPrice},#{goodsSpecify})
 	</insert>
 	<update id="update">
 		update CartDetail set
 		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
-		cartID=#{cartID} AND goodsID=#{goodsID}
+		cartID=#{cartID} AND goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
 	</update>
 	<delete id="delete">
 		delete from CartDetail where cartID=#{cartID} AND
-		goodsID=#{goodsID}
+		goodsID=#{goodsID} AND goodsSpecify=#{goodsSpecify}
 	</delete>
 </mapper>

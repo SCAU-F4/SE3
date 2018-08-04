@@ -5,9 +5,7 @@ import java.util.List;
 
 public class IndentDetail implements Serializable {
 	private int indentID;
-	private int goodsID;
-	private String goodsSpecify;
-	private double goodsPrice;
+	private Goods good;
 	private int goodsCount;
 	private double totalPrice;
 
@@ -16,15 +14,12 @@ public class IndentDetail implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public IndentDetail(int indentID, int goodsID, double goodsPrice, int goodsCount, double totalPrice,
-			String goodsSpecify) {
+	public IndentDetail(int indentID, Goods good, int goodsCount, double totalPrice) {
 		super();
 		this.indentID = indentID;
-		this.goodsID = goodsID;
-		this.goodsPrice = goodsPrice;
+		this.good = good;
 		this.goodsCount = goodsCount;
 		this.totalPrice = totalPrice;
-		this.setGoodsSpecify(goodsSpecify);
 	}
 
 	public int getIndentID() {
@@ -35,20 +30,12 @@ public class IndentDetail implements Serializable {
 		this.indentID = indentID;
 	}
 
-	public int getGoodsID() {
-		return goodsID;
+	public Goods getGood() {
+		return good;
 	}
 
-	public void setGoodsID(int goodsID) {
-		this.goodsID = goodsID;
-	}
-
-	public double getGoodsPrice() {
-		return goodsPrice;
-	}
-
-	public void setGoodsPrice(double goodsPrice) {
-		this.goodsPrice = goodsPrice;
+	public void setGood(Goods good) {
+		this.good = good;
 	}
 
 	public int getGoodsCount() {
@@ -67,18 +54,10 @@ public class IndentDetail implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 
-	public String getGoodsSpecify() {
-		return goodsSpecify;
-	}
-
-	public void setGoodsSpecify(String goodsSpecify) {
-		this.goodsSpecify = goodsSpecify;
-	}
-
 	@Override
 	public String toString() {
-		return "IndentDetail [indentID=" + indentID + ", goodsID=" + goodsID + ", goodsSpecify=" + goodsSpecify
-				+ ", goodsPrice=" + goodsPrice + ", goodsCount=" + goodsCount + ", totalPrice=" + totalPrice + "]";
+		return "IndentDetail [indentID=" + indentID + ", good=" + good + ", goodsCount=" + goodsCount + ", totalPrice="
+				+ totalPrice + "]";
 	}
 
 }

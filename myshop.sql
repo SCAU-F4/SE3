@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-04 02:02:58
+Date: 2018-08-04 16:49:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `address` (
   `addressPhone` varchar(11) NOT NULL,
   `addressName` varchar(20) NOT NULL,
   PRIMARY KEY (`addressID`,`customerID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -58,7 +58,8 @@ CREATE TABLE `cartdetail` (
   `goodsID` int(5) NOT NULL,
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8,2) NOT NULL,
-  PRIMARY KEY (`cartID`,`goodsID`) USING BTREE
+  `goodsSpecify` varchar(50) NOT NULL,
+  PRIMARY KEY (`cartID`,`goodsID`,`goodsSpecify`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -134,7 +135,6 @@ CREATE TABLE `express` (
 -- ----------------------------
 -- Records of express
 -- ----------------------------
-INSERT INTO `express` VALUES ('1', '2018-07-27 19:04:21.000000', '0');
 
 -- ----------------------------
 -- Table structure for `goods`
@@ -387,7 +387,7 @@ CREATE TABLE `indent` (
   `indentState` int(2) NOT NULL,
   `expressCode` int(18) NOT NULL,
   PRIMARY KEY (`indentID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indent
@@ -401,7 +401,6 @@ DROP TABLE IF EXISTS `indentdetail`;
 CREATE TABLE `indentdetail` (
   `indentID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
-  `goodsPrice` double(8,2) NOT NULL,
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8,2) NOT NULL,
   `goodsSpecify` varchar(50) NOT NULL,
@@ -411,7 +410,9 @@ CREATE TABLE `indentdetail` (
 -- ----------------------------
 -- Records of indentdetail
 -- ----------------------------
-INSERT INTO `indentdetail` VALUES ('1', '60', '79.00', '1', '79.00', '白色');
+INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '白色');
+INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '红色');
+INSERT INTO `indentdetail` VALUES ('1', '75', '1', '66.00', '复仇者联盟');
 
 -- ----------------------------
 -- Table structure for `manager`

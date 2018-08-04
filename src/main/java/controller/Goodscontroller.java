@@ -47,7 +47,7 @@ public class Goodscontroller {
 	@RequestMapping(value= "add2Cart",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String add2Cart(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-	
+		
 		Map<String, String> map=new HashMap<>();
 //		map.put("result", result);
 		String res=callback+"("+JSON.toJSONString(map)+")";

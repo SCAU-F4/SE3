@@ -243,26 +243,28 @@
                         </div>
 
                         <div class="Order-list">
-                    <c:forEach items="${allindent}" var="item" varStatus="status">
+                    <c:forEach items="${allindent}" var="indent" varStatus="status">
      							<div class="panel panel-default showli" data-page="${status.index}">
                                 <div class="panel-heading">
-                                    <span class="Order-time">下单时间：${item.indentTime}</span>
-                                    <span class="Order-id" data-indentID="${item.indentID }">订单号：${item.indentID}</span>
+                                    <span class="Order-time">下单时间：${indent.indentTime}</span>
+                                    <span class="Order-id" data-indentID="${indent.indentID }">订单号：${indent.indentID}</span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
+                                <c:forEach items="${indent.indentDetaillist}" var="indentDetail" varStatus="status">
                                     <div class="goods">
-                                        <img src="${item.picturePath}" alt="" width="120">
-                                        <span>${item.goodsName}</span>
+                                        <img src="${indentDetail.good.pictureList[0].picturePath}" alt="" width="120">
+                                        <span>${indentDetail.good.goodsName}</span>
                                     </div>
                                     <div class="cell">
-                                        <span class="deal-state" jspstate="${item.indentStates}"></span>
+                                        <span class="deal-state" jspstate="${indent.indentState}"></span>
                                         <!-- <button class="layui-btn layui-btn-radius">立马评价</button> -->
                                     </div>
                                     <div class="price">
                                         <span>￥</span>
-                                        <span class="number">${item.goodsPrice}</span>
+                                        <span class="number">${indentDetail.good.goodsPrice}</span>
                                     </div>
+                                    </c:forEach>
                                 </div>
                             </div>
    					</c:forEach>
@@ -416,12 +418,12 @@
                             </thead>
                             <tbody>
 
-                                    <c:forEach items="${addresses}" var="item" varStatus="status">
+                                    <c:forEach items="${currentCustomer.addressList}" var="address" varStatus="status">
                                     <tr>
-                                        <td class="addressName" data-addrId="${item.addressID }">${item.addressName }</td>
-                                        <td class="addressDetail">${item.addressDetail }</td>
-                                        <td class="addressPhone">${item.addressPhone }</td>
-                                        <td class="addressPostcode">${item.addressPostcode }</td>
+                                        <td class="addressName" data-addrId="${address.addressID }">${address.addressName }</td>
+                                        <td class="addressDetail">${address.addressDetail }</td>
+                                        <td class="addressPhone">${address.addressPhone }</td>
+                                        <td class="addressPostcode">${address.addressPostcode }</td>
                                         <td><button class="layui-btn layui-btn-radius layui-btn-primary Address-modify" data-target="#myModal" data-toggle="modal">修改</button>
                                             <button class="layui-btn layui-btn-radius layui-btn-primary Address-delect">删除</button>
                                         </td>
