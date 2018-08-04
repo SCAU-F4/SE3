@@ -5,23 +5,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>付款</title>
+<title>${category.categoryType}</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/layui/css/layui.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/bootstrap.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/index.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/pay.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/layui/css/layui.css">
+	href="${pageContext.request.contextPath }/css/classify.css">
 </head>
 <body>
-
-	<!--头-->
 	<header id="SE3_header">
 		<!--上部分-->
 		<div class="top-bar">
@@ -39,7 +33,7 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
-							<div class="shopping-cart">
+					<div class="shopping-cart">
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
@@ -117,6 +111,7 @@
                                 </div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -128,7 +123,7 @@
 					<img src="${pageContext.request.contextPath }/img/icon/logo.png"
 						alt="logo">
 				</div>
-				  <div id="serech_input">
+				<div id="serech_input">
 					<input type="text" placeholder="雅迪电动车只要999"> 
 					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
@@ -140,10 +135,9 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="home active"><a
-									href="${pageContext.request.contextPath }">首页<span
+								<li class="home active"><a href="${pageContext.request.contextPath }">首页<span
 										class="sr-only">首页</span></a></li>
-								<li class="bag-li"><a
+								<li class="bag-li" data-chose="1"><a
 									href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
 									<div class="bag-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -174,7 +168,7 @@
 										</ul>
 									</div></li>
 
-								<li class="cloth-li"><a
+								<li class="cloth-li" data-chose="2"><a
 									href="${pageContext.request.contextPath }/products/list?categoryId=2&subcategoryId=-1">服装</a>
 									<div class="cloth-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -204,7 +198,7 @@
 													</div></a></li>
 										</ul>
 									</div></li>
-								<li class="food-li"><a
+								<li class="food-li" data-chose="3"><a
 									href="${pageContext.request.contextPath }/products/list?categoryId=3&subcategoryId=-1">饮食</a>
 									<div class="food-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -234,7 +228,7 @@
 													</div></a></li>
 										</ul>
 									</div></li>
-								<li class="sport-li"><a
+								<li class="sport-li" data-chose="4"><a
 									href="${pageContext.request.contextPath }/products/list?categoryId=4&subcategoryId=-1">文体</a>
 									<div class="sport-li container downmenu">
 										<ul class="nav navbar-nav">
@@ -272,22 +266,56 @@
 		</div>
 	</header>
 
-	<section class="SE3_pay">
-		<div>
-			<div>选择付款方式</div>
-			<div>
-				<span>实付 :</span> <span> <span>¥</span> <span>189.00</span>
-				</span>
-			</div>
-		</div>
-		<div>
-			<div>支付方式</div>
-			<img src="${pageContext.request.contextPath }/img/product/weixin.jpg">
-			<img
-				src="${pageContext.request.contextPath }/img/product/zhifubao.jpg">
-		</div>
-		<span>已完成付款</span>
-	</section>
+	<section class="SE3_classify">
+    <div class="BFC" id="BFCBOX">
+        <div class="box">
+            <div class="classify-top">
+           <!--   <div class="classify">
+                <ul class="classify-list">
+                    <li class="Title">分类：</li>
+                    <li>全部</li>
+                    <c:forEach items="${category.goodssecondarytypelist}"
+                               var="subcategory" varStatus="status">
+                        <li>${subcategory.goodsSecondaryType}</li>
+                    </c:forEach>
+                </ul>
+            </div> -->
+                <div class="sort">
+                    <ul class="sort-list">
+                        <li class="Title">排序：</li>
+                        <li>默认</li>
+                        <li>价格</li>
+                        <li>上架时间</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="classify-main">
+                <div class="classify-items">
+                    <!--forEach写在这里-->
+                    <div class="classify-item">
+                        <div class="image">
+                            <a
+                                    href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+                                <img src="${pageContext.request.contextPath }/lib/img/bag1.png" alt=""
+                                     width="220" height="220">
+                            </a>
+                        </div>
+                        <div class="introduce">
+                            <div>
+                                <a href="${pageContext.request.contextPath }/lib/products/detail/${good.goodsID}"> <span>${good.goodsName }</span>
+                                </a>
+                            </div>
+                            <div class="pri">
+                                <span class="text-danger">￥${good.goodsPrice }</span>
+                            </div>
+                            <p class="text-muted">${good.goodsBrief }</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 	<section class="SE3_tail">
 		<div class="serve">
@@ -305,15 +333,58 @@
 			</div>
 		</div>
 	</section>
-
-	<script
-		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+	<div class="back-top">
+		<i class="layui-icon layui-icon-top"></i>
+	</div>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 	<script
-		src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
+		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
-	<script src="${pageContext.request.contextPath }/js/pay.js"></script>
 
+	<script>
+		$(document)
+				.ready(
+						function() {
+							var mainType = $(".goodsMaintype:eq(0)").val();
+							console.log(mainType);
+							$(
+									"#SE3_header .navbar .container-fluid .collapse > ul > li.active")
+									.removeClass("active");
+							$(
+									"#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="
+											+ mainType + "]")
+									.addClass("active");
+							var customer = "${currentCustomer.customerName}";
+							if (customer == "") {
+								$("#myCenter").hide();
+								$("#signout").hide();
+								$("#signin").show();
+								$("#signup").show();
+								$(".shopping-cart").hide();
+							} else {
+								$("#myCenter").show();
+								$("#signout").show();
+								$("#signin").hide();
+								$("#signup").hide();
+								$(".shopping-cart").show();
+							}
+
+							  var $item1 = $(".classify-items:eq(0)").find(
+                    ".classify-item");
+
+                var item1Num = Math.ceil($item1.length / 4);
+
+                var str = item1Num * 340 + 500;
+                var str2 = item1Num * 340  + 400;
+                var str3= item1Num * 340  + 200;
+                console.log(str + "px");
+                $(".SE3_classify").height(str);
+                $(".box").height(str2);
+                $(".classify-items").height(str3);
+                $(".SE3_tail").show();
+
+						});
+	</script>
 </body>
 </html>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-04 02:02:58
+Date: 2018-08-04 15:52:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -58,7 +58,8 @@ CREATE TABLE `cartdetail` (
   `goodsID` int(5) NOT NULL,
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8,2) NOT NULL,
-  PRIMARY KEY (`cartID`,`goodsID`) USING BTREE
+  `goodsSpecify` varchar(50) NOT NULL,
+  PRIMARY KEY (`cartID`,`goodsID`,`goodsSpecify`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -401,7 +402,6 @@ DROP TABLE IF EXISTS `indentdetail`;
 CREATE TABLE `indentdetail` (
   `indentID` int(5) NOT NULL,
   `goodsID` int(5) NOT NULL,
-  `goodsPrice` double(8,2) NOT NULL,
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8,2) NOT NULL,
   `goodsSpecify` varchar(50) NOT NULL,
@@ -411,7 +411,8 @@ CREATE TABLE `indentdetail` (
 -- ----------------------------
 -- Records of indentdetail
 -- ----------------------------
-INSERT INTO `indentdetail` VALUES ('1', '60', '79.00', '1', '79.00', '白色');
+INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '白色');
+INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '红色');
 
 -- ----------------------------
 -- Table structure for `manager`

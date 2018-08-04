@@ -109,7 +109,8 @@
 										</div>
 									</div>
 									<div class="buy">
-										<button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										</a>
 									</div>
 								</div>
 
@@ -129,8 +130,8 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> <i
-						class="glyphicon glyphicon-search"></i>
+					<input type="text" placeholder="雅迪电动车只要999"> 
+					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -491,7 +492,7 @@
 							<div class="littleimg">
 								<a
 									href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
-									<img src="${good.pictureList[0].picturePath}" alt="">
+									<img src="${good.pictureList[0].picturePath}" alt="" width="220" >
 								</a>
 							</div>
 							<div class="littleimg-title">

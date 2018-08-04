@@ -33,14 +33,14 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
-						<div class="shopping-cart">
+					<div class="shopping-cart">
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
 									<div class="cart-item">
 										<div class="cart-img">
 											<img
-												src="${pageContext.request.contextPath }/img/product/product10_1.png"
+												src="${pageContext.request.contextPath }/img/product/product10.png"
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
@@ -61,7 +61,7 @@
 									<div class="cart-item">
 										<div class="cart-img">
 											<img
-												src="${pageContext.request.contextPath }/img/product/product10_1.png"
+												src="${pageContext.request.contextPath }/img/product/product10.png"
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
@@ -81,7 +81,7 @@
 									<div class="cart-item">
 										<div class="cart-img">
 											<img
-												src="${pageContext.request.contextPath }/img/product/product10_1.png"
+												src="${pageContext.request.contextPath }/img/product/product10.png"
 												alt="" height="50">
 										</div>
 										<div class="cart-name">
@@ -98,20 +98,17 @@
 											<i class="layui-icon layui-icon-close"></i>
 										</div>
 									</div>
-
-								</div>
-								<div class="cart-bottom-area">
-									<div class="allPrice">
-										<div class="pricedetail">商品总价 ：</div>
-										<div class="pricedetailnumber">
-											<span class="priceNum text-danger">￥1000</span>
-										</div>
+                                </div>
+                                <div class="cart-bottom-area">
+                                    <div class="allPrice">
+                                       <div class="pricedetail">商品总价 ：</div>
+                                        <div class="pricedetailnumber"><span class="priceNum text-danger">￥1000</span></div>
+                                    </div>
+                                    <div class="buy">
+										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										</a>
 									</div>
-									<div class="buy">
-										<button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
-									</div>
-								</div>
-
+                                </div>
 							</div>
 						</div>
 
@@ -127,8 +124,8 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" value="雅迪电动车只要999"> <i
-						class="glyphicon glyphicon-search"></i>
+					<input type="text" placeholder="雅迪电动车只要999"> 
+					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->

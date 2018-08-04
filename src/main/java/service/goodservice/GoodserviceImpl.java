@@ -31,4 +31,8 @@ public class GoodserviceImpl implements Goodservice{
 	public List<Goods> getgood(int goodsID) {
 		return goodsmapper.findBygoodsID(goodsID);
 	}
+	@Override
+	public List<Goods> searchItems(String goodsName) {
+		return goodsmapper.findBygoodsName(goodsName);
+	}
 }
