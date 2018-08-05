@@ -15,7 +15,7 @@
 
 	<resultMap type="evaluate" id="evaluateMap1" extends="evaluateMap">
 		<association property="customer" column="{customerID=customerID}"
-			fetchType="lazy" select="Mapper.CustomerMapper.findBycustomerID" />
+			fetchType="lazy" select="Mapper.CustomerMapper.lazyfindBycustomerID" />
 		<collection property="evaluatePictureList" fetchType="lazy"
 			select="Mapper.EvaluatePictureMapper.findEvaluatePictureByevaluateID"
 			column="{evaluateID=evaluateID}">

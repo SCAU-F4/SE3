@@ -11,6 +11,8 @@ public class GoodsMainType implements Serializable {
 	private List<Goods> goodsList;
 	private List<GoodsSecondaryType> goodsSecondaryTypeList;
 
+	private static final long serialVersionUID = 1L;
+
 	public GoodsMainType() {
 
 	}

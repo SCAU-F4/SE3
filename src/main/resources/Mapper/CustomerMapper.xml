@@ -11,19 +11,21 @@
 		<result column="customerPhone" property="customerPhone" />
 		<result column="customerEmail" property="customerEmail" />
 		<result column="customerRegDate" property="customerRegDate" />
+		<collection property="addressList" fetchType="lazy"
+			select="Mapper.AddressMapper.findAddressByCustomoerID" column="{customerID=customerID}">
+		</collection>
 	</resultMap>
 
 	<resultMap type="customer" id="customerMap1" extends="customerMap">
 		<association property="cart" column="{customerID=customerID}"
 			fetchType="lazy" select="Mapper.CartMapper.findBycustomerID" />
-		<collection property="addressList" fetchType="lazy"
-			select="Mapper.AddressMapper.findAddressByCustomoerID" column="{customerID=customerID}">
-		</collection>
-
-
 	</resultMap>
 
 	<select id="findBycustomerID" resultMap="customerMap1">
+		select * from Customer where customerID = #{customerID}
+	</select>
+	
+	<select id="lazyfindBycustomerID" resultMap="customerMap">
 		select * from Customer where customerID = #{customerID}
 	</select>
 

@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 
 import bean.Customer;
-import bean.Evaluate;
 import bean.Goods;
-import bean.GoodsSecondaryType;
 import bean.middle.categorybean;
 import service.goodservice.Goodservice;
 

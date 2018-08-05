@@ -1,10 +1,7 @@
 package bean;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Goods implements Serializable {
@@ -21,6 +18,9 @@ public class Goods implements Serializable {
 	private int goodsSecondaryTypeID;
 	private List<Picture> pictureList;
 	private List<Evaluate> evaluateList;
+	
+	private static final long serialVersionUID = 1L;
+
 	public Goods() {
 		super();
 		// TODO Auto-generated constructor stub

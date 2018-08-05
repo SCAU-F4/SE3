@@ -1,13 +1,14 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class IndentDetail implements Serializable {
 	private int indentID;
 	private Goods good;
 	private int goodsCount;
 	private double totalPrice;
+
+	private static final long serialVersionUID = 1L;
 
 	public IndentDetail() {
 		super();

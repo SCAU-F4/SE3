@@ -15,4 +15,6 @@ public interface Userservice {
     public String addressService(Address address);
     public String deleteAddress(int customerID,int addressID);
     public String deleteIndent(int indentID);
+    public String auction(Customer customer);
+//    public String comment();
 }

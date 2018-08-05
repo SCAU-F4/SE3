@@ -1,7 +1,6 @@
 package bean;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -16,12 +15,14 @@ public class Indent implements Serializable {
 	private List<IndentDetail> indentDetaillist;// 订单商品表
 	private Express express;// 快递
 
+	private static final long serialVersionUID = 1L;
+
 	public Indent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Indent(int indentID, int customerID, double totalPrice, Timestamp orderTime, int addressID, int expressCode,
+	public Indent(int indentID, int customerID, double totalPrice, Timestamp indentTime, int addressID, int expressCode,
 			int indentState, List<IndentDetail> indentDetaillist, Express express) {
 		super();
 		this.indentID = indentID;

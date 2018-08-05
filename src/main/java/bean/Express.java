@@ -8,6 +8,8 @@ public class Express implements Serializable{
 	private Timestamp expressDate;
 	private String expressState;
 
+	private static final long serialVersionUID = 1L;
+
 	public Express() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -7,6 +7,8 @@ public class Manager implements Serializable{
 	private String managerName;
 	private String managerPwd;
 
+	private static final long serialVersionUID = 1L;
+
 	public Manager() {
 		super();
 		// TODO Auto-generated constructor stub

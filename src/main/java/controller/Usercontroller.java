@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -102,11 +103,12 @@ public class Usercontroller {
 		String newPassword = request.getParameter("newPassword");
 		String rePassword = request.getParameter("rePassword");
 		String result = userservice.changePassword(Integer.parseInt(customerID), oldPassword, newPassword, rePassword);
+		Map<String, String> map = new HashMap<>();
 		if (result == "") {
 			Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
 			customer.setCustomerPwd(newPassword);
+			map.put("password", newPassword);
 		}
-		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
@@ -129,8 +131,7 @@ public class Usercontroller {
 		}
 		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
 		int customerID = customer.getCustomerID();
-		Address address = new Address(customerID, addressID, addressDetail, addressPostcode, addressPhone, addressName,
-				null);
+		Address address = new Address(customerID, addressID, addressDetail, addressPostcode, addressPhone, addressName);
 		String result = userservice.addressService(address);
 		if (result == "") {
 			if (flag == true)
@@ -184,9 +185,25 @@ public class Usercontroller {
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
+	
+//	@RequestMapping(value ="comment")
+//	public String commont(@RequestParam("goodsID") int goodsID){
+//		return "forward:/products/detail/"+goodsID;
+//	}
 
 	@RequestMapping(value = "auction")
-	public String aution() {
-		return "auction";
+	public String getaution(HttpSession httpSession,Model model) {
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		String result=userservice.auction(customer);
+		if(result=="") return "auction";
+		else {
+			model.addAttribute("error", result);
+			return "index";
+		}
+	}
+	
+	@RequestMapping(value="pay")
+	public String pay(){
+		return "pay";
 	}
 }

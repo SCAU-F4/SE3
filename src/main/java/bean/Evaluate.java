@@ -1,7 +1,6 @@
 package bean;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -14,6 +13,8 @@ public class Evaluate implements Serializable {
 	private String goodsSpecify;
 	private Customer customer;
 	private List<EvaluatePicture> evaluatePictureList;
+
+	private static final long serialVersionUID = 1L;
 
 	public Evaluate() {
 		super();
