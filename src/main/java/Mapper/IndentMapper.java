@@ -33,6 +33,9 @@ public interface IndentMapper {
      
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int update(Indent indent);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int updateaddressIDAndindentStateByindentID(@Param("indentID")int indentID,@Param("addressID")int addressID,@Param("indentState")int indentState);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int delete(Indent indent);

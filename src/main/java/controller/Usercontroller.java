@@ -203,7 +203,7 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value="pay")
-	public String pay(){
+	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID){
 		return "pay";
 	}
 }

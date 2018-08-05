@@ -262,4 +262,10 @@ public class UserserviceImpl implements Userservice{
 		return result;
 	}
 
+	@Override
+	public boolean pay(int addressID, int indentID, Customer customer) {
+		indentmapper.updateaddressIDAndindentStateByindentID(indentID, addressID, 1);
+		return true;
+	}
+
 }
