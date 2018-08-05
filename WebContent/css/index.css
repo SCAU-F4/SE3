@@ -427,6 +427,14 @@ body .tip{
     top: 0;
     left: 0;
 }
+.cart-top-area .cart-number span.glyphicon{
+	margin-left:5px;
+	margin-right:5px;
+	font-weight:lighter;
+	font-size:10px;
+	color:#999;
+	 cursor: pointer;
+}
 #SE3_header .top-bar .row .col-md-5 .shopping-cart .cart-show-area .cart-top-area .cart-item{
     width:220px;
     height: 50px;

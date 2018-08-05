@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>${category.categoryType}</title>
+<title>搜索结果</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 <link rel="stylesheet"
@@ -40,6 +40,7 @@
 									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
 										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-item">
+										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-img">
 											<img
 												src="${cartList.good.pictureList[0].picturePath}"
@@ -49,10 +50,13 @@
 											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
 										</div>
 										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
-										<div class="cart-number">
+											<div class="cart-number">
+										   <span class="glyphicon glyphicon-minus"></span>  
 											x <span class="indentNumber">${cartList.goodsCount}</span>
+											<span class="glyphicon glyphicon-plus"></span>
 										</div>
 										<div class="cart-price text-danger">
+																					<input type="hidden" value="${cartList.good.goodsPrice}">
 											￥ <span class="indentMoney">${cartList.totalPrice}</span>
 										</div>
 										<div class="close">
