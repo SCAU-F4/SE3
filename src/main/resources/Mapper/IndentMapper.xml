@@ -74,6 +74,13 @@
 		totalPrice=#{totalPrice},indentTime=#{indentTime},addressID=#{addressID},expressCode=#{expressCode},indentState=#{indentState}
 		where indentID=#{indentID}
 	</update>
+	
+	<update id="updateaddressIDAndindentStateByindentID">
+		update Indent set
+		addressID=#{addressID},indentState=#{indentState}
+		where indentID=#{indentID}
+	</update>
+	
 	<delete id="delete">
 		delete from Indent where
 		indentID=#{indentID}
