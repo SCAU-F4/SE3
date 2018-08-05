@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-04 16:49:56
+Date: 2018-08-05 00:09:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `address` (
   `addressPhone` varchar(11) NOT NULL,
   `addressName` varchar(20) NOT NULL,
   PRIMARY KEY (`addressID`,`customerID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -48,6 +48,7 @@ CREATE TABLE `cart` (
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
+INSERT INTO `cart` VALUES ('1', '1', '7529.00');
 
 -- ----------------------------
 -- Table structure for `cartdetail`
@@ -65,6 +66,8 @@ CREATE TABLE `cartdetail` (
 -- ----------------------------
 -- Records of cartdetail
 -- ----------------------------
+INSERT INTO `cartdetail` VALUES ('1', '1', '1', '539.00', '山海经');
+INSERT INTO `cartdetail` VALUES ('1', '2', '10', '6990.00', '太空银');
 
 -- ----------------------------
 -- Table structure for `customer`
@@ -78,12 +81,12 @@ CREATE TABLE `customer` (
   `customerEmail` varchar(50) NOT NULL,
   `customerRegDate` datetime(6) NOT NULL,
   PRIMARY KEY (`customerID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('1', 'wenyujun', '123123', '13123123123', '11@qq.com', '2018-07-27 18:29:34.949000');
+INSERT INTO `customer` VALUES ('1', 'wenyujun', '123123', '13612312311', '11@qq.com', '2018-08-04 17:16:24.414000');
 INSERT INTO `customer` VALUES ('2', '123444', '123123', '13123123123', '11@qq.com', '2018-07-30 21:22:07.027000');
 
 -- ----------------------------
@@ -392,7 +395,7 @@ CREATE TABLE `indent` (
 -- ----------------------------
 -- Records of indent
 -- ----------------------------
-INSERT INTO `indent` VALUES ('1', '1', '79.00', '2018-07-27 19:00:28.000000', '1', '0', '1');
+INSERT INTO `indent` VALUES ('1', '1', '224.00', '2018-07-27 19:00:28.000000', '1', '0', '1');
 
 -- ----------------------------
 -- Table structure for `indentdetail`

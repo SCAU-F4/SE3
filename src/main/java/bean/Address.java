@@ -1,7 +1,6 @@
 	package bean;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Address implements Serializable {
 	private int customerID;
@@ -10,7 +9,8 @@ public class Address implements Serializable {
 	private String addressPostcode;
 	private String addressPhone;
 	private String addressName;//收件人
-	private List<Indent> IndentList;
+
+	private static final long serialVersionUID = 1L;
 
 	public Address() {
 		super();
@@ -18,7 +18,7 @@ public class Address implements Serializable {
 	}
 
 	public Address(int customerID, int addressID, String addressDetail, String addressPostcode, String addressPhone,
-			String addressName, List<Indent> indentList) {
+			String addressName) {
 		super();
 		this.customerID = customerID;
 		this.addressID = addressID;
@@ -26,7 +26,6 @@ public class Address implements Serializable {
 		this.addressPostcode = addressPostcode;
 		this.addressPhone = addressPhone;
 		this.addressName = addressName;
-		IndentList = indentList;
 	}
 
 	public int getCustomerID() {
@@ -77,19 +76,11 @@ public class Address implements Serializable {
 		this.addressName = addressName;
 	}
 
-	public List<Indent> getIndentList() {
-		return IndentList;
-	}
-
-	public void setIndentList(List<Indent> indentList) {
-		IndentList = indentList;
-	}
-
 	@Override
 	public String toString() {
 		return "Address [customerID=" + customerID + ", addressID=" + addressID + ", addressDetail=" + addressDetail
 				+ ", addressPostcode=" + addressPostcode + ", addressPhone=" + addressPhone + ", addressName="
-				+ addressName + ", IndentList=" + IndentList + "]";
+				+ addressName + "]";
 	}
 
 }

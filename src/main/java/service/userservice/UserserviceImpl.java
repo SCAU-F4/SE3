@@ -1,8 +1,6 @@
 package service.userservice;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,10 +18,7 @@ import Mapper.IndentMapper;
 import bean.Address;
 import bean.Cart;
 import bean.Customer;
-import bean.Goods;
 import bean.Indent;
-import bean.IndentDetail;
-import bean.Picture;
 
 @Service
 public class UserserviceImpl implements Userservice{
@@ -45,7 +40,7 @@ public class UserserviceImpl implements Userservice{
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
 	    customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
-		return customer;
+	    return customer;
 	}
 
 	@Override

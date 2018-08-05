@@ -1,7 +1,5 @@
 package Mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;

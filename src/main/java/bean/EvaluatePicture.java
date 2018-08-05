@@ -6,6 +6,8 @@ public class EvaluatePicture implements Serializable {
 	private int evaluateID;
 	private int pictureID;
 
+	private static final long serialVersionUID = 1L;
+
 	public EvaluatePicture() {
 		super();
 		// TODO Auto-generated constructor stub

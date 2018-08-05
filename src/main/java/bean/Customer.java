@@ -1,7 +1,6 @@
 package bean;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -15,6 +14,8 @@ public class Customer implements Serializable {
 	private List<Address> addressList;
 	private Cart cart;// 购物车
 
+	private static final long serialVersionUID = 1L;
+	
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub

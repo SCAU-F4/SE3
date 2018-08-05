@@ -8,6 +8,8 @@ public class CartDetail implements Serializable {
 	private int goodsCount;
 	private double totalPrice;
 
+	private static final long serialVersionUID = 1L;
+
 	public CartDetail() {
 		super();
 		// TODO Auto-generated constructor stub

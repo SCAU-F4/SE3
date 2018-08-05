@@ -2,7 +2,6 @@ package bean.middle;
 
 import java.util.List;
 
-import bean.Goods;
 import bean.GoodsSecondaryType;
 
 public class categorybean {
