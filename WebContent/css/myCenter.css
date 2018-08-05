@@ -184,18 +184,22 @@ body{
 	text-decoration:none;
 }
 body .tip{
-	 position: absolute;
+	 position: fixed;
 	 top:50%;
 	 left:50%;
-	 width:150px;
-	 height:60px;
+	 width:200px;
+	 height:130px;
+	 line-height:130px;
 	 background-color: #333;
      background-color:rgba(0,0,0,0.3);
      border:1px solid transparent;
      border-radius: 5px;
      color:#fff;
      text-align: center;
-     display:none;
+    display:none; 
+}
+body .tip>h4{
+	 line-height:130px;
 }
 .inputgroup{
 	 position: relative;

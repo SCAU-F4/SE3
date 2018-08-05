@@ -261,7 +261,7 @@
 
                         <div class="Message-list">
                         <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#usermsg" aria-controls="home" role="tab" data-toggle="tab">账号信息</a></li>
+                                <li role="presentation" class="active whichChose"><a href="#usermsg" aria-controls="home" role="tab" data-toggle="tab">账号信息</a></li>
                                 <li role="presentation"><a href="#resetpwd" aria-controls="profile" role="tab" data-toggle="tab">重置密码</a></li>
                             </ul>
 
