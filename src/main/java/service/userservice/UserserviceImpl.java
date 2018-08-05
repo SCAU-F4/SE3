@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Mapper.AddressMapper;
+import Mapper.CartDetailMapper;
 import Mapper.CartMapper;
 import Mapper.CustomerMapper;
 import Mapper.ExpressMapper;
@@ -17,8 +18,10 @@ import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
 import bean.Address;
 import bean.Cart;
+import bean.CartDetail;
 import bean.Customer;
 import bean.Indent;
+import bean.IndentDetail;
 
 @Service
 public class UserserviceImpl implements Userservice{
@@ -36,6 +39,8 @@ public class UserserviceImpl implements Userservice{
 	ExpressMapper expressmapper;
 	@Autowired
 	CartMapper cartmapper;
+	@Autowired
+	CartDetailMapper cartdetailmapper;
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
@@ -235,6 +240,32 @@ public class UserserviceImpl implements Userservice{
 			expressmapper.deleteByexpressCode(expressCode);
 		}
 		return result;
+	}
+
+	@Override
+	public String auction(Customer customer) {//事务
+		String result="";
+		Cart cart =customer.getCart();
+		List<CartDetail> cartdetailList=cart.getCartDetailList();
+		if(!cartdetailList.isEmpty()){
+			Indent indent=new Indent(0, customer.getCustomerID(), cart.getTotalPrice(), new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
+			indentmapper.insert(indent);
+			for(CartDetail cartDetail:cartdetailList){
+				cartdetailmapper.delete(cartDetail);
+				IndentDetail indentDetail=new IndentDetail(indent.getIndentID(), cartDetail.getGood(), cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
+				indentdetailmapper.insert(indentDetail);
+			}
+			cartdetailList.clear();
+			cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
+			cart.setTotalPrice(0);
+		}
+		return result;
+	}
+
+	@Override
+	public boolean pay(int addressID, int indentID, Customer customer) {
+		indentmapper.updateaddressIDAndindentStateByindentID(indentID, addressID, 1);
+		return true;
 	}
 
 }

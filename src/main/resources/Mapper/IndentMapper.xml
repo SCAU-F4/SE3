@@ -58,9 +58,10 @@
 		count(indentID) from Indent where addressID=#{addressID}
 	</select>
 
-	<insert id="insert">
-		insert into Indent
-		values(#{indentID}, #{customerID},
+	<insert id="insert" keyProperty="indentID" useGeneratedKeys="true">
+		insert into
+		Indent(customerID,totalPrice,indentTime,addressID,expressCode,indentState)
+		values(#{customerID},
 		#{totalPrice},
 		#{indentTime},
 		#{addressID},
@@ -73,6 +74,13 @@
 		totalPrice=#{totalPrice},indentTime=#{indentTime},addressID=#{addressID},expressCode=#{expressCode},indentState=#{indentState}
 		where indentID=#{indentID}
 	</update>
+	
+	<update id="updateaddressIDAndindentStateByindentID">
+		update Indent set
+		addressID=#{addressID},indentState=#{indentState}
+		where indentID=#{indentID}
+	</update>
+	
 	<delete id="delete">
 		delete from Indent where
 		indentID=#{indentID}
