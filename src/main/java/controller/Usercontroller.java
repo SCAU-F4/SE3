@@ -192,7 +192,7 @@ public class Usercontroller {
 //	}
 
 	@RequestMapping(value = "auction")
-	public String getaution(HttpSession httpSession,Model model) {
+	public String auction(HttpSession httpSession,Model model) {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		String result=userservice.auction(customer);
 		if(result=="") return "auction";
@@ -203,7 +203,20 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value="pay")
-	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID){
+	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession){
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		userservice.pay(addressID, indentID, customer);
 		return "pay";
+	}
+	
+	@RequestMapping(value = "purchase")
+	public String purchase(@RequestParam("goodsID") int goodsID,@RequestParam("goodsSpecify") String goodsSpecify ,@RequestParam("goodsCount") int goodsCount,HttpSession httpSession,Model model) {
+		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
+		String result=userservice.purchase(goodsID,goodsSpecify,goodsCount,customer);
+		if(result=="") return "auction";
+		else {
+			model.addAttribute("error", result);
+			return "index";
+		}
 	}
 }
