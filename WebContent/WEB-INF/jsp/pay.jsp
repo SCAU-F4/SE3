@@ -46,6 +46,7 @@
 									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
 										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-item">
+										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-img">
 											<img
 												src="${cartList.good.pictureList[0].picturePath}"
@@ -55,10 +56,13 @@
 											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
 										</div>
 										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
-										<div class="cart-number">
+											<div class="cart-number">
+										   <span class="glyphicon glyphicon-minus"></span>  
 											x <span class="indentNumber">${cartList.goodsCount}</span>
+											<span class="glyphicon glyphicon-plus"></span>
 										</div>
 										<div class="cart-price text-danger">
+																					<input type="hidden" value="${cartList.good.goodsPrice}">
 											￥ <span class="indentMoney">${cartList.totalPrice}</span>
 										</div>
 										<div class="close">

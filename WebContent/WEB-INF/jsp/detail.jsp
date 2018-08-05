@@ -43,7 +43,6 @@
 							<div class="cart-show-area">
 								<div class="cart-top-area">
 									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-item">
 										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
 										<div class="cart-img">
@@ -56,9 +55,12 @@
 										</div>
 										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 										<div class="cart-number">
+										   <span class="glyphicon glyphicon-minus"></span>  
 											x <span class="indentNumber">${cartList.goodsCount}</span>
+											<span class="glyphicon glyphicon-plus"></span>
 										</div>
 										<div class="cart-price text-danger">
+											<input type="hidden" value="${cartList.good.goodsPrice}">
 											￥ <span class="indentMoney">${cartList.totalPrice}</span>
 										</div>
 										<div class="close">
@@ -585,6 +587,7 @@
 	<script src="${pageContext.request.contextPath }/js/detail.js"></script>
 	<script>
 		$(document).ready(function() {
+	
 			var customer = "${currentCustomer.customerName}";
 			if (customer == "") {
 				$("#myCenter").hide();
@@ -601,6 +604,11 @@
 			}
 			
 			$(".detail_add").click(function(){
+			var isHas=false;
+			var newNum;
+			var index;
+			var str;
+			var newPrice;
 				if(customer == ""){
 					$(".tip h4").text("请先登陆");
 					$(".tip").fadeIn();
@@ -609,8 +617,8 @@
 					}); 
 				}
 				else{
-				console.log($(".detail_specify .specify .active").length);
 					if(check($(".detail_specify .specify .active").length)){
+					var flag=0;
 							var goodID="${goods[0].goodsID}";
 							var goodPic="${goods[0].pictureList[0].picturePath}";
 							var goodName="${goods[0].goodsName }";
@@ -618,8 +626,58 @@
 							var goodBrief="${goods[0].goodsBrief}";
 							var goodNum=$(".detail_num .num input").val();
 							var goodSpecify=$(".detail_specify .specify .active").text();
-							console.log(goodID+"//"+goodPic+"//"+goodName+"//"+goodPrice+"//"+goodNum+"//"+goodSpecify);
-							  var str="<div class=\"cart-item\">" +
+							/* console.log(goodID+"//"+goodPic+"//"+goodName+"//"+goodPrice+"//"+goodNum+"//"+goodSpecify); */
+							var i=0;
+							if($(".cart-item>input.cartGoodsID[value="+goodID+"]").length!=0){
+									var item=$(".cart-item>input.cartGoodsID[value="+goodID+"]").siblings(".cart-introduce").text();
+								/* console.log($(".cart-item>input.cartGoodsID[value="+goodID+"]:eq(1)").siblings(".cart-introduce").text()); */
+								for(i;i<$(".cart-item>input.cartGoodsID[value="+goodID+"]").length;i++)
+								{
+										if(goodSpecify==$(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+i+")").siblings(".cart-introduce").text()){
+													/* $itemNum=$(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+i+")").siblings(".cart-number").find("span.indentNumber"); */
+													/* console.log($(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+i+")").siblings(".cart-number").find("span.indentNumber")); */
+													index=i;
+													flag=1;
+													break;
+										}
+								}
+								if(flag==0){
+										str="<div class=\"cart-item\">" +
+        								"<input type=\"hidden\" value=\""+goodID+"\" class=\"cartGoodsID\"/>" +
+        							    "<div class=\"cart-img\">" +
+       								    "<img" +
+        								"\tsrc=\""+goodPic+"\"" +
+       									 "\talt=\"\" height=\"50\">" +
+        "</div>" +
+        "<div class=\"cart-name\">" +
+        "<a href=\"${pageContext.request.contextPath }/products/detail/"+goodID+"\" title=\""+goodName+"\">"+goodName+"</a>" +
+        "</div>" +
+        "<div class=\"cart-introduce text-muted\">"+goodSpecify+"</div>" +
+        "<div class=\"cart-number\">" +
+        "x <span class=\"indentNumber\">"+goodNum+"</span>" +
+        "</div>" +
+        "<div class=\"cart-price text-danger\">" +
+        "￥ <span class=\"indentMoney\">"+goodPrice+"</span>" +
+        "</div>" +
+        "<div class=\"close\">" +
+        "<i class=\"layui-icon layui-icon-close\"></i>" +
+        "</div>";
+								}
+								else{
+									isHas=true;
+									var oldnum=$(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+index+")").siblings(".cart-number").find("span.indentNumber").text();
+									var oldprice=$(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+index+")").siblings(".cart-price").find("span.indentMoney").text();
+									newNum=parseInt(oldnum)+parseInt(goodNum); 
+									newPrice=parseInt(oldprice)+parseInt(goodPrice);
+									console.log("ok");
+									
+								}
+								
+							}
+							else{
+										
+									
+         str="<div class=\"cart-item\">" +
         "<input type=\"hidden\" value=\""+goodID+"\" class=\"cartGoodsID\"/>" +
         "<div class=\"cart-img\">" +
         "<img" +
@@ -638,9 +696,10 @@
         "</div>" +
         "<div class=\"close\">" +
         "<i class=\"layui-icon layui-icon-close\"></i>" +
-        "</div>";
+        "</div>"; 
        						
-       						$.ajax({    
+     }  						
+     								$.ajax({    
 								 type : "post",
 			 					 async:false, 
 								 url:"${pageContext.request.contextPath }/products/add2Cart",
@@ -655,7 +714,18 @@
 									success:function(res){
 										if(res.result=="")
 										{
-										 $(".cart-top-area").append(str);
+										$(".tip h4").text("已添加购物车");
+											$(".tip").fadeIn();
+										$(".tip").delay(1500).fadeOut();
+										if(isHas){
+										$(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+index+")").siblings(".cart-number").find("span.indentNumber").text(newNum);
+										$(".cart-item>input.cartGoodsID[value="+goodID+"]:eq("+index+")").siblings(".cart-price").find("span.indentMoney").text(newPrice);
+										}
+										else{
+											 $(".cart-top-area").append(str);
+										}
+										
+										updatetotalPrice();
 										}
 										else{
 											alert(res.result);
@@ -680,6 +750,18 @@
 		  			  return true;
 		  }
 		}
+		
+	function updatetotalPrice(){
+		var total=0;
+		for(var i=0;i<$(".cart-item span.indentMoney").length;i++){
+			var price=$(".cart-item span.indentMoney:eq("+i+")").text();
+			console.log(price);
+			total=parseFloat(parseFloat(price)+parseFloat(total));
+		}
+		$(".cart-bottom-area span.priceNum").text("￥"+total);
+	}
+	
+	
 	</script>
 </body>
 </html>

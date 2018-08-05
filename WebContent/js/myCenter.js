@@ -3,6 +3,7 @@ $(document).ready(function () {
 	 var addrId;
 	 var $delete;
 	 var $deleteIndent;
+	 var currentPwd;
     $(".Order-top>ul>li").click(function () {
         $(".Order-list .showli").removeClass("showli").hide();
         $(".isNoPanel").hide();
@@ -75,6 +76,10 @@ $(document).ready(function () {
 //删除地址
       
     $(".Address-add").click(function () {
+    	  $("#addressDetail").attr("flag","false");
+          $("#addressPostcode").attr("flag","false");
+          $("#addressPhone").attr("flag","false");
+          $("#addressName").attr("flag","false"); 
         $(".Address-addsubmit").show();
         $(".Address-mod").hide();
     });
@@ -191,6 +196,9 @@ $(document).ready(function () {
     				        $("#addressDetail").val("");
     				        $("#addressPhone").val("");
     				        $("#addressPostcode").val("");
+    				        $(".tip").fadeIn();
+    						$(".tip").delay(1500).fadeOut();
+    						$("#OldPassword").val(password);
     				}
     				else{
     					alert(res.result);
@@ -200,6 +208,10 @@ $(document).ready(function () {
     				alert("false");
     			}
         	});
+        }
+        else{
+        	 $(".modal-body .group .inputgroup i.glyphicon-remove,.modal-body .group .inputgroup p").show();
+        	 return false;
         }
 //        $modify.parents("td").siblings(".addressName").text($("#addressName").val());
 //        $modify.parents("td").siblings(".addressDetail").text($("#addressDetail").val());
@@ -467,13 +479,15 @@ $(document).ready(function () {
         	});   	    
         }
         else{
-            var text="<laber class='text-danger'>请输入正确信息</laber>"
-            $(".modal-body").append(text);
             $(".modal-body .group .inputgroup i.glyphicon-remove,.modal-body .group .inputgroup p").show();
             return false;
         }
     });
     
+    $(".whichChose").click(function(){
+  $("#resetpwd span.inputgroup").find("i,p").hide();
+    	console.log("hidden");
+    });
     
     $("#ResetPwd").click(function(){
     	if($("#oldcustomerPwd").attr("flag")=="true"&&$("#customerPwd").attr("flag")=="true"&&$("#recustomerPwd").attr("flag")=="true"){
@@ -510,6 +524,7 @@ $(document).ready(function () {
 					else{
 						$(".tip").fadeIn();
 						$(".tip").delay(1500).fadeOut();
+						$("#OldPassword").val(password);
 					}
     			},
     			error:function(es){

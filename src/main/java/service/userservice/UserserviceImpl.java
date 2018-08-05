@@ -20,6 +20,7 @@ import bean.Address;
 import bean.Cart;
 import bean.CartDetail;
 import bean.Customer;
+import bean.Goods;
 import bean.Indent;
 import bean.IndentDetail;
 
@@ -266,6 +267,17 @@ public class UserserviceImpl implements Userservice{
 	public boolean pay(int addressID, int indentID, Customer customer) {
 		indentmapper.updateaddressIDAndindentStateByindentID(indentID, addressID, 1);
 		return true;
+	}
+
+	@Override
+	public String purchase(int goodsID,String goodsSpecify,int goodsCount,Customer customer) {
+		String result="";
+		Goods good=goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
+		Indent indent=new Indent(0, customer.getCustomerID(), good.getGoodsPrice()*goodsCount, new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
+		indentmapper.insert(indent);
+		IndentDetail indentDetail=new IndentDetail(indent.getIndentID(), good, goodsCount, indent.getTotalPrice());
+		indentdetailmapper.insert(indentDetail);
+		return result;
 	}
 
 }

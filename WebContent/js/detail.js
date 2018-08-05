@@ -12,12 +12,12 @@ $(document).ready(function () {
         $(this).addClass("active").siblings("li").removeClass("active");
     });
 
-    $(".glyphicon-plus").click(function () {
+    $(".detail_num .glyphicon-plus").click(function () {
         var values= $(".detail_num .num input").val();
         $(".detail_num .num input").val(1+parseInt(values));
     });
 
-    $(".glyphicon-minus").click(function () {
+    $(".detail_num .glyphicon-minus").click(function () {
         var values= $(".detail_num .num input").val();
         if(values>1){
             $(".detail_num .num input").val(parseInt(values)-1);
