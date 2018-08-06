@@ -1,12 +1,8 @@
 
 .SE3_product {
-    width: 1400px;
+    width: 1200px;
     overflow: hidden;
-}
-
-.SE3_product_body {
-    width: 1400px;
-    overflow: hidden;
+    margin: 0 auto;
 }
 
 .SE3_product .picture {
@@ -20,8 +16,6 @@
     width: 428px;
     height: 428px;
     border: 1px solid #e8e8e8;
-    margin-right: 0px;
-    margin-left: 200px;
 }
 
 .view img {
@@ -248,9 +242,9 @@
 }
 
 .SE3_product_body {
-    width: 1400px;
+    width: 1200px;
     overflow: hidden;
-    padding-left: 200px;
+    margin: 0 auto;
 }
 
 .SE3_product_body .left {

@@ -290,7 +290,7 @@
 					<div class="specify">
 						<ul>
 							<c:forEach items="${goods}" var="good" varStatus="status">
-								<li class="option">${good.goodsSpecify }</li>
+								<li class="option">${good.goodsSpecify}</li>
 							</c:forEach>
 						</ul>
 					</div>
@@ -299,8 +299,9 @@
 				<div class="detail_num">
 					<div class="name">数量：</div>
 					<div class="num">
-						<span class="glyphicon glyphicon-minus"></span> <input type="text"
-							value="1"> <span class="glyphicon glyphicon-plus"></span>
+						<span class="glyphicon glyphicon-minus"></span> 
+						<input type="text" value="1">
+						<span class="glyphicon glyphicon-plus"></span>
 					</div>
 				</div>
 
@@ -484,16 +485,16 @@
 					<div class="text">
 						1.自收到商品之日起30日内，顾客可申请无忧退货；如果是退货，退款将原路返还，不同的银行处理时间不同，预计1-5个工作日到账； <br>2.内裤和食品等特殊商品无质量问题不支持退换货；
 						<br>3.退货流程： 确认收货-申请退货-客服审核通过-用户寄回商品-仓库签收验货-退款审核-退款完成； <br>4.换货流程：
-						确认收货-申请换货-客服审核通过-用户寄回商品-仓库签收验货-客服确认-换货完成； <br>5.退换货运费由网易严选承担（大件商品除外）。上门取件费用由网易严选统一与快递服务商结算，顾客只需将退换货商品交给上门取件快递员寄回。如顾客选择自行寄回商品，请先垫付运费，到货验证商品后，严选将以现金券形式为用户报销运费，不接受单方面到付件。
+						确认收货-申请换货-客服审核通过-用户寄回商品-仓库签收验货-客服确认-换货完成； <br>5.退换货运费由华农有货承担（大件商品除外）。上门取件费用由华农有货统一与快递服务商结算，顾客只需将退换货商品交给上门取件快递员寄回。如顾客选择自行寄回商品，请先垫付运费，到货验证商品后，华农有货将以现金券形式为用户报销运费，不接受单方面到付件。
 					</div>
 				</div>
 				<br> <br>
 				<div>
 					<div class="head">如何开具发票？</div>
 					<div class="text">
-						1.请在下单时选择“我要开发票”并填写相关信息（APP仅限2.4.0及以上版本）。开具增值税专用发票需在下单时填写增票资质信息。温馨提示：请确保增票资质信息与贵司税务登记证信息一致，避免因开票信息错误给贵司带来损失。
+						1.请联系客服并回复“我要开发票”并填写相关信息。开具增值税专用发票需在下单时填写增票资质信息。温馨提示：请确保增票资质信息与贵司税务登记证信息一致，避免因开票信息错误给贵司带来损失。
 						2.可选开票内容：
-						依照国税总局开票法规，严选订单开具纸质发票、电子发票，开票内容为明细；礼品卡开票内容为预付卡；增值税专用发票开票内容为明细。</div>
+						依照国税总局开票法规，华农有货订单开具纸质发票、电子发票，开票内容为明细；礼品卡开票内容为预付卡；增值税专用发票开票内容为明细。</div>
 				</div>
 			</div>
 
@@ -514,7 +515,7 @@
 						</a> <a href="${pageContext.request.contextPath }/products/detail/1">
 								<div class="name">24寸原创山海经PC铝框拉杆箱</div>
 						</a>
-							<div class="price">¥5.9</div></li>
+							<div class="price">¥539</div></li>
 						<li><a
 							href="${pageContext.request.contextPath }/products/detail/34">
 								<img
@@ -522,7 +523,7 @@
 						</a> <a href="${pageContext.request.contextPath }/products/detail/34">
 								<div class="name">女式典雅真丝长吊带睡裙</div>
 						</a>
-							<div class="price">¥100</div></li>
+							<div class="price">¥230.3</div></li>
 						<li><a
 							href="${pageContext.request.contextPath }/products/detail/15">
 								<img
@@ -530,7 +531,7 @@
 						</a> <a href="${pageContext.request.contextPath }/products/detail/15">
 								<div class="name">幸运桃心链条单肩包</div>
 						</a>
-							<div class="price">¥19.9</div></li>
+							<div class="price">¥199</div></li>
 						<li><a
 							href="${pageContext.request.contextPath }/products/detail/40">
 								<img
@@ -538,7 +539,7 @@
 						</a> <a href="${pageContext.request.contextPath }/products/detail/40">
 								<div class="name">爱的乐章黑巧克力礼盒</div>
 						</a>
-							<div class="price">¥45</div></li>
+							<div class="price">¥139</div></li>
 						<li><a
 							href="${pageContext.request.contextPath }/products/detail/43">
 								<img
@@ -546,7 +547,7 @@
 						</a> <a href="${pageContext.request.contextPath }/products/detail/43">
 								<div class="name">千层星云酥</div>
 						</a>
-							<div class="price">¥12.9</div></li>
+							<div class="price">¥22</div></li>
 						<li><a
 							href="${pageContext.request.contextPath }/products/detail/78">
 								<img
@@ -554,7 +555,7 @@
 						</a> <a href="${pageContext.request.contextPath }/products/detail/78">
 								<div class="name">瓦坎达图腾 杯垫</div>
 						</a>
-							<div class="price">¥13.99</div></li>
+							<div class="price">¥21</div></li>
 					</ul>
 				</div>
 			</div>

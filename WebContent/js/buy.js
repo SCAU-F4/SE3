@@ -1,4 +1,28 @@
 $(document).ready(function () {
+
+    var name = false;
+    var phone = false;
+    var mail = false;
+    var address = false;
+    var newAddress = 0;
+
+    $(".SE3_buy .address .change .change_address .left .choose:first-child").addClass("active");
+
+    
+    $(".SE3_buy .address .change .first_detail .change_btn").click(function () {
+        $(".SE3_buy .address .change .change_address").show().siblings("div").hide();
+    });
+
+    $(".SE3_buy .address .change .first_detail .new_btn").click(function () {
+        name = false;
+        phone = false;
+        mail = false;
+        address = false;
+        newAddress = 0;
+        $(".SE3_buy .address .add_address").show().siblings("div").hide();
+    });
+
+
     $(".SE3_buy .address .change .address_detail .modify").click(function () {
         name = true;
         phone = true;
@@ -8,6 +32,7 @@ $(document).ready(function () {
         $(".SE3_buy .address .modify_address .phone_text").val($(".SE3_buy .address .address_detail .phone_text").text());
         $(".SE3_buy .address .modify_address .mail_text").val($(".SE3_buy .address .address_detail .mail_text").text());
         $(".SE3_buy .address .modify_address textarea").val($(".SE3_buy .address .address_detail .address_text").text());
+        $(".SE3_buy .address .modify_address .addressID").val($(".SE3_buy .address .address_detail .addressID").val());
         $(".SE3_buy .address .change .modify_address").show().siblings("div").hide();
     });
 
@@ -20,16 +45,51 @@ $(document).ready(function () {
         phone = false;
         mail = false;
         address = false;
+        newAddress = 1;
         $(".SE3_buy .address .add_address").show().siblings("div").hide();
     });
 
     $(".SE3_buy .address .change .modify_address .save_btn").click(function () {
         if (name && phone && mail && address) {
-            $(".SE3_buy .address .address_detail .name_text").text($(".SE3_buy .address .change .modify_address .name_text").val());
-            $(".SE3_buy .address .address_detail .phone_text").text($(".SE3_buy .address .change .modify_address .phone_text").val());
-            $(".SE3_buy .address .address_detail .mail_text").text($(".SE3_buy .address .change .modify_address .mail_text").val());
-            $(".SE3_buy .address .address_detail .address_text").text($(".SE3_buy .address .change .modify_address textarea").val());
-            $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+
+            $.ajax({
+        		type:"post",
+    			async:false,
+    			url:"changeAddress",
+    			dataType:"jsonp",
+    			jsonp:"callback",
+    			data:{
+    				addressDetail:$(".SE3_buy .address .change .modify_address textarea").val(),
+    				addressPostcode:$(".SE3_buy .address .change .modify_address .mail_text").val(),
+    				addressPhone:$(".SE3_buy .address .change .modify_address .phone_text").val(),
+    				addressName:$(".SE3_buy .address .change .modify_address .name_text").val(),
+    				addressID:$(".SE3_buy .address .change .address_detail .addressID").val(),
+    				t:new Date()
+    			},
+    			success:function(res){
+    				if(res.result==""){
+    					$(".SE3_buy .address .address_detail .name_text").text($(".SE3_buy .address .change .modify_address .name_text").val());
+    					$(".SE3_buy .address .address_detail .phone_text").text($(".SE3_buy .address .change .modify_address .phone_text").val());
+    					$(".SE3_buy .address .address_detail .mail_text").text($(".SE3_buy .address .change .modify_address .mail_text").val());
+    					$(".SE3_buy .address .address_detail .address_text").text($(".SE3_buy .address .change .modify_address textarea").val());
+    					$(".SE3_buy .address .address_detail .addressID").val($(".SE3_buy .address .change .modify_address .addressID").val());
+    					
+    					$(".SE3_buy .address .change_address .choose.active .choose_name_text").text($(".SE3_buy .address .change .modify_address .name_text").val());
+    					$(".SE3_buy .address .change_address .choose.active .choose_phone_text").text($(".SE3_buy .address .change .modify_address .phone_text").val());
+    					$(".SE3_buy .address .change_address .choose.active .choose_mail_text").text($(".SE3_buy .address .change .modify_address .mail_text").val());
+    					$(".SE3_buy .address .change_address .choose.active .choose_address_text").text($(".SE3_buy .address .change .modify_address textarea").val());
+    					$(".SE3_buy .address .change_address .choose.active .addressID").val($(".SE3_buy .address .change .modify_address .addressID").val());
+     					
+    					$(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+    				}
+    				else{
+    					alert(res.result);
+    				}
+    			},
+    			error:function(e){
+    				alert("false");
+    			}
+        	});
         }
         else {
             layer.open(
@@ -50,34 +110,63 @@ $(document).ready(function () {
 
     $(".SE3_buy .address .change .add_address .save_btn").click(function () {
         if (name && phone && mail && address) {
-            $(".SE3_buy .address .address_detail .name_text").text($(".SE3_buy .address .change .add_address .name_text").val());
-            $(".SE3_buy .address .address_detail .phone_text").text($(".SE3_buy .address .change .add_address .phone_text").val());
-            $(".SE3_buy .address .address_detail .mail_text").text($(".SE3_buy .address .change .add_address .mail_text").val());
-            $(".SE3_buy .address .address_detail .address_text").text($(".SE3_buy .address .change .add_address textarea").val());
-            $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
-            var str="                    <div class=\"choose\">\n" +
-                "                        <div class=\"text\">\n" +
-                "                            <span>收 货 人 :</span>\n" +
-                "                            <span class=\"choose_name_text\">"+$(".SE3_buy .address .change .add_address .name_text").val()+"</span>\n" +
-                "                        </div>\n" +
-                "                        <div class=\"second\">\n" +
-                "                            <div class=\"text\">\n" +
-                "                                <span>联系方式 : </span>\n" +
-                "                                <span class=\"choose_phone_text\">"+$(".SE3_buy .address .change .add_address .phone_text").val()+"</span>\n" +
-                "                            </div>\n" +
-                "                            <div class=\"text\">\n" +
-                "                                <span>邮 编 : </span>\n" +
-                "                                <span class=\"choose_mail_text\">"+$(".SE3_buy .address .change .add_address .mail_text").val()+"</span>\n" +
-                "                            </div>\n" +
-                "                        </div>\n" +
-                "                        <div class=\"text\">\n" +
-                "                            <span>收货地址 :</span>\n" +
-                "                            <span class=\"choose_address_text\">"+$(".SE3_buy .address .change .add_address textarea").val()+"</span>\n" +
-                "                        </div>\n" +
-                "                    </div>";
+            $.ajax({
+        		type:"post",
+    			async:false,
+    			url:"addAddress",
+    			dataType:"jsonp",
+    			jsonp:"callback",
+    			data:{
+    				addressDetail:$(".SE3_buy .address .change .add_address textarea").val(),
+    				addressPostcode:$(".SE3_buy .address .change .add_address .mail_text").val(),
+    				addressPhone:$(".SE3_buy .address .change .add_address .phone_text").val(),
+    				addressName:$(".SE3_buy .address .change .add_address .name_text").val(),
+    				t:new Date()
+    			},
+    			success:function(res)
+    			{
+    				if(res.result==""){
+    		            var str = "         <div class=\"choose\">\n" +
+    	                "                        <div class=\"text\">\n" +
+    	                "                            <span>收 货 人 :</span>\n" +
+    	                "                            <span class=\"choose_name_text\">" + $(".SE3_buy .address .change .add_address .name_text").val() + "</span>\n" +
+    	                "                        </div>\n" +
+    	                "						 <input type=\"hidden\" class=\"addressID\" value=" + res.addressID + "/>" +
+    	                "                        <div class=\"second\">\n" +
+    	                "                            <div class=\"text\">\n" +
+    	                "                                <span>联系方式 : </span>\n" +
+    	                "                                <span class=\"choose_phone_text\">" + $(".SE3_buy .address .change .add_address .phone_text").val() + "</span>\n" +
+    	                "                            </div>\n" +
+    	                "                            <div class=\"text\">\n" +
+    	                "                                <span>邮 编 : </span>\n" +
+    	                "                                <span class=\"choose_mail_text\">" + $(".SE3_buy .address .change .add_address .mail_text").val() + "</span>\n" +
+    	                "                            </div>\n" +
+    	                "                        </div>\n" +
+    	                "                        <div class=\"text\">\n" +
+    	                "                            <span>收货地址 :</span>\n" +
+    	                "                            <span class=\"choose_address_text\">" + $(".SE3_buy .address .change .add_address textarea").val() + "</span>\n" +
+    	                "                        </div>\n" +
+    	                "                    </div>";
+    		            $(".change_address .left").append(str);
+    		            
+    		            $(".SE3_buy .address .address_detail .name_text").text($(".SE3_buy .address .change .add_address .name_text").val());
+    		            $(".SE3_buy .address .address_detail .phone_text").text($(".SE3_buy .address .change .add_address .phone_text").val());
+    		            $(".SE3_buy .address .address_detail .mail_text").text($(".SE3_buy .address .change .add_address .mail_text").val());
+    		            $(".SE3_buy .address .address_detail .address_text").text($(".SE3_buy .address .change .add_address textarea").val());
+    		            $(".SE3_buy .address .address_detail .addressID").val(res.addressID);
 
-            $(".change_address .left").append(str);
-            $(".SE3_buy .address .change .change_address .left>div:last-child").addClass("active").siblings("div").removeClass("active");
+    		            newAddress = 1;
+    		            $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+    		            $(".SE3_buy .address .change .change_address .left>div:last-child").addClass("active").siblings("div").removeClass("active");
+    				}
+    				else{
+    					alert(res.result);
+    				}
+    			},
+    			error:function(e){
+    				alert("false");
+    			}
+        	});
         }
         else {
             layer.open(
@@ -91,12 +180,17 @@ $(document).ready(function () {
     });
 
     $(".SE3_buy .address .change .add_address .cancel_btn").click(function () {
-        $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+        if (newAddress == 0) {
+            $(".SE3_buy .address .change .first_detail").show().siblings("div").hide();
+        }
+        else {
+            $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+        }
         $(".SE3_buy .address").find(".glyphicon-remove").hide("fast");
         $(".SE3_buy .address").find(".glyphicon-ok").hide("fast");
     });
 
-    $(".SE3_buy .address .change .change_address .left").on("click", "div", function () {
+    $(".SE3_buy .address .change .change_address .left").on("click", "div.choose", function () {
         $(this).addClass("active").siblings("div").removeClass("active");
     });
 
@@ -105,18 +199,18 @@ $(document).ready(function () {
         $(".SE3_buy .address .address_detail .phone_text").text($(".SE3_buy .address .change .change_address .left .choose.active .choose_phone_text").text());
         $(".SE3_buy .address .address_detail .mail_text").text($(".SE3_buy .address .change .change_address .left .choose.active .choose_mail_text").text());
         $(".SE3_buy .address .address_detail .address_text").text($(".SE3_buy .address .change .change_address .left .choose.active .choose_address_text").text());
+        $(".SE3_buy .address .address_detail .addressID").val($(".SE3_buy .address .change .change_address .left .choose.active .addressID").val());
         $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
     });
 
     $(".SE3_buy .address .change .change_address .no_choose_btn").click(function () {
-        $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+        if (newAddress == 0) {
+            $(".SE3_buy .address .change .first_detail").show().siblings("div").hide();
+        }
+        else {
+            $(".SE3_buy .address .change .address_detail").show().siblings("div").hide();
+        }
     });
-
-
-    var name = false;
-    var phone = false;
-    var mail = false;
-    var address = false;
 
     $(".name_text").blur(function () {
         var re = /^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$/;

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
 	$(".SE3_product .list ul li:first-child").addClass("active");
 
     $(".SE3_product .list ul").on("mouseenter","li",function () {
@@ -34,6 +33,34 @@ $(document).ready(function () {
 
             event.preventDefault();
         }
+    });
+    
+
+    $(".detail_btn .detail_buy").click(function () {
+    	if ($(".whichone").text().length>0){
+        	if ($(".SE3_product .detail .detail_specify .specify ul li.active").length>0)
+        	{
+        	   	var goodsID = $(".goodid").text();
+        	   	var goodsSpecify = $(".SE3_product .detail .detail_specify .specify ul li.active").text();
+        	   	var goodsCount = $(".detail_num .num input").val();
+
+        	   	$(location).attr('href', "/SE3-F4/user/auction"+
+        	   			"?goodsID="+goodsID+"&goodsSpecify="+goodsSpecify+"&goodsCount="+goodsCount);
+        	}
+        	else {
+        		$(".tip h4").text("请先选择颜色");
+    			$(".tip").fadeIn();
+    			$(".tip").delay(1500).fadeOut().delay(300);
+        	}
+    	}
+    	else {
+    		$(".tip h4").text("请先登陆");
+			$(".tip").fadeIn();
+			$(".tip").delay(1500).fadeOut().delay(300,function(){
+				$(location).attr('href', '/SE3-F4/user/signin');
+			}); 
+    	}
+    	
     });
 
     $(".SE3_product_body .left .left_head").on("click", "li", function () {
