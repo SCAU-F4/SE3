@@ -1,12 +1,14 @@
 $(document).ready(function () {
 
+	$(".SE3_product .list ul li:first-child").addClass("active");
+	
     $(".SE3_product .list ul").on("mouseenter","li",function () {
         $(this).addClass("active").siblings("li").removeClass("active");
         $(this).addClass("active").siblings("li").removeClass("active");
         var href=$(this).find("img").attr("src");
         console.log(href);
         $(".SE3_product .picture .view img").attr("src",href);
-    })
+    });
 
     $(".SE3_product .detail .detail_specify .specify").on("click", "li", function () {
         $(this).addClass("active").siblings("li").removeClass("active");

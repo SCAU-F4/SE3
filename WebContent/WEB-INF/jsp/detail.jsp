@@ -259,7 +259,7 @@
 				<ul>
 					<c:forEach items="${goods[0].pictureList}" begin="0" end="4"
 						var="picture" varStatus="status">
-						<li class="active"><img src="${picture.picturePath}"></li>
+						<li><img src="${picture.picturePath}"></li>
 					</c:forEach>
 				</ul>
 			</div>
