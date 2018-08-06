@@ -57,6 +57,7 @@
                         </div>
                     </div>
                     <div class="submitButton">
+                    <input type="hidden" name="referrer" id="referrer" value=""/>
                         <button type="reset" class="layui-btn layui-btn-radius layui-btn-primary">重置</button>
                         <button class="layui-btn layui-btn-radius layui-btn-primary" type="submit" id="submit">登录</button></div>
                 </form>
@@ -64,7 +65,6 @@
             </div>
             </div>
         </div>
-    </div>
 </section>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
@@ -72,6 +72,7 @@
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/sign.js"></script>
 <script>
+$("#referrer").val(document.referrer);
 		   var lock=1;
            var text="${error}";
            console.log(text);
@@ -91,5 +92,6 @@
         });
     	}
      </script>
+
 </body>
 </html>

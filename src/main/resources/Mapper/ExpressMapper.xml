@@ -11,14 +11,18 @@
 	</resultMap>
 
 	<select id="findByexpressCode" resultMap="expressMap">
-		select * from Express where expressCode = #{expressCode}
+		select * from Express
+		where expressCode = #{expressCode}
 	</select>
 	<insert id="insert">
-		insert into Express values(#{expressCode}, #{expressDate}, #{expressState})
+		insert into Express values(#{expressCode},
+		#{expressDate}, #{expressState})
 	</insert>
 	<update id="update">
-		update Express set expressDate=#{expressDate},expressState=#{expressState}
-		where expressCode=#{expressCode}
+		update Express set
+		expressDate=#{expressDate},expressState=#{expressState}
+		where
+		expressCode=#{expressCode}
 	</update>
 	<delete id="delete">
 		delete from Express where expressCode=#{expressCode}

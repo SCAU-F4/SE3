@@ -6,25 +6,34 @@
 
 	<resultMap type="evaluatePicture" id="evaluatePictureMap">
 		<id column="evaluateID" property="evaluateID" />
-		<result column="pictureID" property="pictureID" />
 	</resultMap>
 
-	<select id="findByevaluateIDANDpictureID" resultMap="evaluatePictureMap">
-		select * from EvaluatePicture where evaluateID = #{evaluateID} AND
+	<resultMap type="evaluatePicture" id="evaluatePictureMap1"
+		extends="evaluatePictureMap">
+		<association property="picture" column="{pictureID=pictureID}"
+			fetchType="lazy" select="Mapper.PictureMapper.findBypictureID" />
+	</resultMap>
+
+	<select id="findByevaluateIDANDpictureID" resultMap="evaluatePictureMap1">
+		select *
+		from EvaluatePicture where evaluateID = #{evaluateID} AND
 		pictureID=#{pictureID}
 	</select>
 
-	<select id="findEvaluatePictureByevaluateID" resultMap="evaluatePictureMap">
-		select * from EvaluatePicture where evaluateID = #{evaluateID}
+	<select id="findEvaluatePictureByevaluateID" resultMap="evaluatePictureMap1">
+		select *
+		from EvaluatePicture where evaluateID = #{evaluateID}
 	</select>
 
 
 	<insert id="insert">
-		insert into EvaluatePicture values(#{evaluateID}, #{pictureID})
+		insert into EvaluatePicture values(#{evaluateID},
+		#{picture.pictureID})
 	</insert>
 
 	<delete id="delete">
-		delete from EvaluatePicture where evaluateID=#{evaluateID} AND
+		delete from EvaluatePicture where
+		evaluateID=#{evaluateID} AND
 		pictureID=#{pictureID}
 	</delete>
 </mapper>

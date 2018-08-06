@@ -28,7 +28,8 @@
 	</select>
 
 	<insert id="insert">
-		insert into IndentDetail values(#{indentID},#{good.goodsID},#{goodsCount},#{totalPrice},#{good.goodsSpecify})
+		insert into IndentDetail
+		values(#{indentID},#{good.goodsID},#{goodsCount},#{totalPrice},#{good.goodsSpecify})
 	</insert>
 	<update id="update">
 		update IndentDetail set

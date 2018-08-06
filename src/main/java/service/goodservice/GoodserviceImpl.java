@@ -51,7 +51,6 @@ public class GoodserviceImpl implements Goodservice {
 		String result = "";
 		Goods good = goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
 		double totalPrice = goodsCount * good.getGoodsPrice();
-		System.out.println(good);
 		CartDetail cartDetail = new CartDetail(customer.getCart().getCartID(), good, goodsCount, totalPrice);// new
 		int sum = cartdetailmapper.isCartDetailExist(cartDetail);
 		double tprice = customer.getCart().getTotalPrice();
@@ -109,7 +108,8 @@ public class GoodserviceImpl implements Goodservice {
 			for (CartDetail detail : customer.getCart().getCartDetailList()) {
 				if (detail.getGood().getGoodsID() == cartDetail.getGood().getGoodsID()
 						&& detail.getGood().getGoodsSpecify().equals(cartDetail.getGood().getGoodsSpecify())) {
-					detail = cartDetail;
+					detail.setGoodsCount(cartDetail.getGoodsCount());
+					detail.setTotalPrice(cartDetail.getTotalPrice());
 					break;
 				}
 			}

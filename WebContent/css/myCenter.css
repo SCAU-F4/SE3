@@ -118,7 +118,7 @@ body{
 .panel-footer .cell{
 	margin-left:0px;
 }
-.cell button,.panel-footer button{
+.cell button,.panel-footer button,.state-button button{
     background: #d0c4af;
 }
 .panel-footer{
@@ -230,4 +230,17 @@ body .tip>h4{
 }
 .isNoPanel span{
 	display:inline-block;
+}
+.state-button{
+	position:absolute;
+	top:35%;
+}
+.state-button button{
+	display:none;
+}
+.Order-state{
+	position: relative;
+	left:60px;
+	font-weight:bold;
+	fonr-size:1.1em;
 }

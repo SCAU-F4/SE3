@@ -23,13 +23,10 @@
 		</collection>
 	</resultMap>
 
-
-
 	<select id="findByGoodsMainTypeID" resultMap="goodsMainTypeMap1">
 		select * from
 		GoodsMainType where goodsMainTypeID = #{goodsMainTypeID}
 	</select>
-
 
 	<select id="findAllGoodsMainTypes" resultMap="goodsMainTypeMap1">
 		select * from
@@ -52,6 +49,4 @@
 		where
 		goodsMainTypeID=#{goodsMainTypeID}
 	</delete>
-
-
 </mapper>

@@ -106,8 +106,8 @@
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath }/js/sign.js"></script>
 <script>
-var lock=1;
- var text="${error}";
+		var lock=1;
+ 		var text="${error}";
            console.log(text);
               if(text!=""&&lock==1)
     	{
@@ -125,5 +125,6 @@ var lock=1;
         });
     	}
            </script>
+
 </body>
 </html>

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class EvaluatePicture implements Serializable {
 	private int evaluateID;
-	private int pictureID;
+	private Picture picture;
 
 	private static final long serialVersionUID = 1L;
 
@@ -13,10 +13,10 @@ public class EvaluatePicture implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EvaluatePicture(int evaluateID, int pictureID) {
+	public EvaluatePicture(int evaluateID, Picture picture) {
 		super();
 		this.evaluateID = evaluateID;
-		this.pictureID = pictureID;
+		this.picture = picture;
 	}
 
 	public int getEvaluateID() {
@@ -27,17 +27,17 @@ public class EvaluatePicture implements Serializable {
 		this.evaluateID = evaluateID;
 	}
 
-	public int getPictureID() {
-		return pictureID;
+	public Picture getPicture() {
+		return picture;
 	}
 
-	public void setPictureID(int pictureID) {
-		this.pictureID = pictureID;
+	public void setPicture(Picture picture) {
+		this.picture = picture;
 	}
 
 	@Override
 	public String toString() {
-		return "EvaluatePicture [evaluateID=" + evaluateID + ", pictureID=" + pictureID + "]";
+		return "EvaluatePicture [evaluateID=" + evaluateID + ", picture=" + picture + "]";
 	}
 
 }

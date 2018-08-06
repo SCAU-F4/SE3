@@ -221,6 +221,7 @@
                                 <div class="panel-heading">
                                     <span class="Order-time">下单时间：${indent.indentTime}</span>
                                     <span class="Order-id" data-indentID="${indent.indentID }">订单号：${indent.indentID}</span>
+                                     <span class="Order-state"></span>
                                     <i class="layui-icon layui-icon-delete pull-right"></i>
                                 </div>
                                 <div class="panel-body">
@@ -234,6 +235,7 @@
                                         <span class="deal-state" jspstate="${indent.indentState}">数量：${indentDetail.goodsCount}</span>
                                          <span>样式类型：${indentDetail.good.goodsSpecify}</span> 
                                     </div>
+                                    <div class="state-button"><button class="layui-btn layui-btn-radius">去评价</button></div>	
                                     <div class="price">
                                         <span>￥</span>
                                         <span class="number">${indentDetail.good.goodsPrice}</span>
@@ -484,6 +486,14 @@
 	     	});
 	      } 
 		});  
+		<script type="text/javascript">
+    if(window.name != "bencalie"){
+         location.reload();
+         window.name = "bencalie";
+     }else{
+         window.name = "";
+      }
+</script>
 </script>
 </body>
 </html>

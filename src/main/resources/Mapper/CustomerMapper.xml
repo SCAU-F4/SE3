@@ -22,24 +22,29 @@
 	</resultMap>
 
 	<select id="findBycustomerID" resultMap="customerMap1">
-		select * from Customer where customerID = #{customerID}
+		select * from Customer
+		where customerID = #{customerID}
 	</select>
-	
+
 	<select id="lazyfindBycustomerID" resultMap="customerMap">
-		select * from Customer where customerID = #{customerID}
+		select * from
+		Customer where customerID = #{customerID}
 	</select>
 
 	<select id="IsCustomerNameExist" resultType="java.lang.Integer">
-		select customerID from Customer where customerName = #{customerName}
+		select customerID
+		from Customer where customerName = #{customerName}
 	</select>
 
 	<select id="findBycustomerNameAndcustomerPwd" resultMap="customerMap1">
-		select * from Customer where customerName=#{customerName} and
+		select *
+		from Customer where customerName=#{customerName} and
 		customerPwd=#{customerPwd}
 	</select>
 
 	<insert id="insert" keyProperty="customerID" useGeneratedKeys="true">
-		insert into Customer values(#{customerID}, #{customerName}, #{customerPwd},
+		insert into Customer values(#{customerID}, #{customerName},
+		#{customerPwd},
 		#{customerPhone}, #{customerEmail}, #{customerRegDate})
 	</insert>
 	<update id="update">
@@ -48,11 +53,13 @@
 		where customerID=#{customerID}
 	</update>
 	<update id="updatecustomerNameBycustomerID">
-		update Customer set customerName=#{customerName} where
+		update Customer set customerName=#{customerName}
+		where
 		customerID=#{customerID}
 	</update>
 	<update id="updatecustomerPasswordBycustomerID">
-		update Customer set customerPwd=#{customerPassword} where
+		update Customer set customerPwd=#{customerPassword}
+		where
 		customerID=#{customerID}
 	</update>
 	<delete id="delete">
