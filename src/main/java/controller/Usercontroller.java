@@ -48,7 +48,6 @@ public class Usercontroller {
 		}
 		String substr="http://localhost:8080/SE3-F4";
 		referrer=referrer.replaceFirst(substr, "");
-		System.out.println(referrer);
 		return "forward:"+referrer;
 	}
 

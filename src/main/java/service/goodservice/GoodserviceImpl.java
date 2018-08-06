@@ -108,7 +108,8 @@ public class GoodserviceImpl implements Goodservice {
 			for (CartDetail detail : customer.getCart().getCartDetailList()) {
 				if (detail.getGood().getGoodsID() == cartDetail.getGood().getGoodsID()
 						&& detail.getGood().getGoodsSpecify().equals(cartDetail.getGood().getGoodsSpecify())) {
-					detail = cartDetail;
+					detail.setGoodsCount(cartDetail.getGoodsCount());
+					detail.setTotalPrice(cartDetail.getTotalPrice());
 					break;
 				}
 			}

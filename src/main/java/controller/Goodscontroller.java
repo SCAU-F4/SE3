@@ -49,6 +49,7 @@ public class Goodscontroller {
 		String goodsID = request.getParameter("goodsID");
 		String goodsSpecify = request.getParameter("goodsSpecify");
 		String goodsCount =request.getParameter("goodsCount");//增量，不是总量
+		System.out.println(goodsSpecify+"-----------------"+goodsCount);
 		if(Integer.parseInt(goodsCount)!=0){
 			Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 			if(Integer.parseInt(goodsCount)>0){
