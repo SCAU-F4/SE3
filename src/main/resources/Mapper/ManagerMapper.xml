@@ -14,6 +14,11 @@
 		select * from Manager
 		where managerId = #{id}
 	</select>
+	
+	<select id="findBymanagerName" resultMap="managerMap">
+		select * from Manager where managerName = #{0}
+	</select>
+	
 	<insert id="insert">
 		insert into Manager values(#{managerID},
 		#{managerName}, #{managerPwd})
