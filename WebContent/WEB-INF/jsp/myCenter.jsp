@@ -421,6 +421,8 @@
          </div>
     </div>
 </section>
+<div class="Evaluate"></div>
+<div class="Evaluate-area"><i class="layui-icon layui-icon-close pull-right"></i></div>	
 <div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
 <div class="tip"><h4>修改成功</h4></div>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
@@ -486,14 +488,15 @@
 	     	});
 	      } 
 		});  
-		<script type="text/javascript">
+
+</script>
+<script type="text/javascript">
     if(window.name != "bencalie"){
          location.reload();
          window.name = "bencalie";
      }else{
          window.name = "";
       }
-</script>
 </script>
 </body>
 </html>

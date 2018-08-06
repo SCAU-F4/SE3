@@ -244,3 +244,32 @@ body .tip>h4{
 	font-weight:bold;
 	fonr-size:1.1em;
 }
+
+.Evaluate{
+	background-color: rgba(0, 0, 0, 0.9);
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100000;
+	display:none;
+}
+.Evaluate-area{
+	width:600px;
+	height:400px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-left:-300px;
+	margin-top:-200px;
+	background-color:#fff;
+	z-index:101111;
+	display:none;
+}
+.Evaluate-area i.layui-icon-close{
+	cursor:pointer;
+	font-size:30px;
+	margin-top:20px;
+	margin-right:20px;
+}

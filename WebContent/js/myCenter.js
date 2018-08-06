@@ -306,6 +306,15 @@ $(document).ready(function () {
     	}
     })
     
+    $(".state-button button").click(function(){
+    	$(".Evaluate").fadeIn("fast");
+    	$(".Evaluate-area").slideDown("fast");
+    });
+    
+    $(".Evaluate-area i.layui-icon-close").click(function(){
+    	$(".Evaluate-area").slideUp("fast");
+    	$(".Evaluate").fadeOut("fast");
+    });
     
     $("#customerName").blur(function () {
         var value=$(this).val();
