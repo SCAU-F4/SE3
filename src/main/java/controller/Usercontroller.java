@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +20,7 @@ import com.alibaba.fastjson.JSON;
 
 import bean.Address;
 import bean.Customer;
+import bean.Evaluate;
 import bean.Indent;
 import service.userservice.Userservice;
 
@@ -186,10 +188,15 @@ public class Usercontroller {
 		return res;
 	}
 	
-//	@RequestMapping(value ="comment")
-//	public String commont(@RequestParam("goodsID") int goodsID){
-//		return "forward:/products/detail/"+goodsID;
-//	}
+	@RequestMapping(value ="comment")
+	public String comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
+		String result=userservice.comment(evaluate,servletRequest.getServletContext().getRealPath("/img"));
+		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
+		else {
+			model.addAttribute("result",result);
+			return "mycenter";
+		}
+	}
 
 	@RequestMapping(value = "auction")
 	public String auction(HttpSession httpSession,Model model) {

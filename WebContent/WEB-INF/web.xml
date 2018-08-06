@@ -37,6 +37,10 @@
 			<param-value>classpath:myshop.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<multipart-config>
+		<max-file-size>3000000</max-file-size>
+		<max-request-size>12000000</max-request-size>
+		</multipart-config>
 	</servlet>
 
 	<servlet-mapping>
