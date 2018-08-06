@@ -22,11 +22,53 @@
     color: #999;
 }
 
+.SE3_buy .address .first_detail {
+    overflow: hidden;
+    width: 100%;
+    padding: 30px 30px 30px 30px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+}
+
+.SE3_buy .address .first_detail div {
+    margin: 5px auto;
+    width: 30%;
+    overflow: hidden;
+}
+
+.SE3_buy .address .first_detail span {
+    width: 144px;
+    height: 42px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    float: left;
+}
+
+.SE3_buy .address .first_detail .change_btn {
+    color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    margin-top: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.SE3_buy .address .first_detail .new_btn {
+    color: #b4a078;
+    border: 1px solid #b4a078;
+    background-color: #f5f3ef;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
 .SE3_buy .address .address_detail {
     overflow: hidden;
     padding: 30px 30px 30px 30px;
     border: 1px solid #e8e8e8;
     border-top: 0;
+    display: none;
 }
 
 .SE3_buy .address .address_detail .left {
@@ -535,6 +577,7 @@
     border: 1px solid #b4a078;
     background-color: #b4a078;
     display: inline-block;
+    cursor: pointer;
 }
 
 .SE3_buy .goods .pay .re_address {
@@ -550,7 +593,14 @@
 
 
 
+.SE3_buy .address .first_detail .change_btn:hover {
+    border: 1px solid #c0ae8a;
+    background-color: #c0ae8a;
+}
 
+.SE3_buy .address .first_detail .new_btn:hover {
+    background-color: #FFF;
+}
 
 .SE3_buy .address .address_detail .left .modify:hover {
     background-color: #FFF;
