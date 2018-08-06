@@ -121,7 +121,7 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public String UpdatGood(Goods goods) {
+	public String UpdateGood(Goods goods) {
 		// TODO Auto-generated method stub
 		Goods mygoods = goodsMapper.findBygoodsIDAndgoodsSpecify(goods.getGoodsID(), goods.getGoodsSpecify());
 		if (mygoods == null)

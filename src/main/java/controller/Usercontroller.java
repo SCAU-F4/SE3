@@ -203,12 +203,9 @@ public class Usercontroller {
 	@RequestMapping(value = "auction")
 	public String auction(HttpSession httpSession,Model model) {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		String result=userservice.auction(customer);
-		if(result=="") return "auction";
-		else {
-			model.addAttribute("error", result);
-			return "index";
-		}
+		Indent indent=userservice.auction(customer);
+		model.addAttribute("indent", indent);
+		return "auction";
 	}
 	
 	@RequestMapping(value="pay")
@@ -221,11 +218,8 @@ public class Usercontroller {
 	@RequestMapping(value = "purchase")
 	public String purchase(@RequestParam("goodsID") int goodsID,@RequestParam("goodsSpecify") String goodsSpecify ,@RequestParam("goodsCount") int goodsCount,HttpSession httpSession,Model model) {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		String result=userservice.purchase(goodsID,goodsSpecify,goodsCount,customer);
-		if(result=="") return "auction";
-		else {
-			model.addAttribute("error", result);
-			return "index";
-		}
+		Indent indent=userservice.purchase(goodsID,goodsSpecify,goodsCount,customer);
+		model.addAttribute("indent", indent);
+		return "auction";
 	}
 }
