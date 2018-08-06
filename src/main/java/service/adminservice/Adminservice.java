@@ -15,12 +15,14 @@ public interface Adminservice {
     public String InsertGood(Goods goods);
     public String DeleteGood(Goods goods);
     public String UpdateGood(Goods goods);
-    public String ChangeisSellGood(Goods goods,int yesno);
-    //用户管理
-    public String UpdateCustomerPassword(int customerID,String customerPhone);
-    public String DeleteCustomer(int customerID);
-    //订单管理
-    public String InsertIndent(Indent indent);
-    public String DeleteIndent(Indent indent);
-    public String UpdateIndent(Indent indent);
+    public String ChangeisSellGood(Goods goods,int yesno);//商品上下架
+//    //用户管理
+//    public String UpdateCustomerPassword(int customerID,String customerPhone);
+//    public String DeleteCustomer(int customerID);
+//    //订单管理
+//    public String InsertIndent(Indent indent);
+//    public String DeleteIndent(Indent indent);
+//    public String UpdateIndent(Indent indent);
+    //
+    
 }

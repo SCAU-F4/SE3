@@ -1,5 +1,7 @@
 package service.adminservice;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -133,6 +135,10 @@ public class AdminserviceImpl implements Adminservice {
 			return "没有这个商品次分类，更新失败";
 		else if (gddMainType == null)
 			return "没有这个商品主分类，更新失败";
+		else if(!checkgddMainTypeandSecondType(gddMainType, gddGoodsSecondaryType))
+		{
+			return "商品主分类和商品次分类出问题了";
+		}
 		else {
 			int i = goodsMapper.update(goods);
 			if (i > 0)
@@ -142,40 +148,25 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public String ChangeisSellGood(Goods goods, int yesno) //下架
+	public String ChangeisSellGood(Goods goods, int yesno) {
+		// TODO Auto-generated method stub
+		goods.setIsSell(yesno);
+		UpdateGood(goods);
+		return null;
+	}
+	
+	public static boolean checkgddMainTypeandSecondType(GoodsMainType goodsMainType,GoodsSecondaryType goodsSecondaryType)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		List<GoodsSecondaryType> list=goodsMainType.getGoodsSecondaryTypeList();
+		for(GoodsSecondaryType gdst:list)
+		{
+			if(gdst.getGoodsSecondaryTypeID()==goodsSecondaryType.getGoodsSecondaryTypeID())
+				return true;
+		}
+		
+		return false;
 	}
-
-	@Override
-	public String UpdateCustomerPassword(int customerID, String customerPhone) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String DeleteCustomer(int customerID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String InsertIndent(Indent indent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String DeleteIndent(Indent indent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String UpdateIndent(Indent indent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
 }

@@ -70,6 +70,17 @@
 		#{goodsSecondaryTypeID}
 	</select>
 
+<select id="getAllsellCount" resultType="java.lang.Integer">
+		select sum(sellcount)
+		from Goods
+	</select>
+	
+	<select id="getsellCountByMainTypeID" resultType="java.lang.Integer">
+		select sum(sellCount)
+        from goods
+       GROUP BY goodsMainTypeID
+       having goodsMainTypeID=#{goodsMainTypeID}
+	</select>
 
 	<insert id="insert">
 		insert into Goods
