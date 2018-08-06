@@ -188,12 +188,6 @@ $(document).ready(function () {
 	  if(num>1){	  
 		  $items=$(this).siblings(".indentNumber");
 		  var $price=$(this).parents(".cart-item").find(".cart-price");
-		 /* var total=$price.find("span.indentMoney").text();
-		  var oneprice=$price.find("input").val();
-		  var newTotal=parseFloat(parseFloat(total)-parseFloat(oneprice));
-		  $price.find("span.indentMoney").text(newTotal);
-		  var str="-1";
-		  updatetotalPrice();*/
 		  var str="-1";
 		  var goodId=$(this).parents(".cart-item").find(".cartGoodsID").val();
 		  console.log(goodId);
