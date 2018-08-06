@@ -4,6 +4,7 @@ import java.util.List;
 
 import bean.Address;
 import bean.Customer;
+import bean.Evaluate;
 import bean.Indent;
 
 public interface Userservice {
@@ -18,5 +19,5 @@ public interface Userservice {
     public String auction(Customer customer);
     public String purchase(int goodsID,String goodsSpecify,int goodsCount,Customer customer);
     public boolean pay(int addressID,int indentID,Customer customer);
-//    public String comment();
+    public String comment(Evaluate evaluate,String path);
 }

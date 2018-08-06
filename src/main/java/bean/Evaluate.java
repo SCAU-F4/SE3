@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Evaluate implements Serializable {
 	private int evaluateID;
 	private int goodsID;
@@ -12,6 +14,7 @@ public class Evaluate implements Serializable {
 	private String evaluateContent;
 	private String goodsSpecify;
 	private Customer customer;
+	private List<MultipartFile> images;
 	private List<EvaluatePicture> evaluatePictureList;
 
 	private static final long serialVersionUID = 1L;
@@ -97,6 +100,13 @@ public class Evaluate implements Serializable {
 	public void setEvaluatePictureList(List<EvaluatePicture> evaluatePictureList) {
 		this.evaluatePictureList = evaluatePictureList;
 	}
+	public List<MultipartFile> getImages() {
+		return images;
+	}
+	
+	public void setImages(List<MultipartFile> images) {
+		this.images = images;
+	}
 
 	@Override
 	public String toString() {
@@ -104,5 +114,6 @@ public class Evaluate implements Serializable {
 				+ ", evaluateGrade=" + evaluateGrade + ", evaluateContent=" + evaluateContent + ", goodsSpecify="
 				+ goodsSpecify + ", customer=" + customer + ", evaluatePictureList=" + evaluatePictureList + "]";
 	}
+
 
 }

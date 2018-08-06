@@ -22,21 +22,22 @@
     background: #fff;
     position: absolute;
     top:50px;
-    left: 18%;
+    left: 50%;
+    margin-left:-500px;
    
 }
 .SE3_classify .box .classify-top>div{
     position: absolute;
-    top: 10px;
+    top: 20px;
     left: 20px;
     border-bottom: 0.8px rgb(234, 234, 234) dashed;
     width: 920px;
     padding-bottom: 10px;
     margin-top: 20px;
 }
-.SE3_classify .box .classify-top>div:last-child{
+/* .SE3_classify .box .classify-top>div:last-child{
     top: 60px;
-}
+} */
 .SE3_classify .box .classify-top>div ul li{
     float: left;
     list-style: none;
@@ -45,6 +46,14 @@
 .SE3_classify .box .classify-top>div ul.classify-list li:nth-child(2),.SE3_classify .box .classify-top>div ul.sort-list li:nth-child(2){
     margin-left:35px;
 }
+
+.SE3_classify .box .classify-top>div ul.classify-list li.itemType{
+		 cursor: pointer;
+}
+.SE3_classify .box .classify-top>div ul.classify-list li.itemType:hover{
+		        color:#d0c4af;
+}
+
 .SE3_classify .box .classify-main{
 	
     position: relative;

@@ -1,5 +1,6 @@
 package service.userservice;
 
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -7,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import Mapper.AddressMapper;
 import Mapper.CartDetailMapper;
@@ -20,6 +22,7 @@ import bean.Address;
 import bean.Cart;
 import bean.CartDetail;
 import bean.Customer;
+import bean.Evaluate;
 import bean.Goods;
 import bean.Indent;
 import bean.IndentDetail;
@@ -277,6 +280,18 @@ public class UserserviceImpl implements Userservice{
 		indentmapper.insert(indent);
 		IndentDetail indentDetail=new IndentDetail(indent.getIndentID(), good, goodsCount, indent.getTotalPrice());
 		indentdetailmapper.insert(indentDetail);
+		return result;
+	}
+
+	@Override
+	public String comment(Evaluate evaluate,String path) {
+		String result="";
+		List<MultipartFile> multipartFile=evaluate.getImages();
+		for(MultipartFile file:multipartFile){
+			
+			String pathname="";
+			File f=new File(pathname);
+		}
 		return result;
 	}
 
