@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: acery
-=======
-Built-By: Father
->>>>>>> dadef2476c03820e3d8c36db48b1c9f1982f9e9f
 Build-Jdk: 1.8.0_112
 Created-By: Maven Integration for Eclipse
 
