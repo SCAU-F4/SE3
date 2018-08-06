@@ -46,8 +46,6 @@ public class Goodscontroller {
 	@ResponseBody
 	public String add2Cart(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
 		String result="非法操作";
-		
-		System.out.println("6666");
 		String goodsID = request.getParameter("goodsID");
 		String goodsSpecify = request.getParameter("goodsSpecify");
 		String goodsCount =request.getParameter("goodsCount");//增量，不是总量
