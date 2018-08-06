@@ -2,10 +2,22 @@ package Mapper;
 
 import java.io.IOException;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import bean.Manager;
+import service.adminservice.Adminservice;
+import service.adminservice.AdminserviceImpl;
+
 
 public class test1 {
 
 	public static void main(String[] args) throws IOException {
+		
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+		ManagerMapper managerMapper=ctx.getBean(ManagerMapper.class);
+		System.out.println(managerMapper.findBymanagerName("abc"));
+		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 //		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);
 //		Evaluate evaluate=evaluatemapper.findByevaluateID(1);
