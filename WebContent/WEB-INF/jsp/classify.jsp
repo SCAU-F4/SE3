@@ -336,10 +336,7 @@
 							$(
 									"#SE3_header .navbar .container-fluid .collapse > ul > li.active")
 									.removeClass("active");
-							$(
-									"#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="
-											+ mainType + "]")
-									.addClass("active");
+							$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="+ mainType + "]:eq(0)").addClass("active");
 							var customer = "${currentCustomer.customerName}";
 							if (customer == "") {
 								$("#myCenter").hide();
