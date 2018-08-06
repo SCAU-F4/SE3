@@ -107,7 +107,7 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public String UpdatGood(Goods goods) {
+	public String UpdateGood(Goods goods) {
 		// TODO Auto-generated method stub
 		return null;
 	}

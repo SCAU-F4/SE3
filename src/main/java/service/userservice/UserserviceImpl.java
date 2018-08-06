@@ -281,7 +281,7 @@ public class UserserviceImpl implements Userservice {
 			cartdetailList.clear();
 			cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
 			cart.setTotalPrice(0);
-			indent.setIndentDetaillist(indentDetails);
+			indent.setIndentDetaillist(indentDetails); 
 		}
 		return indent;
 	}
