@@ -37,7 +37,8 @@
 
 	<select id="findBygoodsName" resultMap="goodsMap1">
 		select * from Goods
-		GROUP BY goodsID
+		GROUP
+		BY goodsID
 		having
 		goodsName like concat('%',#{goodsName},'%')
 	</select>

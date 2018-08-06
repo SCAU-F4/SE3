@@ -1,6 +1,7 @@
 package service.userservice;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -14,27 +15,32 @@ import Mapper.AddressMapper;
 import Mapper.CartDetailMapper;
 import Mapper.CartMapper;
 import Mapper.CustomerMapper;
+import Mapper.EvaluateMapper;
+import Mapper.EvaluatePictureMapper;
 import Mapper.ExpressMapper;
 import Mapper.GoodsMapper;
 import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
+import Mapper.PictureMapper;
 import bean.Address;
 import bean.Cart;
 import bean.CartDetail;
 import bean.Customer;
 import bean.Evaluate;
+import bean.EvaluatePicture;
 import bean.Goods;
 import bean.Indent;
 import bean.IndentDetail;
+import bean.Picture;
 
 @Service
-public class UserserviceImpl implements Userservice{
+public class UserserviceImpl implements Userservice {
 	@Autowired
-    CustomerMapper customermapper;
+	CustomerMapper customermapper;
 	@Autowired
 	IndentMapper indentmapper;
 	@Autowired
-    GoodsMapper goodsmapper;	
+	GoodsMapper goodsmapper;
 	@Autowired
 	IndentDetailMapper indentdetailmapper;
 	@Autowired
@@ -45,199 +51,207 @@ public class UserserviceImpl implements Userservice{
 	CartMapper cartmapper;
 	@Autowired
 	CartDetailMapper cartdetailmapper;
+	@Autowired
+	EvaluateMapper evaluatemapper;
+	@Autowired
+	EvaluatePictureMapper evaluatepicturemapper;
+	@Autowired
+	PictureMapper picturemapper;
+
 	@Override
 	public Customer signincheck(Customer customer) {
 		// TODO Auto-generated method stub
-	    customer=customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(), customer.getCustomerPwd());
-	    return customer;
+		customer = customermapper.findBycustomerNameAndcustomerPwd(customer.getCustomerName(),
+				customer.getCustomerPwd());
+		return customer;
 	}
 
 	@Override
-	public String signup(Customer customer,String repassword) {
+	public String signup(Customer customer, String repassword) {
 		// TODO Auto-generated method stub
-		String result=check(customer,repassword);
-		if(result!=null) return result;
-		//检验完成，没问题，result必为空
+		String result = check(customer, repassword);
+		if (result != null)
+			return result;
+		// 检验完成，没问题，result必为空
 		customer.setCustomerRegDate(new Timestamp(System.currentTimeMillis()));
 		try {
-			customermapper.IsCustomerNameExist(customer.getCustomerName());//判断用户是否重名,不重名则抛出异常，重名则返回用户重名
-				result="用户重名";
-				return result;
+			customermapper.IsCustomerNameExist(customer.getCustomerName());// 判断用户是否重名,不重名则抛出异常，重名则返回用户重名
+			result = "用户重名";
+			return result;
 		} catch (Exception e) {
-			if(customermapper.insert(customer)!=0) {
-				cartmapper.insert(new Cart(customer.getCustomerID(),customer.getCustomerID(),0,null));
+			if (customermapper.insert(customer) != 0) {
+				cartmapper.insert(new Cart(customer.getCustomerID(), customer.getCustomerID(), 0, null));
 				return null;
-			}
-			else {
-				result ="插入失败";
+			} else {
+				result = "插入失败";
 			}
 		}
-			return result;
-	}	
-	
-	
-	public String check(Customer customer,String repassword){
-    	String name=customer.getCustomerName();
-    	String password=customer.getCustomerPwd();
-    	String phonenum=customer.getCustomerPhone();
-    	String email=customer.getCustomerEmail();
-    	String error="";
-    	Pattern p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
-    	Matcher m=p.matcher(name);
-    	if(m.matches()==false) {
-    		error+="名字字数必须在5到20之间且不有特殊符号";
-    		return error;
-    	}
-    	p=Pattern.compile("^[A-Za-z0-9]{6,20}$");
-    	m=p.matcher(password);
-    	if(m.matches()==false){
-    		error+="密码字数必须在6到20之间";
-    		return error;
-    	}
-    	if(!password.equals(repassword)){
-    		error+="两次密码不一致";
-    		return error;
-    	}
-    	p=Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
-    	m=p.matcher(phonenum);
-    	if(m.matches()==false){
-    		error+="手机号格式不对";
-    		return error;
-    	}
-    	p=Pattern.compile("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.com$");
-    	m=p.matcher(email);
-    	if(m.matches()==false){
-    		error+="邮箱格式不对";
-    		return error;
-    	}
-    	return null;
-    }
+		return result;
+	}
+
+	public String check(Customer customer, String repassword) {
+		String name = customer.getCustomerName();
+		String password = customer.getCustomerPwd();
+		String phonenum = customer.getCustomerPhone();
+		String email = customer.getCustomerEmail();
+		String error = "";
+		Pattern p = Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
+		Matcher m = p.matcher(name);
+		if (m.matches() == false) {
+			error += "名字字数必须在5到20之间且不有特殊符号";
+			return error;
+		}
+		p = Pattern.compile("^[A-Za-z0-9]{6,20}$");
+		m = p.matcher(password);
+		if (m.matches() == false) {
+			error += "密码字数必须在6到20之间";
+			return error;
+		}
+		if (!password.equals(repassword)) {
+			error += "两次密码不一致";
+			return error;
+		}
+		p = Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
+		m = p.matcher(phonenum);
+		if (m.matches() == false) {
+			error += "手机号格式不对";
+			return error;
+		}
+		p = Pattern.compile("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.com$");
+		m = p.matcher(email);
+		if (m.matches() == false) {
+			error += "邮箱格式不对";
+			return error;
+		}
+		return null;
+	}
 
 	@Override
 	public List<Indent> getAllIndent(int customerID) {
-		List<Indent> indents=indentmapper.findBycustomerID(customerID);//即使查询结果为空，也不会抛出异常，只有基本类型会抛出异常
+		List<Indent> indents = indentmapper.findBycustomerID(customerID);// 即使查询结果为空，也不会抛出异常，只有基本类型会抛出异常
 		return indents;
 	}
-	
+
 	@Override
-	public String changeName(int customerID,String customerName) {
-		String result="";
-    	Pattern p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
-    	Matcher m=p.matcher(customerName);
-    	if(m.matches()==false) {
-    		result+="名字字数必须在5到20之间且不有特殊符号";
-    		return result;
-    	}
-    	try{
-    		customermapper.IsCustomerNameExist(customerName);
-    		result+="用户重名";
-    		return result;
-    	}catch (Exception e) {
-    		int sum=customermapper.updatecustomerNameBycustomerID(customerID, customerName);
-        	if(sum!=0) return result;
-        	else {
-        		result+="更新失败";
-        		return result;
-        	}
+	public String changeName(int customerID, String customerName) {
+		String result = "";
+		Pattern p = Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{5,20}$");
+		Matcher m = p.matcher(customerName);
+		if (m.matches() == false) {
+			result += "名字字数必须在5到20之间且不有特殊符号";
+			return result;
+		}
+		try {
+			customermapper.IsCustomerNameExist(customerName);
+			result += "用户重名";
+			return result;
+		} catch (Exception e) {
+			int sum = customermapper.updatecustomerNameBycustomerID(customerID, customerName);
+			if (sum != 0)
+				return result;
+			else {
+				result += "更新失败";
+				return result;
+			}
 		}
 	}
 
 	@Override
 	public String changePassword(int customerID, String oldPassword, String newPassword, String rePassword) {
-		String result="";
-		Customer customer=customermapper.findBycustomerID(customerID);
-		if(!oldPassword.equals(customer.getCustomerPwd())){
-			result+="密码错误";
+		String result = "";
+		Customer customer = customermapper.findBycustomerID(customerID);
+		if (!oldPassword.equals(customer.getCustomerPwd())) {
+			result += "密码错误";
 			return result;
 		}
-		Pattern p=Pattern.compile("^[A-Za-z0-9]{6,20}$");
-    	Matcher m=p.matcher(newPassword);
-    	if(m.matches()==false){
-    		result+="密码字数必须在6到20之间";
-    		return result;
-    	}
-    	if(!newPassword.equals(rePassword)){
-    		result+="两次密码不一致";
-    		return result;
-    	}
-    	int sum=customermapper.updatecustomerPasswordBycustomerID(customerID, newPassword);
-    	if(sum==0) result+="更新失败";
+		Pattern p = Pattern.compile("^[A-Za-z0-9]{6,20}$");
+		Matcher m = p.matcher(newPassword);
+		if (m.matches() == false) {
+			result += "密码字数必须在6到20之间";
+			return result;
+		}
+		if (!newPassword.equals(rePassword)) {
+			result += "两次密码不一致";
+			return result;
+		}
+		int sum = customermapper.updatecustomerPasswordBycustomerID(customerID, newPassword);
+		if (sum == 0)
+			result += "更新失败";
 		return result;
 	}
-   /*当addressID=-1时，用户使用地址添加功能，不为-1时，用户在修改地址*/
+
+	/* 当addressID=-1时，用户使用地址添加功能，不为-1时，用户在修改地址 */
 	@Override
 	public String addressService(Address address) {
-		String result="";
-		if(address.getAddressDetail()=="") {
-			result+="地址不能为空";
+		String result = "";
+		if (address.getAddressDetail() == "") {
+			result += "地址不能为空";
 			return result;
 		}
-		Pattern p=Pattern.compile("^[0-9]{6}$");
-    	Matcher m=p.matcher(address.getAddressPostcode());
-    	if(m.matches()==false) {
-    		result+="邮政编码格式不对";
-    		return result;
-    	}
-		p=Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$");
-    	m=p.matcher(address.getAddressName());
-    	if(m.matches()==false) {
-    		result+="名字字数必须在2到8之间且不有特殊符号";
-    		return result;
-    	}
-    	p=Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
-    	m=p.matcher(address.getAddressPhone());
-    	if(m.matches()==false){
-    		result+="手机号格式不对";
-    		return result;
-    	}
-    	if(address.getAddressID()==-1){
-    		int sum=addressmapper.insert(address);
-    		if(sum==0){
-    			result+="插入失败";
-    		}
-    	}
-    	else {
-    		int sum =indentmapper.isIndentexitByaddressID(address.getAddressID());
-    		if(sum!=0){
-    			result+="该地址已被下单，不能更改";
-    			return result;
-    		}
-    		sum=addressmapper.update(address);
-    		if(sum==0){
-    			result+="更新失败";
-    		}
-    	}
+		Pattern p = Pattern.compile("^[0-9]{6}$");
+		Matcher m = p.matcher(address.getAddressPostcode());
+		if (m.matches() == false) {
+			result += "邮政编码格式不对";
+			return result;
+		}
+		p = Pattern.compile("^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$");
+		m = p.matcher(address.getAddressName());
+		if (m.matches() == false) {
+			result += "名字字数必须在2到8之间且不有特殊符号";
+			return result;
+		}
+		p = Pattern.compile("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$");
+		m = p.matcher(address.getAddressPhone());
+		if (m.matches() == false) {
+			result += "手机号格式不对";
+			return result;
+		}
+		if (address.getAddressID() == -1) {
+			int sum = addressmapper.insert(address);
+			if (sum == 0) {
+				result += "插入失败";
+			}
+		} else {
+			int sum = indentmapper.isIndentexitByaddressID(address.getAddressID());
+			if (sum != 0) {
+				result += "该地址已被下单，不能更改";
+				return result;
+			}
+			sum = addressmapper.update(address);
+			if (sum == 0) {
+				result += "更新失败";
+			}
+		}
 		return result;
 	}
 
 	@Override
 	public String deleteAddress(int customerID, int addressID) {
-		String result="";
-		int sum =indentmapper.isIndentexitByaddressID(addressID);
-		if(sum!=0){
-			result+="该地址已被下单，不能删除";
+		String result = "";
+		int sum = indentmapper.isIndentexitByaddressID(addressID);
+		if (sum != 0) {
+			result += "该地址已被下单，不能删除";
 			return result;
 		}
-		sum=addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
-		if(sum==0){
-			result+="删除失败";
+		sum = addressmapper.deleteBycustomerIDAndaddressID(customerID, addressID);
+		if (sum == 0) {
+			result += "删除失败";
 		}
-		
+
 		return result;
 	}
 
 	@Override
 	public String deleteIndent(int indentID) {
-		String result="";
-		int state=indentmapper.findindentStateByindentID(indentID);
-		if(state<=2){
-			result+="该订单尚未完成，不能删除";
-		}
-		else {
-			int expressCode=indentmapper.findexpressCodeByindentID(indentID);
-			int sum =indentmapper.deleteByindentID(indentID);//做成事务好点
-			if(sum==0){
-				result+="删除失败";
+		String result = "";
+		int state = indentmapper.findindentStateByindentID(indentID);
+		if (state <= 2) {
+			result += "该订单尚未完成，不能删除";
+		} else {
+			int expressCode = indentmapper.findexpressCodeByindentID(indentID);
+			int sum = indentmapper.deleteByindentID(indentID);// 做成事务好点
+			if (sum == 0) {
+				result += "删除失败";
 				return result;
 			}
 			indentdetailmapper.deleteByindentID(indentID);
@@ -247,16 +261,18 @@ public class UserserviceImpl implements Userservice{
 	}
 
 	@Override
-	public String auction(Customer customer) {//事务
-		String result="";
-		Cart cart =customer.getCart();
-		List<CartDetail> cartdetailList=cart.getCartDetailList();
-		if(!cartdetailList.isEmpty()){
-			Indent indent=new Indent(0, customer.getCustomerID(), cart.getTotalPrice(), new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
+	public String auction(Customer customer) {// 事务
+		String result = "";
+		Cart cart = customer.getCart();
+		List<CartDetail> cartdetailList = cart.getCartDetailList();
+		if (!cartdetailList.isEmpty()) {
+			Indent indent = new Indent(0, customer.getCustomerID(), cart.getTotalPrice(),
+					new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
 			indentmapper.insert(indent);
-			for(CartDetail cartDetail:cartdetailList){
+			for (CartDetail cartDetail : cartdetailList) {
 				cartdetailmapper.delete(cartDetail);
-				IndentDetail indentDetail=new IndentDetail(indent.getIndentID(), cartDetail.getGood(), cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
+				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
+						cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
 				indentdetailmapper.insert(indentDetail);
 			}
 			cartdetailList.clear();
@@ -273,26 +289,40 @@ public class UserserviceImpl implements Userservice{
 	}
 
 	@Override
-	public String purchase(int goodsID,String goodsSpecify,int goodsCount,Customer customer) {
-		String result="";
-		Goods good=goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
-		Indent indent=new Indent(0, customer.getCustomerID(), good.getGoodsPrice()*goodsCount, new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
+	public String purchase(int goodsID, String goodsSpecify, int goodsCount, Customer customer) {
+		String result = "";
+		Goods good = goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
+		Indent indent = new Indent(0, customer.getCustomerID(), good.getGoodsPrice() * goodsCount,
+				new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
 		indentmapper.insert(indent);
-		IndentDetail indentDetail=new IndentDetail(indent.getIndentID(), good, goodsCount, indent.getTotalPrice());
+		IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), good, goodsCount, indent.getTotalPrice());
 		indentdetailmapper.insert(indentDetail);
 		return result;
 	}
 
 	@Override
-	public String comment(Evaluate evaluate,String path) {
-		String result="";
-		List<MultipartFile> multipartFile=evaluate.getImages();
-		for(MultipartFile file:multipartFile){
-			
-			String pathname="";
-			File f=new File(pathname);
+	public String comment(Evaluate evaluate, String path) {
+		String result = "";
+		evaluate.setEvaluateDate(new Timestamp(System.currentTimeMillis()));
+		int sum=evaluatemapper.insert(evaluate);
+		if(sum==0){
+			result="评论失败";
+			return result;
+		}
+		List<MultipartFile> multipartFile = evaluate.getImages();
+		for (MultipartFile file : multipartFile) {
+			String pathname = path + "\\customer\\" + file.getOriginalFilename();
+			File f = new File(pathname);
+			try {
+				file.transferTo(f);
+				Picture picture = new Picture(-2, 0, pathname);
+				picturemapper.insert(picture);
+				EvaluatePicture evaluatePicture=new EvaluatePicture(evaluate.getEvaluateID(), picture);
+				evaluatepicturemapper.insert(evaluatePicture);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
-
 }

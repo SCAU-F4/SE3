@@ -18,8 +18,7 @@
 			fetchType="lazy" select="Mapper.PictureMapper.findBypictureID" />
 
 		<collection property="goodsList" fetchType="lazy"
-			select="Mapper.GoodsMapper.findGoodsBygoodsSecondaryTypeID"
-			column="{goodsSecondaryTypeID=goodsSecondaryTypeID}">
+			select="Mapper.GoodsMapper.findGoodsBygoodsSecondaryTypeID" column="{goodsSecondaryTypeID=goodsSecondaryTypeID}">
 		</collection>
 	</resultMap>
 
