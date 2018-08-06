@@ -524,5 +524,13 @@
 			}
 		});
 	</script>
+	<script type="text/javascript">
+    if(window.name != "bencalie"){
+         location.reload();
+         window.name = "bencalie";
+     }else{
+         window.name = "";
+      }
+</script>
 </body>
 </html>

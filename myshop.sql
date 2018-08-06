@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-05 00:09:17
+Date: 2018-08-06 15:54:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -440,7 +440,7 @@ CREATE TABLE `picture` (
   `goodsID` int(5) NOT NULL,
   `pictureID` int(5) NOT NULL AUTO_INCREMENT,
   `picturePath` varchar(100) NOT NULL,
-  PRIMARY KEY (`pictureID`,`goodsID`) USING BTREE
+  PRIMARY KEY (`pictureID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=501 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------

@@ -28,22 +28,25 @@
 	</select>
 
 	<select id="findEvaluateByGoodsIDAndgoodsSpecify" resultMap="evaluateMap1">
-		select * 
-		from Evaluate 
+		select *
+		from Evaluate
 		where goodsID = #{goodsID} and goodsSpecify=#{goodsSpecify}
-		order by evaluateDate
+		order by
+		evaluateDate
 	</select>
 
 
-	<insert id="insert">
-		insert into Evaluate values(#{evaluateID},
+	<insert id="insert" keyProperty="evaluateID" useGeneratedKeys="true">
+		insert into
+		Evaluate(customerID,goodsID,evaluateDate,evaluateGrade,evaluateContent,goodsSpecify)
+		values(
 		#{customerID}, #{goodsID},
 		#{evaluateDate}, #{evaluateGrade},
-		#{evaluateContent})
+		#{evaluateContent},#{goodsSpecify})
 	</insert>
 	<update id="updateByevaluateID">
 		update Evaluate set customerID=#{customerID},
-		goodsID=#{goodsID},evaluateDate=#{evaluateDate},evaluateGrade=#{evaluateGrade},evaluateContent=#{evaluateContent}
+		goodsID=#{goodsID},evaluateDate=#{evaluateDate},evaluateGrade=#{evaluateGrade},evaluateContent=#{evaluateContent},goodsSpecify=#{goodsSpecify}
 		where evaluateID=#{evaluateID}
 	</update>
 	<delete id="deleteByevaluateID">

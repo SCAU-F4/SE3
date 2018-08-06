@@ -115,12 +115,12 @@ $(document).ready(function () {
 				if(res.result=="")
 					{
 					$deleteIndent.parents(".panel").remove();
-					 	$(".tip").find("h4").text("删除成功");
+					 	$(".tip").find("h4").text("删除成功").css({"fontSize":"23px","lineHeight":"60px"});
 						$(".tip").fadeIn();
 						$(".tip").delay(1500).fadeOut();
 					}
 				else{
-					$(".tip").find("h4").text(res.result);
+					$(".tip").find("h4").text(res.result).css({"fontSize":"23px","lineHeight":"60px"});
 					$(".tip").fadeIn();
 					$(".tip").delay(1500).fadeOut();
 				}
@@ -284,24 +284,25 @@ $(document).ready(function () {
     	console.log($target);
     	$target.attr("data-state",dataState);
     	if(jspState==0){
-    		$target.text("待付款");
+    		$target.parents(".panel").find(".Order-state").text("待付款");
     		$target.parent().find("button").text("去付款");
     	}
     	if(jspState==1){
-    		$target.text("待发货");	
+    		$target.parents(".panel").find(".Order-state").text("待发货");	
     		$target.parent().find("button").remove();
     	}
     	if(jspState==2){
-    		$target.text("已发货");
-    		$target.parent().find("button").remove();
+    		$target.parents(".panel").find(".Order-state").text("已发货");
+    		$target.parent().find("button").text("确认收货");
     	}
     	if(jspState==3){
-    		$target.text("待评价");	
-    		$target.parent().find("button").text("去评价");
+    		$target.parents(".panel").find(".Order-state").text("待评价");	
+    		$target.parents(".panel").find(".state-button button").show();
+    		$target.parent().find("button").remove();
     	}
     	if(jspState==4){
-    		$target.text("交易成功");	
-    		$target.parent().find("button").remove();
+    		$target.parents(".panel").find(".Order-state").text("交易成功");	
+    		$target.parent().find("button").remove(); 
     	}
     })
     
