@@ -20,6 +20,21 @@ body .tip{
 	line-height:160px;
 	text-align: center;
 }
+.nullCart{
+	 background: #e1e1e1 url("../img/icon/nullCart.png") no-repeat center center;
+	-webkit-background-size: 80%;
+    background-size: 80%;
+      background-position: 30px 30px;
+}
+ .cart-tip{
+	width:130px;
+	line-height:30px;
+	text-align:center;
+	position:absolute;
+	left:50%;
+	bottom:60px;
+	margin-left:-65px;
+} 
 /****************************************婵犮垼鍩栭幐鎶藉磿閿燂拷*************************************/
 #SE3_header{
 

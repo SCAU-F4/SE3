@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +41,8 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
-													<div class="shopping-cart">
+
+						<div class="shopping-cart">
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
@@ -63,7 +65,7 @@
 											<span class="glyphicon glyphicon-plus"></span>
 										</div>
 										<div class="cart-price text-danger">
-											<input type="hidden" value="${cartList.good.goodsPrice}">
+																					<input type="hidden" value="${cartList.good.goodsPrice}">
 											￥ <span class="indentMoney">${cartList.totalPrice}</span>
 										</div>
 										<div class="close">
@@ -89,6 +91,7 @@
 							</div>
 						
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -100,7 +103,7 @@
 					<img src="${pageContext.request.contextPath }/img/icon/logo.png"
 						alt="logo">
 				</div>
-			  <div id="serech_input">
+				<div id="serech_input">
 					<input type="text" placeholder="雅迪电动车只要999"> 
 					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
@@ -243,18 +246,26 @@
 			</div>
 		</div>
 	</header>
-
+	
 	<section class="SE3_buy">
 		<div class="address">
 			<div class="buy_head">
 				<span>收货信息</span>
 			</div>
 			<div class="change">
+				
+            	<div class="first_detail">
+                	<div>
+                    	<span class="change_btn">选择地址</span>
+                    	<span class="new_btn">新建地址</span>
+                	</div>
+            	</div>
 				<div class="address_detail">
 					<div class="left">
 						<div class="modify">
 							<span>修改地址</span>
 						</div>
+						<input type="hidden" class="addressID" value=""/>
 						<div class="text">
 							<span>收 货 人 :</span> <span class="name_text">黄帅哥</span>
 						</div>
@@ -265,7 +276,7 @@
 							<span>邮 编 : </span> <span class="mail_text">523000</span>
 						</div>
 						<div class="text">
-							<span>收货地址 :</span> <span class="address_text">广东省广州市天河区华南农业大学华山学生公寓15栋</span>
+							<span>收货地址 :</span> <span class="address_text">广东省广州市天河区华南农业大学</span>
 						</div>
 					</div>
 					<div class="right">
@@ -286,6 +297,7 @@
 									class="glyphicon glyphicon-remove"></i>
 							</div>
 						</div>
+						<input type="hidden" class="addressID" value=""/>
 						<div>
 							<div class="phone_div">
 								<span>手机号码:</span> <input class="short_input phone_text"
@@ -323,6 +335,7 @@
 									class="glyphicon glyphicon-remove"></i>
 							</div>
 						</div>
+						<input type="hidden" class="addressID" value=""/>
 						<div>
 							<div class="phone_div">
 								<span>手机号码:</span> <input class="short_input phone_text"
@@ -353,55 +366,27 @@
 				</div>
 				<div class="change_address">
 					<div class="left">
-						<div class="choose active">
-							<div class="text">
-								<span>收 货 人 :</span> <span class="choose_name_text">黄帅哥</span>
-							</div>
-							<div class="second">
+						<c:forEach items="${currentCustomer.addressList}" var="address" varStatus="status">
+							<div class="choose">
 								<div class="text">
-									<span>联系方式 : </span> <span class="choose_phone_text">15692021111</span>
+									<span>收 货 人 :</span> <span class="choose_name_text">${address.addressName }</span>
+								</div>
+								<input type="hidden" class="addressID" value="${address.addressID }"/>
+								<div class="second">
+									<div class="text">
+										<span>联系方式 : </span> <span class="choose_phone_text">${address.addressPhone }</span>
+									</div>
+									<div class="text">
+										<span class="mail_text">邮 编 : </span> 
+										<span class="choose_mail_text">${address.addressPostcode }</span>
+									</div>
 								</div>
 								<div class="text">
-									<span>邮 编 : </span> <span class="choose_mail_text">523111</span>
+									<span>收货地址 :</span> <span class="choose_address_text">${address.addressDetail }</span>
 								</div>
 							</div>
-							<div class="text">
-								<span>收货地址 :</span> <span class="choose_address_text">广东省广州市天河区华南农业大学111栋</span>
-							</div>
-						</div>
-						<div class="choose">
-							<div class="text">
-								<span>收 货 人 :</span> <span class="choose_name_text">黄大大大帅哥</span>
-							</div>
-							<div class="second">
-								<div class="text">
-									<span>联系方式 : </span> <span class="choose_phone_text">15692022222</span>
-								</div>
-								<div class="text">
-									<span>邮 编 : </span> <span class="choose_mail_text">523222</span>
-								</div>
-							</div>
-							<div class="text">
-								<span>收货地址 :</span> <span class="choose_address_text">广东省广州市天河区华南农业大学222栋</span>
-							</div>
-						</div>
-						<div class="choose">
-							<div class="text">
-								<span>收 货 人 :</span> <span class="choose_name_text">黄炒鸡帅哥</span>
-							</div>
-							<div class="second">
-								<div class="text">
-									<span>联系方式 : </span> <span class="choose_phone_text">15692023333</span>
-								</div>
-								<div class="text">
-									<span class="mail_text">邮 编 : </span> <span
-										class="choose_mail_text">523333</span>
-								</div>
-							</div>
-							<div class="text">
-								<span>收货地址 :</span> <span class="choose_address_text">广东省广州市天河区华南农业大学333栋</span>
-							</div>
-						</div>
+						</c:forEach>
+					
 					</div>
 					<div class="right">
 						<div>
@@ -414,7 +399,7 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<div class="goods">
 			<div class="detail">
 				<div></div>
@@ -496,7 +481,7 @@
 		</div>
 
 	</section>
-
+ 
 	<section class="SE3_tail">
 		<div class="serve">
 			<div class="col-md-4 detail_serve">
@@ -513,7 +498,7 @@
 			</div>
 		</div>
 	</section>
-
+ 
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
@@ -521,7 +506,32 @@
 		src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 	<script src="${pageContext.request.contextPath }/js/buy.js"></script>
-	<script src="${pageContext.request.contextPath }/js/detail.js"></script>
-
+	<script src="${pageContext.request.contextPath }/js/index.js"></script>
+	<script>
+		$(document).ready(function() {
+			var customer = "${currentCustomer.customerName}";
+			if (customer == "") {
+				$("#myCenter").hide();
+				$("#signout").hide();
+				$("#signin").show();
+				$("#signup").show();
+				$(".shopping-cart").hide();
+			} else {
+				$("#myCenter").show();
+				$("#signout").show();
+				$("#signin").hide();
+				$("#signup").hide();
+				$(".shopping-cart").show();
+			}
+		});
+	</script>
+	<script type="text/javascript">
+    	if(window.name != "bencalie"){
+        	location.reload();
+         	window.name = "bencalie";
+     	}else{
+         	window.name = "";
+      	}
+	</script>
 </body>
 </html>
