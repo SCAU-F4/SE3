@@ -36,7 +36,7 @@ public class Usercontroller {
 	}
 
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
-	public String signin(Customer customer, Model model, HttpSession session) {
+	public String signin(Customer customer,String referrer, Model model, HttpSession session) {
 		String result = "";
 		customer = userservice.signincheck(customer);
 		if (customer == null) {
@@ -46,7 +46,10 @@ public class Usercontroller {
 		} else {
 			session.setAttribute("currentCustomer", customer);
 		}
-		return "redirect:/";
+		String substr="http://localhost:8080/SE3-F4";
+		referrer=referrer.replaceFirst(substr, "");
+		System.out.println(referrer);
+		return "forward:"+referrer;
 	}
 
 	@RequestMapping(value = "signup", method = RequestMethod.GET)
