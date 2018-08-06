@@ -115,7 +115,7 @@ body .tip{
 #SE3_header .navbar .container-fluid .collapse>ul>li>a{
     text-align: center;
 }
-#SE3_header .navbar .container-fluid .collapse ul li.active a,#SE3_header .navbar .container-fluid .collapse ul li:hover>a{
+#SE3_header .navbar .container-fluid .collapse ul li.active>a,#SE3_header .navbar .container-fluid .collapse ul li:hover>a{
     color: #d0c4af;
     background-color: #fff;
     border-bottom: 3px #d0c4af solid ;

@@ -42,7 +42,7 @@ $(document).ready(function () {
 				$(".tip h4").text("请先登陆");
 				$(".tip").fadeIn();
 				$(".tip").delay(1500).fadeOut().delay(300,function(){
-				$(location).attr('href', '${pageContext.request.contextPath }/user/signin');
+				$(location).attr('href', '/SE3-F4/user/signin');
 				}); 
 			}
 			else{

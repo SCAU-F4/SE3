@@ -22,7 +22,8 @@
     background: #fff;
     position: absolute;
     top:50px;
-    left: 18%;
+    left: 50%;
+    margin-left:-500px;
    
 }
 .SE3_classify .box .classify-top>div{

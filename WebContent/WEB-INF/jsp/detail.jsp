@@ -242,6 +242,7 @@
 			</div>
 		</div>
 	</header>
+<%-- 	<input type="hidden" value="${cartList.good.goodsPrice}"> --%>
 	<div class="whichone" style="display:none;">${currentCustomer.customerName}</div>
 	<div class="goodid" style="display:none;">${goods[0].goodsID}</div>
 	<div class="whichpic" style="display:none;">${goods[0].pictureList[0].picturePath}</div>

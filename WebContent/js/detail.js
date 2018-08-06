@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 	$(".SE3_product .list ul li:first-child").addClass("active");
-	
+
     $(".SE3_product .list ul").on("mouseenter","li",function () {
         $(this).addClass("active").siblings("li").removeClass("active");
         $(this).addClass("active").siblings("li").removeClass("active");
