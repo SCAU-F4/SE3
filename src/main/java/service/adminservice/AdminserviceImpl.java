@@ -10,6 +10,8 @@ import Mapper.GoodsSecondaryTypeMapper;
 import Mapper.IndentMapper;
 import Mapper.ManagerMapper;
 import bean.Goods;
+import bean.GoodsMainType;
+import bean.GoodsSecondaryType;
 import bean.Indent;
 import bean.Manager;
 
@@ -93,27 +95,55 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		Goods mygood = goodsMapper.findBygoodsIDAndgoodsSpecify(goods.getGoodsID(), goods.getGoodsSpecify());
 		if (mygood != null)
-			return "商品已经存在";
-		int i = goodsMapper.insert(goods);
-		if (i > 0)
-			return "插入商品成功";
-		return "插入失败";
+			return "商品已经存在,无法插入";
+		GoodsSecondaryType gddGoodsSecondaryType = goodsSecondaryTypeMapper
+				.findBygoodsSecondaryTypeID(goods.getGoodsSecondaryTypeID());
+		GoodsMainType gddMainType = goodsMainTypeMapper.findByGoodsMainTypeID(goods.getGoodsMainTypeID());
+		if (gddGoodsSecondaryType == null)
+			return "没有这个商品次分类，插入失败";
+		else if (gddMainType == null)
+			return "没有这个商品主分类，插入失败";
+		else {
+			int i = goodsMapper.insert(goods);
+			if (i > 0)
+				return "ok";
+			return "数据库插入失败";
+		}
 	}
 
 	@Override
 	public String DeleteGood(Goods goods) {
 		// TODO Auto-generated method stub
-		return null;
+		int i = goodsMapper.delete(goods);
+		if (i > 0)
+			return "ok";
+		return "fail";
 	}
 
 	@Override
 	public String UpdatGood(Goods goods) {
 		// TODO Auto-generated method stub
-		return null;
+		Goods mygoods = goodsMapper.findBygoodsIDAndgoodsSpecify(goods.getGoodsID(), goods.getGoodsSpecify());
+		if (mygoods == null)
+			return "商品不存在，无法update";
+		GoodsSecondaryType gddGoodsSecondaryType = goodsSecondaryTypeMapper
+				.findBygoodsSecondaryTypeID(goods.getGoodsSecondaryTypeID());
+		GoodsMainType gddMainType = goodsMainTypeMapper.findByGoodsMainTypeID(goods.getGoodsMainTypeID());
+		if (gddGoodsSecondaryType == null)
+			return "没有这个商品次分类，更新失败";
+		else if (gddMainType == null)
+			return "没有这个商品主分类，更新失败";
+		else {
+			int i = goodsMapper.update(goods);
+			if (i > 0)
+				return "ok";
+			return "数据库更新失败";
+		}
 	}
 
 	@Override
-	public String ChangeisSellGood(Goods goods, int yesno) {
+	public String ChangeisSellGood(Goods goods, int yesno) //下架
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
