@@ -244,21 +244,21 @@
 					<div class="classify">
 						<ul class="classify-list">
 							<li class="Title">分类：</li>
-							<li>全部</li>
+						
 							<c:forEach items="${category.goodssecondarytypelist}"
 								var="subcategory" varStatus="status">
-								<li>${subcategory.goodsSecondaryType}</li>
+								<li class="itemType">${subcategory.goodsSecondaryType}</li>
 							</c:forEach>
 						</ul>
 					</div>
-					<div class="sort">
+					<!-- <div class="sort">
 						<ul class="sort-list">
 							<li class="Title">排序：</li>
 							<li>默认</li>
 							<li>价格</li>
 							<li>上架时间</li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
 				<c:forEach items="${category.goodssecondarytypelist}"
 					var="subcategory" varStatus="status">
@@ -377,8 +377,46 @@
 							$(".SE3_classify").height(str);
 							$(".box").height(str2);
 							$(".SE3_tail").show();
+							
+					var which=manyValues();
+						if(which!=-1){
+						if((parseInt(which)%4)!=0){
+						console.log(parseInt(which)%4);
+							var offset=$(".classify-items:eq("+parseInt((parseInt(which)%4)-1)+")").offset();
+							console.log(offset.top);
+							$("html,body").animate({scrollTop:offset.top-"170"+"px"},500);
+							}
+						else{
+							var offset=$(".classify-items:eq(3)").offset();
+							console.log(offset.top);
+							$("html,body").animate({scrollTop:offset.top-"170"+"px"},500);
+						}
+						}
+
+				$(".classify-list .itemType").click(function(){
+						console.log($(this).index());
+						var offset=$(".classify-items:eq("+parseInt(parseInt($(this).index())-1)+")").offset();
+							console.log(offset.top);
+							$("html,body").animate({scrollTop:offset.top-"170"+"px"},500);
+				});
 
 						});
+						function manyValues(){
+						var url=window.location.search;
+						if(url.indexOf("?")!=-1){
+						var str = url.substr(1);
+   						strs = str.split("&"); 
+   						var key=new Array(strs.length);
+   						var value=new Array(strs.length);
+   						for(i=0;i<strs.length;i++){
+    					key[i]=strs[i].split("=")[0]
+    					value[i]=unescape(strs[i].split("=")[1]); 
+    					console.log(key[i]+"="+value[i]);
+  						} 
+  						console.log(value[1]);
+  						return value[1];
+			} 
+}
 	</script>
 </body>
 </html>
