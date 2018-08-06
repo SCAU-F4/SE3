@@ -1,6 +1,7 @@
 
 //  鼠标悬浮导航栏
 $(document).ready(function () {
+	ishasCartItem($(".cart-top-area .cart-item").length);
     var flag=0;
     var $down=$(".downmenu");
     $down.mouseenter(function () {
@@ -82,7 +83,7 @@ $(document).ready(function () {
   									 "\talt=\"\" height=\"50\">" +
    "</div>" +
    "<div class=\"cart-name\">" +
-   "<a href=\"${pageContext.request.contextPath }/products/detail/"+goodID+"\" title=\""+goodName+"\">"+goodName+"</a>" +
+   "<a href=\"/SE3-F4/products/detail/"+goodID+"\" title=\""+goodName+"\">"+goodName+"</a>" +
    "</div>" +
    "<div class=\"cart-introduce text-muted\">"+goodSpecify+"</div>" +
    "<div class=\"cart-number\">" +
@@ -122,7 +123,7 @@ $(document).ready(function () {
    "\talt=\"\" height=\"50\">" +
    "</div>" +
    "<div class=\"cart-name\">" +
-   "<a href=\"${pageContext.request.contextPath }/products/detail/"+goodID+"\" title=\""+goodName+"\">"+goodName+"</a>" +
+   "<a href=\"/SE3-F4/products/detail/"+goodID+"\" title=\""+goodName+"\">"+goodName+"</a>" +
    "</div>" +
    "<div class=\"cart-introduce text-muted\">"+goodSpecify+"</div>" +
    "<div class=\"cart-number\">" +
@@ -166,6 +167,7 @@ $(document).ready(function () {
 									}
 									
 									updatetotalPrice();
+									ishasCartItem($(".cart-top-area .cart-item").length);
 									}
 									else{
 										alert(res.result);
@@ -216,6 +218,7 @@ $(document).ready(function () {
 							  $price.find("span.indentMoney").text(newTotal);
 							  
 							  updatetotalPrice();
+							  ishasCartItem($(".cart-top-area .cart-item").length);
 						}
 						else{
 							alert(res.result);
@@ -301,6 +304,8 @@ $(document).ready(function () {
 						if(res.result==""){
 							$item.remove();
 					    	updatetotalPrice();
+					    	
+					    	ishasCartItem($(".cart-top-area .cart-item").length);
 						}
 						else{
 							alert(res.result);
@@ -333,6 +338,20 @@ function check(a){
 	  			  return true;
 	  }
 	}
+
+function ishasCartItem(a){
+	if(a==0){
+		$(".cart-bottom-area").hide();
+		$(".cart-show-area").addClass("nullCart");
+		var str="<span class=\"cart-tip text-muted\">目前购物车为空呢~快去添加商品吧</span>"
+		$(".cart-show-area").append(str);
+	}
+	else{
+		$(".cart-bottom-area").show();
+		$(".cart-show-area").removeClass("nullCart");
+		$(".cart-tip").remove();
+	}
+}
 
 function updatetotalPrice(){
 	var total=0;
