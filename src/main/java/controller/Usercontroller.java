@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.print.Printable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -205,6 +206,7 @@ public class Usercontroller {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		Indent indent=userservice.auction(customer);
 		model.addAttribute("indent", indent);
+		System.out.println(indent);
 		return "auction";
 	}
 	
