@@ -449,6 +449,7 @@
     <input type="hidden"  id="goodsSpecify" name="goodsSpecify"/>
     <div class="Evaluate-main"><span class="title">评论区</span><textarea placeholder="请输入你的评价" id="evaluateContent" name="evaluateContent" style="resize:none"></textarea></div>
     <button type="submit" class="layui-btn layui-btn-radius layui-btn-primary addcomment">提交评论</button>
+   	<button type="reset" style="display:none;" id="resetForm">重置</button>
     </form>
 </div>
 <div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
@@ -487,13 +488,18 @@
 					url:"${pageContext.request.contextPath }/user/comment",
 					success:function(res){
 						alert(res.result);
-						$(".Evaluate-area i.layui-icon-close").click();
-						$(".tip").find("h4").text("评论成功").css({"fontSize":"23px","lineHeight":"60px"});
-					$(".tip").fadeIn();
-					$(".tip").delay(1500).fadeOut();
 					}
 				};
 				 $("#mainform").ajaxForm(options);
+				 $(".star").empty();
+				 reIns(0);
+				 $(".text").empty();
+					$("#resetForm").click();
+					$(".Evaluate-area i.layui-icon-close").click();
+					$(".tip").find("h4").text("评论成功");
+					$(".tip").fadeIn();
+					$(".tip").delay(1500).fadeOut();
+					
 			}); 
 			
 		/* 	var ajax_option={
@@ -556,14 +562,15 @@
 
 </script>
 <script>
-reIns();
-function reIns(){
+reIns(0);
+function reIns(insvalue){
     layui.use('rate', function(){
         var rate = layui.rate;
 
         //渲染
         var ins1 = rate.render({
             elem: '.star'  //绑定元素
+            ,value:insvalue
             ,choose: function(value){
                 $("#evaluateGrade").val(value);
                 if(value == 5) {
