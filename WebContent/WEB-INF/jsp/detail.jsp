@@ -610,14 +610,14 @@
 	
 	
 	</script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     if(window.name != "bencalie"){
          location.reload();
          window.name = "bencalie";
      }else{
          window.name = "";
       }
-</script>
+</script> -->
 	<script src="${pageContext.request.contextPath }/js/detail.js"></script>
 			<script src="${pageContext.request.contextPath }/js/index.js"></script>
 </body>

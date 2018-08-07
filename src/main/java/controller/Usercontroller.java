@@ -191,13 +191,13 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value ="comment")
-	public String comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
+	public void comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
 		String result=userservice.comment(evaluate,servletRequest.getServletContext().getRealPath("/img"));
-		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
-		else {
-			model.addAttribute("result",result);
-			return "mycenter";
-		}
+//		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
+//		else {
+//			model.addAttribute("result",result);
+//			return "mycenter";
+//		}
 	}
 
 	@RequestMapping(value = "auction")

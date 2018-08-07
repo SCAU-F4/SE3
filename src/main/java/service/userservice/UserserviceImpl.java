@@ -283,6 +283,7 @@ public class UserserviceImpl implements Userservice {
 			cart.setTotalPrice(0);
 			indent.setIndentDetaillist(indentDetails); 
 		}
+		System.out.println("-------------------------------");
 		return indent;
 	}
 
