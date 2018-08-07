@@ -15,8 +15,8 @@ public class test1 {
 	public static void main(String[] args) throws IOException {
 		
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
-		System.out.println(goodsMapper.getsellCountByMainTypeID(2));
+		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
+		System.out.println(customerMapper.getHighestCustomer());
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 //		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);

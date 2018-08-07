@@ -212,6 +212,7 @@ $(document).ready(function () {
         }
     });
 
+
     $(".name_text").blur(function () {
         var re = /^[\u4E00-\u9FA5A-Za-z0-9_]{2,8}$/;
         var value = $(this).val();

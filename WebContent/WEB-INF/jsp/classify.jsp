@@ -43,33 +43,37 @@
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
+									<c:forEach items="${currentCustomer.cart.cartDetailList}"
+										var="cartList" varStatus="status">
+										<input type="hidden" value="${cartList.good.goodsID}"
+											class="cartGoodsID" />
 										<div class="cart-item">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
-										<div class="cart-img">
-											<img
-												src="${cartList.good.pictureList[0].picturePath}"
-												alt="" height="50">
-										</div>
-										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
-										</div>
-										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
+											<input type="hidden" value="${cartList.good.goodsID}"
+												class="cartGoodsID" />
+											<div class="cart-img">
+												<img src="${cartList.good.pictureList[0].picturePath}"
+													alt="" height="50">
+											</div>
+											<div class="cart-name">
+												<a
+													href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}"
+													title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
+											</div>
+											<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 											<div class="cart-number">
-										   <span class="glyphicon glyphicon-minus"></span>  
-											x <span class="indentNumber">${cartList.goodsCount}</span>
-											<span class="glyphicon glyphicon-plus"></span>
+												<span class="glyphicon glyphicon-minus"></span> x <span
+													class="indentNumber">${cartList.goodsCount}</span> <span
+													class="glyphicon glyphicon-plus"></span>
+											</div>
+											<div class="cart-price text-danger">
+												<input type="hidden" value="${cartList.good.goodsPrice}">
+												￥ <span class="indentMoney">${cartList.totalPrice}</span>
+											</div>
+											<div class="close">
+												<i class="layui-icon layui-icon-close"></i>
+											</div>
 										</div>
-										<div class="cart-price text-danger">
-										<input type="hidden" value="${cartList.good.goodsPrice}">
-											￥ <span class="indentMoney">${cartList.totalPrice}</span>
-										</div>
-										<div class="close">
-											<i class="layui-icon layui-icon-close"></i>
-										</div>
-									</div>
-								
+
 									</c:forEach>
 								</div>
 								<div class="cart-bottom-area">
@@ -80,13 +84,14 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
+												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
 								</div>
 
 							</div>
-						
+
 						</div>
 
 					</div>
@@ -101,8 +106,9 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> 
-					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
+					<input type="text" placeholder="雅迪电动车只要999"> <a
+						href="${pageContext.request.contextPath }/products/searchitems"
+						class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -112,7 +118,8 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="home active"><a href="${pageContext.request.contextPath }">首页<span
+								<li class="home active"><a
+									href="${pageContext.request.contextPath }">首页<span
 										class="sr-only">首页</span></a></li>
 								<li class="bag-li" data-chose="1"><a
 									href="${pageContext.request.contextPath }/products/list?categoryId=1&subcategoryId=-1">箱包配饰</a>
@@ -250,7 +257,7 @@
 					<div class="classify">
 						<ul class="classify-list">
 							<li class="Title">分类：</li>
-						
+
 							<c:forEach items="${category.goodssecondarytypelist}"
 								var="subcategory" varStatus="status">
 								<li class="itemType">${subcategory.goodsSecondaryType}</li>
@@ -290,7 +297,9 @@
 									</div>
 									<div class="introduce">
 										<div>
-											<a href="${pageContext.request.contextPath }/products/detail/${good.goodsID}"> <span>${good.goodsName }</span>
+											<a
+												href="${pageContext.request.contextPath }/products/detail/${good.goodsID}">
+												<span>${good.goodsName }</span>
 											</a>
 										</div>
 										<div class="pri">
@@ -336,95 +345,99 @@
 
 	<script>
 		$(document)
-				.ready(
-						function() {
-							var mainType = $(".goodsMaintype:eq(0)").val();
-							console.log(mainType);
-							$(
-									"#SE3_header .navbar .container-fluid .collapse > ul > li.active")
-									.removeClass("active");
-							$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose="+ mainType + "]:eq(0)").addClass("active");
-							var customer = "${currentCustomer.customerName}";
-							if (customer == "") {
-								$("#myCenter").hide();
-								$("#signout").hide();
-								$("#signin").show();
-								$("#signup").show();
-								$(".shopping-cart").hide();
-							} else {
-								$("#myCenter").show();
-								$("#signout").show();
-								$("#signin").hide();
-								$("#signup").hide();
-								$(".shopping-cart").show();
-							}
-
-							var $item1 = $(".classify-items:eq(0)").find(
-									".classify-item");
-
-							var $item2 = $(".classify-items:eq(1)").find(
-									".classify-item");
-
-							var $item3 = $(".classify-items:eq(2)").find(
-									".classify-item");
-
-							var $item4 = $(".classify-items:eq(3)").find(
-									".classify-item");
-
-							var item1Num = Math.ceil($item1.length / 4);
-							var item2Num = Math.ceil($item2.length / 4);
-							var item3Num = Math.ceil($item3.length / 4);
-							var item4Num = Math.ceil($item4.length / 4);
-
-							var str = item1Num * 340 + item2Num * 340
-									+ item3Num * 340 + item4Num * 340 + 1100;
-							var str2 = item1Num * 340 + item2Num * 340
-									+ item3Num * 340 + item4Num * 340 + 900;
-							console.log(str + "px");
-							$(".SE3_classify").height(str);
-							$(".box").height(str2);
-							$(".SE3_tail").show();
-							
-					var which=manyValues();
-						if(which!=-1){
-						if((parseInt(which)%4)!=0){
-						console.log(parseInt(which)%4);
-							var offset=$(".classify-items:eq("+parseInt((parseInt(which)%4)-1)+")").offset();
+			.ready(
+				function() {
+					var mainType = $(".goodsMaintype:eq(0)").val();
+					console.log(mainType);
+					$(
+						"#SE3_header .navbar .container-fluid .collapse > ul > li.active")
+						.removeClass("active");
+					$("#SE3_header .navbar .container-fluid .collapse > ul > li[data-chose=" + mainType + "]:eq(0)").addClass("active");
+					var customer = "${currentCustomer.customerName}";
+					if (customer == "") {
+						$("#myCenter").hide();
+						$("#signout").hide();
+						$("#signin").show();
+						$("#signup").show();
+						$(".shopping-cart").hide();
+					} else {
+						$("#myCenter").show();
+						$("#signout").show();
+						$("#signin").hide();
+						$("#signup").hide();
+						$(".shopping-cart").show();
+					}
+	
+					var $item1 = $(".classify-items:eq(0)").find(
+						".classify-item");
+	
+					var $item2 = $(".classify-items:eq(1)").find(
+						".classify-item");
+	
+					var $item3 = $(".classify-items:eq(2)").find(
+						".classify-item");
+	
+					var $item4 = $(".classify-items:eq(3)").find(
+						".classify-item");
+	
+					var item1Num = Math.ceil($item1.length / 4);
+					var item2Num = Math.ceil($item2.length / 4);
+					var item3Num = Math.ceil($item3.length / 4);
+					var item4Num = Math.ceil($item4.length / 4);
+	
+					var str = item1Num * 340 + item2Num * 340
+						+ item3Num * 340 + item4Num * 340 + 1100;
+					var str2 = item1Num * 340 + item2Num * 340
+						+ item3Num * 340 + item4Num * 340 + 900;
+					console.log(str + "px");
+					$(".SE3_classify").height(str);
+					$(".box").height(str2);
+					$(".SE3_tail").show();
+	
+					var which = manyValues();
+					if (which != -1) {
+						if ((parseInt(which) % 4) != 0) {
+							console.log(parseInt(which) % 4);
+							var offset = $(".classify-items:eq(" + parseInt((parseInt(which) % 4) - 1) + ")").offset();
 							console.log(offset.top);
-							$("html,body").animate({scrollTop:offset.top-"170"+"px"},500);
-							}
-						else{
-							var offset=$(".classify-items:eq(3)").offset();
+							$("html,body").animate({
+								scrollTop : offset.top - "170" + "px"
+							}, 500);
+						} else {
+							var offset = $(".classify-items:eq(3)").offset();
 							console.log(offset.top);
-							$("html,body").animate({scrollTop:offset.top-"170"+"px"},500);
+							$("html,body").animate({
+								scrollTop : offset.top - "170" + "px"
+							}, 500);
 						}
-						}
-
-				$(".classify-list .itemType").click(function(){
+					}
+	
+					$(".classify-list .itemType").click(function() {
 						console.log($(this).index());
-						var offset=$(".classify-items:eq("+parseInt(parseInt($(this).index())-1)+")").offset();
-							console.log(offset.top);
-							$("html,body").animate({scrollTop:offset.top-"170"+"px"},500);
+						var offset = $(".classify-items:eq(" + parseInt(parseInt($(this).index()) - 1) + ")").offset();
+						console.log(offset.top);
+						$("html,body").animate({
+							scrollTop : offset.top - "170" + "px"
+						}, 500);
+					});
+	
 				});
-
-						});
-						function manyValues(){
-						var url=window.location.search;
-						if(url.indexOf("?")!=-1){
-						var str = url.substr(1);
-   						strs = str.split("&"); 
-   						var key=new Array(strs.length);
-   						var value=new Array(strs.length);
-   						for(i=0;i<strs.length;i++){
-    					key[i]=strs[i].split("=")[0]
-    					value[i]=unescape(strs[i].split("=")[1]); 
-    					console.log(key[i]+"="+value[i]);
-  						} 
-  						console.log(value[1]);
-  						return value[1];
-			} 
-}
+		function manyValues() {
+			var url = window.location.search;
+			if (url.indexOf("?") != -1) {
+				var str = url.substr(1);
+				strs = str.split("&");
+				var key = new Array(strs.length);
+				var value = new Array(strs.length);
+				for (i = 0; i < strs.length; i++) {
+					key[i] = strs[i].split("=")[0]
+					value[i] = unescape(strs[i].split("=")[1]);
+					console.log(key[i] + "=" + value[i]);
+				}
+				console.log(value[1]);
+				return value[1];
+			}
+		}
 	</script>
-
 </body>
 </html>

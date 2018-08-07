@@ -81,6 +81,19 @@
        GROUP BY goodsMainTypeID
        having goodsMainTypeID=#{goodsMainTypeID}
 	</select>
+	
+	<select id="getsellCountByMainTypeIDAndSecondaryTypeID" resultType="java.lang.Integer">
+		 select sum(sellCount)
+        from goods
+       where goodsMainTypeID=#{goodsMainTypeID} and goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+	</select>
+	
+	<select id="getGoodsByMaxSellCount" resultMap="goodsMap">
+		SELECT *
+       from goods
+       where sellCount=(SELECT MAX(sellCount) from goods)
+		
+	</select>
 
 	<insert id="insert">
 		insert into Goods

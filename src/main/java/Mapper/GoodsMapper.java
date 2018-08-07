@@ -33,7 +33,13 @@ public interface GoodsMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
     int getsellCountByMainTypeID(@Param("goodsMainTypeID")int goodsMainTypeID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	int getsellCountByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
     
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	Goods getGoodsByMaxSellCount();
+	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Goods goods);
 

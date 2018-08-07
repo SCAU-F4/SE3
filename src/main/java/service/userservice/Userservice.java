@@ -16,8 +16,7 @@ public interface Userservice {
     public String addressService(Address address);
     public String deleteAddress(int customerID,int addressID);
     public String deleteIndent(int indentID);
-    public Indent auction(Customer customer);
-    public Indent purchase(int goodsID,String goodsSpecify,int goodsCount,Customer customer);
-    public boolean pay(int addressID,int indentID,Customer customer);
+    public Indent auction(int goodsID,String goodsSpecify,int goodsCount,Customer customer);
+    public boolean pay(int addressID,Indent indent,Customer customer);
     public String comment(Evaluate evaluate,String path);
 }

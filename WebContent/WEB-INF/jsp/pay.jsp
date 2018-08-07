@@ -19,6 +19,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <body>
 
 	<!--头-->
@@ -80,7 +86,7 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href= "${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
 								</div>
