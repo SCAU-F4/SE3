@@ -391,7 +391,7 @@
 									</div>
 									<div class="detail_right">
 										<div class="star"></div>
-										<input type="text" value="${evaluate.evaluateGrade }" />
+										<input type="hidden" value="${evaluate.evaluateGrade }" />
 										<div class="specify">
 											<span class="specify_name">规格：</span> <span
 												class="specify_text">${good.goodsSpecify }</span>
