@@ -210,11 +210,11 @@ public class Usercontroller {
 	}
 
 	@RequestMapping(value = "auction")
-	public String auction(HttpSession httpSession,Model model) {
+	public String auction(@RequestParam("goodsID") int goodsID,@RequestParam("goodsSpecify") String goodsSpecify ,@RequestParam("goodsCount") int goodsCount,HttpSession httpSession,Model model) {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		Indent indent=userservice.auction(customer);
-		model.addAttribute("indent", indent);
-		System.out.println(indent);
+		Indent indent=(Indent) httpSession.getAttribute("Indent");
+		indent=userservice.auction(customer);
+		if(indent!=null)  httpSession.setAttribute("indent", indent);
 		return "auction";
 	}
 	
