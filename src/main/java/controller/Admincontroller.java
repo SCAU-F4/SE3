@@ -59,7 +59,7 @@ public class Admincontroller {
 		double MeatWeight=adminservice.SecondaryTypeSaleWeight(3, 3);
 		double DrinkWeight=adminservice.SecondaryTypeSaleWeight(3, 4);
 		//////////////////////////////////////////////////////////////////////
-		double BeautifulWriting=adminservice.SecondaryTypeSaleWeight(4, 1);
+		double BeautifulWritingWeight=adminservice.SecondaryTypeSaleWeight(4, 1);
 		double OutDoorWeight=adminservice.SecondaryTypeSaleWeight(4, 2);
 		double MusicWeight=adminservice.SecondaryTypeSaleWeight(4, 3);
 		double FilmWeight=adminservice.SecondaryTypeSaleWeight(4,4);
@@ -67,6 +67,26 @@ public class Admincontroller {
 		Map mymap=new HashMap<String, Double>();
 		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
 		mymap.put("ClothMainTypeWeight",ClothMainTypeWeight);
+		mymap.put("FoodMainTypeWeight", FoodMainTypeWeight);
+		mymap.put("CultureMainTypeWeight", CultureMainTypeWeight);
+		mymap.put("ManPackWeight", ManPackWeight);
+		mymap.put("GirlPackWeight", GirlPackWeight);
+		mymap.put("PurseWeight", PurseWeight);
+		mymap.put("CarrierWeight", CarrierWeight);
+		mymap.put("TshirtWeight", TshirtWeight);
+		mymap.put("PoloWeight",  PoloWeight);
+		mymap.put("SexySkirtWeight", SexySkirtWeight);
+		mymap.put("FashionPantWeight", FashionPantWeight);
+		mymap.put("SockWeight", SockWeight);
+		mymap.put("NutWeight", NutWeight);
+		mymap.put("MeatWeight", MeatWeight);
+		mymap.put("DrinkWeight",DrinkWeight);
+		mymap.put("BeautifulWritingWeight", BeautifulWritingWeight);
+		mymap.put("OutDoorWeight", OutDoorWeight);
+		mymap.put("MusicWeight", MusicWeight);
+		mymap.put("FilmWeight", FilmWeight);
+		
+		
 		
 		return "tongji";
 	}
