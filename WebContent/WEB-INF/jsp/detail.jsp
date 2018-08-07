@@ -306,7 +306,8 @@
 					<div class="name">数量：</div>
 					<div class="num">
 						<span class="glyphicon glyphicon-minus"></span> <input type="text"
-							value="1"> <span class="glyphicon glyphicon-plus"></span>
+							class="buy_num" value="1"> <span
+							class="glyphicon glyphicon-plus"></span>
 					</div>
 				</div>
 
@@ -343,14 +344,19 @@
 				<div class="evaluate_head">
 					<div class="head_left">
 						<div class="name">好评率</div>
-						<div class="ratio">95.9%</div>
+						<div class="ratio">
+							<span class="evlauate_ratio">95.9</span>%
+						</div>
 						<div class="star"></div>
 					</div>
 					<div class="head_right">
 						<div class="name">大家都在说：</div>
 						<div class="specify">
-							<span class="classify active">全部（217）</span> <span
-								class="classify">有图（16）</span> <span class="classify">追评（17）</span>
+							<span class="classify active all_hhh">全部（<span
+								class="total_evaluate">217</span>）
+							</span> <span class="classify pic_hhh">有图（ <span
+								class="picture_evaluate">16</span> ）
+							</span>
 						</div>
 					</div>
 				</div>
@@ -362,111 +368,47 @@
 						<div class="time">评价时间</div>
 					</div>
 				</div>
-
 				<div class="evaluate_detail">
 					<ul>
-						<li>
-							<div class="detail_left">
-								<div class="head_picture">
-									<img
-										src="${pageContext.request.contextPath }/img/icon/user_head.png">
-								</div>
-								<div class="user_name">
-									<span>老柠檬</span>
-								</div>
-							</div>
-							<div class="detail_right">
-								<div class="star"></div>
-								<div class="specify">
-									<span class="specify_name">规格：</span> <span
-										class="specify_text">灰色</span>
-								</div>
-								<div class="text">挺好的，比较特别的款式，质感很新奇，轻！</div>
-								<div class="evaluate_picture">
-									<div class="picture1">
-										<img
-											src="${pageContext.request.contextPath }/img/product/product12_1.png">
+						<c:forEach items="${goods}" var="good" varStatus="status">
+							<c:forEach items="${good.evaluateList}" var="evaluate"
+								varStatus="status">
+								<li>
+									<div class="detail_left">
+										<div class="head_picture">
+											<img
+												src="${pageContext.request.contextPath }/img/icon/user_head.png">
+										</div>
+										<div class="user_name">
+											<span>${evaluate.customer.customerName }</span>
+										</div>
 									</div>
-									<div class="picture2">
-										<img
-											src="${pageContext.request.contextPath }/img/product/product12_2.png">
+									<div class="detail_right">
+										<div class="star"></div>
+										<input type="hidden" value="${evaluate.evaluateGrade }" />
+										<div class="specify">
+											<span class="specify_name">规格：</span> <span
+												class="specify_text">${good.goodsSpecify }</span>
+										</div>
+										<div class="text">${evaluate.evaluateContent }</div>
+										<div class="evaluate_picture">
+											<c:forEach items="${evaluate.evaluatePictureList}"
+												var="picture" varStatus="status">
+												<div class="picture1">
+													<img src="${picture.picture.picturePath }">
+												</div>
+											</c:forEach>
+										</div>
+										<div class="big_img">
+											<span class="close layui-icon layui-icon-close"></span> <img
+												src="">
+										</div>
+										<div class="time">${evaluate.evaluateDate }</div>
+
 									</div>
-									<div class="picture3">
-										<img
-											src="${pageContext.request.contextPath }/img/product/product12_3.png">
-									</div>
-								</div>
-								<div class="big_img">
-									<span class="close layui-icon layui-icon-close"></span> <img
-										src="">
-								</div>
-								<div class="time">2018-06-24 11:34</div>
-
-							</div>
-						</li>
-						<li>
-							<div class="detail_left">
-								<div class="head_picture">
-									<img
-										src="${pageContext.request.contextPath }/img/icon/user_head.png">
-								</div>
-								<div class="user_name">
-									<span>清风徐来</span>
-								</div>
-							</div>
-							<div class="detail_right">
-								<div class="star"></div>
-								<div class="specify">
-									<span class="specify_name">规格：</span> <span
-										class="specify_text">白色</span>
-								</div>
-								<div class="text">物流太快了，非常满意，包包轻巧，用后再评。</div>
-								<div class="time">2018-06-22 11:53</div>
-
-							</div>
-						</li>
-						<li>
-							<div class="detail_left">
-								<div class="head_picture">
-									<img
-										src="${pageContext.request.contextPath }/img/icon/user_head.png">
-								</div>
-								<div class="user_name">
-									<span>15648</span>
-								</div>
-							</div>
-							<div class="detail_right">
-								<div class="star"></div>
-								<div class="specify">
-									<span class="specify_name">规格：</span> <span
-										class="specify_text">黑色</span>
-								</div>
-								<div class="text">物流相当快啊！严选的产品一如既往的好。下次还来你家。</div>
-								<div class="time">2018-07-20 22:22</div>
-
-							</div>
-						</li>
-						<li>
-							<div class="detail_left">
-								<div class="head_picture">
-									<img
-										src="${pageContext.request.contextPath }/img/icon/user_head.png">
-								</div>
-								<div class="user_name">
-									<span>hello</span>
-								</div>
-							</div>
-							<div class="detail_right">
-								<div class="star"></div>
-								<div class="specify">
-									<span class="specify_name">规格：</span> <span
-										class="specify_text">灰色</span>
-								</div>
-								<div class="text">看着不错就买了一个，到货和图片一样挻好的！</div>
-								<div class="time">2018-07-25 12:40</div>
-
-							</div>
-						</li>
+								</li>
+							</c:forEach>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -615,15 +557,21 @@
 	
 		});
 	</script>
-	<script type="text/javascript">
-		if (window.name != "bencalie") {
-			location.reload();
-			window.name = "bencalie";
-		} else {
-			window.name = "";
-		}
-	</script>
 	<script src="${pageContext.request.contextPath }/js/detail.js"></script>
+	<script type="text/javascript">
+		$(".SE3_product_body .left .evaluate .head_right .specify .all_hhh").click(function() {
+			$(".SE3_product_body .left .evaluate .evaluate_detail li").each(function() {
+				$(this).show();
+			});
+		});
+		$(".SE3_product_body .left .evaluate .head_right .specify .pic_hhh").click(function() {
+			$(".SE3_product_body .left .evaluate .evaluate_detail li").each(function() {
+				if ($(this).find(".detail_right .evaluate_picture img").length == 0) {
+					$(this).hide();
+				}
+			});
+		});
+	</script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 </body>
 </html>
