@@ -2,6 +2,7 @@ package service.adminservice;
 
 
 import bean.Customer;
+import bean.CustomerAndPrice;
 import bean.Goods;
 import bean.GoodsSecondaryType;
 import bean.Indent;
@@ -22,10 +23,10 @@ public interface Adminservice {
     public double MainTypeSaleWeight(int goodsMainTypeID);//主分类销售比重
     public double SecondaryTypeSaleWeight(int goodsMainTypeID,int goodsSecondaryTypeID);//次分类占主分类销售比重
     public Goods getHistoryHighestGood();
-    public Customer getHighestCustomer();
-    public double getHighestSalePerDay();
-    public int getHighestSaleCountPerDay();
-    public GoodsSecondaryType getMostPopularSecondaryType();
+    public CustomerAndPrice getHighestCustomer();//获取消费最高的用户名字和消费总额
+    public double getHighestSalePerDay();//单日营业额最高
+    public int getHighestSaleCountPerDay();//单日成交数最高
+    public GoodsSecondaryType getMostPopularSecondaryType();//最受欢迎种类
 //    //用户管理
 //    public String UpdateCustomerPassword(int customerID,String customerPhone);
 //    public String DeleteCustomer(int customerID);
