@@ -14,8 +14,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/myCenter.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/simplePaging.css">
 </head>
 <body>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <!--头-->
 <header id="SE3_header" class="myCenterHeader">
     <!--上部分-->
@@ -216,6 +223,7 @@
                         </div>
 
                         <div class="Order-list">
+                        <div class="noshow" style="display:none;">
                     <c:forEach items="${allindent}" var="indent" varStatus="status">
      							<div class="panel panel-default showli" data-page="${status.index}">
                                 <div class="panel-heading">
@@ -253,13 +261,12 @@
                                 </div>	
                             </div>
    					</c:forEach>
+   						 </div>
+   						 <div class="showpage"></div>
    						 <div class="isNoPanel"><i class="layui-icon layui-icon-404"></i><span>目前还没有找到符合的订单哦</span></div>
-								 <div class="page">
-										<span id="pre">上一页</span>
-										<select name="pageNumber" id="PageNumber">
-     									 </select>
-									    <span id="last">下一页</span>
-								</div>  
+								  <div class="part part6">
+    								<div class="showPagePaging" style="margin: 20px auto 0 auto"></div>
+  								</div>
                         </div>
                     </div>
                     <div class="Message" data-state="1">
@@ -460,10 +467,16 @@
 <script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 <script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/index.js"></script>
 <script src="${pageContext.request.contextPath }/js/myCenter.js"></script>
+<script src="${pageContext.request.contextPath }/js/simplePaging.js"></script>
 <script>
+window.addEventListener("popstate", function(){
 
+    　　　　　　location.reload();
+
+　　　　}, false)
 		$(document).ready(function () {
 			var customer= "${currentCustomer.customerName}";
 			if(customer==""){
@@ -592,14 +605,6 @@ function reIns(insvalue){
         });
     });
     }
-</script>
-<script type="text/javascript">
-    if(window.name != "bencalie"){
-         location.reload();
-         window.name = "bencalie";
-     }else{
-         window.name = "";
-      }
 </script>
 </body>
 </html>

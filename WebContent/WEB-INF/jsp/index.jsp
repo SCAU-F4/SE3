@@ -15,7 +15,14 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/index.css">
 </head>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <body>
+
 	<!--头-->
 	<header id="SE3_header">
 		<!--上部分-->
@@ -505,6 +512,7 @@
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+		<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -524,13 +532,5 @@
 			}
 		});
 	</script>
-	<script type="text/javascript">
-    if(window.name != "bencalie"){
-         location.reload();
-         window.name = "bencalie";
-     }else{
-         window.name = "";
-      }
-</script>
 </body>
 </html>

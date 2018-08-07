@@ -505,6 +505,7 @@
 	<script
 		src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+			<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/buy.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 	<script>
@@ -524,14 +525,6 @@
 				$(".shopping-cart").show();
 			}
 		});
-	</script>
-	<script type="text/javascript">
-    	if(window.name != "bencalie"){
-        	location.reload();
-         	window.name = "bencalie";
-     	}else{
-         	window.name = "";
-      	}
 	</script>
 </body>
 </html>
