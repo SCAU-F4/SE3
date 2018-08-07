@@ -566,20 +566,6 @@
 		});
 	</script>
 	<script src="${pageContext.request.contextPath }/js/detail.js"></script>
-	<script type="text/javascript">
-		$(".SE3_product_body .left .evaluate .head_right .specify .all_hhh").click(function() {
-			$(".SE3_product_body .left .evaluate .evaluate_detail li").each(function() {
-				$(this).show();
-			});
-		});
-		$(".SE3_product_body .left .evaluate .head_right .specify .pic_hhh").click(function() {
-			$(".SE3_product_body .left .evaluate .evaluate_detail li").each(function() {
-				if ($(this).find(".detail_right .evaluate_picture img").length == 0) {
-					$(this).hide();
-				}
-			});
-		});
-	</script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 </body>
 </html>

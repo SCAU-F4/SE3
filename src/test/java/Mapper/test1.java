@@ -1,6 +1,7 @@
 package Mapper;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,8 +16,12 @@ public class test1 {
 	public static void main(String[] args) throws IOException {
 		
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
-		System.out.println(customerMapper.getHighestCustomer());
+		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
+		List list=goodsMapper.getGoodsByMainTypeIDAndSecondaryTypeID(1, 1);
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 //		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);

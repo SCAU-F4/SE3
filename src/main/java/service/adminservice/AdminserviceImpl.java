@@ -137,11 +137,9 @@ public class AdminserviceImpl implements Adminservice {
 			return "没有这个商品次分类，更新失败";
 		else if (gddMainType == null)
 			return "没有这个商品主分类，更新失败";
-		else if(!checkgddMainTypeandSecondType(gddMainType, gddGoodsSecondaryType))
-		{
+		else if (!checkgddMainTypeandSecondType(gddMainType, gddGoodsSecondaryType)) {
 			return "商品主分类和商品次分类出问题了";
-		}
-		else {
+		} else {
 			int i = goodsMapper.update(goods);
 			if (i > 0)
 				return "ok";
@@ -156,33 +154,44 @@ public class AdminserviceImpl implements Adminservice {
 		UpdateGood(goods);
 		return null;
 	}
-	
-	public static boolean checkgddMainTypeandSecondType(GoodsMainType goodsMainType,GoodsSecondaryType goodsSecondaryType)
-	{
-		List<GoodsSecondaryType> list=goodsMainType.getGoodsSecondaryTypeList();
-		for(GoodsSecondaryType gdst:list)
-		{
-			if(gdst.getGoodsSecondaryTypeID()==goodsSecondaryType.getGoodsSecondaryTypeID())
+
+	@Override
+	public List<Goods> getAllGoods() {
+		// TODO Auto-generated method stub
+		return goodsMapper.getAllgoods();
+	}
+
+	@Override
+	public List<Goods> getgoodsByMaintypeIDAndSecondTypeID(int mid, int sid) {
+		// TODO Auto-generated method stub
+		return goodsMapper.getGoodsByMainTypeIDAndSecondaryTypeID(mid, sid);
+	}
+
+	public static boolean checkgddMainTypeandSecondType(GoodsMainType goodsMainType,
+			GoodsSecondaryType goodsSecondaryType) {
+		List<GoodsSecondaryType> list = goodsMainType.getGoodsSecondaryTypeList();
+		for (GoodsSecondaryType gdst : list) {
+			if (gdst.getGoodsSecondaryTypeID() == goodsSecondaryType.getGoodsSecondaryTypeID())
 				return true;
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public double MainTypeSaleWeight(int goodsMainTypeID) {
 		// TODO Auto-generated method stub
-		double i=goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
-		double j=goodsMapper.getAllsellCount();
-		return i/j;
+		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
+		double j = goodsMapper.getAllsellCount();
+		return i / j;
 	}
 
 	@Override
 	public double SecondaryTypeSaleWeight(int goodsMainTypeID, int goodsSecondaryTypeID) {
 		// TODO Auto-generated method stub
-		double i=goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
-		double j=goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
-		return j/i;
+		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
+		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
+		return j / i;
 	}
 
 	@Override
@@ -192,7 +201,7 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public CustomerAndPrice getHighestCustomer() {//获取消费最高的用户名字和消费总额
+	public CustomerAndPrice getHighestCustomer() {// 获取消费最高的用户名字和消费总额
 		// TODO Auto-generated method stub
 		return customerMapper.getHighestCustomer();
 	}
@@ -212,13 +221,8 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public GoodsSecondaryType getMostPopularSecondaryType() {
 		// TODO Auto-generated method stub
-		
+       
 		return null;
 	}
-	
-	
-	
-	
-	
 
 }
