@@ -420,60 +420,39 @@
 						</tr>
 					</thead>
 
+					
 					<tbody>
-						<tr>
-							<td><img
-								src="${pageContext.request.contextPath }/img/product/product1_1.png">
-								<div class="goods_detail">
-									<div class="goods_name">24寸 纯PC“铝框”（非全铝）拉杆箱</div>
-									<div class="goods_classify">玫红色</div>
-								</div></td>
-							<td><span>¥</span> <span>389.00</span></td>
-							<td>1</td>
-							<td><span>¥</span> <span>389.00</span></td>
-						</tr>
-
-						<tr>
-							<td><img
-								src="${pageContext.request.contextPath }/img/product/product2_1.png">
-								<div class="goods_detail">
-									<div class="goods_name">24寸 纯PC“铝框”（非全铝）拉杆箱</div>
-									<div class="goods_classify">黑色</div>
-								</div></td>
-							<td><span>¥</span> <span>389.00</span></td>
-							<td>1</td>
-							<td><span>¥</span> <span>389.00</span></td>
-						</tr>
-
-						<tr>
-							<td><img
-								src="${pageContext.request.contextPath }/img/product/product3_1.png">
-								<div class="goods_detail">
-									<div class="goods_name">Kinven 灭蚊魔方</div>
-									<div class="goods_classify">白色</div>
-								</div></td>
-							<td><span>¥</span> <span>189.00</span></td>
-							<td>1</td>
-							<td><span>¥</span> <span>189.00</span></td>
-						</tr>
+						<c:forEach items="${indent.indentDetaillist}" var="goods" varStatus="status">
+							<tr>
+								<td><img src="${goods.good.pictureList[0].picturePath}">
+									<div class="goods_detail">
+										<div class="goods_name">${goods.good.goodsName }</div>
+										<div class="goods_classify">${goods.good.goodsSpecify }</div>
+									</div></td>
+								<td><span>¥</span> <span>${goods.good.goodsPrice}</span></td>
+								<td>${goods.goodsCount }</td>
+								<td><span>¥</span> <span>${goods.totalPrice}</span></td>
+							</tr>
+						</c:forEach>
 					</tbody>
+					
 				</table>
 			</div>
 			<div class="pay">
 				<div>
 					<div>
 						<div class="pay_text">
-							<span>商品合计：</span> <span class="price"> <span>¥</span> <span>967.00</span>
+							<span>商品合计：</span> <span class="price"> <span>¥</span> <span>${indent.totalPrice }</span>
 							</span>
 						</div>
 						<div class="pay_text">
-							<span>运费：</span> <span class="price"> <span>¥</span> <span>967.00</span>
+							<span>运费：</span> <span class="price"> <span>¥</span> <span>0.00</span>
 							</span>
 						</div>
 					</div>
 					<div class="pay_text total_text">
 						<span>应付总额：</span> <span class="price total"> <span>¥</span>
-							<span>967.00</span>
+							<span>${indent.totalPrice }</span>
 						</span>
 					</div>
 					<span class="pay_btn">去付款</span>

@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -198,6 +199,14 @@ public class Usercontroller {
 //			model.addAttribute("result",result);
 //			return "mycenter";
 //		}
+		/*if(result=="") {
+			return "redirect:/products/detail/"+evaluate.getGoodsID(); */
+		/*}*/
+
+		/*else {
+			model.addAttribute("result",result);
+			return "mycenter";
+		} */
 	}
 
 	@RequestMapping(value = "auction")
@@ -205,6 +214,7 @@ public class Usercontroller {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		Indent indent=userservice.auction(customer);
 		model.addAttribute("indent", indent);
+		System.out.println(indent);
 		return "auction";
 	}
 	
