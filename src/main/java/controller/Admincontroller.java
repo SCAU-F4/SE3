@@ -30,7 +30,7 @@ public class Admincontroller {
 		if(result.equals("ok"))
 		{
 			session.setAttribute("currentManager", manager);
-			return "next";
+			return "forward:/admin/tongji";
 		}
 		model.addAttribute("error", result);
 		return "adminsignin";
@@ -86,9 +86,8 @@ public class Admincontroller {
 		mymap.put("MusicWeight", MusicWeight);
 		mymap.put("FilmWeight", FilmWeight);
 		
-		
-		
-		return "tongji";
+		model.addAttribute("mymap", mymap);
+		return "next";
 	}
 	
 	

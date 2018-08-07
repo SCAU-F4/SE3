@@ -14,6 +14,9 @@ public interface GoodsMapper {
 	List<Goods> findBygoodsID(int goodsID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	List<Goods> getAllgoods();
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	List<Goods> findBygoodsName(String goodsName);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
@@ -36,6 +39,9 @@ public interface GoodsMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	int getsellCountByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	List<Goods> getGoodsByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
     
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	Goods getGoodsByMaxSellCount();

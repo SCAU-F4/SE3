@@ -33,6 +33,10 @@
 		select * from Goods where
 		goodsID = #{goodsID}
 	</select>
+	
+	<select id="getAllgoods" resultMap="goodsMap1">
+		select * from Goods 
+	</select>
 
 
 	<select id="findBygoodsName" resultMap="goodsMap1">
@@ -87,6 +91,17 @@
         from goods
        where goodsMainTypeID=#{goodsMainTypeID} and goodsSecondaryTypeID=#{goodsSecondaryTypeID}
 	</select>
+	
+	
+	
+	
+	<select id="getGoodsByMainTypeIDAndSecondaryTypeID" resultMap="goodsMap1">
+		 select *
+        from goods
+       where goodsMainTypeID=#{goodsMainTypeID} and goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+	</select>
+	
+	
 	
 	<select id="getGoodsByMaxSellCount" resultMap="goodsMap">
 		SELECT *
