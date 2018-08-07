@@ -1,5 +1,7 @@
 package service.adminservice;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import Mapper.GoodsSecondaryTypeMapper;
 import Mapper.IndentMapper;
 import Mapper.ManagerMapper;
 import bean.Goods;
+import bean.GoodsMainType;
+import bean.GoodsSecondaryType;
 import bean.Indent;
 import bean.Manager;
 
@@ -93,59 +97,76 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		Goods mygood = goodsMapper.findBygoodsIDAndgoodsSpecify(goods.getGoodsID(), goods.getGoodsSpecify());
 		if (mygood != null)
-			return "商品已经存在";
-		int i = goodsMapper.insert(goods);
-		if (i > 0)
-			return "插入商品成功";
-		return "插入失败";
+			return "商品已经存在,无法插入";
+		GoodsSecondaryType gddGoodsSecondaryType = goodsSecondaryTypeMapper
+				.findBygoodsSecondaryTypeID(goods.getGoodsSecondaryTypeID());
+		GoodsMainType gddMainType = goodsMainTypeMapper.findByGoodsMainTypeID(goods.getGoodsMainTypeID());
+		if (gddGoodsSecondaryType == null)
+			return "没有这个商品次分类，插入失败";
+		else if (gddMainType == null)
+			return "没有这个商品主分类，插入失败";
+		else {
+			int i = goodsMapper.insert(goods);
+			if (i > 0)
+				return "ok";
+			return "数据库插入失败";
+		}
 	}
 
 	@Override
 	public String DeleteGood(Goods goods) {
 		// TODO Auto-generated method stub
-		return null;
+		int i = goodsMapper.delete(goods);
+		if (i > 0)
+			return "ok";
+		return "fail";
 	}
 
 	@Override
-	public String UpdatGood(Goods goods) {
+	public String UpdateGood(Goods goods) {
 		// TODO Auto-generated method stub
-		return null;
+		Goods mygoods = goodsMapper.findBygoodsIDAndgoodsSpecify(goods.getGoodsID(), goods.getGoodsSpecify());
+		if (mygoods == null)
+			return "商品不存在，无法update";
+		GoodsSecondaryType gddGoodsSecondaryType = goodsSecondaryTypeMapper
+				.findBygoodsSecondaryTypeID(goods.getGoodsSecondaryTypeID());
+		GoodsMainType gddMainType = goodsMainTypeMapper.findByGoodsMainTypeID(goods.getGoodsMainTypeID());
+		if (gddGoodsSecondaryType == null)
+			return "没有这个商品次分类，更新失败";
+		else if (gddMainType == null)
+			return "没有这个商品主分类，更新失败";
+		else if(!checkgddMainTypeandSecondType(gddMainType, gddGoodsSecondaryType))
+		{
+			return "商品主分类和商品次分类出问题了";
+		}
+		else {
+			int i = goodsMapper.update(goods);
+			if (i > 0)
+				return "ok";
+			return "数据库更新失败";
+		}
 	}
 
 	@Override
 	public String ChangeisSellGood(Goods goods, int yesno) {
 		// TODO Auto-generated method stub
+		goods.setIsSell(yesno);
+		UpdateGood(goods);
 		return null;
 	}
-
-	@Override
-	public String UpdateCustomerPassword(int customerID, String customerPhone) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public static boolean checkgddMainTypeandSecondType(GoodsMainType goodsMainType,GoodsSecondaryType goodsSecondaryType)
+	{
+		List<GoodsSecondaryType> list=goodsMainType.getGoodsSecondaryTypeList();
+		for(GoodsSecondaryType gdst:list)
+		{
+			if(gdst.getGoodsSecondaryTypeID()==goodsSecondaryType.getGoodsSecondaryTypeID())
+				return true;
+		}
+		
+		return false;
 	}
-
-	@Override
-	public String DeleteCustomer(int customerID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String InsertIndent(Indent indent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String DeleteIndent(Indent indent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String UpdateIndent(Indent indent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
 }

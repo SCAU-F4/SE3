@@ -19,10 +19,10 @@
 		select * from Manager where managerName = #{0}
 	</select>
 	
-	<insert id="insert">
-		insert into Manager values(#{managerID},
-		#{managerName}, #{managerPwd})
+	<insert id="insert" keyProperty="managerID" useGeneratedKeys="true">
+		insert into Manager(managerName,managerPwd) values(#{managerName}, #{managerPwd})
 	</insert>
+	
 	<update id="update">
 		update Manager set managerName=#{managerName},
 		managerPwd=#{managerPwd}

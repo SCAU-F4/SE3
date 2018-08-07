@@ -3,6 +3,7 @@ package service.userservice;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -261,25 +262,28 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public String auction(Customer customer) {// 事务
-		String result = "";
+	public Indent auction(Customer customer) {// 事务
+		Indent indent=null;
 		Cart cart = customer.getCart();
 		List<CartDetail> cartdetailList = cart.getCartDetailList();
 		if (!cartdetailList.isEmpty()) {
-			Indent indent = new Indent(0, customer.getCustomerID(), cart.getTotalPrice(),
+			indent = new Indent(0, customer.getCustomerID(), cart.getTotalPrice(),
 					new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
 			indentmapper.insert(indent);
+			List<IndentDetail> indentDetails=new ArrayList<>();
 			for (CartDetail cartDetail : cartdetailList) {
 				cartdetailmapper.delete(cartDetail);
 				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
 						cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
 				indentdetailmapper.insert(indentDetail);
+				indentDetails.add(indentDetail);
 			}
 			cartdetailList.clear();
 			cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
 			cart.setTotalPrice(0);
+			indent.setIndentDetaillist(indentDetails); 
 		}
-		return result;
+		return indent;
 	}
 
 	@Override
@@ -289,15 +293,15 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public String purchase(int goodsID, String goodsSpecify, int goodsCount, Customer customer) {
-		String result = "";
+	public Indent purchase(int goodsID, String goodsSpecify, int goodsCount, Customer customer) {
 		Goods good = goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
 		Indent indent = new Indent(0, customer.getCustomerID(), good.getGoodsPrice() * goodsCount,
-				new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
+				new Timestamp(System.currentTimeMillis()), -1, -1, 0, new ArrayList<>() , null);
 		indentmapper.insert(indent);
 		IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), good, goodsCount, indent.getTotalPrice());
 		indentdetailmapper.insert(indentDetail);
-		return result;
+		indent.getIndentDetaillist().add(indentDetail);
+		return indent;
 	}
 
 	@Override
@@ -325,4 +329,5 @@ public class UserserviceImpl implements Userservice {
 		}
 		return result;
 	}
+
 }
