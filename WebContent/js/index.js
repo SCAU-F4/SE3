@@ -1,35 +1,14 @@
-/*     window.onload = function(){  
-        if(window.name!="hasLoad"){      
-            location.reload();      
-            window.name = "hasLoad";      
-        }else{      
-            window.name="";      
-        }  
-    }  */
-
 $(document).ready(function() {
 	
-	/*window.onload=function(){
-		if (Cookies.get("name") == undefined) {
-			Cookies.set("name", " ");
+	$("#serech_input a").click(function(){
+		if($("#serech_input input").val()==""){
+			console.log("1111111");
+			$(".arrow_box").fadeIn("fast");
+			$(".arrow_box").delay(1000).fadeOut("fast");
+			return false;
 		}
-		if (Cookies.get("times") == undefined) {
-			Cookies.set("times", "0");
-		}
-		var times = Cookies.get("times");
-		var url = document.referrer;
-		if (window.location.href == Cookies.get("name")) {
-			if (times == 0) {
-				location.reload();
-				Cookies.set("name", url);
-				Cookies.set("times", "1");
-			}
-		} else {
-			Cookies.set("times", "0");
-			Cookies.set("name", document.referrer);
-		}
-	}*/
-	
+	});
+		
 	ishasCartItem($(".cart-top-area .cart-item").length);
 	var flag = 0;
 	var $down = $(".downmenu");

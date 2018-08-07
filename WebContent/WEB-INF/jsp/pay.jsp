@@ -117,6 +117,7 @@
 					<input type="text" placeholder="雅迪电动车只要999"> <a
 						href="${pageContext.request.contextPath }/products/searchitems"
 						class="glyphicon glyphicon-search"></a>
+
 				</div>
 			</div>
 			<!--下部分-->

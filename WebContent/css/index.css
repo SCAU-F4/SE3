@@ -602,3 +602,44 @@ body{
 #SE3_header .navbar .container-fluid .collapse>ul>li a{
     border-bottom: 3px transparent solid ;
 }
+
+.arrow_box {
+	position: absolute;
+	background: #d5d5d5;
+	border: 3px solid #f5f4f3;
+	border-radius:9px;
+	left:59%;
+	top:8%;
+	display:none;
+	
+}
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(213, 213, 213, 0);
+	border-top-color: #d5d5d5;
+	border-width: 7px;
+	margin-left: -20px;
+}
+.arrow_box:before {
+	border-color: rgba(245, 244, 243, 0);
+	border-top-color: #f5f4f3;
+	border-width: 8px;
+	margin-left: -24px;
+}
+
+.adminsignin{
+		position: absolute;
+		color:#414141;
+}.adminsignin a{
+	color:#414141;
+}

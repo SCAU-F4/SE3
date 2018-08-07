@@ -105,6 +105,9 @@
 				</div>
 				<div id="serech_input">
 					<input type="text" placeholder="雅迪电动车只要999"> 
+					<div class="arrow_box">
+						请输入正确的搜索条件
+					</div>
 					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
@@ -489,7 +492,9 @@
 		<i class="layui-icon layui-icon-top"></i>
 	</div>
 
+ 
 	<section class="SE3_tail">
+	
 		<div class="serve">
 			<div class="col-md-4 detail_serve">
 				<img src="${pageContext.request.contextPath }/img/icon/shield.png">
@@ -505,6 +510,7 @@
 				<span>华农有货品质保证</span>
 			</div>
 		</div>
+		 <div class="adminsignin"><a href="${pageContext.request.contextPath }/admin/adminsignin">管理员登录</a></div>	
 	</section>
 
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
