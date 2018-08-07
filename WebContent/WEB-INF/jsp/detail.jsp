@@ -38,36 +38,39 @@
 							id="myCenter">个人中心</a> <a
 							href="${pageContext.request.contextPath }/user/signout"
 							id="signout">注销</a>
-												<div class="shopping-cart">
+						<div class="shopping-cart">
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
+									<c:forEach items="${currentCustomer.cart.cartDetailList}"
+										var="cartList" varStatus="status">
 										<div class="cart-item">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
-										<div class="cart-img">
-											<img
-												src="${cartList.good.pictureList[0].picturePath}"
-												alt="" height="50">
+											<input type="hidden" value="${cartList.good.goodsID}"
+												class="cartGoodsID" />
+											<div class="cart-img">
+												<img src="${cartList.good.pictureList[0].picturePath}"
+													alt="" height="50">
+											</div>
+											<div class="cart-name">
+												<a
+													href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}"
+													title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
+											</div>
+											<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
+											<div class="cart-number">
+												<span class="glyphicon glyphicon-minus"></span> x <span
+													class="indentNumber">${cartList.goodsCount}</span> <span
+													class="glyphicon glyphicon-plus"></span>
+											</div>
+											<div class="cart-price text-danger">
+												<input type="hidden" value="${cartList.good.goodsPrice}">
+												￥ <span class="indentMoney">${cartList.totalPrice}</span>
+											</div>
+											<div class="close">
+												<i class="layui-icon layui-icon-close"></i>
+											</div>
 										</div>
-										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
-										</div>
-										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
-										<div class="cart-number">
-										   <span class="glyphicon glyphicon-minus"></span>  
-											x <span class="indentNumber">${cartList.goodsCount}</span>
-											<span class="glyphicon glyphicon-plus"></span>
-										</div>
-										<div class="cart-price text-danger">
-											<input type="hidden" value="${cartList.good.goodsPrice}">
-											￥ <span class="indentMoney">${cartList.totalPrice}</span>
-										</div>
-										<div class="close">
-											<i class="layui-icon layui-icon-close"></i>
-										</div>
-									</div>
-								
+
 									</c:forEach>
 								</div>
 								<div class="cart-bottom-area">
@@ -78,16 +81,17 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
+												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
 								</div>
 
 							</div>
-						
+
 						</div>
-						
-						
+
+
 					</div>
 				</div>
 			</div>
@@ -100,8 +104,9 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> 
-					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
+					<input type="text" placeholder="雅迪电动车只要999"> <a
+						href="${pageContext.request.contextPath }/products/searchitems"
+						class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -242,7 +247,7 @@
 			</div>
 		</div>
 	</header>
-<%-- 	<input type="hidden" value="${cartList.good.goodsPrice}"> --%>
+	<%-- 	<input type="hidden" value="${cartList.good.goodsPrice}"> --%>
 	<div class="whichone" style="display:none;">${currentCustomer.customerName}</div>
 	<div class="goodid" style="display:none;">${goods[0].goodsID}</div>
 	<div class="whichpic" style="display:none;">${goods[0].pictureList[0].picturePath}</div>
@@ -276,7 +281,8 @@
 
 				<div class="detail_price">
 					<div>
-						<span class="price_name">价格：</span> <span class="price">¥<span class="price-num">${goods[0].goodsPrice }</span></span>
+						<span class="price_name">价格：</span> <span class="price">¥<span
+							class="price-num">${goods[0].goodsPrice }</span></span>
 					</div>
 					<div class="detail_serve">
 						<span class="serve_name">服务：</span> <span class="serve"> ･
@@ -299,9 +305,8 @@
 				<div class="detail_num">
 					<div class="name">数量：</div>
 					<div class="num">
-						<span class="glyphicon glyphicon-minus"></span> 
-						<input type="text" value="1">
-						<span class="glyphicon glyphicon-plus"></span>
+						<span class="glyphicon glyphicon-minus"></span> <input type="text"
+							value="1"> <span class="glyphicon glyphicon-plus"></span>
 					</div>
 				</div>
 
@@ -339,7 +344,7 @@
 					<div class="head_left">
 						<div class="name">好评率</div>
 						<div class="ratio">95.9%</div>
-						<div class="star">⭐⭐⭐⭐⭐</div>
+						<div class="star"></div>
 					</div>
 					<div class="head_right">
 						<div class="name">大家都在说：</div>
@@ -371,7 +376,7 @@
 								</div>
 							</div>
 							<div class="detail_right">
-								<div class="star">⭐⭐⭐⭐⭐</div>
+								<div class="star"></div>
 								<div class="specify">
 									<span class="specify_name">规格：</span> <span
 										class="specify_text">灰色</span>
@@ -410,7 +415,7 @@
 								</div>
 							</div>
 							<div class="detail_right">
-								<div class="star">⭐⭐⭐⭐</div>
+								<div class="star"></div>
 								<div class="specify">
 									<span class="specify_name">规格：</span> <span
 										class="specify_text">白色</span>
@@ -431,7 +436,7 @@
 								</div>
 							</div>
 							<div class="detail_right">
-								<div class="star">⭐⭐⭐</div>
+								<div class="star"></div>
 								<div class="specify">
 									<span class="specify_name">规格：</span> <span
 										class="specify_text">黑色</span>
@@ -452,7 +457,7 @@
 								</div>
 							</div>
 							<div class="detail_right">
-								<div class="star">⭐⭐⭐⭐</div>
+								<div class="star"></div>
 								<div class="specify">
 									<span class="specify_name">规格：</span> <span
 										class="specify_text">灰色</span>
@@ -580,7 +585,9 @@
 			</div>
 		</div>
 	</section>
-	<div class="tip"><h4>修改成功</h4></div>
+	<div class="tip">
+		<h4>修改成功</h4>
+	</div>
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
@@ -605,20 +612,18 @@
 				$("#signup").hide();
 				$(".shopping-cart").show();
 			}
-
+	
 		});
-	
-	
 	</script>
-<script type="text/javascript">
-    if(window.name != "bencalie"){
-         location.reload();
-         window.name = "bencalie";
-     }else{
-         window.name = "";
-      }
-</script>
+	<script type="text/javascript">
+		if (window.name != "bencalie") {
+			location.reload();
+			window.name = "bencalie";
+		} else {
+			window.name = "";
+		}
+	</script>
 	<script src="${pageContext.request.contextPath }/js/detail.js"></script>
-			<script src="${pageContext.request.contextPath }/js/index.js"></script>
+	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 </body>
 </html>

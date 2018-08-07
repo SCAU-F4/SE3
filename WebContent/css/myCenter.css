@@ -244,3 +244,138 @@ body .tip>h4{
 	font-weight:bold;
 	fonr-size:1.1em;
 }
+
+.Evaluate{
+	background-color: rgba(0, 0, 0, 0.9);
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100000;
+	display:none;
+}
+.Evaluate-area{
+	width:600px;
+	height:400px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-left:-300px;
+	margin-top:-200px;
+	background-color:#fff;
+	z-index:101111;
+	display:none;
+}
+.Evaluate-area i.layui-icon-close{
+	cursor:pointer;
+	font-size:30px;
+	margin-top:20px;
+	margin-right:20px;
+}
+
+.Evaluate-area .product-img{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-color: #f5f5f5;
+    left:20px;
+    top:20px;
+}
+.Evaluate-area .star{
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    height: 50px;
+    left: 50px;
+    top: -55px;
+}
+.Evaluate-area .text{
+    display: inline-block;
+    width:150px;
+    font-size: 14px;
+    float:right;
+    position: relative;
+    top: -133px;
+    right: 195px;
+}
+
+.Evaluate-area .product-intr{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    width: 200px;
+    height: 130px;
+    top: 35px;
+    left: 20px;
+
+
+}
+.Evaluate-area .product-intr>div{
+   line-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 13px;
+    width: 200px;
+    height: 30px;
+}
+.Evaluate-main{
+    position: relative;
+    left: 240px;
+    bottom:110px;
+    width: 340px;
+    height: 130px;
+    background-color: black;
+}
+.Evaluate-img{
+    position: absolute;
+    width: 340px;
+    height: 110px;
+    bottom:200px;
+    left: 240px;
+}
+.Evaluate-img .img-list li{
+    float: left;
+    width: 65px;
+    height: 90px;
+    margin:5px 10px;
+    background:  url("../img/icon/add.jpg") no-repeat center center;
+    -webkit-background-size: 30%;
+    background-size: 30%;
+    border: 1px #9F9F9F dashed;
+}
+.Evaluate-img-item input{
+	z-index:1000;
+    opacity: 0;
+    height: 90px;
+    width: 65px;
+}
+/* .Evaluate-img-item:hover,
+.Evaluate-img-item a:hover{
+    cursor: pointer;
+} */
+ .Evaluate-img-item a img{
+   position: absolute;
+	display:inline-block;
+	width:65px;
+	height:90px;
+	overflow:hidden;
+}  
+.Evaluate-main textarea{
+    width:340px;
+    height: 130px;
+}
+.Evaluate-main span{
+    position: absolute;
+    top: -30px;
+    left:2px;
+}
+.Evaluate-area button.layui-btn{
+    position: absolute;
+   bottom:2px;
+    right: 10px;
+}

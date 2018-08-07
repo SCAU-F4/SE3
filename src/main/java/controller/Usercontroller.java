@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -191,35 +192,43 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value ="comment")
-	public String comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
+	public void comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
 		String result=userservice.comment(evaluate,servletRequest.getServletContext().getRealPath("/img"));
-		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
-		else {
+//		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
+//		else {
+//			model.addAttribute("result",result);
+//			return "mycenter";
+//		}
+		/*if(result=="") {
+			return "redirect:/products/detail/"+evaluate.getGoodsID(); */
+		/*}*/
+
+		/*else {
 			model.addAttribute("result",result);
 			return "mycenter";
-		}
+		} */
 	}
 
 	@RequestMapping(value = "auction")
-	public String auction(HttpSession httpSession,Model model) {
+	public String auction(@RequestParam("goodsID") int goodsID,@RequestParam("goodsSpecify") String goodsSpecify ,@RequestParam("goodsCount") int goodsCount,HttpSession httpSession,Model model) {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		Indent indent=userservice.auction(customer);
-		model.addAttribute("indent", indent);
+		Indent indent=userservice.auction(goodsID,goodsSpecify,goodsCount,customer);
+		if(indent!=null)  httpSession.setAttribute("newindent", indent);
 		return "auction";
 	}
 	
 	@RequestMapping(value="pay")
-	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession){
+	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession,Model model){
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		userservice.pay(addressID, indentID, customer);
-		return "pay";
-	}
-	
-	@RequestMapping(value = "purchase")
-	public String purchase(@RequestParam("goodsID") int goodsID,@RequestParam("goodsSpecify") String goodsSpecify ,@RequestParam("goodsCount") int goodsCount,HttpSession httpSession,Model model) {
-		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		Indent indent=userservice.purchase(goodsID,goodsSpecify,goodsCount,customer);
-		model.addAttribute("indent", indent);
-		return "auction";
+		Indent indent =(Indent) httpSession.getAttribute("indent");
+		if(indent!=null) {
+			if(userservice.pay(addressID,indent,customer)){
+				httpSession.removeAttribute("newindent");
+				model.addAttribute("newindent", indent);
+				return "pay";
+			}
+		}
+		model.addAttribute("result", "非法操作");
+		return "index";
 	}
 }
