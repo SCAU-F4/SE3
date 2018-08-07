@@ -20,6 +20,14 @@
 		<association property="cart" column="{customerID=customerID}"
 			fetchType="lazy" select="Mapper.CartMapper.findBycustomerID" />
 	</resultMap>
+	
+	
+	<resultMap type="customerAndPrice" id="customerAndPriceMap">
+		<id column="mingzi1" property="customerName" />
+		<result column="jiage1" property="finaltotalPrice" />
+	</resultMap>
+	
+	
 
 	<select id="findBycustomerID" resultMap="customerMap1">
 		select * from Customer
@@ -40,6 +48,21 @@
 		select *
 		from Customer where customerName=#{customerName} and
 		customerPwd=#{customerPwd}
+	</select>
+	
+	<select id="getHighestCustomer" resultMap="customerAndPriceMap">
+		select *
+from 
+	(select B1.customerName as mingzi1,sum(A1.totalPrice) as jiage1
+	 from indent A1,customer B1
+	 where A1.customerID=B1.customerID
+	 GROUP BY B1.customerName) C1
+having jiage1=(select max(jiage)
+							from 
+								(select B.customerName as mingzi,sum(A.totalPrice) as jiage
+									from indent A,customer B
+									where A.customerID=B.customerID
+										GROUP BY B.customerName) C)
 	</select>
 
 	<insert id="insert" keyProperty="customerID" useGeneratedKeys="true">

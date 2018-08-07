@@ -11,6 +11,7 @@ import Mapper.GoodsMapper;
 import Mapper.GoodsSecondaryTypeMapper;
 import Mapper.IndentMapper;
 import Mapper.ManagerMapper;
+import bean.Customer;
 import bean.Goods;
 import bean.GoodsMainType;
 import bean.GoodsSecondaryType;
@@ -166,6 +167,56 @@ public class AdminserviceImpl implements Adminservice {
 		
 		return false;
 	}
+
+	@Override
+	public double MainTypeSaleWeight(int goodsMainTypeID) {
+		// TODO Auto-generated method stub
+		double i=goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
+		double j=goodsMapper.getAllsellCount();
+		return i/j;
+	}
+
+	@Override
+	public double SecondaryTypeSaleWeight(int goodsMainTypeID, int goodsSecondaryTypeID) {
+		// TODO Auto-generated method stub
+		double i=goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
+		double j=goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
+		return j/i;
+	}
+
+	@Override
+	public Goods getHistoryHighestGood() {
+		// TODO Auto-generated method stub
+		return goodsMapper.getGoodsByMaxSellCount();
+	}
+
+	@Override
+	public Customer getHighestCustomer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getHighestSalePerDay() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getHighestSaleCountPerDay() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public GoodsSecondaryType getMostPopularSecondaryType() {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+	
+	
+	
 	
 	
 
