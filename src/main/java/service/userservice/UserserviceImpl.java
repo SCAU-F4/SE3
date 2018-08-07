@@ -261,47 +261,67 @@ public class UserserviceImpl implements Userservice {
 		return result;
 	}
 
+	/*
+	 * GoodsID=-1即是从购物车处发来的请求 ;
+	 * indentID=0即是从购物车处结算的订单 ;
+	 * indentID=-1即是从立即购买结算的订单;
+	 * 
+	 */
 	@Override
-	public Indent auction(Customer customer) {// 事务
-		Indent indent=null;
+	public Indent auction(int goodsID, String goodsSpecify, int goodsCount, Customer customer) {// 事务
+		Indent indent = null;
 		Cart cart = customer.getCart();
 		List<CartDetail> cartdetailList = cart.getCartDetailList();
-		if (!cartdetailList.isEmpty()) {
+		if (goodsID == -1 && !cartdetailList.isEmpty()) {
 			indent = new Indent(0, customer.getCustomerID(), cart.getTotalPrice(),
-					new Timestamp(System.currentTimeMillis()), -1, -1, 0, null, null);
-			indentmapper.insert(indent);
-			List<IndentDetail> indentDetails=new ArrayList<>();
+					null, -1, -1, 0, null, null);
+			List<IndentDetail> indentDetails = new ArrayList<>();
 			for (CartDetail cartDetail : cartdetailList) {
-				cartdetailmapper.delete(cartDetail);
 				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
 						cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
-				indentdetailmapper.insert(indentDetail);
 				indentDetails.add(indentDetail);
 			}
-			cartdetailList.clear();
-			cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
-			cart.setTotalPrice(0);
-			indent.setIndentDetaillist(indentDetails); 
+			indent.setIndentDetaillist(indentDetails);
+		} else if(goodsID!=-1){
+			Goods good = goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
+			indent = new Indent(-1, customer.getCustomerID(), good.getGoodsPrice() * goodsCount, null, -1, -1, 0,
+					new ArrayList<>(), null);
+			List<IndentDetail> indentDetails = indent.getIndentDetaillist();
+			IndentDetail indentDetail = new IndentDetail(0, good, goodsCount, good.getGoodsPrice() * goodsCount);
+			indentDetails.add(indentDetail);
 		}
+		System.out.println(indent);
 		return indent;
 	}
 
+	// indentID=0即是从购物车处结算的订单
+	// indentID=-1即是从立即购买结算的订单
 	@Override
-	public boolean pay(int addressID, int indentID, Customer customer) {
-		indentmapper.updateaddressIDAndindentStateByindentID(indentID, addressID, 1);
+	public boolean pay(int addressID, Indent indent, Customer customer) {
+		if (indent.getIndentID() == 0) {
+			Cart cart = customer.getCart();
+			List<CartDetail> cartdetailList = cart.getCartDetailList();
+			indent.setAddressID(addressID);
+			indent.setIndentTime(new Timestamp(System.currentTimeMillis()));
+			indentmapper.insert(indent);
+			for (CartDetail cartDetail : cartdetailList) {
+				 cartdetailmapper.delete(cartDetail);
+				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
+						cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
+				 indentdetailmapper.insert(indentDetail);
+			}
+			 cartdetailList.clear();
+			 cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
+			 cart.setTotalPrice(0);
+		}else {
+			indent.setAddressID(addressID);
+			indent.setIndentTime(new Timestamp(System.currentTimeMillis()));
+			indentmapper.insert(indent);
+			IndentDetail indentDetail = indent.getIndentDetaillist().get(0);
+			indentDetail.setIndentID(indent.getIndentID());
+			indentdetailmapper.insert(indentDetail);
+		}
 		return true;
-	}
-
-	@Override
-	public Indent purchase(int goodsID, String goodsSpecify, int goodsCount, Customer customer) {
-		Goods good = goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
-		Indent indent = new Indent(0, customer.getCustomerID(), good.getGoodsPrice() * goodsCount,
-				new Timestamp(System.currentTimeMillis()), -1, -1, 0, new ArrayList<>() , null);
-		indentmapper.insert(indent);
-		IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), good, goodsCount, indent.getTotalPrice());
-		indentdetailmapper.insert(indentDetail);
-		indent.getIndentDetaillist().add(indentDetail);
-		return indent;
 	}
 
 	@Override

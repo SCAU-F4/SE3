@@ -87,7 +87,7 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href="${pageContext.request.contextPath }/user/auction"><button
+										<a href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
 												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
@@ -422,7 +422,7 @@
 
 					
 					<tbody>
-						<c:forEach items="${indent.indentDetaillist}" var="goods" varStatus="status">
+						<c:forEach items="${newindent.indentDetaillist}" var="goods" varStatus="status">
 							<tr>
 								<td><img src="${goods.good.pictureList[0].picturePath}">
 									<div class="goods_detail">
@@ -442,7 +442,7 @@
 				<div>
 					<div>
 						<div class="pay_text">
-							<span>商品合计：</span> <span class="price"> <span>¥</span> <span>${indent.totalPrice }</span>
+							<span>商品合计：</span> <span class="price"> <span>¥</span> <span>${newindent.totalPrice }</span>
 							</span>
 						</div>
 						<div class="pay_text">
@@ -452,7 +452,7 @@
 					</div>
 					<div class="pay_text total_text">
 						<span>应付总额：</span> <span class="price total"> <span>¥</span>
-							<span>${indent.totalPrice }</span>
+							<span>${newindent.totalPrice }</span>
 						</span>
 					</div>
 					<span class="pay_btn">去付款</span>
