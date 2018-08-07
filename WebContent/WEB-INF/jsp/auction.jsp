@@ -414,6 +414,7 @@
 					</thead>
 
 					<tbody>
+						
 						<tr>
 							<td><img
 								src="${pageContext.request.contextPath }/img/product/product1_1.png">
@@ -438,17 +439,18 @@
 							<td><span>¥</span> <span>389.00</span></td>
 						</tr>
 
-						<tr>
-							<td><img
-								src="${pageContext.request.contextPath }/img/product/product3_1.png">
-								<div class="goods_detail">
-									<div class="goods_name">Kinven 灭蚊魔方</div>
-									<div class="goods_classify">白色</div>
-								</div></td>
-							<td><span>¥</span> <span>189.00</span></td>
-							<td>1</td>
-							<td><span>¥</span> <span>189.00</span></td>
-						</tr>
+						<c:forEach items="${currentCustomer.addressList}" var="address" varStatus="status">
+							<tr>
+								<td><img src="${pageContext.request.contextPath }/img/product/product3_1.png">
+									<div class="goods_detail">
+										<div class="goods_name">Kinven 灭蚊魔方</div>
+										<div class="goods_classify">白色</div>
+									</div></td>
+								<td><span>¥</span> <span>189.00</span></td>
+								<td>1</td>
+								<td><span>¥</span> <span>189.00</span></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
