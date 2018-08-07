@@ -233,9 +233,9 @@
                                     </div>
                                     <div class="cell">
                                         <span class="deal-state" jspstate="${indent.indentState}">数量：${indentDetail.goodsCount}</span>
-                                         <span>样式类型：${indentDetail.good.goodsSpecify}</span> 
+                                         <span>样式类型：<span class="testgoodsSpecify">${indentDetail.good.goodsSpecify}</span></span> 
                                     </div>
-                                    <div class="state-button"><button class="layui-btn layui-btn-radius">去评价</button></div>	
+                                    <div class="state-button"><input type="hidden" value="${indentDetail.good.goodsID }"><button class="layui-btn layui-btn-radius">去评价</button></div>	
                                     <div class="price">
                                         <span>￥</span>
                                         <span class="number">${indentDetail.good.goodsPrice}</span>
@@ -421,8 +421,40 @@
          </div>
     </div>
 </section>
+<div class="Evaluate"></div>
+<div class="Evaluate-area">
+    <i class="layui-icon layui-icon-close pull-right"></i>
+    <div class="product-img">
+        <img src="../lib/img/product3.png" width="200">
+    </div>
+    <div class="star"></div>
+    <span class="text text-muted"></span>
+    <form id="mainform" method="post" action="#" enctype="multipart/form-data">
+    <input type="hidden" id="goodsID" name="goodsID" value="">
+    <input type="hidden" id="evaluateGrade" name="evaluateGrade"  value=""/>
+    <div class="product-intr">
+        <div class="product-name"></div>
+        <div class="product-type"><span></span></div>
+        <div class="product-number"><span></span></div>
+    </div>
+    <div class="Evaluate-img">
+        <ul class="img-list">
+            <li class="Evaluate-img-item"><a><img class="testimg1" data-address=""><input type="file" data-which="1" name="id1" id="pic1" class="form-img" accept="image/*"/></a></li>
+            <li class="Evaluate-img-item"><a><img class="testimg2" data-address=""><input type="file" data-which="2" name="id2" id="pic2" class="form-img" accept="image/*"/></a></li>
+            <li class="Evaluate-img-item"><a><img class="testimg3" data-address=""><input type="file" data-which="3" name="id3" id="pic3" class="form-img" accept="image/*"/></a></li>
+            <li class="Evaluate-img-item"><a><img class="testimg4" data-address=""><input type="file" data-which="4" name="id4" id="pic4" class="form-img" accept="image/*"/></a></li>
+        </ul>
+    </div>
+    <input type="hidden" value="${currentCustomer.customerID}" name="customer.customerID"/>
+    <input type="hidden"  id="goodsSpecify" name="goodsSpecify"/>
+    <div class="Evaluate-main"><span class="title">评论区</span><textarea placeholder="请输入你的评价" id="evaluateContent" name="evaluateContent" style="resize:none"></textarea></div>
+    <button type="submit" class="layui-btn layui-btn-radius layui-btn-primary addcomment">提交评论</button>
+   	<button type="reset" style="display:none;" id="resetForm">重置</button>
+    </form>
+</div>
 <div class="back-top"><i class="layui-icon layui-icon-top"></i></div>
 <div class="tip"><h4>修改成功</h4></div>
+<div id="targetdiv"></div>
 <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery.form.js"></script>
 <script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
@@ -448,6 +480,47 @@
 				$("#signup").hide();
 				$(".shopping-cart").show();
 			}
+		
+		 
+			 $(".addcomment").click(function(){
+			console.log($("#pic1").val());
+				var options={
+					url:"${pageContext.request.contextPath }/user/comment",
+					success:function(res){
+						alert(res.result);
+					}
+				};
+				 $("#mainform").ajaxForm(options);
+				 $(".star").empty();
+				 reIns(0);
+				 $(".text").empty();
+					$("#resetForm").click();
+					$(".Evaluate-area i.layui-icon-close").click();
+					$(".tip").find("h4").text("评论成功");
+					$(".tip").fadeIn();
+					$(".tip").delay(1500).fadeOut();
+					
+			}); 
+			
+		/* 	var ajax_option={
+				target: '#targetdiv',
+				clearForm:true,
+				dataType:"jsonp",
+    			jsonp:"callback",
+				beforeSubmit:function(){
+					console.log($("#mainform .goodsSpecify").val());
+				},
+				success:function(res){
+					alert(res.result);
+				},
+				error:function(e){
+				alert(e);
+				}
+			} */
+			/* $("#mainform").submit(function(){
+				$(this).ajaxSubmit();
+				return false;
+			});  */ 
 		});
 
 		$(".Message-list .save").click(function(){
@@ -486,6 +559,39 @@
 	     	});
 	      } 
 		});  
+
+</script>
+<script>
+reIns(0);
+function reIns(insvalue){
+    layui.use('rate', function(){
+        var rate = layui.rate;
+
+        //渲染
+        var ins1 = rate.render({
+            elem: '.star'  //绑定元素
+            ,value:insvalue
+            ,choose: function(value){
+                $("#evaluateGrade").val(value);
+                if(value == 5) {
+                    $("span.text").text("十分满意，商品很棒！");
+                }
+                else if(value ==4){
+                    $("span.text").text("满意，商品挺好！");
+                }
+                else if (value ==3){
+                    $("span.text").text("一般，商品还行！");
+                }
+                else if (value == 2){
+                    $("span.text").text("差，商品不怎么样！");
+                }
+                else if (value ==1){
+                    $("span.text").text("很差，商品很差！");
+                }
+            }
+        });
+    });
+    }
 </script>
 <script type="text/javascript">
     if(window.name != "bencalie"){

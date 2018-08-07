@@ -306,6 +306,27 @@ $(document).ready(function () {
     	}
     })
     
+    $(".state-button button").click(function(){
+    	var imgSrc=$(this).parents(".state-button").siblings(".goods").find("img").attr("src");
+    	var goodsName=$(this).parents(".state-button").siblings(".goods").find("span").text();
+    	var num=$(this).parents(".state-button").siblings(".cell").find("span:eq(0)").text();
+    	var Specify=$(this).parents(".state-button").siblings(".cell").find(".testgoodsSpecify").text();
+    	var goodID=$(this).siblings("input").val();
+    	console.log(goodID);
+    	$(".Evaluate-area #goodsID").val(goodID);
+    	$(".Evaluate-area .product-img img").attr("src",imgSrc);
+    	$(".Evaluate-area .product-intr .product-name").text(goodsName);
+    	$(".Evaluate-area .product-intr .product-type span").text(Specify);
+    	$(".Evaluate-area .product-intr .product-number span").text(num);
+    	$(".Evaluate-area #goodsSpecify").val(Specify);
+    	$(".Evaluate").fadeIn("fast");
+    	$(".Evaluate-area").slideDown("fast");
+    });
+    
+    $(".Evaluate-area i.layui-icon-close").click(function(){
+    	$(".Evaluate-area").slideUp("fast");
+    	$(".Evaluate").fadeOut("fast");
+    });
     
     $("#customerName").blur(function () {
         var value=$(this).val();
@@ -537,6 +558,24 @@ $(document).ready(function () {
     $(".addressName").each(function(){
     	 console.log($(this).attr("data-addrId"));
     });
+    
+    $(".form-img").on("change",function(){
+    	var index=$(this).attr("data-which");
+    	var filePath = $(this).val(),         //获取到input的value，里面是文件的路径
+		fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
+		src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
+		
+	// 检查是否是图片
+	if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+		error_prompt_alert('上传错误,文件格式必须为：png/jpg/jpeg');
+    	return;  
+    }
+
+    $('.testimg'+index+'').attr('src',src);
+    $('.testimg'+index+'').attr('width',"65");
+   
+    });
+    
     var $test=$(".panel.showli");
     if($test.length==0){
     	$(".isNoPanel").show();

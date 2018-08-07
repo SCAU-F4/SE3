@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.print.Printable;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -194,11 +194,19 @@ public class Usercontroller {
 	@RequestMapping(value ="comment")
 	public String comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
 		String result=userservice.comment(evaluate,servletRequest.getServletContext().getRealPath("/img"));
-		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
-		else {
+		/*if(result=="") {
+			return "redirect:/products/detail/"+evaluate.getGoodsID(); */
+			result="11111111111111111------222222";
+			Map<String, String> map = new HashMap<>();
+			map.put("result", result);
+			String res =JSON.toJSONString(map);
+			return res;
+		/*}*/
+
+		/*else {
 			model.addAttribute("result",result);
 			return "mycenter";
-		}
+		} */
 	}
 
 	@RequestMapping(value = "auction")
