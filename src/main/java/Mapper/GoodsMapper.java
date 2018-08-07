@@ -27,7 +27,13 @@ public interface GoodsMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	List<Goods> findGoodsBygoodsSecondaryTypeID(@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
-
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+	int getAllsellCount();
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
+    int getsellCountByMainTypeID(@Param("goodsMainTypeID")int goodsMainTypeID);
+    
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Goods goods);
 
