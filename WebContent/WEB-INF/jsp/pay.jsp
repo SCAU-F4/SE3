@@ -80,7 +80,7 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href= "${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
 								</div>
@@ -287,13 +287,13 @@
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 	<script src="${pageContext.request.contextPath }/js/pay.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     if(window.name != "bencalie"){
          location.reload();
          window.name = "bencalie";
      }else{
          window.name = "";
       }
-</script>
+</script> -->
 </body>
 </html>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,33 +46,37 @@
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
+									<c:forEach items="${currentCustomer.cart.cartDetailList}"
+										var="cartList" varStatus="status">
+										<input type="hidden" value="${cartList.good.goodsID}"
+											class="cartGoodsID" />
 										<div class="cart-item">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
-										<div class="cart-img">
-											<img
-												src="${cartList.good.pictureList[0].picturePath}"
-												alt="" height="50">
-										</div>
-										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
-										</div>
-										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
+											<input type="hidden" value="${cartList.good.goodsID}"
+												class="cartGoodsID" />
+											<div class="cart-img">
+												<img src="${cartList.good.pictureList[0].picturePath}"
+													alt="" height="50">
+											</div>
+											<div class="cart-name">
+												<a
+													href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}"
+													title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
+											</div>
+											<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 											<div class="cart-number">
-										   <span class="glyphicon glyphicon-minus"></span>  
-											x <span class="indentNumber">${cartList.goodsCount}</span>
-											<span class="glyphicon glyphicon-plus"></span>
+												<span class="glyphicon glyphicon-minus"></span> x <span
+													class="indentNumber">${cartList.goodsCount}</span> <span
+													class="glyphicon glyphicon-plus"></span>
+											</div>
+											<div class="cart-price text-danger">
+												<input type="hidden" value="${cartList.good.goodsPrice}">
+												￥ <span class="indentMoney">${cartList.totalPrice}</span>
+											</div>
+											<div class="close">
+												<i class="layui-icon layui-icon-close"></i>
+											</div>
 										</div>
-										<div class="cart-price text-danger">
-																					<input type="hidden" value="${cartList.good.goodsPrice}">
-											￥ <span class="indentMoney">${cartList.totalPrice}</span>
-										</div>
-										<div class="close">
-											<i class="layui-icon layui-icon-close"></i>
-										</div>
-									</div>
-								
+
 									</c:forEach>
 								</div>
 								<div class="cart-bottom-area">
@@ -83,13 +87,14 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
+												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
 								</div>
 
 							</div>
-						
+
 						</div>
 
 					</div>
@@ -104,8 +109,9 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> 
-					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
+					<input type="text" placeholder="雅迪电动车只要999"> <a
+						href="${pageContext.request.contextPath }/products/searchitems"
+						class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -246,26 +252,25 @@
 			</div>
 		</div>
 	</header>
-	
+
 	<section class="SE3_buy">
 		<div class="address">
 			<div class="buy_head">
 				<span>收货信息</span>
 			</div>
 			<div class="change">
-				
-            	<div class="first_detail">
-                	<div>
-                    	<span class="change_btn">选择地址</span>
-                    	<span class="new_btn">新建地址</span>
-                	</div>
-            	</div>
+
+				<div class="first_detail">
+					<div>
+						<span class="change_btn">选择地址</span> <span class="new_btn">新建地址</span>
+					</div>
+				</div>
 				<div class="address_detail">
 					<div class="left">
 						<div class="modify">
 							<span>修改地址</span>
 						</div>
-						<input type="hidden" class="addressID" value=""/>
+						<input type="hidden" class="addressID" value="" />
 						<div class="text">
 							<span>收 货 人 :</span> <span class="name_text">黄帅哥</span>
 						</div>
@@ -297,7 +302,7 @@
 									class="glyphicon glyphicon-remove"></i>
 							</div>
 						</div>
-						<input type="hidden" class="addressID" value=""/>
+						<input type="hidden" class="addressID" value="" />
 						<div>
 							<div class="phone_div">
 								<span>手机号码:</span> <input class="short_input phone_text"
@@ -335,7 +340,7 @@
 									class="glyphicon glyphicon-remove"></i>
 							</div>
 						</div>
-						<input type="hidden" class="addressID" value=""/>
+						<input type="hidden" class="addressID" value="" />
 						<div>
 							<div class="phone_div">
 								<span>手机号码:</span> <input class="short_input phone_text"
@@ -366,19 +371,21 @@
 				</div>
 				<div class="change_address">
 					<div class="left">
-						<c:forEach items="${currentCustomer.addressList}" var="address" varStatus="status">
+						<c:forEach items="${currentCustomer.addressList}" var="address"
+							varStatus="status">
 							<div class="choose">
 								<div class="text">
 									<span>收 货 人 :</span> <span class="choose_name_text">${address.addressName }</span>
 								</div>
-								<input type="hidden" class="addressID" value="${address.addressID }"/>
+								<input type="hidden" class="addressID"
+									value="${address.addressID }" />
 								<div class="second">
 									<div class="text">
 										<span>联系方式 : </span> <span class="choose_phone_text">${address.addressPhone }</span>
 									</div>
 									<div class="text">
-										<span class="mail_text">邮 编 : </span> 
-										<span class="choose_mail_text">${address.addressPostcode }</span>
+										<span class="mail_text">邮 编 : </span> <span
+											class="choose_mail_text">${address.addressPostcode }</span>
 									</div>
 								</div>
 								<div class="text">
@@ -386,7 +393,7 @@
 								</div>
 							</div>
 						</c:forEach>
-					
+
 					</div>
 					<div class="right">
 						<div>
@@ -399,7 +406,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="goods">
 			<div class="detail">
 				<div></div>
@@ -415,7 +422,7 @@
 
 					
 					<tbody>
-						<c:forEach items="${indent.indentDetaillist}" var="goods" varStatus="status">
+						<c:forEach items="${newindent.indentDetaillist}" var="goods" varStatus="status">
 							<tr>
 								<td><img src="${goods.good.pictureList[0].picturePath}">
 									<div class="goods_detail">
@@ -435,7 +442,7 @@
 				<div>
 					<div>
 						<div class="pay_text">
-							<span>商品合计：</span> <span class="price"> <span>¥</span> <span>${indent.totalPrice }</span>
+							<span>商品合计：</span> <span class="price"> <span>¥</span> <span>${newindent.totalPrice }</span>
 							</span>
 						</div>
 						<div class="pay_text">
@@ -445,7 +452,7 @@
 					</div>
 					<div class="pay_text total_text">
 						<span>应付总额：</span> <span class="price total"> <span>¥</span>
-							<span>${indent.totalPrice }</span>
+							<span>${newindent.totalPrice }</span>
 						</span>
 					</div>
 					<span class="pay_btn">去付款</span>
@@ -460,7 +467,7 @@
 		</div>
 
 	</section>
- 
+
 	<section class="SE3_tail">
 		<div class="serve">
 			<div class="col-md-4 detail_serve">
@@ -477,7 +484,7 @@
 			</div>
 		</div>
 	</section>
- 
+
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
@@ -504,5 +511,6 @@
 			}
 		});
 	</script>
+
 </body>
 </html>

@@ -78,7 +78,7 @@ $(document).ready(function() {
 				var goodsSpecify = $(".SE3_product .detail .detail_specify .specify ul li.active").text();
 				var goodsCount = $(".detail_num .num input").val();
 
-				$(location).attr('href', "/SE3-F4/user/purchase" +
+				$(location).attr('href', "/SE3-F4/user/auction" +
 					"?goodsID=" + goodsID + "&goodsSpecify=" + goodsSpecify + "&goodsCount=" + goodsCount);
 			} else {
 				$(".tip h4").text("请先选择规格");
