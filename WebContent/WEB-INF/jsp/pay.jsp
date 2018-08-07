@@ -19,12 +19,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
- <%     
-   response.setHeader("Pragma","no-cache");     
-   response.setHeader("Cache-Control","no-cache");     
-   response.setDateHeader("Expires", 0);     
-   response.setHeader("Cache-Control", "no-store");     
-%> 
+<%
+	response.setHeader("Pragma", "no-cache");
+	response.setHeader("Cache-Control", "no-cache");
+	response.setDateHeader("Expires", 0);
+	response.setHeader("Cache-Control", "no-store");
+%>
 <body>
 
 	<!--头-->
@@ -49,33 +49,37 @@
 							<i class="glyphicon glyphicon-shopping-cart"></i><i>购物车</i>
 							<div class="cart-show-area">
 								<div class="cart-top-area">
-									<c:forEach items="${currentCustomer.cart.cartDetailList}" var="cartList" varStatus="status">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
+									<c:forEach items="${currentCustomer.cart.cartDetailList}"
+										var="cartList" varStatus="status">
+										<input type="hidden" value="${cartList.good.goodsID}"
+											class="cartGoodsID" />
 										<div class="cart-item">
-										<input type="hidden" value="${cartList.good.goodsID}" class="cartGoodsID"/>
-										<div class="cart-img">
-											<img
-												src="${cartList.good.pictureList[0].picturePath}"
-												alt="" height="50">
-										</div>
-										<div class="cart-name">
-											<a href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}" title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
-										</div>
-										<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
+											<input type="hidden" value="${cartList.good.goodsID}"
+												class="cartGoodsID" />
+											<div class="cart-img">
+												<img src="${cartList.good.pictureList[0].picturePath}"
+													alt="" height="50">
+											</div>
+											<div class="cart-name">
+												<a
+													href="${pageContext.request.contextPath }/products/detail/${cartList.good.goodsID}"
+													title="${cartList.good.goodsName}">${cartList.good.goodsName}</a>
+											</div>
+											<div class="cart-introduce text-muted">${cartList.good.goodsSpecify}</div>
 											<div class="cart-number">
-										   <span class="glyphicon glyphicon-minus"></span>  
-											x <span class="indentNumber">${cartList.goodsCount}</span>
-											<span class="glyphicon glyphicon-plus"></span>
+												<span class="glyphicon glyphicon-minus"></span> x <span
+													class="indentNumber">${cartList.goodsCount}</span> <span
+													class="glyphicon glyphicon-plus"></span>
+											</div>
+											<div class="cart-price text-danger">
+												<input type="hidden" value="${cartList.good.goodsPrice}">
+												￥ <span class="indentMoney">${cartList.totalPrice}</span>
+											</div>
+											<div class="close">
+												<i class="layui-icon layui-icon-close"></i>
+											</div>
 										</div>
-										<div class="cart-price text-danger">
-																					<input type="hidden" value="${cartList.good.goodsPrice}">
-											￥ <span class="indentMoney">${cartList.totalPrice}</span>
-										</div>
-										<div class="close">
-											<i class="layui-icon layui-icon-close"></i>
-										</div>
-									</div>
-								
+
 									</c:forEach>
 								</div>
 								<div class="cart-bottom-area">
@@ -86,17 +90,19 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href= "${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
+										<a
+											href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
+												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
 								</div>
 
 							</div>
-						
+
 						</div>
 					</div>
-					
-					
+
+
 				</div>
 			</div>
 		</div>
@@ -107,9 +113,10 @@
 					<img src="${pageContext.request.contextPath }/img/icon/logo.png"
 						alt="logo">
 				</div>
-				  <div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> 
-					<a href="${pageContext.request.contextPath }/products/searchitems" class="glyphicon glyphicon-search"></a>
+				<div id="serech_input">
+					<input type="text" placeholder="雅迪电动车只要999"> <a
+						href="${pageContext.request.contextPath }/products/searchitems"
+						class="glyphicon glyphicon-search"></a>
 				</div>
 			</div>
 			<!--下部分-->
@@ -255,7 +262,7 @@
 		<div>
 			<div>选择付款方式</div>
 			<div>
-				<span>实付 :</span> <span> <span>¥</span> <span>189.00</span>
+				<span>实付 :</span> <span> <span>¥</span> <span>${newindent.totalPrice }</span>
 				</span>
 			</div>
 		</div>
@@ -265,7 +272,11 @@
 			<img
 				src="${pageContext.request.contextPath }/img/product/zhifubao.jpg">
 		</div>
-		<span>已完成付款</span>
+
+		<div>
+			<span>已完成付款</span>
+			<span>我再想想</span>
+		</div>
 	</section>
 
 	<section class="SE3_tail">
@@ -285,15 +296,29 @@
 		</div>
 	</section>
 
-	<script
-		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+	<script	src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
+	<script src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
-		<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
-	<script src="${pageContext.request.contextPath }/js/pay.js"></script>
-
+	<script src="${pageContext.request.contextPath }/js/pay.js"></script>	<script>
+		$(document).ready(function() {
+			var customer = "${currentCustomer.customerName}";
+			if (customer == "") {
+				$("#myCenter").hide();
+				$("#signout").hide();
+				$("#signin").show();
+				$("#signup").show();
+				$(".shopping-cart").hide();
+			} else {
+				$("#myCenter").show();
+				$("#signout").show();
+				$("#signin").hide();
+				$("#signup").hide();
+				$(".shopping-cart").show();
+			}
+		});
+	</script>
 </body>
 </html>

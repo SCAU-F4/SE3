@@ -218,9 +218,9 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value="pay")
-	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession,Model model){
+	public String pay(@RequestParam("addressID") int addressID,HttpSession httpSession,Model model){
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
-		Indent indent =(Indent) httpSession.getAttribute("indent");
+		Indent indent =(Indent) httpSession.getAttribute("newindent");
 		if(indent!=null) {
 			if(userservice.pay(addressID,indent,customer)){
 				httpSession.removeAttribute("newindent");
@@ -228,7 +228,7 @@ public class Usercontroller {
 				return "pay";
 			}
 		}
-		model.addAttribute("result", "非法操作");
-		return "index";
+		/*model.addAttribute("result", "非法操作");*/
+		return "redirect:/user/myCenter";
 	}
 }
