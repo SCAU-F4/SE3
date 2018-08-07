@@ -40,6 +40,7 @@
           <div class="control-group">
             <div class="controls">
               <h4>登录</h4>
+              ${ error}
             </div>
           </div>
           <div class="control-group">
@@ -62,6 +63,7 @@
     </div>
   </div>
 </div>
+
   </body><!-- <script>protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address);
 socket.onmessage = function(msg) { msg.data == 'reload' && window.location.reload() }</script> -->
 </html>
