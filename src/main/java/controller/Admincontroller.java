@@ -23,6 +23,11 @@ import service.goodservice.Goodservice;
 public class Admincontroller {
 	@Autowired
 	Adminservice adminservice;
+	
+	@RequestMapping(value = "adminsignin", method = RequestMethod.GET)
+	public String signin() {
+		return "adminsignin";
+	}
 
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
 	public String signin(Manager manager,String referrer, Model model, HttpSession session) {
