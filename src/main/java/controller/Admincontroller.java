@@ -29,7 +29,12 @@ public class Admincontroller {
 		return "adminsignin";
 	}
 
-	@RequestMapping(value = "signin", method = RequestMethod.POST)
+	@RequestMapping(value = "adminsignin", method = RequestMethod.GET)
+	public String signin() {
+		return "adminsignin";
+	}
+
+	@RequestMapping(value = "adminsignin", method = RequestMethod.POST)
 	public String signin(Manager manager,String referrer, Model model, HttpSession session) {
 		String result=adminservice.signin(manager);
 		if(result.equals("ok"))

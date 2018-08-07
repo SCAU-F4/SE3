@@ -110,7 +110,9 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> <a
+					<input type="text" placeholder="雅迪电动车只要999"><div class="arrow_box">
+						请输入正确的搜索条件
+					</div> <a
 						href="${pageContext.request.contextPath }/products/searchitems"
 						class="glyphicon glyphicon-search"></a>
 				</div>
