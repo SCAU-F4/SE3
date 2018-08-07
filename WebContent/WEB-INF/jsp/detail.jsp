@@ -19,6 +19,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <body>
 	<!--头-->
 	<header id="SE3_header">

@@ -20,6 +20,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <body>
 
 
@@ -491,6 +497,7 @@
 	<script
 		src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+			<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/buy.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 	<script>
@@ -511,6 +518,5 @@
 			}
 		});
 	</script>
-
 </body>
 </html>
