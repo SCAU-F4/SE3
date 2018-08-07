@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/modules/layer/default/layer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css">
+    	<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/sign.css">
 </head>
