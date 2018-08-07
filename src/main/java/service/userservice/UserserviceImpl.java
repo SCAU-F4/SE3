@@ -302,25 +302,28 @@ public class UserserviceImpl implements Userservice {
 
 	@Override
 	public String comment(Evaluate evaluate, String path) {
+		System.out.println("-------------------------------------");
 		String result = "";
 		evaluate.setEvaluateDate(new Timestamp(System.currentTimeMillis()));
-		int sum=evaluatemapper.insert(evaluate);
-		if(sum==0){
-			result="评论失败";
+		int sum = evaluatemapper.insert(evaluate);
+		if (sum == 0) {
+			result = "评论失败";
 			return result;
 		}
-		List<MultipartFile> multipartFile = evaluate.getImages();
-		for (MultipartFile file : multipartFile) {
-			String pathname = path + "\\customer\\" + file.getOriginalFilename();
-			File f = new File(pathname);
-			try {
-				file.transferTo(f);
-				Picture picture = new Picture(-2, 0, pathname);
-				picturemapper.insert(picture);
-				EvaluatePicture evaluatePicture=new EvaluatePicture(evaluate.getEvaluateID(), picture);
-				evaluatepicturemapper.insert(evaluatePicture);
-			} catch (IllegalStateException | IOException e) {
-				e.printStackTrace();
+		if (evaluate.getImages() != null) {
+			List<MultipartFile> multipartFile = evaluate.getImages();
+			for (MultipartFile file : multipartFile) {
+				String pathname = path + "\\customer\\" + file.getOriginalFilename();
+				File f = new File(pathname);
+				try {
+					file.transferTo(f);
+					Picture picture = new Picture(-2, 0, pathname);
+					picturemapper.insert(picture);
+					EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
+					evaluatepicturemapper.insert(evaluatePicture);
+				} catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return result;

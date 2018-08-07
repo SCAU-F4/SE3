@@ -40,12 +40,12 @@
 		insert into
 		Evaluate(customerID,goodsID,evaluateDate,evaluateGrade,evaluateContent,goodsSpecify)
 		values(
-		#{customerID}, #{goodsID},
+		#{customer.customerID}, #{goodsID},
 		#{evaluateDate}, #{evaluateGrade},
 		#{evaluateContent},#{goodsSpecify})
 	</insert>
 	<update id="updateByevaluateID">
-		update Evaluate set customerID=#{customerID},
+		update Evaluate set customerID=#{customer.customerID},
 		goodsID=#{goodsID},evaluateDate=#{evaluateDate},evaluateGrade=#{evaluateGrade},evaluateContent=#{evaluateContent},goodsSpecify=#{goodsSpecify}
 		where evaluateID=#{evaluateID}
 	</update>
