@@ -193,8 +193,8 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value ="comment")
-	public void comment(Evaluate evaluate,Model model,ServletRequest servletRequest){
-		String result=userservice.comment(evaluate,servletRequest.getServletContext().getRealPath("/img"));
+	public void comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate,Model model,ServletRequest servletRequest){
+		String result=userservice.comment(indentID,goodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
 //		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
 //		else {
 //			model.addAttribute("result",result);
@@ -211,7 +211,7 @@ public class Usercontroller {
 	}
 
 	@RequestMapping(value = "auction")
-	public String auction(@RequestParam("goodsID") int goodsID,@RequestParam("goodsSpecify") String goodsSpecify ,@RequestParam("goodsCount") int goodsCount,HttpSession httpSession,Model model) {
+	public String auction(@RequestParam(value="goodsID") int goodsID,@RequestParam(value="goodsSpecify") String goodsSpecify ,@RequestParam(value="goodsCount") int goodsCount,HttpSession httpSession,Model model) {
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		Indent indent=userservice.auction(goodsID,goodsSpecify,goodsCount,customer);
 		if(indent!=null)  httpSession.setAttribute("newindent", indent);
@@ -234,8 +234,8 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value="payment")
-	public String payment(@RequestParam("indentID") int indentID,@RequestParam("ispay") int ispay,RedirectAttributes rs){
-		if(ispay==0){
+	public String payment(@RequestParam("indentID") int indentID,@RequestParam(value="paid") int paid,RedirectAttributes rs){
+		if(paid==0){
 			return "redirect:/user/mycenter";
 		}else {
 			userservice.payment(indentID);
