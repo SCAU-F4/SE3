@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -337,23 +338,25 @@ public class UserserviceImpl implements Userservice {
 			return result;
 		}
 		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID,1);
-		System.out.println(evaluate.getImages()==null);
-//		if (evaluate.getImages() != null) {
-//			List<MultipartFile> multipartFile = evaluate.getImages();
-//			for (MultipartFile file : multipartFile) {
-//				String pathname = path + "\\customer\\" + file.getOriginalFilename();
-//				File f = new File(pathname);
-//				try {
-//					file.transferTo(f);
-//					Picture picture = new Picture(-2, 0, pathname);
-//					picturemapper.insert(picture);
-//					EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
-//					evaluatepicturemapper.insert(evaluatePicture);
-//				} catch (IllegalStateException | IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}
+		if (evaluate.getImages() != null) {
+			List<MultipartFile> multipartFile = evaluate.getImages();
+			Random random=new Random(System.currentTimeMillis());
+			for (MultipartFile file : multipartFile) {
+				Integer i=random.nextInt(1000000);
+				String pathname = path + "\\customer\\" + i+".jpg";
+				File f = new File(pathname);
+				try {
+					file.transferTo(f);
+					pathname="/SE3-F4/img/customer/"+ i+".jpg";
+					Picture picture = new Picture(-2, 0, pathname);
+					picturemapper.insert(picture);
+					EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
+					evaluatepicturemapper.insert(evaluatePicture);
+				} catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		return result;
 	}
 
