@@ -28,7 +28,7 @@ public interface IndentDetailMapper {
 	int update(IndentDetail indentdetail);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
-	int updateevaluated(@Param("indentID")int indentID,@Param("goodsID")int goodsID,@Param("goodsSpecify")String goodsSpecify,@Param("evaluated") int evaluated);
+	int updateevaluated(@Param("goodsSpecify")String goodsSpecify,@Param("goodsID")int goodsID,@Param("indentID")int indentID,@Param("evaluated") int evaluated);
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int delete(IndentDetail indentdetail);

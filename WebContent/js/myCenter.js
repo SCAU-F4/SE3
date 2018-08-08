@@ -410,7 +410,10 @@ $(document).ready(function () {
     	var num=$(this).parents(".state-button").siblings(".cell").find("span:eq(0)").text();
     	var Specify=$(this).parents(".state-button").siblings(".cell").find(".testgoodsSpecify").text();
     	var goodID=$(this).siblings("input").val();
+    	var indentID=$(this).parents(".panel").find(".Order-id").attr("data-indentID");
+    	console.log(indentID);
     	console.log(goodID);
+    	$(".Evaluate-area #Evaluate-indentID").val(indentID);
     	$(".Evaluate-area #goodsID").val(goodID);
     	$(".Evaluate-area .product-img img").attr("src",imgSrc);
     	$(".Evaluate-area .product-intr .product-name").text(goodsName);

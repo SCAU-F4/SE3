@@ -336,7 +336,7 @@ public class UserserviceImpl implements Userservice {
 			result = "评论失败";
 			return result;
 		}
-		indentdetailmapper.updateevaluated(indentID, goodsID, goodsSpecify,1);
+		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID,1);
 //		if (evaluate.getImages() != null) {
 //			List<MultipartFile> multipartFile = evaluate.getImages();
 //			for (MultipartFile file : multipartFile) {
@@ -364,8 +364,7 @@ public class UserserviceImpl implements Userservice {
 
 	@Override
 	public Indent payfromcenter(int indentID) {
-		// TODO Auto-generated method stub
-		return null;
+		 return indentmapper.findByindentID(indentID);
 	}
 
 }

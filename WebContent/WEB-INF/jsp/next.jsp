@@ -1,38 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="description" content="description of your site" />
-    <meta name="author" content="author of the site" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IndustryApp Template</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
+   	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/fullcalendar.css" />
-    <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.knob.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.sparkline.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.tablesorter.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.peity.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/fullcalendar.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/gcal.js"></script>
-    <script src="${pageContext.request.contextPath }/js/setup.js"></script>
+   
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
   <body>
     <div id="in-nav">
       <div class="container">
         <div class="row">
           <div class="span12">
-            <ul class="pull-right">
-              <li><a href="#">Link1</a></li>
-              <li><a href="#">Link2</a></li>
-              <li><a href="#">Link3</a></li>
-              <li><a href="login.html">Login</a></li>
-            </ul><a id="logo" href="index.html">
               <h4><strong>华农有货</strong></h4></a>
           </div>
         </div>
@@ -70,19 +55,19 @@
       <div class="row-fluid">
         <div class="span3 knob">
           <h4>箱包配饰</h4>
-          <input type="button" value="25" data-width="120" data-fgcolor="#14B8D4" data-readonly="true" class="dial" data-kind="bag"/>
+          <input type="button" value="${mymap.PackageMainTypeWeight}" data-width="120" data-fgcolor="#14B8D4" data-readonly="true" class="dial" data-kind="bag"/>
         </div>
         <div class="span3 knob">
           <h4>服装</h4>
-        <input type="button" value="25" data-width="120" data-fgcolor="#EA494A" data-readonly="true" class="dial" data-kind="cloth"/>
+        <input type="button" value="${mymap.ClothMainTypeWeight}" data-width="120" data-fgcolor="#EA494A" data-readonly="true" class="dial" data-kind="cloth"/>
         </div>
         <div class="span3 knob">
           <h4>饮食</h4>
-          <input type="button" value="25" data-width="120" data-fgcolor="#FFA93C" data-readonly="true" class="dial" data-kind="food"/>
+          <input type="button" value="${mymap.FoodMainTypeWeight}" data-width="120" data-fgcolor="#FFA93C" data-readonly="true" class="dial" data-kind="food"/>
         </div>
         <div class="span3 knob">
           <h4>文体</h4>
-          <input type="button" value="25" data-width="120" data-fgcolor="#333" data-readonly="true" class="dial" data-kind="sport"/>
+          <input type="button" value="${mymap.CultureMainTypeWeight}" data-width="120" data-fgcolor="#333" data-readonly="true" class="dial" data-kind="sport"/>
         </div>
       </div>
       <div class="showarea">
@@ -92,31 +77,31 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.ManPackWeight}%</h2>
               <h4>男士箱包</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.GirlPackWeight}%</h2>
               <h4>女性箱包</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.PurseWeight}%</h2>
               <h4>钱包及小配件</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.CarrierWeight}%</h2>
               <h4>行李箱</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+     <!--  <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -125,7 +110,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -134,7 +119,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -143,7 +128,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -158,7 +143,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -167,7 +152,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -176,7 +161,7 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -184,6 +169,9 @@
           </div>
         </div>
       </div>
+      -->
+     
+     
       </div>
 
       <!--分割线-->
@@ -193,31 +181,32 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.TshirtWeight}%</h2>
               <h4>清爽短袖</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.PoloWeight}%</h2>
               <h4>时尚衬衫</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.SexySkirtWeight}%</h2>
               <h4>性感长裙</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.FashionPantWeight}%</h2>
               <h4>潮流裤类</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+      
+      <!-- <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -226,7 +215,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -235,7 +224,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -244,7 +233,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -259,7 +248,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -268,7 +257,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -277,14 +266,16 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
+      
+      
       </div>
       <!--分割线-->
       <div class="food">
@@ -293,31 +284,31 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.SockWeight}%</h2>
               <h4>美味零食</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.NutWeight}%</h2>
               <h4>水果坚果</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.MeatWeight}%</h2>
               <h4>新鲜肉类</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.DrinkWeight}%</h2>
               <h4>饮料酒水</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+     <!--  <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -326,7 +317,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -335,7 +326,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -344,7 +335,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -359,7 +350,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -368,7 +359,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -377,14 +368,17 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
+      
+      
+      
       </div>
         <!--分割线-->
       <div class="sport">
@@ -393,31 +387,31 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.BeautifulWritingWeight}%</h2>
               <h4>精美文具</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.OutDoorWeight}%</h2>
               <h4>运动户外</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.MusicWeight}%</h2>
               <h4>音乐相关</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.FilmWeight}%</h2>
               <h4>影视相关</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+      <!-- <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -426,7 +420,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -435,7 +429,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -444,7 +438,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -459,7 +453,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -468,7 +462,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -477,14 +471,17 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
+      
+      
+      
       </div>
         <!--分割线-->
       </div>
@@ -577,7 +574,14 @@
       </div>
     </footer>
 
-
+<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.knob.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.tablesorter.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.peity.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/fullcalendar.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/gcal.js"></script>
+    <script src="${pageContext.request.contextPath }/js/setup.js"></script>
     <script>
         $(document).ready(function () {
            $(".span3.knob").click(function () {

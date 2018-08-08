@@ -45,9 +45,10 @@
 
 	<update id="updateevaluated">
 		update IndentDetail set
-		evaluated=#{evaluated}where
-		indentID=#{indentID} AND goodsID=#{good.goodsID} AND
-		goodsSpecify=#{good.goodsSpecify}
+		evaluated=#{evaluated}
+		where
+		indentID=#{indentID} AND goodsID=#{goodsID} AND
+		goodsSpecify=#{goodsSpecify}
 	</update>
 
 	<delete id="delete">

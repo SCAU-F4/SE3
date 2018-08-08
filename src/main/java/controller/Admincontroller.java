@@ -78,6 +78,7 @@ public class Admincontroller {
 		List customerAndPrice=adminservice.getHighestCustomer();
 		List highestgoods=adminservice.getHistoryHighestGood();
 
+
 		Map mymap = new HashMap<String, Object>();
 		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
 		mymap.put("ClothMainTypeWeight", ClothMainTypeWeight);

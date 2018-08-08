@@ -67,7 +67,6 @@ public class Goodscontroller {
 	@RequestMapping(value="searchitems")
 	public String searchItems(Model model,@RequestParam("Name") String Name){
 		List<Goods> goods=goodservice.searchItems(Name);
-		for(Goods good:goods) System.out.println(good);
 		model.addAttribute("goodsList", goods);
 		return "searchItems";
 	}

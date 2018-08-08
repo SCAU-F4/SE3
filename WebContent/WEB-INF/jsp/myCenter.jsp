@@ -333,11 +333,13 @@
 												<span>总价：￥<strong class="totalPrice">${indent.totalPrice}</strong></span>
 											</div>
 
+
 											<div class="cell pull-right">
 												<span class="target"></span> <a
-													href="${pageContext.request.contextPath }/"><button
+													href="${pageContext.request.contextPath }/user/mycenter/auction?indentID=${indent.indentID}"><button
 														class="layui-btn layui-btn-radius"></button></a>
 											</div>
+
 
 										</div>
 									</div>
@@ -527,12 +529,13 @@
 	<div class="Evaluate-area">
 		<i class="layui-icon layui-icon-close pull-right"></i>
 		<div class="product-img">
-			<img src="../lib/img/product3.png" width="200">
+			<img src="" width="200">
 		</div>
 		<div class="star"></div>
 		<span class="text text-muted"></span>
 		<form id="mainform" method="post" action="#"
 			enctype="multipart/form-data">
+			<input type="hidden" id="Evaluate-indentID" name="indentID" value=""/>
 			<input type="hidden" id="goodsID" name="goodsID" value=""> <input
 				type="hidden" id="evaluateGrade" name="evaluateGrade" value="" />
 			<div class="product-intr">

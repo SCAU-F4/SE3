@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +35,6 @@ public class Usercontroller {
 	public String signin() {
 		return "signin";
 	}
-
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
 	public String signin(Customer customer,String referrer, Model model, HttpSession session) {
 		String result = "";
@@ -193,8 +191,10 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value ="comment")
-	public void comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate,Model model,ServletRequest servletRequest){
-		String result=userservice.comment(indentID,goodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+	public void comment(String indentID,String goodsID,String goodsSpecify,Evaluate evaluate,Model model,ServletRequest servletRequest){
+		int IndentID=Integer.parseInt(indentID);
+		int GoodsID=Integer.parseInt(goodsID);
+		String result=userservice.comment(IndentID,GoodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
 //		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
 //		else {
 //			model.addAttribute("result",result);
