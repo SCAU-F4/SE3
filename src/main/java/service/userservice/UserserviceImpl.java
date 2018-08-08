@@ -290,7 +290,6 @@ public class UserserviceImpl implements Userservice {
 			IndentDetail indentDetail = new IndentDetail(0, good, goodsCount, good.getGoodsPrice() * goodsCount);
 			indentDetails.add(indentDetail);
 		}
-		System.out.println(indent);
 		return indent;
 	}
 
@@ -313,13 +312,16 @@ public class UserserviceImpl implements Userservice {
 			 cartdetailList.clear();
 			 cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
 			 cart.setTotalPrice(0);
-		}else {
+		}else if(indent.getIndentID() == -1){
 			indent.setAddressID(addressID);
 			indent.setIndentTime(new Timestamp(System.currentTimeMillis()));
 			indentmapper.insert(indent);
 			IndentDetail indentDetail = indent.getIndentDetaillist().get(0);
 			indentDetail.setIndentID(indent.getIndentID());
 			indentdetailmapper.insert(indentDetail);
+		}else {
+			indent.setAddressID(addressID);
+			indentmapper.update(indent);
 		}
 		return true;
 	}
@@ -357,6 +359,12 @@ public class UserserviceImpl implements Userservice {
 	public boolean payment(int indentID) {
 		indentmapper.updateindentStateByindentID(indentID, 1);
 		return true;
+	}
+
+	@Override
+	public Indent payfromcenter(int indentID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

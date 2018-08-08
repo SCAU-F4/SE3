@@ -20,4 +20,5 @@ public interface Userservice {
     public boolean pay(int addressID,Indent indent,Customer customer);
     public String comment(Evaluate evaluate,String path);
     public boolean payment(int indentID);
+    public Indent payfromcenter(int indentID);
 }
