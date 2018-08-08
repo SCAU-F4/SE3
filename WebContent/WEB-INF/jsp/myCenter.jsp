@@ -259,7 +259,7 @@
 
                                 	<div class="cell pull-right">
                                 	 <span class="target"></span>
-                              	<button class="layui-btn layui-btn-radius"></button></div>
+                <a href="${pageContext.request.contextPath }/"><button class="layui-btn layui-btn-radius"></button></a></div>
                                		
                                 </div>	
                             </div>

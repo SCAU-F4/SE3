@@ -32,13 +32,13 @@ public interface GoodsMapper {
 	List<Goods> findGoodsBygoodsSecondaryTypeID(@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	int getAllsellCount();
+    Integer getAllsellCount();
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-    int getsellCountByMainTypeID(@Param("goodsMainTypeID")int goodsMainTypeID);
+	Integer getsellCountByMainTypeID(@Param("goodsMainTypeID")int goodsMainTypeID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	int getsellCountByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
+	Integer getsellCountByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
 	List<Goods> getGoodsByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);

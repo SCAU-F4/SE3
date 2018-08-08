@@ -22,18 +22,18 @@ $(document).ready(function () {
 			var page=Math.ceil(parseFloat(items.length)/5);
 			/*console.log(items.length);
 			console.log(page);*/
-			var z=1;
+			var z=items.length;
 			for(var i=0;i<page;i++){
 				var j=0;
 				var item={};
 				for(j;j<5;j++){
-					if(z>items.length){
+					if(z<1){
 						break;
 					}
 					else{
 						var count=parseInt(z)-1;
 						item["n"+j]=items.get(count);
-						z++;
+						z--;
 					}
 				}
 				itemList.push(item);
@@ -79,18 +79,18 @@ $(document).ready(function () {
 			var page=Math.ceil(parseFloat(items.length)/5);
 			console.log(items.length);
 			console.log(page);
-			var z=1;
+			var z=items.length;
 			for(var i=0;i<page;i++){
 				var j=0;
 				var item={};
 				for(j;j<5;j++){
-					if(z>items.length){
+					if(z<1){
 						break;
 					}
 					else{
 						var count=parseInt(z)-1;
 						item["n"+j]=items.get(count);
-						z++;
+						z--;
 					}
 				}
 				itemList.push(item);
@@ -242,7 +242,7 @@ $(document).ready(function () {
     });
 //订单号查询
     
-    $(".panel .panel-heading").on("click","i",function () {
+    $(".showpage").on("click",".panel .panel-heading i",function () {
     	var indentId=$(this).siblings(".Order-id").attr("data-indentID");
     	$deleteIndent=$(this);
     	$.ajax({
