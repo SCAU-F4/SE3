@@ -44,7 +44,7 @@ public interface GoodsMapper {
 	List<Goods> getGoodsByMainTypeIDAndSecondaryTypeID(@Param("goodsMainTypeID")int goodsMainTypeID,@Param("goodsSecondaryTypeID")int goodsSecondaryTypeID);
     
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Goods getGoodsByMaxSellCount();
+	List<Goods> getGoodsByMaxSellCount();
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Goods goods);

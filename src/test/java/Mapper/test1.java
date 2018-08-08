@@ -53,7 +53,15 @@ public class test1 {
 	}
 
 	public static void main(String[] args) throws IOException {
-		System.out.println(SecondaryTypeSaleWeight(4, 13));
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
+		List list=customerMapper.getHighestCustomer();
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
+		
+		
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 //		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);

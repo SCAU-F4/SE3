@@ -1,5 +1,7 @@
 package Mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,7 +20,7 @@ public interface CustomerMapper {
 	Customer findBycustomerNameAndcustomerPwd(@Param("customerName") String customerName,@Param("customerPwd") String customerPwd);
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	CustomerAndPrice getHighestCustomer();
+	List<CustomerAndPrice> getHighestCustomer();
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	int IsCustomerNameExist(String customerName);//找到返回一个用户的ID,找不到抛出异常
