@@ -1,38 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="description" content="description of your site" />
-    <meta name="author" content="author of the site" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IndustryApp Template</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
+   	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/fullcalendar.css" />
-    <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.knob.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.sparkline.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.tablesorter.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.peity.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/fullcalendar.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/gcal.js"></script>
-    <script src="${pageContext.request.contextPath }/js/setup.js"></script>
+   
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
   <body>
     <div id="in-nav">
       <div class="container">
         <div class="row">
           <div class="span12">
-            <ul class="pull-right">
-              <li><a href="#">Link1</a></li>
-              <li><a href="#">Link2</a></li>
-              <li><a href="#">Link3</a></li>
-              <li><a href="login.html">Login</a></li>
-            </ul><a id="logo" href="index.html">
               <h4><strong>华农有货</strong></h4></a>
           </div>
         </div>
@@ -66,6 +51,7 @@
         <h3>已成交&nbsp;&nbsp;<strong class="text-success">2000</strong>&nbsp;&nbsp;&nbsp;单</h3>
 
       </div>
+      ${mymap.PackageMainTypeWeight}
       <h4 class="header" style="font-weight: bold">销售比重</h4>
       <div class="row-fluid">
         <div class="span3 knob">
@@ -125,7 +111,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -134,7 +120,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -143,7 +129,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -158,7 +144,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -167,7 +153,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -176,7 +162,7 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -226,7 +212,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -235,7 +221,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -244,7 +230,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -259,7 +245,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -268,7 +254,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -277,7 +263,7 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -326,7 +312,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -335,7 +321,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -344,7 +330,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -359,7 +345,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -368,7 +354,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -377,7 +363,7 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -426,7 +412,7 @@
                 <td class="bar-number">666</td>
                 <td>
                   <div class="progress">
-                    <div style="width:100%" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -435,7 +421,7 @@
                 <td class="bar-number">665</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar"></div>
+                   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -444,7 +430,7 @@
                 <td class="bar-number">584</td>
                 <td>
                   <div class="progress">
-                    <div style="width: 60%;" class="bar"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -459,7 +445,7 @@
                 <td class="bar-percent">99<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width:99%" class="bar bar-danger"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -468,7 +454,7 @@
                 <td class="bar-percent">98<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 98%;" class="bar bar-success"></div>
+                   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -477,7 +463,7 @@
                 <td class="bar-percent">90<span>%</span></td>
                 <td>
                   <div class="progress">
-                    <div style="width: 90%;" class="bar bar-warning"></div>
+                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                   </div>
                 </td>
               </tr>
@@ -577,7 +563,14 @@
       </div>
     </footer>
 
-
+<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.knob.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.tablesorter.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.peity.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/fullcalendar.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/gcal.js"></script>
+    <script src="${pageContext.request.contextPath }/js/setup.js"></script>
     <script>
         $(document).ready(function () {
            $(".span3.knob").click(function () {
