@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+
+import bean.Customer;
 import bean.Goods;
 import bean.Manager;
 import service.adminservice.Adminservice;
@@ -94,5 +99,30 @@ public class Admincontroller {
 		model.addAttribute("mymap", mymap);
 		return "next";
 	}
+	
+	//第二个页面
+	@RequestMapping(value = "goodsCharge", method = RequestMethod.POST)
+	public String goodsCharge(Model model, HttpSession session) {
+		Manager manager=(Manager) session.getAttribute("currentManager");
+		if(manager==null) return "adminsignin";
+		List allGoodsList=adminservice.getAllGoods();
+		model.addAttribute("allGoodList",allGoodsList);
+		return "goodsCharge";
+	}
+	
+//	@RequestMapping(value= "showAllGoods",produces="application/json;charset=utf-8")
+//	@ResponseBody
+//	public String showAllGoods(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
+//		Map<String, List<Goods>> map=new HashMap<>();
+//		map.put("AllGoodsList", adminservice.getAllGoods());
+//		String res=callback+"("+JSON.toJSONString(map)+")";
+//		return res;
+//	}
+//	
+	
+	
+	
+	
+	
 
 }
