@@ -7,6 +7,7 @@ public class IndentDetail implements Serializable {
 	private Goods good;
 	private int goodsCount;
 	private double totalPrice;
+	private int evaluated;
 
 	private static final long serialVersionUID = 1L;
 
@@ -15,12 +16,13 @@ public class IndentDetail implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public IndentDetail(int indentID, Goods good, int goodsCount, double totalPrice) {
+	public IndentDetail(int indentID, Goods good, int goodsCount, double totalPrice, int evaluated) {
 		super();
 		this.indentID = indentID;
 		this.good = good;
 		this.goodsCount = goodsCount;
 		this.totalPrice = totalPrice;
+		this.evaluated = evaluated;
 	}
 
 	public int getIndentID() {
@@ -55,10 +57,23 @@ public class IndentDetail implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 
+	public int getEvaluated() {
+		return evaluated;
+	}
+
+	public void setEvaluated(int evaluated) {
+		this.evaluated = evaluated;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
 		return "IndentDetail [indentID=" + indentID + ", good=" + good + ", goodsCount=" + goodsCount + ", totalPrice="
-				+ totalPrice + "]";
+				+ totalPrice + ", evaluated=" + evaluated + "]";
 	}
 
+	
 }

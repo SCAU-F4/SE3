@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import Mapper.AddressMapper;
@@ -278,7 +279,7 @@ public class UserserviceImpl implements Userservice {
 			List<IndentDetail> indentDetails = new ArrayList<>();
 			for (CartDetail cartDetail : cartdetailList) {
 				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
-						cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
+						cartDetail.getGoodsCount(), cartDetail.getTotalPrice(),0);
 				indentDetails.add(indentDetail);
 			}
 			indent.setIndentDetaillist(indentDetails);
@@ -287,10 +288,9 @@ public class UserserviceImpl implements Userservice {
 			indent = new Indent(-1, customer.getCustomerID(), good.getGoodsPrice() * goodsCount, null, -1, -1, 0,
 					new ArrayList<>(), null);
 			List<IndentDetail> indentDetails = indent.getIndentDetaillist();
-			IndentDetail indentDetail = new IndentDetail(0, good, goodsCount, good.getGoodsPrice() * goodsCount);
+			IndentDetail indentDetail = new IndentDetail(0, good, goodsCount, good.getGoodsPrice() * goodsCount,0);
 			indentDetails.add(indentDetail);
 		}
-		System.out.println(indent);
 		return indent;
 	}
 
@@ -307,26 +307,28 @@ public class UserserviceImpl implements Userservice {
 			for (CartDetail cartDetail : cartdetailList) {
 				 cartdetailmapper.delete(cartDetail);
 				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
-						cartDetail.getGoodsCount(), cartDetail.getTotalPrice());
+						cartDetail.getGoodsCount(), cartDetail.getTotalPrice(),0);
 				 indentdetailmapper.insert(indentDetail);
 			}
 			 cartdetailList.clear();
 			 cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
 			 cart.setTotalPrice(0);
-		}else {
+		}else if(indent.getIndentID() == -1){
 			indent.setAddressID(addressID);
 			indent.setIndentTime(new Timestamp(System.currentTimeMillis()));
 			indentmapper.insert(indent);
 			IndentDetail indentDetail = indent.getIndentDetaillist().get(0);
 			indentDetail.setIndentID(indent.getIndentID());
 			indentdetailmapper.insert(indentDetail);
+		}else {
+			indent.setAddressID(addressID);
+			indentmapper.update(indent);
 		}
 		return true;
 	}
 
 	@Override
-	public String comment(Evaluate evaluate, String path) {
-		System.out.println("-------------------------------------");
+	public String comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate, String path) {
 		String result = "";
 		evaluate.setEvaluateDate(new Timestamp(System.currentTimeMillis()));
 		int sum = evaluatemapper.insert(evaluate);
@@ -334,22 +336,23 @@ public class UserserviceImpl implements Userservice {
 			result = "评论失败";
 			return result;
 		}
-		if (evaluate.getImages() != null) {
-			List<MultipartFile> multipartFile = evaluate.getImages();
-			for (MultipartFile file : multipartFile) {
-				String pathname = path + "\\customer\\" + file.getOriginalFilename();
-				File f = new File(pathname);
-				try {
-					file.transferTo(f);
-					Picture picture = new Picture(-2, 0, pathname);
-					picturemapper.insert(picture);
-					EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
-					evaluatepicturemapper.insert(evaluatePicture);
-				} catch (IllegalStateException | IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+		indentdetailmapper.updateevaluated(indentID, goodsID, goodsSpecify,1);
+//		if (evaluate.getImages() != null) {
+//			List<MultipartFile> multipartFile = evaluate.getImages();
+//			for (MultipartFile file : multipartFile) {
+//				String pathname = path + "\\customer\\" + file.getOriginalFilename();
+//				File f = new File(pathname);
+//				try {
+//					file.transferTo(f);
+//					Picture picture = new Picture(-2, 0, pathname);
+//					picturemapper.insert(picture);
+//					EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
+//					evaluatepicturemapper.insert(evaluatePicture);
+//				} catch (IllegalStateException | IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
 		return result;
 	}
 
@@ -357,6 +360,12 @@ public class UserserviceImpl implements Userservice {
 	public boolean payment(int indentID) {
 		indentmapper.updateindentStateByindentID(indentID, 1);
 		return true;
+	}
+
+	@Override
+	public Indent payfromcenter(int indentID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
