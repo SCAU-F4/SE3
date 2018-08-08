@@ -1,10 +1,16 @@
 package Mapper;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import bean.Manager;
 import service.adminservice.Adminservice;
@@ -12,55 +18,58 @@ import service.adminservice.AdminserviceImpl;
 
 
 public class test1 {
-	public static String signin(Manager manager) {
-		
-		// TODO Auto-generated method stub
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		ManagerMapper managerMapper=ctx.getBean(ManagerMapper.class);
-		if (manager != null) {
-			Manager realManager = managerMapper.findBymanagerId(manager.getManagerID());
-			if ((realManager != null)) {
-				if (manager.getManagerPwd().equals(realManager.getManagerPwd())) {
-					return "ok";
-				}
-				return "密码不正确";
-			}
-			return "数据库没有该管理员";
-
-		}
-		return "该管理员账户为空";
-	}
-	
-	
-	public static double MainTypeSaleWeight(int goodsMainTypeID) {
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
-		// TODO Auto-generated method stub
-		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
-		double j = goodsMapper.getAllsellCount();
-		if(j!=0) return (i / j)*100;
-		return 0;
-	}
-	
-	public static double SecondaryTypeSaleWeight(int goodsMainTypeID, int goodsSecondaryTypeID) {
-		// TODO Auto-generated method stub
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
-		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
-		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
-		if(i!=0) return (j / i)*100;
-		return 0;
-	}
+//	public static String signin(Manager manager) {
+//		
+//		// TODO Auto-generated method stub
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		ManagerMapper managerMapper=ctx.getBean(ManagerMapper.class);
+//		if (manager != null) {
+//			Manager realManager = managerMapper.findBymanagerId(manager.getManagerID());
+//			if ((realManager != null)) {
+//				if (manager.getManagerPwd().equals(realManager.getManagerPwd())) {
+//					return "ok";
+//				}
+//				return "密码不正确";
+//			}
+//			return "数据库没有该管理员";
+//
+//		}
+//		return "该管理员账户为空";
+//	}
+//	
+//	
+//	public static double MainTypeSaleWeight(int goodsMainTypeID) {
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
+//		// TODO Auto-generated method stub
+//		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
+//		double j = goodsMapper.getAllsellCount();
+//		if(j!=0) return (i / j)*100;
+//		return 0;
+//	}
+//	
+//	public static double SecondaryTypeSaleWeight(int goodsMainTypeID, int goodsSecondaryTypeID) {
+//		// TODO Auto-generated method stub
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
+//		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
+//		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
+//		if(i!=0) return (j / i)*100;
+//		return 0;
+//	}
 
 	public static void main(String[] args) throws IOException {
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
-		List list=customerMapper.getHighestCustomer();
-		for(int i=0;i<list.size();i++)
-		{
-			System.out.println(list.get(i));
-		}
 		
+		
+		
+//		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+//		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
+//		List list=customerMapper.getHighestCustomer();
+//		for(int i=0;i<list.size();i++)
+//		{
+//			System.out.println(list.get(i));
+//		}
+//		
 		
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
