@@ -50,8 +50,11 @@ public class Usercontroller {
 			session.setAttribute("currentCustomer", customer);
 		}
 		String substr="http://localhost:8080/SE3-F4";
-		referrer=referrer.replaceFirst(substr, "");
-		return "redirect:"+referrer;
+		if(referrer!=null){
+			referrer=referrer.replaceFirst(substr, "");
+			return "redirect:"+referrer;
+		}
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "signup", method = RequestMethod.GET)
