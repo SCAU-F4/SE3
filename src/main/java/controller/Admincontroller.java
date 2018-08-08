@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 
 import bean.Customer;
+import bean.CustomerAndPrice;
 import bean.Goods;
 import bean.Manager;
 import service.adminservice.Adminservice;
@@ -49,30 +50,31 @@ public class Admincontroller {
 
 	@RequestMapping(value = "tongji")
 	public String searchItems(Model model) {
-		double PackageMainTypeWeight = adminservice.MainTypeSaleWeight(1);
+		double PackageMainTypeWeight =adminservice.MainTypeSaleWeight(1);
 		double ClothMainTypeWeight = adminservice.MainTypeSaleWeight(2);
 		double FoodMainTypeWeight = adminservice.MainTypeSaleWeight(3);
-		double CultureMainTypeWeight = adminservice.MainTypeSaleWeight(4);
+		double CultureMainTypeWeight =  adminservice.MainTypeSaleWeight(4);
 		//////////////////////////////////////////////////////////////////////////
-		double ManPackWeight = adminservice.SecondaryTypeSaleWeight(1, 1);
-		double GirlPackWeight = adminservice.SecondaryTypeSaleWeight(1, 2);
+		double ManPackWeight =  adminservice.SecondaryTypeSaleWeight(1, 1);
+		double GirlPackWeight =  adminservice.SecondaryTypeSaleWeight(1, 2);
 		double PurseWeight = adminservice.SecondaryTypeSaleWeight(1, 3);
-		double CarrierWeight = adminservice.SecondaryTypeSaleWeight(1, 4);
+		double CarrierWeight =  adminservice.SecondaryTypeSaleWeight(1, 4);
 		/////////////////////////////////////////////////////////////////////////////
-		double TshirtWeight = adminservice.SecondaryTypeSaleWeight(2, 5);
-		double PoloWeight = adminservice.SecondaryTypeSaleWeight(2, 6);
-		double SexySkirtWeight = adminservice.SecondaryTypeSaleWeight(2, 7);
-		double FashionPantWeight = adminservice.SecondaryTypeSaleWeight(2, 8);
+		double TshirtWeight =  adminservice.SecondaryTypeSaleWeight(2, 5);
+		double PoloWeight =  adminservice.SecondaryTypeSaleWeight(2, 6);
+		double SexySkirtWeight =  adminservice.SecondaryTypeSaleWeight(2, 7);
+		double FashionPantWeight =  adminservice.SecondaryTypeSaleWeight(2, 8);
 		///////////////////////////////////////////////////////////////////////////
-		double SockWeight = adminservice.SecondaryTypeSaleWeight(3,9);
-		double NutWeight = adminservice.SecondaryTypeSaleWeight(3, 10);
-		double MeatWeight = adminservice.SecondaryTypeSaleWeight(3,11);
-		double DrinkWeight = adminservice.SecondaryTypeSaleWeight(3,12);
+		double SockWeight =  adminservice.SecondaryTypeSaleWeight(3,9);
+		double NutWeight =adminservice.SecondaryTypeSaleWeight(3, 10);
+		double MeatWeight =  adminservice.SecondaryTypeSaleWeight(3,11);
+		double DrinkWeight =  adminservice.SecondaryTypeSaleWeight(3,12);
 		//////////////////////////////////////////////////////////////////////
-		double BeautifulWritingWeight = adminservice.SecondaryTypeSaleWeight(4,13);
+		double BeautifulWritingWeight =  adminservice.SecondaryTypeSaleWeight(4,13);
 		double OutDoorWeight = adminservice.SecondaryTypeSaleWeight(4,14);
-		double MusicWeight = adminservice.SecondaryTypeSaleWeight(4,15);
-		double FilmWeight = adminservice.SecondaryTypeSaleWeight(4,16);
+		double MusicWeight =  adminservice.SecondaryTypeSaleWeight(4,15);
+		double FilmWeight =  adminservice.SecondaryTypeSaleWeight(4,16);
+		///////////////////////////////////////////////////////////////////////////
 
 		
 		Map mymap = new HashMap<String, Double>();
@@ -96,6 +98,8 @@ public class Admincontroller {
 		mymap.put("OutDoorWeight", OutDoorWeight);
 		mymap.put("MusicWeight", MusicWeight);
 		mymap.put("FilmWeight", FilmWeight);
+//		mymap.put("highestGoods", highestGoods);
+//		mymap.put("customerAndPrice", customerAndPrice);
 
 		model.addAttribute("mymap", mymap);
 		return "next";
