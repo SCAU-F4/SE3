@@ -12,16 +12,31 @@ import service.adminservice.AdminserviceImpl;
 
 
 public class test1 {
+	public static String signin(Manager manager) {
+		
+		// TODO Auto-generated method stub
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
+		ManagerMapper managerMapper=ctx.getBean(ManagerMapper.class);
+		if (manager != null) {
+			Manager realManager = managerMapper.findBymanagerId(manager.getManagerID());
+			if ((realManager != null)) {
+				if (manager.getManagerPwd().equals(realManager.getManagerPwd())) {
+					return "ok";
+				}
+				return "密码不正确";
+			}
+			return "数据库没有该管理员";
+
+		}
+		return "该管理员账户为空";
+	}
 
 	public static void main(String[] args) throws IOException {
 		
-		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
-		List list=goodsMapper.getGoodsByMainTypeIDAndSecondaryTypeID(1, 1);
-		for(int i=0;i<list.size();i++)
-		{
-			System.out.println(list.get(i));
-		}
+		Manager manager=new Manager();
+		manager.setManagerID(8);
+		manager.setManagerPwd("123456");
+		System.out.println(signin(manager));
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 //		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);

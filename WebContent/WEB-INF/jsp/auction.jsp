@@ -468,9 +468,10 @@
 					<span class="pay_btn">去付款</span>
 					<div class="re_address">
 						<div class="name">
-							<span>黄帅哥</span> <span>15692021111</span>
+							<span></span> 
+							<span></span>
 						</div>
-						<div class="name">广东省广州市天河区华南农业大学华山学生公寓15栋</div>
+						<div class="name"></div>
 					</div>
 				</div>
 			</div>
@@ -494,7 +495,9 @@
 			</div>
 		</div>
 	</section>
-
+	<div class="tip">
+		<h4>修改成功</h4>
+	</div>
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>

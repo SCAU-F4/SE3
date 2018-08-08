@@ -44,15 +44,15 @@
             </div>
           </div>
           <div class="control-group">
-            <label for="inputEmail" class="control-label">账号</label>
+            <label for="managerID" class="control-label">ID</label>
             <div class="controls">
-              <input id="inputEmail" type="text" placeholder="账号" />
+              <input id="managerID" name="managerID" type="text" placeholder="账号" />
             </div>
           </div>
           <div class="control-group">
-            <label for="inputPassword" class="control-label">密码</label>
+            <label for="managerPwd" class="control-label">密码</label>
             <div class="controls">
-              <input id="inputPassword" type="password" placeholder="密码" />
+              <input id="managerPwd" name="managerPwd"  type="password" placeholder="密码" />
             </div>
           </div>
           <div class="control-group"> 

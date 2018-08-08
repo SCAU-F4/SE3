@@ -30,7 +30,7 @@ public interface Adminservice {
     public Goods getHistoryHighestGood();
     public CustomerAndPrice getHighestCustomer();//获取消费最高的用户名字和消费总额
     public double getHighestSalePerDay();//单日营业额最高
-    public int getHighestSaleCountPerDay();//单日成交数最高
+    public Integer getHighestSaleCountPerDay();//单日成交数最高
     public GoodsSecondaryType getMostPopularSecondaryType();//最受欢迎种类
     
 //    //用户管理
