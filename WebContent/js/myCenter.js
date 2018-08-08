@@ -397,7 +397,7 @@ $(document).ready(function () {
     	}
     	if(jspState==3){
     		$target.parents(".panel").find(".Order-state").text("待评价");	
-    		$target.parents(".panel").attr("allevaluate","0");
+    		$target.parents(".panel").attr("allevaluate","3");
     		console.log("测试一"+$target.parents(".panel").attr("allevaluate"));
     		$target.parents(".panel").find(".state-button button").show();
     		$target.parent().find("button").remove();
@@ -755,10 +755,10 @@ function checkisallevaluate($a){
 		}
 	});
 	if(count==0){
-			$a.parents(".panel").attr("allevaluate","1");
+			$a.parents(".panel").attr("allevaluate","4");
 		}
 	else{
-			$a.parents(".panel").attr("allevaluate","0");
+			$a.parents(".panel").attr("allevaluate","3");
 		}
 	changeState($a);
 	
@@ -768,7 +768,7 @@ function checkisallevaluate($a){
 
 function  changeState($a){
 		console.log("测试2"+$a.parents(".panel").attr("allevaluate"));
-	if($a.parents(".panel").attr("allevaluate")==1){
+	if($a.parents(".panel").attr("allevaluate")==4){
 		$a.parents(".panel").find(".Order-state").text("交易成功");
 	}
 	
