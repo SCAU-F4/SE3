@@ -566,6 +566,7 @@
 		<div class="star"></div>
 		<span class="text text-muted"></span>
 		<form id="mainform" method="post" action="#" enctype="multipart/form-data">
+			<input type="hidden" name="indentState" id="Evaluate-indentState"/>
 			<input type="hidden" id="Evaluate-indentID" name="indentID" value="" />
 			<input type="hidden" id="goodsID" name="goodsID" value="">
 			<input type="hidden" id="evaluateGrade" name="evaluateGrade" value="" />
