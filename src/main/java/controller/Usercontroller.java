@@ -219,7 +219,7 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value="pay")
-	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession,Model model,RedirectAttributes rs){
+	public String pay(@RequestParam("addressID") int addressID,HttpSession httpSession,Model model,RedirectAttributes rs){
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		Indent indent =(Indent) httpSession.getAttribute("newindent");
 		if(indent!=null) {
