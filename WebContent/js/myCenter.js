@@ -4,6 +4,8 @@ $(document).ready(function () {
 	 var $delete;
 	 var $deleteIndent;
 	 var currentPwd;
+	 var $thisitem;
+	 var $isallevaluate;
 //    点击订单状态分类显示相应的订单
      
 	 $(".Order-top>ul>li").click(function (){
@@ -404,7 +406,17 @@ $(document).ready(function () {
     	}
     })
     
+    $(".panel .items").each(function(){
+    	var itemStateCode=$(this).find(".itemStateCode").val();
+    	if(itemStateCode!=0){
+    		$(this).find(".state-button button").hide();
+    		var str="<span>已评价</span>";
+    		$(this).find(".state-button").append(str);
+    	}
+    });
+    
     $(".showpage").on("click",".panel .state-button button",function(){
+    	$thisitem=$(this).parents(".items");
     	var imgSrc=$(this).parents(".state-button").siblings(".goods").find("img").attr("src");
     	var goodsName=$(this).parents(".state-button").siblings(".goods").find("span").text();
     	var num=$(this).parents(".state-button").siblings(".cell").find("span:eq(0)").text();
@@ -422,6 +434,7 @@ $(document).ready(function () {
     	$(".Evaluate-area #goodsSpecify").val(Specify);
     	$(".Evaluate").fadeIn("fast");
     	$(".Evaluate-area").slideDown("fast");
+    	console.log($thisitem);
     });
     
     $(".Evaluate-area i.layui-icon-close").click(function(){
@@ -683,6 +696,28 @@ $(document).ready(function () {
     	$(".page").hide();
     }
 
+	var options = {
+			url : "comment",
+			success : function(res) {
+				alert(res.result);
+			}
+		};
+	$("#mainform").submit(function() {
+		console.log($("#pic1").val());
+		$("#evaluateContent").val();
+		$("#mainform").ajaxSubmit(options);
+		$(".star").empty();
+		reIns(0);
+		$(".text").empty();
+		$("#resetForm").click();
+		$(".Evaluate-area i.layui-icon-close").click();
+		$(".tip").find("h4").text("评论成功");
+		$(".tip").fadeIn();
+		$(".tip").delay(1500).fadeOut();
+		$thisitem.find(".itemStateCode").val(1);
+		updateluated($thisitem);
+		return false;
+	});
 });
 
 function hasitem(a){
@@ -693,5 +728,14 @@ function hasitem(a){
 	else{
 		$(".showPagePaging").show();
 		$(".isNoPanel").hide();
+	}
+}
+
+function updateluated($a){
+	var itemStateCode=$a.find(".itemStateCode").val();
+	if(itemStateCode!=0){
+		$a.find(".state-button button").hide();
+		var str="<span>已评价</span>";
+		$a.find(".state-button").append(str);
 	}
 }

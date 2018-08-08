@@ -328,6 +328,7 @@
 										<div class="panel-body">
 											<c:forEach items="${indent.indentDetaillist}" var="indentDetail" varStatus="status">
 												<div class="items">
+												<input type="hidden" class="itemStateCode" value="${indentDetail.evaluated}">
 													<div class="goods">
 														<img src="${indentDetail.good.pictureList[0].picturePath}" alt="" width="120">
 														<span>${indentDetail.good.goodsName}</span>
@@ -647,26 +648,6 @@
 				$("#signup").hide();
 				$(".shopping-cart").show();
 			}
-
-			$(".addcomment").click(function() {
-				console.log($("#pic1").val());
-				var options = {
-					url : "${pageContext.request.contextPath }/user/comment",
-					success : function(res) {
-						alert(res.result);
-					}
-				};
-				$("#mainform").ajaxForm(options);
-				$(".star").empty();
-				reIns(0);
-				$(".text").empty();
-				$("#resetForm").click();
-				$(".Evaluate-area i.layui-icon-close").click();
-				$(".tip").find("h4").text("评论成功");
-				$(".tip").fadeIn();
-				$(".tip").delay(1500).fadeOut();
-
-			});
 		});
 
 		$(".Message-list .save").click(function() {
