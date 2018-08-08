@@ -49,30 +49,30 @@ public class Admincontroller {
 
 	@RequestMapping(value = "tongji")
 	public String searchItems(Model model) {
-		double PackageMainTypeWeight = adminservice.MainTypeSaleWeight(1);
-		double ClothMainTypeWeight = adminservice.MainTypeSaleWeight(2);
-		double FoodMainTypeWeight = adminservice.MainTypeSaleWeight(3);
-		double CultureMainTypeWeight = adminservice.MainTypeSaleWeight(4);
+		float PackageMainTypeWeight =(float) adminservice.MainTypeSaleWeight(1);
+		float ClothMainTypeWeight = (float) adminservice.MainTypeSaleWeight(2);
+		float FoodMainTypeWeight = (float) adminservice.MainTypeSaleWeight(3);
+		float CultureMainTypeWeight = (float) adminservice.MainTypeSaleWeight(4);
 		//////////////////////////////////////////////////////////////////////////
-		double ManPackWeight = adminservice.SecondaryTypeSaleWeight(1, 1);
-		double GirlPackWeight = adminservice.SecondaryTypeSaleWeight(1, 2);
-		double PurseWeight = adminservice.SecondaryTypeSaleWeight(1, 3);
-		double CarrierWeight = adminservice.SecondaryTypeSaleWeight(1, 4);
+		float ManPackWeight = (float) adminservice.SecondaryTypeSaleWeight(1, 1);
+		float GirlPackWeight = (float) adminservice.SecondaryTypeSaleWeight(1, 2);
+		float PurseWeight = (float) adminservice.SecondaryTypeSaleWeight(1, 3);
+		float CarrierWeight = (float) adminservice.SecondaryTypeSaleWeight(1, 4);
 		/////////////////////////////////////////////////////////////////////////////
-		double TshirtWeight = adminservice.SecondaryTypeSaleWeight(2, 5);
-		double PoloWeight = adminservice.SecondaryTypeSaleWeight(2, 6);
-		double SexySkirtWeight = adminservice.SecondaryTypeSaleWeight(2, 7);
-		double FashionPantWeight = adminservice.SecondaryTypeSaleWeight(2, 8);
+		float TshirtWeight = (float) adminservice.SecondaryTypeSaleWeight(2, 5);
+		float PoloWeight = (float) adminservice.SecondaryTypeSaleWeight(2, 6);
+		float SexySkirtWeight = (float) adminservice.SecondaryTypeSaleWeight(2, 7);
+		float FashionPantWeight = (float) adminservice.SecondaryTypeSaleWeight(2, 8);
 		///////////////////////////////////////////////////////////////////////////
-		double SockWeight = adminservice.SecondaryTypeSaleWeight(3,9);
-		double NutWeight = adminservice.SecondaryTypeSaleWeight(3, 10);
-		double MeatWeight = adminservice.SecondaryTypeSaleWeight(3,11);
-		double DrinkWeight = adminservice.SecondaryTypeSaleWeight(3,12);
+		float SockWeight = (float) adminservice.SecondaryTypeSaleWeight(3,9);
+		float NutWeight = (float) adminservice.SecondaryTypeSaleWeight(3, 10);
+		float MeatWeight = (float) adminservice.SecondaryTypeSaleWeight(3,11);
+		float DrinkWeight = (float) adminservice.SecondaryTypeSaleWeight(3,12);
 		//////////////////////////////////////////////////////////////////////
-		double BeautifulWritingWeight = adminservice.SecondaryTypeSaleWeight(4,13);
-		double OutDoorWeight = adminservice.SecondaryTypeSaleWeight(4,14);
-		double MusicWeight = adminservice.SecondaryTypeSaleWeight(4,15);
-		double FilmWeight = adminservice.SecondaryTypeSaleWeight(4,16);
+		float BeautifulWritingWeight = (float) adminservice.SecondaryTypeSaleWeight(4,13);
+		float OutDoorWeight = (float) adminservice.SecondaryTypeSaleWeight(4,14);
+		float MusicWeight = (float) adminservice.SecondaryTypeSaleWeight(4,15);
+		float FilmWeight = (float) adminservice.SecondaryTypeSaleWeight(4,16);
 
 		Map mymap = new HashMap<String, Double>();
 		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
