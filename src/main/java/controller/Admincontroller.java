@@ -75,6 +75,7 @@ public class Admincontroller {
 		float MusicWeight = (float) adminservice.SecondaryTypeSaleWeight(4,15);
 		float FilmWeight = (float) adminservice.SecondaryTypeSaleWeight(4,16);
 		///////////////////////////////////////////////////////////////////////////
+		Goods highestGoods=adminservice.getHistoryHighestGood();
 		CustomerAndPrice customerAndPrice=adminservice.getHighestCustomer();
 
 		Map mymap = new HashMap<String, Object>();
@@ -98,6 +99,7 @@ public class Admincontroller {
 		mymap.put("OutDoorWeight", OutDoorWeight);
 		mymap.put("MusicWeight", MusicWeight);
 		mymap.put("FilmWeight", FilmWeight);
+		mymap.put("highestGoods", highestGoods);
 		mymap.put("customerAndPrice", customerAndPrice);
 
 		model.addAttribute("mymap", mymap);
