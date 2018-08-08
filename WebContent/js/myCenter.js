@@ -700,9 +700,7 @@ $(document).ready(function () {
 
 	var options = {
 			url : "comment",
-			success : function(res) {
-				alert(res.result);
-			}
+			
 		};
 	$("#mainform").submit(function() {
 		console.log($("#pic1").val());
@@ -721,6 +719,7 @@ $(document).ready(function () {
 		$(".tip").find("h4").text("评论成功");
 		$(".tip").fadeIn();
 		$(".tip").delay(1500).fadeOut();
+		$("Evaluate-img-item").find("img").attr("src"," ");
 		return false;
 	});
 });
