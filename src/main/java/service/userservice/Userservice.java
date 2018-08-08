@@ -18,7 +18,7 @@ public interface Userservice {
     public String deleteIndent(int indentID);
     public Indent auction(int goodsID,String goodsSpecify,int goodsCount,Customer customer);
     public boolean pay(int addressID,Indent indent,Customer customer);
-    public String comment(Evaluate evaluate,String path);
+	public String comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate, String path);
     public boolean payment(int indentID);
     public Indent payfromcenter(int indentID);
 }

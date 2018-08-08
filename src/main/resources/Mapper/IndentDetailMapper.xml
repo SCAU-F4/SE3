@@ -8,6 +8,7 @@
 		<id column="indentID" property="indentID" />
 		<result column="goodsCount" property="goodsCount" />
 		<result column="totalPrice" property="totalPrice" />
+		<result column="evaluated" property="evaluated" />
 	</resultMap>
 
 	<resultMap type="indentDetail" id="indentDetailMap1" extends="indentDetailMap">
@@ -16,10 +17,12 @@
 			select="Mapper.GoodsMapper.findBygoodsIDAndgoodsSpecify" />
 	</resultMap>
 
-	<select id="findByindentIDAndgoodsID" resultMap="indentDetailMap1">
+	<select id="find" resultMap="indentDetailMap1">
 		select * from
-		IndentDetail where indentID = #{indentID} AND
-		goodsID=#{goodsID}
+		IndentDetail where
+		indentID = #{indentID} AND
+		goodsID=#{goodsID} AND
+		goodsSpecify=#{goodsSpecify}
 	</select>
 
 	<select id="findAllDetailByindentID" resultMap="indentDetailMap1">
@@ -29,14 +32,24 @@
 
 	<insert id="insert">
 		insert into IndentDetail
-		values(#{indentID},#{good.goodsID},#{goodsCount},#{totalPrice},#{good.goodsSpecify})
+		values(#{indentID},#{good.goodsID},#{goodsCount},#{totalPrice},#{good.goodsSpecify},#{evaluated})
 	</insert>
 	<update id="update">
 		update IndentDetail set
-		goodsCount=#{goodsCount},totalPrice=#{totalPrice} where
+		goodsCount=#{goodsCount},totalPrice=#{totalPrice}
+		,evaluated=#{evaluated}where
+		indentID=#{indentID} AND
+		goodsID=#{good.goodsID} AND
+		goodsSpecify=#{good.goodsSpecify}
+	</update>
+
+	<update id="updateevaluated">
+		update IndentDetail set
+		evaluated=#{evaluated}where
 		indentID=#{indentID} AND goodsID=#{good.goodsID} AND
 		goodsSpecify=#{good.goodsSpecify}
 	</update>
+
 	<delete id="delete">
 		delete from IndentDetail where indentID=#{indentID}
 		AND goodsID=#{good.goodsID} AND goodsSpecify=#{good.goodsSpecify}
