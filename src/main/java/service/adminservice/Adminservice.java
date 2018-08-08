@@ -27,8 +27,8 @@ public interface Adminservice {
     //统计
     public double MainTypeSaleWeight(int goodsMainTypeID);//主分类销售比重
     public double SecondaryTypeSaleWeight(int goodsMainTypeID,int goodsSecondaryTypeID);//次分类占主分类销售比重
-    public Goods getHistoryHighestGood();
-    public CustomerAndPrice getHighestCustomer();//获取消费最高的用户名字和消费总额
+    public List<Goods> getHistoryHighestGood();
+    public List<CustomerAndPrice> getHighestCustomer();//获取消费最高的用户名字和消费总额
     public double getHighestSalePerDay();//单日营业额最高
     public Integer getHighestSaleCountPerDay();//单日成交数最高
     public GoodsSecondaryType getMostPopularSecondaryType();//最受欢迎种类
