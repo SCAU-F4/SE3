@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,33 +51,33 @@ public class Admincontroller {
 
 	@RequestMapping(value = "tongji")
 	public String searchItems(Model model) {
-		double PackageMainTypeWeight =adminservice.MainTypeSaleWeight(1);
-		double ClothMainTypeWeight = adminservice.MainTypeSaleWeight(2);
-		double FoodMainTypeWeight = adminservice.MainTypeSaleWeight(3);
-		double CultureMainTypeWeight =  adminservice.MainTypeSaleWeight(4);
+		float PackageMainTypeWeight = (float) adminservice.MainTypeSaleWeight(1);
+		float ClothMainTypeWeight =  (float) adminservice.MainTypeSaleWeight(2);
+		float FoodMainTypeWeight =  (float) adminservice.MainTypeSaleWeight(3);
+		float CultureMainTypeWeight =   (float) adminservice.MainTypeSaleWeight(4);
 		//////////////////////////////////////////////////////////////////////////
-		double ManPackWeight =  adminservice.SecondaryTypeSaleWeight(1, 1);
-		double GirlPackWeight =  adminservice.SecondaryTypeSaleWeight(1, 2);
-		double PurseWeight = adminservice.SecondaryTypeSaleWeight(1, 3);
-		double CarrierWeight =  adminservice.SecondaryTypeSaleWeight(1, 4);
+		float ManPackWeight =   (float) adminservice.SecondaryTypeSaleWeight(1, 1);
+		float GirlPackWeight =   (float) adminservice.SecondaryTypeSaleWeight(1, 2);
+		float PurseWeight =  (float) adminservice.SecondaryTypeSaleWeight(1, 3);
+		float CarrierWeight =   (float) adminservice.SecondaryTypeSaleWeight(1, 4);
 		/////////////////////////////////////////////////////////////////////////////
-		double TshirtWeight =  adminservice.SecondaryTypeSaleWeight(2, 5);
-		double PoloWeight =  adminservice.SecondaryTypeSaleWeight(2, 6);
-		double SexySkirtWeight =  adminservice.SecondaryTypeSaleWeight(2, 7);
-		double FashionPantWeight =  adminservice.SecondaryTypeSaleWeight(2, 8);
+		float TshirtWeight =   (float) adminservice.SecondaryTypeSaleWeight(2, 5);
+		float PoloWeight =   (float) adminservice.SecondaryTypeSaleWeight(2, 6);
+		float SexySkirtWeight =   (float) adminservice.SecondaryTypeSaleWeight(2, 7);
+		float FashionPantWeight =   (float) adminservice.SecondaryTypeSaleWeight(2, 8);
 		///////////////////////////////////////////////////////////////////////////
-		double SockWeight =  adminservice.SecondaryTypeSaleWeight(3,9);
-		double NutWeight =adminservice.SecondaryTypeSaleWeight(3, 10);
-		double MeatWeight =  adminservice.SecondaryTypeSaleWeight(3,11);
-		double DrinkWeight =  adminservice.SecondaryTypeSaleWeight(3,12);
+		float SockWeight =   (float) adminservice.SecondaryTypeSaleWeight(3,9);
+		float NutWeight = (float) adminservice.SecondaryTypeSaleWeight(3, 10);
+		float MeatWeight =   (float) adminservice.SecondaryTypeSaleWeight(3,11);
+		float DrinkWeight =   (float) adminservice.SecondaryTypeSaleWeight(3,12);
 		//////////////////////////////////////////////////////////////////////
-		double BeautifulWritingWeight =  adminservice.SecondaryTypeSaleWeight(4,13);
-		double OutDoorWeight = adminservice.SecondaryTypeSaleWeight(4,14);
-		double MusicWeight =  adminservice.SecondaryTypeSaleWeight(4,15);
-		double FilmWeight =  adminservice.SecondaryTypeSaleWeight(4,16);
+		float BeautifulWritingWeight =   (float) adminservice.SecondaryTypeSaleWeight(4,13);
+		float OutDoorWeight = (float) adminservice.SecondaryTypeSaleWeight(4,14);
+		float MusicWeight =   (float) adminservice.SecondaryTypeSaleWeight(4,15);
+		float FilmWeight =   (float) adminservice.SecondaryTypeSaleWeight(4,16);
 		///////////////////////////////////////////////////////////////////////////
-		List customerAndPrice=adminservice.getHighestCustomer();
-		List highestgoods=adminservice.getHistoryHighestGood();
+		CustomerAndPrice customerAndPrice=adminservice.getHighestCustomer();
+		Goods highestgoods=adminservice.getHistoryHighestGood();
 
 
 		Map mymap = new HashMap<String, Object>();
@@ -117,15 +118,43 @@ public class Admincontroller {
 		return "goodsCharge";
 	}
 	
-//	@RequestMapping(value= "showAllGoods",produces="application/json;charset=utf-8")
-//	@ResponseBody
-//	public String showAllGoods(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{ 
-//		Map<String, List<Goods>> map=new HashMap<>();
-//		map.put("AllGoodsList", adminservice.getAllGoods());
-//		String res=callback+"("+JSON.toJSONString(map)+")";
-//		return res;
-//	}
-//	
+	
+	
+	@RequestMapping(value= "GoodsUpdate",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String GoodsUpdate(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{
+		int goodsID=Integer.valueOf(request.getParameter("goodsID"));
+		String goodsName=request.getParameter("goodsName");
+		int goodsMainTypeID=Integer.valueOf(request.getParameter("goodsMainTypeID"));
+		String goodsSpecify=request.getParameter("goodsSpecify");
+		String goodsBrief=request.getParameter("goodsBrief");
+		double goodsPrice=Double.valueOf(request.getParameter("goodsPrice"));
+		int goodsCount=Integer.valueOf(request.getParameter("goodsCount"));
+		int sellCount=Integer.valueOf(request.getParameter("sellCount"));
+		Timestamp goodsDate=Timestamp.valueOf(request.getParameter("Timestamp goodsDate"));
+		int isSell=Integer.valueOf(request.getParameter("isSell"));
+		int goodsSecondaryTypeID=Integer.valueOf(request.getParameter("goodsSecondaryTypeID"));
+		Goods goods=new Goods(goodsID, goodsName, goodsMainTypeID, goodsSpecify, goodsBrief, goodsPrice, goodsCount, sellCount, goodsDate, isSell, goodsSecondaryTypeID, null, null);
+		String result=adminservice.UpdateGood(goods);
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+ JSON.toJSONString(map)+")";
+		return res;
+	}
+	
+	@RequestMapping(value= "GoodsDelete",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String GoodsDelete(String callback,HttpServletRequest request,HttpSession httpSession) throws Exception{
+		int goodsID=Integer.valueOf(request.getParameter("goodsID"));
+		Goods goods=new Goods();
+		goods.setGoodsID(goodsID);
+		String result=adminservice.DeleteGood(goods);
+		Map<String, String> map=new HashMap<>();
+		map.put("result", result);
+		String res=callback+"("+JSON.toJSONString(map)+")";
+		return res;
+	}
+	
 	
 	
 	
