@@ -14,19 +14,19 @@ public class Manager implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Manager(int managerId, String managerName, String managerPwd) {
+	public Manager(int managerID, String managerName, String managerPwd) {
 		super();
-		this.managerID = managerId;
+		this.managerID = managerID;
 		this.managerName = managerName;
 		this.managerPwd = managerPwd;
 	}
 
-	public int getManagerId() {
+	public int getManagerID() {
 		return managerID;
 	}
 
-	public void setManagerId(int managerId) {
-		this.managerID = managerId;
+	public void setManagerID(int managerID) {
+		this.managerID = managerID;
 	}
 
 	public String getManagerName() {
@@ -45,9 +45,14 @@ public class Manager implements Serializable{
 		this.managerPwd = managerPwd;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
 		return "Manager [managerID=" + managerID + ", managerName=" + managerName + ", managerPwd=" + managerPwd + "]";
 	}
 
+	
 }

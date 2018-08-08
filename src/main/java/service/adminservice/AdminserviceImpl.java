@@ -38,7 +38,7 @@ public class AdminserviceImpl implements Adminservice {
 	public String signin(Manager manager) {
 		// TODO Auto-generated method stub
 		if (manager != null) {
-			Manager realManager = managerMapper.findBymanagerId(manager.getManagerId());
+			Manager realManager = managerMapper.findBymanagerId(manager.getManagerID());
 			if ((realManager != null)) {
 				if (manager.getManagerPwd().equals(realManager.getManagerPwd())) {
 					return "ok";
@@ -183,7 +183,8 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getAllsellCount();
-		return i / j;
+		if(j!=0) return i / j;
+		return 0;
 	}
 
 	@Override
@@ -191,7 +192,8 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
-		return j / i;
+		if(i!=0) return j / i;
+		return 0;
 	}
 
 	@Override
@@ -213,7 +215,7 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public int getHighestSaleCountPerDay() {
+	public Integer getHighestSaleCountPerDay() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
