@@ -19,12 +19,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
- <%     
-   response.setHeader("Pragma","no-cache");     
-   response.setHeader("Cache-Control","no-cache");     
-   response.setDateHeader("Expires", 0);     
-   response.setHeader("Cache-Control", "no-store");     
-%> 
+<%
+	response.setHeader("Pragma", "no-cache");
+	response.setHeader("Cache-Control", "no-cache");
+	response.setDateHeader("Expires", 0);
+	response.setHeader("Cache-Control", "no-store");
+%>
 <body>
 	<!--头-->
 	<header id="SE3_header">
@@ -87,7 +87,8 @@
 										</div>
 									</div>
 									<div class="buy">
-										<a href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
+										<a
+											href="${pageContext.request.contextPath }/user/auction?goodsID=-1&goodsSpecify=-1&goodsCount=-1"><button
 												id="cart-buy" class="layui-btn layui-btn-primary">去付款</button>
 										</a>
 									</div>
@@ -343,6 +344,7 @@
 
 				<li class="head_problem" data-select="2"><span>常见问题</span></li>
 			</ul>
+        	<span class="head_other"></span>
 
 			<div class="detail_picture" data-select="0">
 				<img src="${goods[0].pictureList[5].picturePath}">
@@ -360,11 +362,8 @@
 					<div class="head_right">
 						<div class="name">大家都在说：</div>
 						<div class="specify">
-							<span class="classify active all_hhh">全部（<span
-								class="total_evaluate">217</span>）
-							</span> <span class="classify pic_hhh">有图（ <span
-								class="picture_evaluate">16</span> ）
-							</span>
+							<span class="classify active all_hhh">全部（<span class="total_evaluate">217</span>）</span> 
+							<span class="classify pic_hhh">有图（<span class="picture_evaluate">16</span>）</span>
 						</div>
 					</div>
 				</div>
@@ -372,8 +371,8 @@
 				<div class="sort">
 					<div class="name">排序：</div>
 					<div class="classify">
-						<div class="default active">默认</div>
-						<div class="time">评价时间</div>
+						<div class="default active"><span>评价时间</span><span class="glyphicon glyphicon-arrow-down"></span></div>
+						<div class="time"><span>评价时间</span><span class="glyphicon glyphicon-arrow-up"></span></div>
 					</div>
 				</div>
 				<div class="evaluate_detail">
@@ -381,7 +380,7 @@
 						<c:forEach items="${goods}" var="good" varStatus="status">
 							<c:forEach items="${good.evaluateList}" var="evaluate"
 								varStatus="status">
-								<li>
+								<li class="evaluate_item">
 									<div class="detail_left">
 										<div class="head_picture">
 											<img

@@ -310,9 +310,8 @@
 				</div>
 				<div class="col-md-4 left">
 					<div class="Lagerimg">
-						<a href="products/detail"> <img
-							src="${pageContext.request.contextPath }/img/icon/lagerimg.png"
-							alt="">
+						<a href="products/detail/27"> 
+						<img src="${pageContext.request.contextPath }/img/product/product27_1.png" alt="">
 						</a>
 					</div>
 					<div class="Lagerimg-title">
@@ -320,9 +319,9 @@
 							<span>限时购</span>
 						</div>
 						<div class="Lagerimg-title-name">
-							<h4>平滑密编清凉仿藤席</h4>
+							<h4>法国雨露棉麻衬衫</h4>
 							<div class="Lagerimg-title-price">
-								<span class="text-danger">¥</span><span class="text-danger">269.1</span>
+								<span class="text-danger">¥</span><span class="text-danger">99</span>
 							</div>
 						</div>
 					</div>
@@ -332,8 +331,8 @@
 						<div class="row">
 							<div class="col-md-3 product">
 								<div class="littleimg">
-									<a href="#"> <img
-										src="${pageContext.request.contextPath }/img/product/product1.png"
+									<a href="products/detail/15"> <img
+										src="${pageContext.request.contextPath }/img/product/product15_1.png"
 										alt="">
 									</a>
 								</div>
@@ -342,34 +341,34 @@
 										<span>限时购</span>
 									</div>
 									<div class="littleimg-title-name">
-										<h4>智造N520除螨吸尘器</h4>
+										<h4>幸运桃心链条单肩包</h4>
 										<div class="littleimg-title-price">
-											<span class="text-danger">¥</span><span class="text-danger">499</span>
+											<span class="text-danger">¥</span><span class="text-danger">199</span>
 										</div>
 									</div>
 								</div>
 								<div class="littleimg">
-									<a href="#"> <img
-										src="${pageContext.request.contextPath }/img/product/product2.png"
+									<a href="products/detail/11"> <img
+										src="${pageContext.request.contextPath }/img/product/product11_1.png"
 										alt="">
 									</a>
 								</div>
 								<div class="littleimg-title">
 									<div class="littleimg-title-top">
-										<span>满赠</span>
+										<span>限时购</span>
 									</div>
 									<div class="littleimg-title-name">
-										<h4>玲珑柑普</h4>
+										<h4>菱形拼接束口双肩包</h4>
 										<div class="littleimg-title-price">
-											<span class="text-danger">¥</span><span class="text-danger">85</span>
+											<span class="text-danger">¥</span><span class="text-danger">169</span>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-3 product">
 								<div class="littleimg">
-									<a href="#"> <img
-										src="${pageContext.request.contextPath }/img/product/product3.png"
+									<a href="products/detail/31"> <img
+										src="${pageContext.request.contextPath }/img/product/product31_1.png"
 										alt="">
 									</a>
 								</div>
@@ -378,34 +377,34 @@
 										<span>满折</span>
 									</div>
 									<div class="littleimg-title-name">
-										<h4>美国制造除甲醛空气净化剂227g</h4>
+										<h4>女式浪漫散摆修身连衣裙</h4>
 										<div class="littleimg-title-price">
-											<span class="text-danger">¥</span><span class="text-danger">45</span>
+											<span class="text-danger">¥</span><span class="text-danger">399</span>
 										</div>
 									</div>
 								</div>
 								<div class="littleimg">
-									<a href="#"> <img
-										src="${pageContext.request.contextPath }/img/product/product4.png"
+									<a href="products/detail/53"> <img
+										src="${pageContext.request.contextPath }/img/product/product53_1.png"
 										alt="">
 									</a>
 								</div>
 								<div class="littleimg-title">
 									<div class="littleimg-title-top">
-										<span>黄大仙同款</span>
+										<span>限时购</span>
 									</div>
 									<div class="littleimg-title-name">
-										<h4>全净皓齿变速式声波电动牙刷</h4>
+										<h4>炭火烤肠 150克</h4>
 										<div class="littleimg-title-price">
-											<span class="text-danger">¥</span><span class="text-danger">85</span>
+											<span class="text-danger">¥</span><span class="text-danger">18</span>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-3 product">
 								<div class="littleimg">
-									<a href="#"> <img
-										src="${pageContext.request.contextPath }/img/product/product5.png"
+									<a href="products/detail/76"> <img
+										src="${pageContext.request.contextPath }/img/product/product76_1.png"
 										alt="">
 									</a>
 								</div>
@@ -414,15 +413,15 @@
 										<span style="background-color: #fff;"></span>
 									</div>
 									<div class="littleimg-title-name">
-										<h4>蛋壳杯旅行茶具套装</h4>
+										<h4>黑寡妇&钢铁侠 短袖T恤 漫威</h4>
 										<div class="littleimg-title-price">
-											<span class="text-danger">¥</span><span class="text-danger">499</span>
+											<span class="text-danger">¥</span><span class="text-danger">138</span>
 										</div>
 									</div>
 								</div>
 								<div class="littleimg">
-									<a href="#"> <img
-										src="${pageContext.request.contextPath }/img/product/product6.png"
+									<a href="products/detail/55"> <img
+										src="${pageContext.request.contextPath }/img/product/product55_1.png"
 										alt="">
 									</a>
 								</div>
@@ -431,9 +430,9 @@
 										<span style="background-color: #fff;"></span>
 									</div>
 									<div class="littleimg-title-name">
-										<h4>24寸拉杆箱</h4>
+										<h4>纯牛奶 250毫升*24盒</h4>
 										<div class="littleimg-title-price">
-											<span class="text-danger">¥</span><span class="text-danger">85</span>
+											<span class="text-danger">¥</span><span class="text-danger">88</span>
 										</div>
 									</div>
 								</div>
