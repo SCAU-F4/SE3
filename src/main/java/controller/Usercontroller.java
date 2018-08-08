@@ -195,8 +195,8 @@ public class Usercontroller {
 	
 	@RequestMapping(value ="comment")
 	@ResponseBody
-	public void comment(Evaluate evaluate,int indentID,int goodsID,String goodsSpecify,Model model,ServletRequest servletRequest){
-		String result=userservice.comment(indentID,goodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+	public void comment(Evaluate evaluate,int indentID,int goodsID,String goodsSpecify,int indentState,Model model,ServletRequest servletRequest){
+		String result=userservice.comment(indentID,goodsID,goodsSpecify,indentState,evaluate,servletRequest.getServletContext().getRealPath("/img"));
 	}
 
 	@RequestMapping(value = "auction")

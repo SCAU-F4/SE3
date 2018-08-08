@@ -329,7 +329,7 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public String comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate, String path) {
+	public String comment(int indentID,int goodsID,String goodsSpecify,int indentState,Evaluate evaluate, String path) {
 		String result = "";
 		evaluate.setEvaluateDate(new Timestamp(System.currentTimeMillis()));
 		int sum = evaluatemapper.insert(evaluate);
