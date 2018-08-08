@@ -397,6 +397,8 @@ $(document).ready(function () {
     	}
     	if(jspState==3){
     		$target.parents(".panel").find(".Order-state").text("待评价");	
+    		$target.parents(".panel").attr("allevaluate","0");
+    		console.log("测试一"+$target.parents(".panel").attr("allevaluate"));
     		$target.parents(".panel").find(".state-button button").show();
     		$target.parent().find("button").remove();
     	}
@@ -705,6 +707,11 @@ $(document).ready(function () {
 	$("#mainform").submit(function() {
 		console.log($("#pic1").val());
 		$("#evaluateContent").val();
+		$thisitem.find(".itemStateCode").val(1);
+		updateluated($thisitem);
+		console.log($thisitem.parents(".panel").attr("allevaluate"));
+		$("#Evaluate-indentState").val($thisitem.parents(".panel").attr("allevaluate"));
+		console.log("传过去的值"+$("#Evaluate-indentState").val());
 		$("#mainform").ajaxSubmit(options);
 		$(".star").empty();
 		reIns(0);
@@ -714,8 +721,6 @@ $(document).ready(function () {
 		$(".tip").find("h4").text("评论成功");
 		$(".tip").fadeIn();
 		$(".tip").delay(1500).fadeOut();
-		$thisitem.find(".itemStateCode").val(1);
-		updateluated($thisitem);
 		return false;
 	});
 });
@@ -738,4 +743,33 @@ function updateluated($a){
 		var str="<span>已评价</span>";
 		$a.find(".state-button").append(str);
 	}
+	checkisallevaluate($a);
+}
+
+function checkisallevaluate($a){
+	var $test=$a.parents(".panel").find(".itemStateCode")
+	var count=0;
+	$test.each(function(){
+		if($(this).val()==0){
+			count++;
+		}
+	});
+	if(count==0){
+			$a.parents(".panel").attr("allevaluate","1");
+		}
+	else{
+			$a.parents(".panel").attr("allevaluate","0");
+		}
+	changeState($a);
+	
+	/*console.log($test);
+	console.log($test.length);*/
+};
+
+function  changeState($a){
+		console.log("测试2"+$a.parents(".panel").attr("allevaluate"));
+	if($a.parents(".panel").attr("allevaluate")==1){
+		$a.parents(".panel").find(".Order-state").text("交易成功");
+	}
+	
 }

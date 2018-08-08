@@ -197,15 +197,15 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public List<Goods> getHistoryHighestGood() {
+	public Goods getHistoryHighestGood() {
 		// TODO Auto-generated method stub
-		return goodsMapper.getGoodsByMaxSellCount();
+		return goodsMapper.getGoodsByMaxSellCount().get(0);
 	}
 
 	@Override
-	public List<CustomerAndPrice> getHighestCustomer() {// 获取消费最高的用户名字和消费总额
+	public CustomerAndPrice getHighestCustomer() {// 获取消费最高的用户名字和消费总额
 		// TODO Auto-generated method stub
-		return customerMapper.getHighestCustomer();
+		return customerMapper.getHighestCustomer().get(0);
 	}
 
 	@Override
