@@ -59,20 +59,20 @@ public class Admincontroller {
 		double PurseWeight = adminservice.SecondaryTypeSaleWeight(1, 3);
 		double CarrierWeight = adminservice.SecondaryTypeSaleWeight(1, 4);
 		/////////////////////////////////////////////////////////////////////////////
-		double TshirtWeight = adminservice.SecondaryTypeSaleWeight(2, 1);
-		double PoloWeight = adminservice.SecondaryTypeSaleWeight(2, 2);
-		double SexySkirtWeight = adminservice.SecondaryTypeSaleWeight(2, 3);
-		double FashionPantWeight = adminservice.SecondaryTypeSaleWeight(2, 4);
+		double TshirtWeight = adminservice.SecondaryTypeSaleWeight(2, 5);
+		double PoloWeight = adminservice.SecondaryTypeSaleWeight(2, 6);
+		double SexySkirtWeight = adminservice.SecondaryTypeSaleWeight(2, 7);
+		double FashionPantWeight = adminservice.SecondaryTypeSaleWeight(2, 8);
 		///////////////////////////////////////////////////////////////////////////
-		double SockWeight = adminservice.SecondaryTypeSaleWeight(3, 1);
-		double NutWeight = adminservice.SecondaryTypeSaleWeight(3, 2);
-		double MeatWeight = adminservice.SecondaryTypeSaleWeight(3, 3);
-		double DrinkWeight = adminservice.SecondaryTypeSaleWeight(3, 4);
+		double SockWeight = adminservice.SecondaryTypeSaleWeight(3,9);
+		double NutWeight = adminservice.SecondaryTypeSaleWeight(3, 10);
+		double MeatWeight = adminservice.SecondaryTypeSaleWeight(3,11);
+		double DrinkWeight = adminservice.SecondaryTypeSaleWeight(3,12);
 		//////////////////////////////////////////////////////////////////////
-		double BeautifulWritingWeight = adminservice.SecondaryTypeSaleWeight(4, 1);
-		double OutDoorWeight = adminservice.SecondaryTypeSaleWeight(4, 2);
-		double MusicWeight = adminservice.SecondaryTypeSaleWeight(4, 3);
-		double FilmWeight = adminservice.SecondaryTypeSaleWeight(4, 4);
+		double BeautifulWritingWeight = adminservice.SecondaryTypeSaleWeight(4,13);
+		double OutDoorWeight = adminservice.SecondaryTypeSaleWeight(4,14);
+		double MusicWeight = adminservice.SecondaryTypeSaleWeight(4,15);
+		double FilmWeight = adminservice.SecondaryTypeSaleWeight(4,16);
 
 		
 		Map mymap = new HashMap<String, Double>();
