@@ -51,24 +51,23 @@
         <h3>已成交&nbsp;&nbsp;<strong class="text-success">2000</strong>&nbsp;&nbsp;&nbsp;单</h3>
 
       </div>
-      ${mymap.PackageMainTypeWeight}
       <h4 class="header" style="font-weight: bold">销售比重</h4>
       <div class="row-fluid">
         <div class="span3 knob">
           <h4>箱包配饰</h4>
-          <input type="button" value="25" data-width="120" data-fgcolor="#14B8D4" data-readonly="true" class="dial" data-kind="bag"/>
+          <input type="button" value="${mymap.PackageMainTypeWeight}" data-width="120" data-fgcolor="#14B8D4" data-readonly="true" class="dial" data-kind="bag"/>
         </div>
         <div class="span3 knob">
           <h4>服装</h4>
-        <input type="button" value="25" data-width="120" data-fgcolor="#EA494A" data-readonly="true" class="dial" data-kind="cloth"/>
+        <input type="button" value="${mymap.ClothMainTypeWeight}" data-width="120" data-fgcolor="#EA494A" data-readonly="true" class="dial" data-kind="cloth"/>
         </div>
         <div class="span3 knob">
           <h4>饮食</h4>
-          <input type="button" value="25" data-width="120" data-fgcolor="#FFA93C" data-readonly="true" class="dial" data-kind="food"/>
+          <input type="button" value="${mymap.FoodMainTypeWeight}" data-width="120" data-fgcolor="#FFA93C" data-readonly="true" class="dial" data-kind="food"/>
         </div>
         <div class="span3 knob">
           <h4>文体</h4>
-          <input type="button" value="25" data-width="120" data-fgcolor="#333" data-readonly="true" class="dial" data-kind="sport"/>
+          <input type="button" value="${mymap.CultureMainTypeWeight}" data-width="120" data-fgcolor="#333" data-readonly="true" class="dial" data-kind="sport"/>
         </div>
       </div>
       <div class="showarea">
@@ -78,31 +77,31 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.ManPackWeight}%</h2>
               <h4>男士箱包</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.GirlPackWeight}%</h2>
               <h4>女性箱包</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.PurseWeight}%</h2>
               <h4>钱包及小配件</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.CarrierWeight}%</h2>
               <h4>行李箱</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+     <!--  <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -170,6 +169,9 @@
           </div>
         </div>
       </div>
+      -->
+     
+     
       </div>
 
       <!--分割线-->
@@ -179,31 +181,32 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.TshirtWeight}%</h2>
               <h4>清爽短袖</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.PoloWeight}%</h2>
               <h4>时尚衬衫</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.SexySkirtWeight}%</h2>
               <h4>性感长裙</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.FashionPantWeight}%</h2>
               <h4>潮流裤类</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+      
+      <!-- <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -270,7 +273,9 @@
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
+      
+      
       </div>
       <!--分割线-->
       <div class="food">
@@ -279,31 +284,31 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.SockWeight}%</h2>
               <h4>美味零食</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.NutWeight}%</h2>
               <h4>水果坚果</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.MeatWeight}%</h2>
               <h4>新鲜肉类</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.DrinkWeight}%</h2>
               <h4>饮料酒水</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+     <!--  <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -370,7 +375,10 @@
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
+      
+      
+      
       </div>
         <!--分割线-->
       <div class="sport">
@@ -379,31 +387,31 @@
         <div class="row-fluid">
           <div class="span3">
             <div class="stat info">
-              <h2>25%</h2>
+              <h2>${mymap.BeautifulWritingWeight}%</h2>
               <h4>精美文具</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat danger">
-              <h2>25%</h2>
+              <h2>${mymap.OutDoorWeight}%</h2>
               <h4>运动户外</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat warning">
-              <h2>25%</h2>
+              <h2>${mymap.MusicWeight}%</h2>
               <h4>音乐相关</h4>
             </div>
           </div>
           <div class="span3">
             <div class="stat inverse">
-              <h2>25%</h2>
+              <h2>${mymap.FilmWeight}%</h2>
               <h4>影视相关</h4>
             </div>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
+      <!-- <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -470,7 +478,10 @@
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
+      
+      
+      
       </div>
         <!--分割线-->
       </div>

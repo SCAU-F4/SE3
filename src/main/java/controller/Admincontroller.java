@@ -68,10 +68,10 @@ public class Admincontroller {
 		double OutDoorWeight = adminservice.SecondaryTypeSaleWeight(4, 2);
 		double MusicWeight = adminservice.SecondaryTypeSaleWeight(4, 3);
 		double FilmWeight = adminservice.SecondaryTypeSaleWeight(4, 4);
-		int PackageMainTypeWeightInt=(int) (PackageMainTypeWeight*100);
+
 		
 		Map mymap = new HashMap<String, Double>();
-		mymap.put("PackageMainTypeWeight", PackageMainTypeWeightInt);
+		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
 		mymap.put("ClothMainTypeWeight", ClothMainTypeWeight);
 		mymap.put("FoodMainTypeWeight", FoodMainTypeWeight);
 		mymap.put("CultureMainTypeWeight", CultureMainTypeWeight);

@@ -246,6 +246,7 @@ public class Usercontroller {
 	@RequestMapping(value="mycenter/auction")
 	public String pay(@RequestParam("indentID") int indentID,HttpSession httpSession){
 		Indent indent=userservice.payfromcenter(indentID);
+		System.out.println(indent);
 		if(indent!=null) httpSession.setAttribute("newindent", indent);
 		return "auction";
 	}

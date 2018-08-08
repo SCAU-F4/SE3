@@ -336,7 +336,7 @@
 
 											<div class="cell pull-right">
 												<span class="target"></span> <a
-													href="${pageContext.request.contextPath }/user/mycenter/auction"><button
+													href="${pageContext.request.contextPath }/user/mycenter/auction?indentID=${indent.indentID}"><button
 														class="layui-btn layui-btn-radius"></button></a>
 											</div>
 
