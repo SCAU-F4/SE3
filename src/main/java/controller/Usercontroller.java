@@ -51,7 +51,7 @@ public class Usercontroller {
 		}
 		String substr="http://localhost:8080/SE3-F4";
 		referrer=referrer.replaceFirst(substr, "");
-		return "forward:"+referrer;
+		return "redirect:"+referrer;
 	}
 
 	@RequestMapping(value = "signup", method = RequestMethod.GET)

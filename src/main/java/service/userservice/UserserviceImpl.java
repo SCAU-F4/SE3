@@ -338,6 +338,9 @@ public class UserserviceImpl implements Userservice {
 			return result;
 		}
 		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID,1);
+		if(indentState==4){
+			indentmapper.updateindentStateByindentID(indentID, indentState);
+		}
 		if (evaluate.getImages() != null) {
 			List<MultipartFile> multipartFile = evaluate.getImages();
 			Random random=new Random(System.currentTimeMillis());
