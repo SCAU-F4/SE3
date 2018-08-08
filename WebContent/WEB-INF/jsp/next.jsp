@@ -1,107 +1,147 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IndustryApp Template</title>
-   	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap-responsive.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/fullcalendar.css" />
-   
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-  <body>
-    <div id="in-nav">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-              <h4><strong>华农有货</strong></h4></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="in-sub-nav">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <ul>
-              <li><a href="index.html" class="active"><i class="batch home"></i><br />首页</a></li>
-              <li><span class="label label-important pull-right">08</span><a href="stream.html"><i class="batch stream"></i><br />商品管理</a></li>
-              <li><a href="faq.html"><i class="batch forms"></i><br />订单管理</a></li>
-              <li><a href="users.html"><i class="batch users"></i><br/>用户管理</a></li>
-              <li><a href="settings.html"><i class="batch settings"></i><br />管理员信息管理</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="page">
-      <div class="page-container">
-<div class="container">
-  <div class="row">
+<title>IndustryApp Template</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap-responsive.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/fullcalendar.css" />
 
-    <div class="span3">
-    </div>
-    <div class="span9">
-      <div class="jumbotron">
-        <h1>今日总营业额：<strong class="text-error">￥1000000</strong></h1>
-        <h3>已成交&nbsp;&nbsp;<strong class="text-success">2000</strong>&nbsp;&nbsp;&nbsp;单</h3>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div id="in-nav">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<h4>
+						<strong>华农有货</strong>
+					</h4>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="in-sub-nav">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<ul>
+						<li>
+							<a href="index.html" class="active">
+								<i class="batch home"></i>
+								<br />
+								首页
+							</a>
+						</li>
+						<li>
+							<span class="label label-important pull-right">08</span>
+							<a href="stream.html">
+								<i class="batch stream"></i>
+								<br />
+								商品管理
+							</a>
+						</li>
+						<li>
+							<a href="faq.html">
+								<i class="batch forms"></i>
+								<br />
+								订单管理
+							</a>
+						</li>
+						<li>
+							<a href="users.html">
+								<i class="batch users"></i>
+								<br />
+								用户管理
+							</a>
+						</li>
+						<li>
+							<a href="settings.html">
+								<i class="batch settings"></i>
+								<br />
+								管理员信息管理
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page">
+		<div class="page-container">
+			<div class="container">
+				<div class="row">
 
-      </div>
-      <h4 class="header" style="font-weight: bold">销售比重</h4>
-      <div class="row-fluid">
-        <div class="span3 knob">
-          <h4>箱包配饰</h4>
-          <input type="button" value="${mymap.PackageMainTypeWeight}" data-width="120" data-fgcolor="#14B8D4" data-readonly="true" class="dial" data-kind="bag"/>
-        </div>
-        <div class="span3 knob">
-          <h4>服装</h4>
-        <input type="button" value="${mymap.ClothMainTypeWeight}" data-width="120" data-fgcolor="#EA494A" data-readonly="true" class="dial" data-kind="cloth"/>
-        </div>
-        <div class="span3 knob">
-          <h4>饮食</h4>
-          <input type="button" value="${mymap.FoodMainTypeWeight}" data-width="120" data-fgcolor="#FFA93C" data-readonly="true" class="dial" data-kind="food"/>
-        </div>
-        <div class="span3 knob">
-          <h4>文体</h4>
-          <input type="button" value="${mymap.CultureMainTypeWeight}" data-width="120" data-fgcolor="#333" data-readonly="true" class="dial" data-kind="sport"/>
-        </div>
-      </div>
-      <div class="showarea">
-      <div class="bag">
-      <h4 style="font-weight: bold">箱包配饰类销售细节</h4>
-      <div class="stats">
-        <div class="row-fluid">
-          <div class="span3">
-            <div class="stat info">
-              <h2>${mymap.ManPackWeight}%</h2>
-              <h4>男士箱包</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat danger">
-              <h2>${mymap.GirlPackWeight}%</h2>
-              <h4>女性箱包</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat warning">
-              <h2>${mymap.PurseWeight}%</h2>
-              <h4>钱包及小配件</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat inverse">
-              <h2>${mymap.CarrierWeight}%</h2>
-              <h4>行李箱</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-     <!--  <div class="row-fluid">
+					<div class="span3"></div>
+					<div class="span9">
+						<div class="jumbotron">
+							<h1>
+								今日总营业额：
+								<strong class="text-error">￥1000000</strong>
+							</h1>
+							<h3>
+								已成交&nbsp;&nbsp;
+								<strong class="text-success">2000</strong>
+								&nbsp;&nbsp;&nbsp;单
+							</h3>
+
+						</div>
+						<h4 class="header" style="font-weight: bold">销售比重</h4>
+						<div class="row-fluid">
+							<div class="span3 knob">
+								<h4>箱包配饰</h4>
+								<input type="button" value="${mymap.PackageMainTypeWeight}" data-width="120" data-fgcolor="#14B8D4" data-readonly="true" class="dial" data-kind="bag" />
+							</div>
+							<div class="span3 knob">
+								<h4>服装</h4>
+								<input type="button" value="${mymap.ClothMainTypeWeight}" data-width="120" data-fgcolor="#EA494A" data-readonly="true" class="dial" data-kind="cloth" />
+							</div>
+							<div class="span3 knob">
+								<h4>饮食</h4>
+								<input type="button" value="${mymap.FoodMainTypeWeight}" data-width="120" data-fgcolor="#FFA93C" data-readonly="true" class="dial" data-kind="food" />
+							</div>
+							<div class="span3 knob">
+								<h4>文体</h4>
+								<input type="button" value="${mymap.CultureMainTypeWeight}" data-width="120" data-fgcolor="#333" data-readonly="true" class="dial" data-kind="sport" />
+							</div>
+						</div>
+						<div class="showarea">
+							<div class="bag">
+								<h4 style="font-weight: bold">箱包配饰类销售细节</h4>
+								<div class="stats">
+									<div class="row-fluid">
+										<div class="span3">
+											<div class="stat info">
+												<h2>${mymap.ManPackWeight}%</h2>
+												<h4>男士箱包</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat danger">
+												<h2>${mymap.GirlPackWeight}%</h2>
+												<h4>女性箱包</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat warning">
+												<h2>${mymap.PurseWeight}%</h2>
+												<h4>钱包及小配件</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat inverse">
+												<h2>${mymap.CarrierWeight}%</h2>
+												<h4>行李箱</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--  <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -170,43 +210,43 @@
         </div>
       </div>
       -->
-     
-     
-      </div>
 
-      <!--分割线-->
-      <div class="cloth">
-      <h4 style="font-weight: bold">服装类销售细节</h4>
-      <div class="stats">
-        <div class="row-fluid">
-          <div class="span3">
-            <div class="stat info">
-              <h2>${mymap.TshirtWeight}%</h2>
-              <h4>清爽短袖</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat danger">
-              <h2>${mymap.PoloWeight}%</h2>
-              <h4>时尚衬衫</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat warning">
-              <h2>${mymap.SexySkirtWeight}%</h2>
-              <h4>性感长裙</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat inverse">
-              <h2>${mymap.FashionPantWeight}%</h2>
-              <h4>潮流裤类</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- <div class="row-fluid">
+
+							</div>
+
+							<!--分割线-->
+							<div class="cloth">
+								<h4 style="font-weight: bold">服装类销售细节</h4>
+								<div class="stats">
+									<div class="row-fluid">
+										<div class="span3">
+											<div class="stat info">
+												<h2>${mymap.TshirtWeight}%</h2>
+												<h4>清爽短袖</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat danger">
+												<h2>${mymap.PoloWeight}%</h2>
+												<h4>时尚衬衫</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat warning">
+												<h2>${mymap.SexySkirtWeight}%</h2>
+												<h4>性感长裙</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat inverse">
+												<h2>${mymap.FashionPantWeight}%</h2>
+												<h4>潮流裤类</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -274,41 +314,41 @@
           </div>
         </div>
       </div> -->
-      
-      
-      </div>
-      <!--分割线-->
-      <div class="food">
-      <h4 style="font-weight: bold">饮食类销售细节</h4>
-      <div class="stats">
-        <div class="row-fluid">
-          <div class="span3">
-            <div class="stat info">
-              <h2>${mymap.SockWeight}%</h2>
-              <h4>美味零食</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat danger">
-              <h2>${mymap.NutWeight}%</h2>
-              <h4>水果坚果</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat warning">
-              <h2>${mymap.MeatWeight}%</h2>
-              <h4>新鲜肉类</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat inverse">
-              <h2>${mymap.DrinkWeight}%</h2>
-              <h4>饮料酒水</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-     <!--  <div class="row-fluid">
+
+
+							</div>
+							<!--分割线-->
+							<div class="food">
+								<h4 style="font-weight: bold">饮食类销售细节</h4>
+								<div class="stats">
+									<div class="row-fluid">
+										<div class="span3">
+											<div class="stat info">
+												<h2>${mymap.SockWeight}%</h2>
+												<h4>美味零食</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat danger">
+												<h2>${mymap.NutWeight}%</h2>
+												<h4>水果坚果</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat warning">
+												<h2>${mymap.MeatWeight}%</h2>
+												<h4>新鲜肉类</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat inverse">
+												<h2>${mymap.DrinkWeight}%</h2>
+												<h4>饮料酒水</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--  <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -376,42 +416,42 @@
           </div>
         </div>
       </div> -->
-      
-      
-      
-      </div>
-        <!--分割线-->
-      <div class="sport">
-      <h4 style="font-weight: bold">文体类销售细节</h4>
-      <div class="stats">
-        <div class="row-fluid">
-          <div class="span3">
-            <div class="stat info">
-              <h2>${mymap.BeautifulWritingWeight}%</h2>
-              <h4>精美文具</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat danger">
-              <h2>${mymap.OutDoorWeight}%</h2>
-              <h4>运动户外</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat warning">
-              <h2>${mymap.MusicWeight}%</h2>
-              <h4>音乐相关</h4>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="stat inverse">
-              <h2>${mymap.FilmWeight}%</h2>
-              <h4>影视相关</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="row-fluid">
+
+
+
+							</div>
+							<!--分割线-->
+							<div class="sport">
+								<h4 style="font-weight: bold">文体类销售细节</h4>
+								<div class="stats">
+									<div class="row-fluid">
+										<div class="span3">
+											<div class="stat info">
+												<h2>${mymap.BeautifulWritingWeight}%</h2>
+												<h4>精美文具</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat danger">
+												<h2>${mymap.OutDoorWeight}%</h2>
+												<h4>运动户外</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat warning">
+												<h2>${mymap.MusicWeight}%</h2>
+												<h4>音乐相关</h4>
+											</div>
+										</div>
+										<div class="span3">
+											<div class="stat inverse">
+												<h2>${mymap.FilmWeight}%</h2>
+												<h4>影视相关</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="row-fluid">
         <div class="span6">
           <div class="widget">
             <table style="width:100%">
@@ -479,119 +519,124 @@
           </div>
         </div>
       </div> -->
-      
-      
-      
-      </div>
-        <!--分割线-->
-      </div>
-      <hr />
-      <h4 style="font-weight: bold">历史之最</h4>
-      <div class="panel">
-        <div class="top primary"><i class="batch-big b-database"></i>
-          <h6>历史销量最高</h6>
-        </div>
-        <div class="bottom">
-          <h2>7720</h2>
-          <h6>春风飞机杯</h6>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="top warning"><i class="batch-big b-flag"></i>
-          <h6>土豪下单最多</h6>
-        </div>
-        <div class="bottom">
-          <h2>1000</h2>
-          <h6>黄大仙</h6>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="top danger"><i class="batch-big b-comment"></i>
-          <h6>单日营业额最高</h6>
-        </div>
-        <div class="bottom">
-          <h2>596000</h2>
-          <h6>2018-8-03</h6>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="top"><i class="batch-big b-alarm"></i>
-          <h6>单日成交数最多</h6>
-        </div>
-        <div class="bottom">
-          <h2>1300</h2>
-          <h6>2018-8-03</h6>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="top purple"><i class="batch-big b-wifi"></i>
-          <h6>最受欢迎种类</h6>
-        </div>
-        <div class="bottom">
-          <h2>800000</h2>
-          <h6>男士箱包</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><script type="text/javascript">
-(function() {
-  var delay;
 
-  delay = function(ms, func) {
-    return setTimeout(func, ms);
-  };
 
-/*  toastr.options = {
-    positionClass: 'toast-bottom-left'
-  };
 
-  delay(1000, function() {
-    return toastr.success('Have fun storming the castle!', 'Miracle Max Says');
-  });
+							</div>
+							<!--分割线-->
+						</div>
+						<hr />
+						<h4 style="font-weight: bold">历史之最</h4>
+						<div class="panel">
+							<div class="top primary">
+								<i class="batch-big b-database"></i>
+								<h6>历史销量最高</h6>
+							</div>
+							<div class="bottom">
+								<h2>7720</h2>
+								<h6>春风飞机杯</h6>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="top warning">
+								<i class="batch-big b-flag"></i>
+								<h6>土豪下单最多</h6>
+							</div>
+							<div class="bottom">
+								<h2>1000</h2>
+								<h6>黄大仙</h6>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="top danger">
+								<i class="batch-big b-comment"></i>
+								<h6>单日营业额最高</h6>
+							</div>
+							<div class="bottom">
+								<h2>596000</h2>
+								<h6>2018-8-03</h6>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="top">
+								<i class="batch-big b-alarm"></i>
+								<h6>单日成交数最多</h6>
+							</div>
+							<div class="bottom">
+								<h2>1300</h2>
+								<h6>2018-8-03</h6>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="top purple">
+								<i class="batch-big b-wifi"></i>
+								<h6>最受欢迎种类</h6>
+							</div>
+							<div class="bottom">
+								<h2>800000</h2>
+								<h6>男士箱包</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				(function() {
+					var delay;
 
-  delay(1500, function() {
-    return toastr.warning('My name is Inigo Montoya. You Killed my father, prepare to die!');
-  });
+					delay = function(ms, func) {
+						return setTimeout(func, ms);
+					};
 
-  delay(2000, function() {
-    return toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
-  });*/
+					/*  toastr.options = {
+					 positionClass: 'toast-bottom-left'
+					 };
 
-}).call(this);
+					 delay(1000, function() {
+					 return toastr.success('Have fun storming the castle!', 'Miracle Max Says');
+					 });
 
-</script>
-      </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <p class="pull-right">华农有货后台管理系统</p>
-            <p>&copy; 2018 FreelanceLeague </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+					 delay(1500, function() {
+					 return toastr.warning('My name is Inigo Montoya. You Killed my father, prepare to die!');
+					 });
 
-<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.knob.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.tablesorter.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/jquery.peity.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/fullcalendar.min.js"></script>
-    <script src="${pageContext.request.contextPath }/js/gcal.js"></script>
-    <script src="${pageContext.request.contextPath }/js/setup.js"></script>
-    <script>
-        $(document).ready(function () {
-           $(".span3.knob").click(function () {
-              var kind=$(this).find("input").attr("data-kind");
-              $("."+kind).fadeIn("slow").siblings().fadeOut("fast");
-           });
-        });
-    </script>
-  </body>
+					 delay(2000, function() {
+					 return toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
+					 });*/
 
- <!-- <script src="js/d3-setup.js"></script><script>protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address);
+				}).call(this);
+			</script>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<p class="pull-right">华农有货后台管理系统</p>
+					<p>&copy; 2018 FreelanceLeague</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath }/js/jquery.knob.js"></script>
+	<script src="${pageContext.request.contextPath }/js/jquery.tablesorter.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/jquery.peity.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/fullcalendar.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/gcal.js"></script>
+	<script src="${pageContext.request.contextPath }/js/setup.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".span3.knob").click(function() {
+				var kind = $(this).find("input").attr("data-kind");
+				$("." + kind).fadeIn("slow").siblings().fadeOut("fast");
+			});
+		});
+	</script>
+</body>
+
+<!-- <script src="js/d3-setup.js"></script><script>protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address);
 socket.onmessage = function(msg) { msg.data == 'reload' && window.location.reload() }</script>-->
 </html>

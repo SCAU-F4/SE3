@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-08-06 15:54:32
+Date: 2018-08-08 20:28:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `address` (
   `addressPhone` varchar(11) NOT NULL,
   `addressName` varchar(20) NOT NULL,
   PRIMARY KEY (`addressID`,`customerID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -48,7 +48,7 @@ CREATE TABLE `cart` (
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
-INSERT INTO `cart` VALUES ('1', '1', '7529.00');
+INSERT INTO `cart` VALUES ('1', '1', '0.00');
 
 -- ----------------------------
 -- Table structure for `cartdetail`
@@ -66,8 +66,6 @@ CREATE TABLE `cartdetail` (
 -- ----------------------------
 -- Records of cartdetail
 -- ----------------------------
-INSERT INTO `cartdetail` VALUES ('1', '1', '1', '539.00', '山海经');
-INSERT INTO `cartdetail` VALUES ('1', '2', '10', '6990.00', '太空银');
 
 -- ----------------------------
 -- Table structure for `customer`
@@ -390,12 +388,16 @@ CREATE TABLE `indent` (
   `indentState` int(2) NOT NULL,
   `expressCode` int(18) NOT NULL,
   PRIMARY KEY (`indentID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indent
 -- ----------------------------
 INSERT INTO `indent` VALUES ('1', '1', '224.00', '2018-07-27 19:00:28.000000', '1', '0', '1');
+INSERT INTO `indent` VALUES ('3', '1', '75.00', '2018-08-07 11:47:44.819000', '-1', '0', '-1');
+INSERT INTO `indent` VALUES ('4', '1', '7529.00', '2018-08-08 12:42:35.118000', '1', '0', '-1');
+INSERT INTO `indent` VALUES ('5', '1', '13.50', '2018-08-08 12:43:11.540000', '1', '0', '-1');
+INSERT INTO `indent` VALUES ('6', '1', '21.00', '2018-08-08 12:45:45.885000', '1', '0', '-1');
 
 -- ----------------------------
 -- Table structure for `indentdetail`
@@ -407,15 +409,21 @@ CREATE TABLE `indentdetail` (
   `goodsCount` int(5) NOT NULL,
   `totalPrice` double(8,2) NOT NULL,
   `goodsSpecify` varchar(50) NOT NULL,
+  `evaluated` int(1) NOT NULL,
   PRIMARY KEY (`indentID`,`goodsID`,`goodsSpecify`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indentdetail
 -- ----------------------------
-INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '白色');
-INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '红色');
-INSERT INTO `indentdetail` VALUES ('1', '75', '1', '66.00', '复仇者联盟');
+INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '白色', '0');
+INSERT INTO `indentdetail` VALUES ('1', '60', '1', '79.00', '红色', '0');
+INSERT INTO `indentdetail` VALUES ('1', '75', '1', '66.00', '复仇者联盟', '0');
+INSERT INTO `indentdetail` VALUES ('3', '22', '1', '75.00', '酒红色', '0');
+INSERT INTO `indentdetail` VALUES ('4', '1', '1', '539.00', '山海经', '0');
+INSERT INTO `indentdetail` VALUES ('4', '2', '10', '6990.00', '太空银', '0');
+INSERT INTO `indentdetail` VALUES ('5', '42', '1', '13.50', ' 青梅鲜果冻', '0');
+INSERT INTO `indentdetail` VALUES ('6', '78', '1', '21.00', 'B款', '0');
 
 -- ----------------------------
 -- Table structure for `manager`

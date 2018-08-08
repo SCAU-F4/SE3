@@ -191,10 +191,9 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value ="comment")
-	public void comment(String indentID,String goodsID,String goodsSpecify,Evaluate evaluate,Model model,ServletRequest servletRequest){
-		int IndentID=Integer.parseInt(indentID);
-		int GoodsID=Integer.parseInt(goodsID);
-		String result=userservice.comment(IndentID,GoodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+	public void comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate,Model model,ServletRequest servletRequest){
+		System.out.println(evaluate.getEvaluateContent());
+		String result=userservice.comment(indentID,goodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
 //		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
 //		else {
 //			model.addAttribute("result",result);
