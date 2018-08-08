@@ -81,6 +81,12 @@
 		where
 		indentID=#{indentID}
 	</update>
+	
+	<update id="updateindentStateByindentID">
+		update Indent set
+		indentState=#{indentState}
+		where indentID=#{indentID}
+	</update>
 
 	<delete id="delete">
 		delete from Indent where

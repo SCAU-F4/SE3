@@ -183,7 +183,7 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getAllsellCount();
-		if(j!=0) return i / j;
+		if(j!=0) return i / j*100;
 		return 0;
 	}
 
@@ -192,7 +192,7 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
-		if(i!=0) return j / i;
+		if(i!=0) return j / i*100;
 		return 0;
 	}
 
