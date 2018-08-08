@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alibaba.fastjson.JSON;
 
@@ -218,7 +219,7 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value="pay")
-	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession,Model model){
+	public String pay(@RequestParam("addressID") int addressID,@RequestParam("indentID")int indentID,HttpSession httpSession,Model model,RedirectAttributes rs){
 		Customer customer=(Customer) httpSession.getAttribute("currentCustomer");
 		Indent indent =(Indent) httpSession.getAttribute("indent");
 		if(indent!=null) {
@@ -228,7 +229,18 @@ public class Usercontroller {
 				return "pay";
 			}
 		}
-		model.addAttribute("result", "非法操作");
-		return "index";
+		rs.addFlashAttribute("result", "非法操作");
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="payment")
+	public String payment(@RequestParam("indentID") int indentID,@RequestParam("ispay") int ispay,RedirectAttributes rs){
+		if(ispay==0){
+			return "redirect:/user/mycenter";
+		}else {
+			userservice.payment(indentID);
+			rs.addFlashAttribute("result", "付款成功");
+			return "redirect:/user/mycenter";
+		}
 	}
 }

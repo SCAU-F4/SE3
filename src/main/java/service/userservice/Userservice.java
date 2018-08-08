@@ -19,4 +19,5 @@ public interface Userservice {
     public Indent auction(int goodsID,String goodsSpecify,int goodsCount,Customer customer);
     public boolean pay(int addressID,Indent indent,Customer customer);
     public String comment(Evaluate evaluate,String path);
+    public boolean payment(int indentID);
 }
