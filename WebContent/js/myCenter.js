@@ -689,6 +689,7 @@ $(document).ready(function () {
 
     $('.testimg'+index+'').attr('src',src);
     $('.testimg'+index+'').attr('width',"65");
+    $('.testimg'+index+'').show();
    
     });
     
@@ -719,7 +720,7 @@ $(document).ready(function () {
 		$(".tip").find("h4").text("评论成功");
 		$(".tip").fadeIn();
 		$(".tip").delay(1500).fadeOut();
-		$("Evaluate-img-item").find("img").attr("src"," ");
+		$(".Evaluate-img-item").find("img").hide();
 		return false;
 	});
 });
