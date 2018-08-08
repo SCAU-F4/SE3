@@ -310,6 +310,7 @@
 											<c:forEach items="${indent.indentDetaillist}"
 												var="indentDetail" varStatus="status">
 												<div class="items">
+												<input type="hidden" class="itemStateCode" value="${indentDetail.evaluated}">
 													<div class="goods">
 														<img src="${indentDetail.good.pictureList[0].picturePath}"
 															alt="" width="120"> <span>${indentDetail.good.goodsName}</span>
@@ -613,46 +614,6 @@
 				$("#signup").hide();
 				$(".shopping-cart").show();
 			}
-
-			$(".addcomment").click(function() {
-				console.log($("#pic1").val());
-				var options = {
-					url : "${pageContext.request.contextPath }/user/comment",
-					success : function(res) {
-						alert(res.result);
-					}
-				};
-				$("#mainform").ajaxForm(options);
-				$(".star").empty();
-				reIns(0);
-				$(".text").empty();
-				$("#resetForm").click();
-				$(".Evaluate-area i.layui-icon-close").click();
-				$(".tip").find("h4").text("评论成功");
-				$(".tip").fadeIn();
-				$(".tip").delay(1500).fadeOut();
-
-			});
-
-			/* 	var ajax_option={
-					target: '#targetdiv',
-					clearForm:true,
-					dataType:"jsonp",
-					jsonp:"callback",
-					beforeSubmit:function(){
-						console.log($("#mainform .goodsSpecify").val());
-					},
-					success:function(res){
-						alert(res.result);
-					},
-					error:function(e){
-					alert(e);
-					}
-				} */
-			/* $("#mainform").submit(function(){
-				$(this).ajaxSubmit();
-				return false;
-			});  */
 		});
 
 		$(".Message-list .save").click(function() {
