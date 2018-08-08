@@ -582,25 +582,25 @@
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg1" data-address="">
-							<input type="file" data-which="1" name="id1" id="pic1" class="form-img" accept="image/*" />
+							<input type="file" data-which="1" name="images" id="images1" class="form-img" accept="image/*" />
 						</a>
 					</li>
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg2" data-address="">
-							<input type="file" data-which="2" name="id2" id="pic2" class="form-img" accept="image/*" />
+							<input type="file" data-which="2" name="images" id="images2" class="form-img" accept="image/*" />
 						</a>
 					</li>
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg3" data-address="">
-							<input type="file" data-which="3" name="id3" id="pic3" class="form-img" accept="image/*" />
+							<input type="file" data-which="3" name="images" id="images3" class="form-img" accept="image/*" />
 						</a>
 					</li>
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg4" data-address="">
-							<input type="file" data-which="4" name="id4" id="pic4" class="form-img" accept="image/*" />
+							<input type="file" data-which="4" name="images" id="images4" class="form-img" accept="image/*" />
 						</a>
 					</li>
 				</ul>
@@ -632,9 +632,6 @@
 	<script src="${pageContext.request.contextPath }/js/myCenter.js"></script>
 	<script src="${pageContext.request.contextPath }/js/simplePaging.js"></script>
 	<script>
-		window.addEventListener("popstate", function() {
-			location.reload();
-		}, false)
 		$(document).ready(function() {
 			var customer = "${currentCustomer.customerName}";
 			if (customer == "") {
@@ -670,26 +667,6 @@
 				$(".tip").delay(1500).fadeOut();
 
 			});
-
-			/* 	var ajax_option={
-					target: '#targetdiv',
-					clearForm:true,
-					dataType:"jsonp",
-					jsonp:"callback",
-					beforeSubmit:function(){
-						console.log($("#mainform .goodsSpecify").val());
-					},
-					success:function(res){
-						alert(res.result);
-					},
-					error:function(e){
-					alert(e);
-					}
-				} */
-			/* $("#mainform").submit(function(){
-				$(this).ajaxSubmit();
-				return false;
-			});  */
 		});
 
 		$(".Message-list .save").click(function() {

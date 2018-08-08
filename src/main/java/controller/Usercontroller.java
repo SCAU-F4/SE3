@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alibaba.fastjson.JSON;
@@ -191,8 +192,9 @@ public class Usercontroller {
 	}
 	
 	@RequestMapping(value ="comment")
-	public void comment(int indentID,int goodsID,String goodsSpecify,Evaluate evaluate,Model model,ServletRequest servletRequest){
-		System.out.println(evaluate.getEvaluateContent());
+	public void comment(Evaluate evaluate,int indentID,int goodsID,String goodsSpecify,Model model,ServletRequest servletRequest){
+		System.out.println(evaluate);
+//		System.out.println(images==null);
 		String result=userservice.comment(indentID,goodsID,goodsSpecify,evaluate,servletRequest.getServletContext().getRealPath("/img"));
 //		if(result=="") return "forward:/products/detail/"+evaluate.getGoodsID(); 
 //		else {
