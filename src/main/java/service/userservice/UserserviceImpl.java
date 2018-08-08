@@ -336,7 +336,6 @@ public class UserserviceImpl implements Userservice {
 			result = "评论失败";
 			return result;
 		}
-		System.out.println("---------------------------");
 		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID,1);
 //		if (evaluate.getImages() != null) {
 //			List<MultipartFile> multipartFile = evaluate.getImages();

@@ -529,7 +529,7 @@
 	<div class="Evaluate-area">
 		<i class="layui-icon layui-icon-close pull-right"></i>
 		<div class="product-img">
-			<img src="../lib/img/product3.png" width="200">
+			<img src="" width="200">
 		</div>
 		<div class="star"></div>
 		<span class="text text-muted"></span>

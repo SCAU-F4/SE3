@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +35,6 @@ public class Usercontroller {
 	public String signin() {
 		return "signin";
 	}
-
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
 	public String signin(Customer customer,String referrer, Model model, HttpSession session) {
 		String result = "";
@@ -248,7 +246,6 @@ public class Usercontroller {
 	@RequestMapping(value="mycenter/auction")
 	public String pay(@RequestParam("indentID") int indentID,HttpSession httpSession){
 		Indent indent=userservice.payfromcenter(indentID);
-		System.out.println(indent);
 		if(indent!=null) httpSession.setAttribute("newindent", indent);
 		return "auction";
 	}
