@@ -313,7 +313,7 @@
 			</div>
 			<div class="col-md-4 detail_serve">
 				<img class="car"
-					src="${pageContext.request.contextPath }/img/icon/car.png"> <span>满88元免邮费</span>
+					src="${pageContext.request.contextPath }/img/icon/car.png"> <span>全场免邮费</span>
 			</div>
 			<div class="col-md-4 detail_serve">
 				<img src="${pageContext.request.contextPath }/img/icon/nong.png">
