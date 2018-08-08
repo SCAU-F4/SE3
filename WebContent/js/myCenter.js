@@ -403,7 +403,7 @@ $(document).ready(function () {
     		$target.parent().find("button").remove();
     	}
     	if(jspState==4){
-    		$target.parents(".panel").find(".Order-state").text("交易成功");	
+    		$target.parents(".panel").find(".Order-state").text("交易完成");	
     		$target.parent().find("button").remove(); 
     	}
     })
@@ -769,7 +769,11 @@ function checkisallevaluate($a){
 function  changeState($a){
 		console.log("测试2"+$a.parents(".panel").attr("allevaluate"));
 	if($a.parents(".panel").attr("allevaluate")==4){
-		$a.parents(".panel").find(".Order-state").text("交易成功");
+		$a.parents(".panel").find(".Order-state").text("交易完成");
+		var id=$a.parents(".panel").find(".Order-id").attr("data-indentID");
+		$(".noshow .Order-id[data-indentID="+id+"]").parents(".panel").attr("data-state","5");
+		$(".noshow .Order-id[data-indentID="+id+"]").parents(".panel").find(".Order-state").text("交易完成");
+		$(".noshow .Order-id[data-indentID="+id+"]").parents(".panel").find(".state-button").hide();
 	}
 	
 }
