@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	var all_eva=0;
-	var pic_eva=0;
-	var all_star=0;
-	
+	var all_eva = 0;
+	var pic_eva = 0;
+	var all_star = 0;
+
 	$(".SE3_product .list ul li:first-child").addClass("active");
 
 	$(".SE3_product .list ul").on("mouseenter", "li", function() {
@@ -54,7 +54,7 @@ $(document).ready(function() {
 			event.preventDefault();
 		}
 	});
-	
+
 	$(".detail_num .glyphicon-plus").click(function() {
 		var values = $(".detail_num .num input").val();
 		if (values < 99) {
@@ -81,7 +81,7 @@ $(document).ready(function() {
 				$(location).attr('href', "/SE3-F4/user/auction" +
 					"?goodsID=" + goodsID + "&goodsSpecify=" + goodsSpecify + "&goodsCount=" + goodsCount);
 			} else {
-				$(".tip h4").text("请先选择规格");
+				$(".tip h4").text("请选择规格");
 				$(".tip").fadeIn();
 				$(".tip").delay(1500).fadeOut().delay(300);
 			}
@@ -102,11 +102,10 @@ $(document).ready(function() {
 		$(".SE3_product_body .left div[data-select=" + select + "]").show().siblings("div").hide();
 	});
 
-	$(".SE3_product_body .left .evaluate .evaluate_detail li").each(function() {
-		
-		if ($(this).find(".detail_right .evaluate_picture img").length>0) pic_eva++;
+	$(".SE3_product_body .left .evaluate .evaluate_detail>ul>li").each(function() {
+		if ($(this).find(".detail_right .evaluate_picture img").length > 0) pic_eva++;
 		var value = parseInt($(this).find(" input").val());
-		all_star = all_star+value;
+		all_star = all_star + value;
 		var $star = $(this).find(".star");
 		console.log(value);
 		layui.use('rate', function() {
@@ -118,17 +117,24 @@ $(document).ready(function() {
 		});
 	});
 
-	all_eva = $(".SE3_product_body .left .evaluate .evaluate_detail li").length;
-	$(".evlauate_ratio").text((all_star/(all_eva*5)*100).toFixed(2));
+	all_eva = $(".SE3_product_body .left .evaluate .evaluate_detail>ul>li").length;
+	if (all_eva > 0) {
+		$(".evlauate_ratio").text((all_star / (all_eva * 5) * 100).toFixed(2));
+	} else {
+		$(".ratio").text("暂无");
+	}
+	$(".total_evaluate").text(all_eva);
 	$(".picture_evaluate").text(pic_eva);
-	$(".picture_evaluate").text(pic_eva);
-	
 
-	console.log(all_star);
+	if (pic_eva == 0) $(".SE3_product_body .left .evaluate .head_right .specify>span:last-child").hide();
+
 	layui.use('rate', function() {
+		var ratio = 0;
+		if (all_eva > 0)
+			ratio = all_star / all_eva;
 		var head = layui.rate.render({
 			elem : '.SE3_product_body .left .evaluate .head_left .star',
-			value : all_star/all_eva,
+			value : ratio,
 			readonly : true
 		});
 	});
@@ -138,7 +144,23 @@ $(document).ready(function() {
 		$(this).find("span").removeClass("active");
 	});
 
+	$(".SE3_product_body .left .evaluate .head_right .specify .all_hhh").click(function() {
+		$(".SE3_product_body .left .evaluate .evaluate_detail>ul>li").each(function() {
+			$(this).show();
+		});
+	});
+
+	$(".SE3_product_body .left .evaluate .head_right .specify .pic_hhh").click(function() {
+		$(".SE3_product_body .left .evaluate .evaluate_detail>ul>li").each(function() {
+			if ($(this).find(".detail_right .evaluate_picture img").length == 0) $(this).hide();
+		});
+	});
+
 	$(".SE3_product_body .left .evaluate .sort .classify").on("click", "div", function() {
+		if (!$(this).hasClass('active')) {
+			var ul = $(".evaluate .evaluate_detail>ul");
+			ul.append(ul.find(".evaluate_item").get().reverse());
+		}
 		$(this).addClass("active").siblings("div").removeClass("active");
 	});
 

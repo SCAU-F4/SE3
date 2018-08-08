@@ -20,6 +20,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/layui/css/layui.css">
 </head>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <body>
 
 
@@ -109,7 +115,11 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> <a
+					<input type="text" placeholder="雅迪电动车只要999">
+					<div class="arrow_box">
+						请输入正确的搜索条件
+					</div>
+					 <a
 						href="${pageContext.request.contextPath }/products/searchitems"
 						class="glyphicon glyphicon-search"></a>
 				</div>
@@ -458,9 +468,10 @@
 					<span class="pay_btn">去付款</span>
 					<div class="re_address">
 						<div class="name">
-							<span>黄帅哥</span> <span>15692021111</span>
+							<span></span> 
+							<span></span>
 						</div>
-						<div class="name">广东省广州市天河区华南农业大学华山学生公寓15栋</div>
+						<div class="name"></div>
 					</div>
 				</div>
 			</div>
@@ -484,13 +495,16 @@
 			</div>
 		</div>
 	</section>
-
+	<div class="tip">
+		<h4>修改成功</h4>
+	</div>
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 	<script
 		src="${pageContext.request.contextPath }/layui/lay/modules/layer.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+			<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/buy.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 	<script>
@@ -511,6 +525,5 @@
 			}
 		});
 	</script>
-
 </body>
 </html>

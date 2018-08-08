@@ -15,6 +15,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/classify.css">
 </head>
+ <%     
+   response.setHeader("Pragma","no-cache");     
+   response.setHeader("Cache-Control","no-cache");     
+   response.setDateHeader("Expires", 0);     
+   response.setHeader("Cache-Control", "no-store");     
+%> 
 <body>
 	<header id="SE3_header">
 		<!--上部分-->
@@ -95,7 +101,11 @@
 						alt="logo">
 				</div>
 				<div id="serech_input">
-					<input type="text" placeholder="雅迪电动车只要999"> <a
+					<input type="text" placeholder="雅迪电动车只要999"> 
+					<div class="arrow_box">
+						请输入正确的搜索条件
+					</div>
+					<a
 						href="${pageContext.request.contextPath }/products/searchitems"
 						class="glyphicon glyphicon-search"></a>
 				</div>
@@ -318,6 +328,7 @@
 	<script
 		src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+	<script src="${pageContext.request.contextPath }/js/js.cookie.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/index.js"></script>
 
 	<script>
@@ -362,15 +373,20 @@
 							$(".classify-items").height(str3);
 							$(".SE3_tail").show();
 
+
+						var itemNum=$(".box .classify-item").length;
+						console.log(itemNum);
+						if(itemNum==0){
+							$(".box").addClass("NosearchItem");
+							var str="<div class=\"noSearchItemTip text-muted\">找不到符合要求的結果</div>"
+						    $(".box").append(str);
+						}
+						else{
+							$(".box").removeClass("NoseachItem");
+							$(".box .noSearchItemTip").remove();
+						}
 						});
 	</script>
-<!-- 	<script type="text/javascript">
-    if(window.name != "bencalie"){
-         location.reload();
-         window.name = "bencalie";
-     }else{
-         window.name = "";
-      }
-</script> -->
+
 </body>
 </html>
