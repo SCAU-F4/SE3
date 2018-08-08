@@ -274,6 +274,7 @@
 				src="${pageContext.request.contextPath }/img/product/zhifubao.jpg">
 		</div>
 
+		<input type="hidden" value="${newindent.indentID }"></input>
 		<div>
 			<span>已完成付款</span>
 			<span>我再想想</span>

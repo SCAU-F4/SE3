@@ -33,10 +33,6 @@ public class test1 {
 
 	public static void main(String[] args) throws IOException {
 		
-		Manager manager=new Manager();
-		manager.setManagerID(8);
-		manager.setManagerPwd("123456");
-		System.out.println(signin(manager));
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 //		EvaluateMapper evaluatemapper=ctx.getBean(EvaluateMapper.class);
