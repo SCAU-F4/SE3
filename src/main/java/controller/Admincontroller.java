@@ -118,6 +118,20 @@ public class Admincontroller {
 		model.addAttribute("allGoodList", allGoodsList);
 		return "goodsCharge";
 	}
+	
+	//商品上下架
+	@RequestMapping(value = "GoodsISsell", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String GoodsISsell(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int goodsID = Integer.valueOf(request.getParameter("goodsID"));// 不可以改的
+		String goodsSpecify = request.getParameter("goodsSpecify");// 不可以改的
+		int isSell = Integer.valueOf(request.getParameter("isSell"));
+		String result = adminservice.ChangeisSellGood(goodsID, goodsSpecify, isSell);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
 
 	@RequestMapping(value = "GoodsUpdate", produces = "application/json;charset=utf-8")
 	@ResponseBody

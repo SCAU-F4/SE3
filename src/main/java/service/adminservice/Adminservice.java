@@ -20,7 +20,7 @@ public interface Adminservice {
     public String InsertGood(Goods goods);
     public String DeleteGood(Goods goods);
     public String UpdateGood(Goods goods);
-    public String ChangeisSellGood(Goods goods,int yesno);//商品上下架
+    public String ChangeisSellGood(int goodsID,String goodsSpecify,int yesno);//商品上下架
     public List<Goods> getAllGoods();//获取所有商品
     public List<Goods> getgoodsByMaintypeIDAndSecondTypeID(int mid,int sid);
     

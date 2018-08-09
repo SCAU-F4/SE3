@@ -179,11 +179,13 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public String ChangeisSellGood(Goods goods, int yesno) {
+	public String ChangeisSellGood(int goodsID,String goodsSpecify,int yesno) {
 		// TODO Auto-generated method stub
+		Goods goods=goodsMapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
 		goods.setIsSell(yesno);
-		UpdateGood(goods);
-		return null;
+		int result=goodsMapper.update(goods);
+		if(result>0) return "ok";
+		return "数据库更新失败";
 	}
 
 	@Override
