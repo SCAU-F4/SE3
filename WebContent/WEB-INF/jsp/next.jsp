@@ -21,7 +21,6 @@
 					<h4>
 						<strong>华农有货</strong>
 					</h4>
-					</a>
 				</div>
 			</div>
 		</div>
@@ -32,15 +31,14 @@
 				<div class="span12">
 					<ul>
 						<li>
-							<a href="index.html" class="active">
+							<a href="${pageContext.request.contextPath }/admin/tongji" class="active">
 								<i class="batch home"></i>
 								<br />
 								首页
 							</a>
 						</li>
 						<li>
-							<span class="label label-important pull-right">08</span>
-							<a href="stream.html">
+							<a href="${pageContext.request.contextPath }/admin/goodsCharge">
 								<i class="batch stream"></i>
 								<br />
 								商品管理

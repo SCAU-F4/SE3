@@ -27,5 +27,8 @@ public interface PictureMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int delete(Picture picture);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int deleteByGoodsID(@Param("goodsID")int goodsID);
 
 }

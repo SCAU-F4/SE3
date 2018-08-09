@@ -35,4 +35,8 @@
 		delete from Picture where goodsID=#{goodsID} AND
 		pictureID= #{pictureID}
 	</delete>
+	
+	<delete id="deleteByGoodsID">
+		delete from Picture where goodsID=#{goodsID}
+	</delete>
 </mapper>

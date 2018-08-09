@@ -34,6 +34,12 @@
 		order by
 		evaluateDate
 	</select>
+	
+	<select id="findEvaluateBycustomerID" resultMap="evaluateMap1">
+		select *
+		from Evaluate
+		where customerID=#{customerID}
+	</select>
 
 
 	<insert id="insert" keyProperty="evaluateID" useGeneratedKeys="true">
@@ -51,5 +57,13 @@
 	</update>
 	<delete id="deleteByevaluateID">
 		delete from Evaluate where evaluateID=#{evaluateID}
+	</delete>
+	
+	<delete id="deleteByGoodsID">
+		delete from Evaluate where goodsID=#{goodsID}
+	</delete>
+	
+	<delete id="deleteBycustomerID">
+		delete from Evaluate where customerID=#{customerID}
 	</delete>
 </mapper>

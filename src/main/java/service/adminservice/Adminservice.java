@@ -20,7 +20,7 @@ public interface Adminservice {
     public String InsertGood(Goods goods);
     public String DeleteGood(Goods goods);
     public String UpdateGood(Goods goods);
-    public String ChangeisSellGood(Goods goods,int yesno);//商品上下架
+    public String ChangeisSellGood(int goodsID,String goodsSpecify,int yesno);//商品上下架
     public List<Goods> getAllGoods();//获取所有商品
     public List<Goods> getgoodsByMaintypeIDAndSecondTypeID(int mid,int sid);
     
@@ -33,13 +33,19 @@ public interface Adminservice {
     public Integer getHighestSaleCountPerDay();//单日成交数最高
     public GoodsSecondaryType getMostPopularSecondaryType();//最受欢迎种类
     
-//    //用户管理
-//    public String UpdateCustomerPassword(int customerID,String customerPhone);
-//    public String DeleteCustomer(int customerID);
 //    //订单管理
-//    public String InsertIndent(Indent indent);
-//    public String DeleteIndent(Indent indent);
-//    public String UpdateIndent(Indent indent);
-    //
+    public List<Indent> getAllIndent();
+    public String InsertIndent(Indent indent);
+    public String DeleteIndent(Indent indent);
+    public String UpdateIndent(Indent indent);
+
     
+//    //用户管理
+    public List<Customer> getAllCustomer();
+    public String UpdateCustomerName(int customerID,String customerName);
+    public String UpdateCustomerPassword(int customerID,String customerPwd);
+    public String UpdateCustomerPhone(int customerID,String customerPhone);
+    public String UpdateCustomerEmail(int customerID,String CustomerEmail);
+    public String InsertCustomer(Customer customer);
+    public String DeleteCustomer(int customerID);
 }
