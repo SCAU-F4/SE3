@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import bean.Address;
 import bean.Customer;
+import bean.Goods;
 import bean.Indent;
 import bean.Manager;
 import service.adminservice.Adminservice;
@@ -90,15 +91,22 @@ public class test1 {
 	}
 
 	public static void main(String[] args) throws IOException {
-		Indent indent = new Indent();
-		indent.setIndentID(2);
-		indent.setCustomerID(1);
-		indent.setTotalPrice(699);
-		indent.setIndentTime(new Timestamp(0));
-		indent.setAddressID(1);
-		indent.setIndentState(0);
-		indent.setExpressCode(-1);
-		System.out.println(InsertIndent(indent));
+		Goods goods=new Goods();
+		goods.setGoodsID(80);
+		goods.setGoodsName("dsf");
+		goods.setGoodsMainTypeID(5);
+		goods.setGoodsSecondaryTypeID(17);
+		goods.setGoodsSpecify("ddd");
+		goods.setGoodsBrief("dsfsd");
+		goods.setGoodsPrice(4523);
+		goods.setGoodsCount(325);
+		goods.setGoodsDate(new Timestamp(0));
+		goods.setSellCount(1);
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
+		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
+		System.out.println(goodsMapper.update(goods));
+		
+		
 
 		// public static String signin(Manager manager) {
 		//

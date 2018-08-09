@@ -124,9 +124,9 @@
 	<update id="update">
 		update Goods set
 		goodsName=#{goodsName},
-		goodsMainTypeID=#{goodsMainTypeID},goodsSpecify=#{goodsSpecify},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell},
+		goodsMainTypeID=#{goodsMainTypeID},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell},
 		goodsSecondaryTypeID=#{goodsSecondaryTypeID}
-		where goodsID=#{goodsID}
+		where goodsID=#{goodsID} and goodsSpecify=#{goodsSpecify}
 	</update>
 	<delete id="delete">
 		delete from Goods where
