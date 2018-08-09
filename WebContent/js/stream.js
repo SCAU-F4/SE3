@@ -1,14 +1,25 @@
-
+function isSell(){
+	$(".showpage .item").each(function(){
+		var isSell=($(this).find(".date").text());
+		if(isSell==1){
+			$(this).find(".date").text("上架中");
+		}
+		else{
+			$(this).find(".date").text("已下架");
+		}
+	});
+}
 
 $(".span3>li.mainType").click(function () {
    var type= $(this).find("a").attr("data-mainType");
-
- /*   $("li.collapse[data-mainType!="+type+"]").slideUp("fast").delay(300);
-    $("li.collapse[data-mainType="+type+"]").slideDown("fast");*/
+   	$("li.collapse[data-mainType!="+type+"]").hide();
+   	$("li.collapse[data-mainType="+type+"]").show();
+    $("li.collapse[data-mainType!="+type+"] ul").slideUp("fast").delay(300);
+    $("li.collapse[data-mainType="+type+"] ul").slideDown("fast");
     if (type!=0){
         var itemList=[];
         var items=$("#NoneStream>.item[data-mainType="+type+"]");
-        var page=Math.ceil(parseFloat(items.length)/3);
+        var page=Math.ceil(parseFloat(items.length)/10);
         console.log(items.length);
         console.log(page);
 /*        console.log(items.get(0));*/
@@ -16,7 +27,7 @@ $(".span3>li.mainType").click(function () {
         for (var i=0;i<page;i++){
             var j=0;
             var item={};
-            for (j ;j<3;j++){
+            for (j ;j<10;j++){
                 if (z>items.length){
                     break
                 }
@@ -36,7 +47,7 @@ $(".span3>li.mainType").click(function () {
         $(".showPagePaging").empty();
         $(".showPagePaging").simplePaging({
             allPage: itemData.allPage,//总页数
-            showPage: 1,//显示页数
+            showPage: 5,//显示页数
             startPage: 1,//第一页页码数字
             initPage: 1,//加载完毕自动跳转到第n页(初始化激活页)
             initPageClick:true,//每次页面加载完毕后，是否触发initPage页的绑定事件
@@ -57,6 +68,7 @@ $(".span3>li.mainType").click(function () {
 
                 }
                 showPage.html(str);
+                isSell();
             }
         });
     }
@@ -66,11 +78,11 @@ $(".span3>li.mainType").click(function () {
         var itemList=[];
         var items=$("#NoneStream>.item");
         console.log(items.length);
-        var page=Math.ceil(parseFloat(items.length)/3);
+        var page=Math.ceil(parseFloat(items.length)/10);
         for (var i=0; i<page;i++){
             var j=0;
             var item={};
-            for (j;j<3;j++){
+            for (j;j<10;j++){
                 if (z>items.length){
                     break;
                 }
@@ -91,7 +103,7 @@ $(".span3>li.mainType").click(function () {
         $(".showPagePaging").empty();
         $(".showPagePaging").simplePaging({
             allPage: itemData.allPage,//总页数
-            showPage: 2,//显示页数
+            showPage: 5,//显示页数
             startPage: 1,//第一页页码数字
             initPage: 1,//加载完毕自动跳转到第n页(初始化激活页)
             initPageClick:true,//每次页面加载完毕后，是否触发initPage页的绑定事件
@@ -112,6 +124,7 @@ $(".span3>li.mainType").click(function () {
 
                 }
                 showPage.html(str);
+                isSell();
             }
         });
     }
@@ -123,14 +136,14 @@ $(".span3 li").find("a[data-mainType=0]").click();
 $(".span3 li.collapse li a").click(function () {
     var secondType=$(this).attr("data-SecondType");
     var items=$("#NoneStream .item[data-SecondType="+secondType+"]");
-    var page=Math.ceil(parseFloat(items.length)/3);
+    var page=Math.ceil(parseFloat(items.length)/10);
     var itemList=[];
     var z=1;
     for (var i=0;i<page;i++)
     {
         var j=0;
         var item={};
-        for(j;j<3;j++){
+        for(j;j<10;j++){
             if (z>items.length){
                 break;
             }
@@ -143,6 +156,7 @@ $(".span3 li.collapse li a").click(function () {
         itemList.push(item);
     }
     console.log(secondType+"///"+page+"////"+itemList);
+    console.log(itemList);
     var itemData={
         allPage:page,
         data:itemList
@@ -150,7 +164,7 @@ $(".span3 li.collapse li a").click(function () {
     $(".showPagePaging").empty();
     $(".showPagePaging").simplePaging({
         allPage: itemData.allPage,//总页数
-        showPage: 2,//显示页数
+        showPage: 5,//显示页数
         startPage: 1,//第一页页码数字
         initPage: 1,//加载完毕自动跳转到第n页(初始化激活页)
         initPageClick:true,//每次页面加载完毕后，是否触发initPage页的绑定事件
@@ -162,7 +176,7 @@ $(".span3 li.collapse li a").click(function () {
         animateType: "animation",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
         animationTime: 300,//animateType为animation时，动画过渡时间(ms)
         callBack: function (num) {
-            var showPage = $(".showPage");
+            var showPage = $(".showpage");
             var data  = itemData.data[num-1];
             var str = "";
             for (var key in data){
@@ -171,6 +185,7 @@ $(".span3 li.collapse li a").click(function () {
 
             }
             showPage.html(str);
+            isSell();
         }
     });
 });

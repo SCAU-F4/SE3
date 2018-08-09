@@ -109,7 +109,7 @@ public class Admincontroller {
 	}
 	
 	//第二个页面
-	@RequestMapping(value = "goodsCharge", method = RequestMethod.POST)
+	@RequestMapping(value = "goodsCharge", method = RequestMethod.GET)
 	public String goodsCharge(Model model, HttpSession session) {
 		Manager manager=(Manager) session.getAttribute("currentManager");
 		if(manager==null) return "adminsignin";
