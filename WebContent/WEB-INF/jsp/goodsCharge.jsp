@@ -112,8 +112,8 @@
 													<span class="caret"></span>
 											</button>
 									<ul class="dropdown-menu">
-										<li><a href="#">修改</a></li>
-										<li><a href="#">删除</a></li>
+										<li><a class="modify">修改</a></li>
+										<li><a class="delete">下架</a></li>
 									</ul>
 								</div>
 								<div class="stream-icon">
@@ -139,6 +139,26 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="Evaluate"></div>
+	<div class="Evaluate-area">
+		<i class="layui-icon layui-icon-close pull-right"></i>
+		<div class="product-img">
+			<img src="" width="200">
+		</div>
+		
+			
+			<input type="hidden" value="${currentCustomer.customerID}" name="customer.customerID" />
+			<input type="hidden" id="goodsSpecify" name="goodsSpecify" />
+			<div class="Evaluate-main">
+				<span class="title">评论区</span>
+				<textarea placeholder="请输入你的评价" id="evaluateContent" name="evaluateContent" style="resize: none"></textarea>
+			</div>
+			<button type="submit" class="layui-btn layui-btn-radius layui-btn-primary addcomment">提交评论</button>
+			<button type="reset" style="display: none;" id="resetForm">重置</button>
+		
+	</div>
+	
 	<footer>
 		<div class="container">
 			<div class="row">
