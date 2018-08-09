@@ -291,8 +291,30 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public String UpdateIndent(Indent indent) {
 		// TODO Auto-generated method stub
-		int result=indentMapper.update(indent);
-		return null;
+				int customerID=indent.getCustomerID();
+				Customer customer=customerMapper.findBycustomerID(customerID);
+				if(customer==null)
+				{
+					return "订单更新失败，没有该用户信息";
+				}
+				List<Address> list=customer.getAddressList();
+				int length=list.size();
+				int flag=0;
+				for(int i=0;i<length;i++)
+				{
+					if(indent.getAddressID()==list.get(i).getAddressID())
+					{
+						flag=1;
+						break;
+					}
+				}
+				if(flag==0) return "该用户没有这个地址，更新失败";
+				int result=indentMapper.update(indent);
+				if(result>0)
+				{
+					return "ok";
+				}
+				return "不关你的事，数据库更新失败了";
 	}
 
 }
