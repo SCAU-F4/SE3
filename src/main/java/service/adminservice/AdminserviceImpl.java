@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Mapper.CustomerMapper;
+import Mapper.EvaluateMapper;
 import Mapper.GoodsMainTypeMapper;
 import Mapper.GoodsMapper;
 import Mapper.GoodsSecondaryTypeMapper;
+import Mapper.IndentDetailMapper;
 import Mapper.IndentMapper;
 import Mapper.ManagerMapper;
+import Mapper.PictureMapper;
+import bean.Address;
 import bean.Customer;
 import bean.CustomerAndPrice;
 import bean.Goods;
@@ -30,9 +34,15 @@ public class AdminserviceImpl implements Adminservice {
 	@Autowired
 	IndentMapper indentMapper;
 	@Autowired
+	IndentDetailMapper indentDetailMapper;
+	@Autowired
 	GoodsMainTypeMapper goodsMainTypeMapper;
 	@Autowired
 	GoodsSecondaryTypeMapper goodsSecondaryTypeMapper;
+	@Autowired
+	PictureMapper pictureMapper;
+	@Autowired
+	EvaluateMapper evaluateMapper;
 
 	@Override
 	public String signin(Manager manager) {
@@ -120,7 +130,11 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		int i = goodsMapper.delete(goods);
 		if (i > 0)
+		{
+			pictureMapper.deleteByGoodsID(goods.getGoodsID());
+			evaluateMapper.deleteByGoodsID(goods.getGoodsID());
 			return "ok";
+		}
 		return "fail";
 	}
 
@@ -224,6 +238,60 @@ public class AdminserviceImpl implements Adminservice {
 	public GoodsSecondaryType getMostPopularSecondaryType() {
 		// TODO Auto-generated method stub
        
+		return null;
+	}
+
+	@Override
+	public List<Indent> getAllIndent() {
+		// TODO Auto-generated method stub
+		return indentMapper.getAllIndent();
+	}
+
+	@Override
+	public String InsertIndent(Indent indent) {
+		// TODO Auto-generated method stub
+		int customerID=indent.getCustomerID();
+		Customer customer=customerMapper.findBycustomerID(customerID);
+		if(customer==null)
+		{
+			return "订单插入失败，没有该用户信息";
+		}
+		List<Address> list=customer.getAddressList();
+		int length=list.size();
+		int flag=0;
+		for(int i=0;i<length;i++)
+		{
+			if(indent.getAddressID()==list.get(i).getAddressID())
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0) return "该用户没有这个地址，插入失败";
+		int result=indentMapper.insert(indent);
+		if(result>0)
+		{
+			return "ok";
+		}
+		return "不关你的事，数据库插入失败了";
+	}
+
+	@Override
+	public String DeleteIndent(Indent indent) {
+		// TODO Auto-generated method stub
+		int result=indentMapper.delete(indent);
+		if(result>0)
+		{
+			indentDetailMapper.deleteByindentID(indent.getIndentID());
+			return "ok";
+		}
+		return "fail";
+	}
+
+	@Override
+	public String UpdateIndent(Indent indent) {
+		// TODO Auto-generated method stub
+		int result=indentMapper.update(indent);
 		return null;
 	}
 

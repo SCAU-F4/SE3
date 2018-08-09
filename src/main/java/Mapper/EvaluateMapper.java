@@ -24,4 +24,9 @@ public interface EvaluateMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int deleteByevaluateID(Evaluate evaluate);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+	int deleteByGoodsID(@Param("goodsID")int goodsID);
+	
+	
 }

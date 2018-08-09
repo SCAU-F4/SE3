@@ -1,11 +1,15 @@
 package Mapper;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import bean.Address;
+import bean.Customer;
+import bean.Indent;
 import bean.Manager;
 import service.adminservice.Adminservice;
 import service.adminservice.AdminserviceImpl;
@@ -51,16 +55,48 @@ public class test1 {
 		if(i!=0) return (j / i)*100;
 		return 0;
 	}
-
-	public static void main(String[] args) throws IOException {
+	
+	public static String InsertIndent(Indent indent) {
+		// TODO Auto-generated method stub
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
 		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
-		List list=customerMapper.getHighestCustomer();
-		for(int i=0;i<list.size();i++)
+		IndentMapper indentMapper=ctx.getBean(IndentMapper.class);
+		int customerID=indent.getCustomerID();
+		Customer customer=customerMapper.findBycustomerID(customerID);
+		if(customer==null)
 		{
-			System.out.println(list.get(i));
+			return "订单插入失败，没有该用户信息";
 		}
-		
+		List<Address> list=customer.getAddressList();
+		int length=list.size();
+		int flag=0;
+		for(int i=0;i<length;i++)
+		{
+			if(indent.getAddressID()==list.get(i).getAddressID())
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0) return "该用户没有这个地址，插入失败";
+		int result=indentMapper.insert(indent);
+		if(result>0)
+		{
+			return "ok";
+		}
+		return "不关你的事，数据库插入失败了";
+	}
+
+	public static void main(String[] args) throws IOException {
+		Indent indent=new Indent();
+		indent.setIndentID(2);
+		indent.setCustomerID(1);
+		indent.setTotalPrice(699);
+		indent.setIndentTime(new Timestamp(0));
+		indent.setAddressID(1);
+		indent.setIndentState(0);
+		indent.setExpressCode(-1);
+		System.out.println(InsertIndent(indent));
 		
 		
 //		ApplicationContext ctx=new ClassPathXmlApplicationContext("SpringConf.xml");
