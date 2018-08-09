@@ -102,4 +102,8 @@
 		delete from Indent where
 		indentID=#{indentID}
 	</delete>
+	<delete id="deleteBycustomerID">
+		delete from Indent where
+		customerID=#{customerID}
+	</delete>
 </mapper>

@@ -50,4 +50,8 @@
 	<delete id="delete">
 		delete from Cart where cartID=#{cartID}
 	</delete>
+	
+	<delete id="deleteByCustomerID">
+		delete from Cart where customerID=#{customerID}
+	</delete>
 </mapper>

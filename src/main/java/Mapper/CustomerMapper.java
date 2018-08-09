@@ -39,4 +39,7 @@ public interface CustomerMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
 	int delete(Customer customer);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+	List<Customer> getAllCustomer();
 }

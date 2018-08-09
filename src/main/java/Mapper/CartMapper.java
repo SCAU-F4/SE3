@@ -30,4 +30,7 @@ public interface CartMapper {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int delete(Cart cart);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int deleteByCustomerID(@Param("customerID")int customerID);
 }

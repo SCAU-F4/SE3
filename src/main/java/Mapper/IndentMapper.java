@@ -48,4 +48,7 @@ public interface IndentMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int deleteByindentID(int indentID);
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int deleteBycustomerID(@Param("customerID") int CustomerID);
 }

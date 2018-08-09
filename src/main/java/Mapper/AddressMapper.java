@@ -27,4 +27,8 @@ public interface AddressMapper {
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int deleteBycustomerIDAndaddressID(@Param("customerID") int customerID,@Param("addressID") int addressID);
+	
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int deleteBycustomerID(@Param("customerID") int customerID);
 }
