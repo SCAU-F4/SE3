@@ -41,6 +41,11 @@ public interface Adminservice {
 
     
 //    //用户管理
-//    public String UpdateCustomerPassword(int customerID,String customerPhone);
-//    public String DeleteCustomer(int customerID);
+    public List<Customer> getAllCustomer();
+    public String UpdateCustomerName(int customerID,String customerName);
+    public String UpdateCustomerPassword(int customerID,String customerPwd);
+    public String UpdateCustomerPhone(int customerID,String customerPhone);
+    public String UpdateCustomerEmail(int customerID,String CustomerEmail);
+    public String InsertCustomer(Customer customer);
+    public String DeleteCustomer(int customerID);
 }

@@ -91,20 +91,24 @@ public class test1 {
 	}
 
 	public static void main(String[] args) throws IOException {
-		Goods goods=new Goods();
-		goods.setGoodsID(80);
-		goods.setGoodsName("dsf");
-		goods.setGoodsMainTypeID(5);
-		goods.setGoodsSecondaryTypeID(17);
-		goods.setGoodsSpecify("ddd");
-		goods.setGoodsBrief("dsfsd");
-		goods.setGoodsPrice(4523);
-		goods.setGoodsCount(325);
-		goods.setGoodsDate(new Timestamp(0));
-		goods.setSellCount(1);
+//		Goods goods=new Goods();
+//		goods.setGoodsID(80);
+//		goods.setGoodsName("dsf");
+//		goods.setGoodsMainTypeID(5);
+//		goods.setGoodsSecondaryTypeID(17);
+//		goods.setGoodsSpecify("ddd");
+//		goods.setGoodsBrief("dsfsd");
+//		goods.setGoodsPrice(4523);
+//		goods.setGoodsCount(325);
+//		goods.setGoodsDate(new Timestamp(0));
+//		goods.setSellCount(1);
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
-		System.out.println(goodsMapper.update(goods));
+		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
+		List list=customerMapper.getAllCustomer();
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
 		
 		
 

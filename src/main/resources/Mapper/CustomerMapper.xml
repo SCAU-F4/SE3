@@ -88,4 +88,8 @@ having jiage1=(select max(jiage)
 	<delete id="delete">
 		delete from Customer where customerID=#{customerID}
 	</delete>
+	
+	<select id="getAllCustomer" resultMap="customerMap1">
+		select * from Customer
+	</select>
 </mapper>

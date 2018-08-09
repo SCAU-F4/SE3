@@ -47,4 +47,8 @@
 		AND
 		addressID=#{addressID}
 	</delete>
+	
+	<delete id="deleteBycustomerID">
+		delete from Address where customerID=#{customerID}
+	</delete>
 </mapper>

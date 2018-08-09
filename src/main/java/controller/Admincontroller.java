@@ -220,6 +220,93 @@ public class Admincontroller {
 		return res;
 	}
 	
+	@RequestMapping(value = "CustomerCharge", method = RequestMethod.GET)
+	public String CustomerCharge(Model model, HttpSession session) {
+		Manager manager = (Manager) session.getAttribute("currentManager");
+		if (manager == null)
+			return "adminsignin";
+		List allCustomeList=adminservice.getAllCustomer();
+		model.addAttribute("allCustomeList", allCustomeList);
+		return "CustomerCharge";
+	}
+	
+	@RequestMapping(value = "UpdateCustomerName", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String CustomerUpdateName(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int customerID=Integer.valueOf(request.getParameter("customerID"));
+		String customerName=request.getParameter("customerName");
+		String result=adminservice.UpdateCustomerName(customerID, customerName);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
+	
+	
+	@RequestMapping(value = "UpdateCustomerPwd", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String CustomerUpdatePWD(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int customerID=Integer.valueOf(request.getParameter("customerID"));
+		String customerPwd=request.getParameter("customerPwd");
+		String result=adminservice.UpdateCustomerPassword(customerID, customerPwd);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
+	
+	
+	@RequestMapping(value = "UpdateCustomerEmail", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String CustomerUpdateEmail(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int customerID=Integer.valueOf(request.getParameter("customerID"));
+		String CustomerEmail=request.getParameter("CustomerEmail");
+		String result=adminservice.UpdateCustomerEmail(customerID, CustomerEmail);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
+	
+	@RequestMapping(value = "UpdateCustomerPhone", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String CustomerUpdatePhone(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int customerID=Integer.valueOf(request.getParameter("customerID"));
+		String customerPhone=request.getParameter("customerPhone");
+		String result=adminservice.UpdateCustomerPhone(customerID, customerPhone);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
+	
+	@RequestMapping(value = "DeleteCustomer", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String DeleteCustomer(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int customerID=Integer.valueOf(request.getParameter("customerID"));
+		String result=adminservice.DeleteCustomer(customerID);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
+	
+	@RequestMapping(value = "InsertCustomer", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public String InsertCustomer(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
+		int customerID=Integer.valueOf(request.getParameter("customerID"));
+		String customerName=request.getParameter("customerName");
+		String customerPwd=request.getParameter("customerPwd");
+		String customerPhone=request.getParameter("customerPhone");
+		String customerEmail=request.getParameter("customerEmail");
+		Timestamp customerRegDate=Timestamp.valueOf(request.getParameter("customerRegDate"));
+		Customer customer=new Customer(customerID, customerName, customerPwd, customerPhone, customerEmail, customerRegDate, null, null);
+		String result=adminservice.InsertCustomer(customer);
+		Map<String, String> map = new HashMap<>();
+		map.put("result", result);
+		String res = callback + "(" + JSON.toJSONString(map) + ")";
+		return res;
+	}
 	
 
 }
