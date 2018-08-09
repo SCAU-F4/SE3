@@ -52,7 +52,7 @@ public class Usercontroller {
 		String substr="http://localhost:8080/SE3-F4";
 		if(referrer!=null){
 			referrer=referrer.replaceFirst(substr, "");
-			return "redirect:"+referrer;
+			if(!referrer.equals("/user/signup")) return "redirect:"+referrer;
 		}
 		return "redirect:/";
 	}
@@ -72,7 +72,7 @@ public class Usercontroller {
 		else
 			return "signup";
 	}
-
+	
 	@RequestMapping(value = "mycenter")
 	public String mycenter(Model model, HttpSession httpSession) {
 		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
