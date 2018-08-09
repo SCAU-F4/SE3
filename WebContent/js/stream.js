@@ -189,3 +189,93 @@ $(".span3 li.collapse li a").click(function () {
         }
     });
 });
+
+var $thisItem;
+
+$(".showpage").on("click",".modify",function(){
+	var goodsID=$(this).parents(".item").find(".itemgoodsID").val();
+	var goodsMainTypeCode=$(this).parents(".item").find(".itemgoodsMainTypeID").val();
+	var goodsSecondaryTypeIDCode=$(this).parents(".item").find(".itemgoodsSecondaryTypeID").val();
+	var goodsMainType=$(".sidebar>ul>li>a[data-mainType="+goodsMainTypeCode+"]").text();
+	var goodsSecondaryTypeID=$(".collapse>ul>li>a[data-SecondType="+goodsSecondaryTypeIDCode+"]").text();
+	var imgPath=$(this).parents(".item").find(".stream-icon img").attr("src");
+	var goodsName=$(this).parents(".item").find("h4").text();
+	var goodsSpecify=$(this).parents(".item").find(".itemgoodsSpecify").text();
+	var gootsBrief=$(this).parents(".item").find(".itemgoodsBrief").text();
+	var goodsPrice=$(this).parents(".item").find(".itemgoodsPrice").text();
+	var isSell=$(this).parents(".item").find(".itemisSell").val();
+	var goodsCount=$(this).parents(".item").find(".itemgoodsCount").text();
+	var sellCount=$(this).parents(".item").find(".sellNum").text();
+	var goodsDate=$(this).parents(".item").find(".goodsDate").val();
+	$(".inputGroup .GoodsName").val(goodsName);
+	$(".Evaluate-area #goodsID").val(goodsID);
+	$(".inputGroup .goodsMainTypeID").text(goodsMainType);
+	$(".inputGroup .goodsMainTypeID").attr("data-goodsMainTypeID",goodsMainTypeCode);
+	$(".inputGroup .goodsSecondaryTypeID").text(goodsSecondaryTypeID);
+	$(".inputGroup .goodsSecondaryTypeID").attr("data-goodsSecondaryTypeID",goodsSecondaryTypeIDCode);
+	$(".inputGroup .goodsSpecify").text(goodsSpecify);
+	$(".inputGroup .goodsBrief").val(gootsBrief);
+	$(".inputGroup .goodsPrice").val(goodsPrice);
+	$(".inputGroup .goodsCount").val(goodsCount);
+	$(".inputGroup .sellCount").val(sellCount);
+	$(".inputGroup .goodsDate").val(goodsDate);
+	$(":radio[name='optionsRadios'][value="+isSell+"]").attr("checked","checked"); 
+	$(".product-img img").attr("src",imgPath);
+	$(".Evaluate").show();
+	$(".Evaluate-area").show();
+});
+
+$(".Evaluate-area i.layui-icon-close").click(function(){
+	$(".Evaluate-area").slideUp("fast");
+	$(".Evaluate").fadeOut("fast");
+});
+
+$(".Goods-modify").click(function(){
+	var goodsName=$(".inputGroup .GoodsName").val();
+	var goodsID=$(".Evaluate-area #goodsID").val();
+	var goodsMainTypeID=$(".inputGroup .goodsMainTypeID").attr("data-goodsMainTypeID");
+	var goodsSecondaryTypeID=$(".inputGroup .goodsSecondaryTypeID").attr("data-goodsSecondaryTypeID");
+	var goodsSpecify=$(".inputGroup .goodsSpecify").text();
+	var goodsBrief=$(".inputGroup .goodsBrief").val();
+	var goodsPrice=$(".inputGroup .goodsPrice").val();
+	var goodsCount=$(".inputGroup .goodsCount").val();
+	var sellCount=$(".inputGroup .sellCount").val();
+	var isSell=$('.radio input:radio:checked').val();
+	var goodsDate=$(".inputGroup .goodsDate").val();
+	console.log("Name:"+goodsName+"/////"+"ID"+goodsID+"///////"+goodsMainTypeID+"/////"+goodsSecondaryTypeID
+			+"/////"+goodsSpecify+"/////"+goodsPrice+"/////"+goodsBrief+"/////"+goodsPrice+"/////"+goodsCount+"/////"+
+			sellCount+"/////"+isSell);
+	$.ajax({
+		type:"post",
+		async:false,
+		url:"GoodsUpdate",
+		dataType:"jsonp",
+		jsonp:"callback",
+		data:{
+			goodsName:goodsName,
+			goodsID:goodsID,
+			goodsMainTypeID:goodsMainTypeID,
+			goodsSecondaryTypeID:goodsSecondaryTypeID,
+			goodsSpecify:goodsSpecify,
+			goodsBrief:goodsBrief,
+			goodsCount:goodsCount,
+			sellCount:sellCount,
+			goodsPrice:goodsPrice,
+			goodsDate:goodsDate,
+			isSell:isSell,
+			t:new Date()
+		},success:function(res){
+			alert(res.result);
+		},
+		error:function(e){
+			alert("shibia");
+		}
+	});
+});
+
+
+
+
+
+
+

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -24,7 +23,6 @@ import bean.Goods;
 import bean.Indent;
 import bean.Manager;
 import service.adminservice.Adminservice;
-import service.goodservice.Goodservice;
 
 @Controller
 @RequestMapping(value = "admin")
@@ -118,8 +116,8 @@ public class Admincontroller {
 		model.addAttribute("allGoodList", allGoodsList);
 		return "goodsCharge";
 	}
-	
-	//商品上下架
+
+	// 商品上下架
 	@RequestMapping(value = "GoodsISsell", produces = "application/json;charset=utf-8")
 	@ResponseBody
 	public String GoodsISsell(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
@@ -137,16 +135,27 @@ public class Admincontroller {
 	@ResponseBody
 	public String GoodsUpdate(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
 		int goodsID = Integer.valueOf(request.getParameter("goodsID"));// 不可以改的
+		System.out.println(goodsID);
 		String goodsName = request.getParameter("goodsName");
+		System.out.println(goodsName);
 		int goodsMainTypeID = Integer.valueOf(request.getParameter("goodsMainTypeID"));
+		System.out.println(goodsMainTypeID);
 		String goodsSpecify = request.getParameter("goodsSpecify");// 不可以改的
+		System.out.println(goodsSpecify);
 		String goodsBrief = request.getParameter("goodsBrief");
+		System.out.println(goodsBrief);
 		double goodsPrice = Double.valueOf(request.getParameter("goodsPrice"));
+		System.out.println(goodsPrice);
 		int goodsCount = Integer.valueOf(request.getParameter("goodsCount"));
+		System.out.println(goodsCount);
 		int sellCount = Integer.valueOf(request.getParameter("sellCount"));
-		Timestamp goodsDate = Timestamp.valueOf(request.getParameter("Timestamp goodsDate"));
+		System.out.println(sellCount);
+		Timestamp goodsDate = new Timestamp(System.currentTimeMillis());
+		System.out.println(goodsDate);
 		int isSell = Integer.valueOf(request.getParameter("isSell"));
+		System.out.println(isSell);
 		int goodsSecondaryTypeID = Integer.valueOf(request.getParameter("goodsSecondaryTypeID"));
+		System.out.println(goodsSecondaryTypeID);
 		Goods goods = new Goods(goodsID, goodsName, goodsMainTypeID, goodsSpecify, goodsBrief, goodsPrice, goodsCount,
 				sellCount, goodsDate, isSell, goodsSecondaryTypeID, null, null);
 		String result = adminservice.UpdateGood(goods);
@@ -182,50 +191,50 @@ public class Admincontroller {
 
 	@RequestMapping(value = "IndentUpdate", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	//直接把修改后的Indent属性传给我，IndentID作为主码不能改
+	// 直接把修改后的Indent属性传给我，IndentID作为主码不能改
 	public String IndentUpdate(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int indentID= Integer.valueOf(request.getParameter("indentID"));
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		double totalPrice=Double.valueOf(request.getParameter("totalPrice"));
-		Timestamp indentTime=Timestamp.valueOf(request.getParameter("indentTime"));
-		int addressID=Integer.valueOf(request.getParameter("addressID"));
-		int expressCode=Integer.valueOf(request.getParameter("expressCode"));
-		int indentState=Integer.valueOf(request.getParameter("indentState"));
-		Indent indent = new Indent(indentID, customerID, totalPrice, indentTime, addressID, expressCode, indentState, null, null);
+		int indentID = Integer.valueOf(request.getParameter("indentID"));
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		double totalPrice = Double.valueOf(request.getParameter("totalPrice"));
+		Timestamp indentTime = Timestamp.valueOf(request.getParameter("indentTime"));
+		int addressID = Integer.valueOf(request.getParameter("addressID"));
+		int expressCode = Integer.valueOf(request.getParameter("expressCode"));
+		int indentState = Integer.valueOf(request.getParameter("indentState"));
+		Indent indent = new Indent(indentID, customerID, totalPrice, indentTime, addressID, expressCode, indentState,
+				null, null);
 		String result = adminservice.UpdateIndent(indent);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	
-	
+
 	@RequestMapping(value = "IndentInsert", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	//要传的自己看吧
+	// 要传的自己看吧
 	public String IndentInsert(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int indentID= Integer.valueOf(request.getParameter("indentID"));
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		double totalPrice=Double.valueOf(request.getParameter("totalPrice"));
-		Timestamp indentTime=Timestamp.valueOf(request.getParameter("indentTime"));
-		int addressID=Integer.valueOf(request.getParameter("addressID"));
-		int expressCode=Integer.valueOf(request.getParameter("expressCode"));
-		int indentState=Integer.valueOf(request.getParameter("indentState"));
-		Indent indent = new Indent(indentID, customerID, totalPrice, indentTime, addressID, expressCode, indentState, null, null);
+		int indentID = Integer.valueOf(request.getParameter("indentID"));
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		double totalPrice = Double.valueOf(request.getParameter("totalPrice"));
+		Timestamp indentTime = Timestamp.valueOf(request.getParameter("indentTime"));
+		int addressID = Integer.valueOf(request.getParameter("addressID"));
+		int expressCode = Integer.valueOf(request.getParameter("expressCode"));
+		int indentState = Integer.valueOf(request.getParameter("indentState"));
+		Indent indent = new Indent(indentID, customerID, totalPrice, indentTime, addressID, expressCode, indentState,
+				null, null);
 		String result = adminservice.InsertIndent(indent);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
+
 	@RequestMapping(value = "IndentDelete", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	//订单删除只用传个indentID
+	// 订单删除只用传个indentID
 	public String IndentDelete(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int indentID= Integer.valueOf(request.getParameter("indentID"));
-		Indent indent=new Indent();
+		int indentID = Integer.valueOf(request.getParameter("indentID"));
+		Indent indent = new Indent();
 		indent.setIndentID(indentID);
 		String result = adminservice.DeleteIndent(indent);
 		Map<String, String> map = new HashMap<>();
@@ -233,94 +242,98 @@ public class Admincontroller {
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
+
 	@RequestMapping(value = "CustomerCharge", method = RequestMethod.GET)
 	public String CustomerCharge(Model model, HttpSession session) {
 		Manager manager = (Manager) session.getAttribute("currentManager");
 		if (manager == null)
 			return "adminsignin";
-		List allCustomeList=adminservice.getAllCustomer();
+		List allCustomeList = adminservice.getAllCustomer();
 		model.addAttribute("allCustomeList", allCustomeList);
 		return "CustomerCharge";
 	}
-	
+
 	@RequestMapping(value = "UpdateCustomerName", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String CustomerUpdateName(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		String customerName=request.getParameter("customerName");
-		String result=adminservice.UpdateCustomerName(customerID, customerName);
+	public String CustomerUpdateName(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		String customerName = request.getParameter("customerName");
+		String result = adminservice.UpdateCustomerName(customerID, customerName);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	
+
 	@RequestMapping(value = "UpdateCustomerPwd", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String CustomerUpdatePWD(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		String customerPwd=request.getParameter("customerPwd");
-		String result=adminservice.UpdateCustomerPassword(customerID, customerPwd);
+	public String CustomerUpdatePWD(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		String customerPwd = request.getParameter("customerPwd");
+		String result = adminservice.UpdateCustomerPassword(customerID, customerPwd);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
-	
+
 	@RequestMapping(value = "UpdateCustomerEmail", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String CustomerUpdateEmail(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		String CustomerEmail=request.getParameter("CustomerEmail");
-		String result=adminservice.UpdateCustomerEmail(customerID, CustomerEmail);
+	public String CustomerUpdateEmail(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		String CustomerEmail = request.getParameter("CustomerEmail");
+		String result = adminservice.UpdateCustomerEmail(customerID, CustomerEmail);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
+
 	@RequestMapping(value = "UpdateCustomerPhone", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String CustomerUpdatePhone(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		String customerPhone=request.getParameter("customerPhone");
-		String result=adminservice.UpdateCustomerPhone(customerID, customerPhone);
+	public String CustomerUpdatePhone(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		String customerPhone = request.getParameter("customerPhone");
+		String result = adminservice.UpdateCustomerPhone(customerID, customerPhone);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
+
 	@RequestMapping(value = "DeleteCustomer", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String DeleteCustomer(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		String result=adminservice.DeleteCustomer(customerID);
+	public String DeleteCustomer(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		String result = adminservice.DeleteCustomer(customerID);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
+
 	@RequestMapping(value = "InsertCustomer", produces = "application/json;charset=utf-8")
 	@ResponseBody
-	public String InsertCustomer(String callback, HttpServletRequest request, HttpSession httpSession) throws Exception {
-		int customerID=Integer.valueOf(request.getParameter("customerID"));
-		String customerName=request.getParameter("customerName");
-		String customerPwd=request.getParameter("customerPwd");
-		String customerPhone=request.getParameter("customerPhone");
-		String customerEmail=request.getParameter("customerEmail");
-		Timestamp customerRegDate=Timestamp.valueOf(request.getParameter("customerRegDate"));
-		Customer customer=new Customer(customerID, customerName, customerPwd, customerPhone, customerEmail, customerRegDate, null, null);
-		String result=adminservice.InsertCustomer(customer);
+	public String InsertCustomer(String callback, HttpServletRequest request, HttpSession httpSession)
+			throws Exception {
+		int customerID = Integer.valueOf(request.getParameter("customerID"));
+		String customerName = request.getParameter("customerName");
+		String customerPwd = request.getParameter("customerPwd");
+		String customerPhone = request.getParameter("customerPhone");
+		String customerEmail = request.getParameter("customerEmail");
+		Timestamp customerRegDate = Timestamp.valueOf(request.getParameter("customerRegDate"));
+		Customer customer = new Customer(customerID, customerName, customerPwd, customerPhone, customerEmail,
+				customerRegDate, null, null);
+		String result = adminservice.InsertCustomer(customer);
 		Map<String, String> map = new HashMap<>();
 		map.put("result", result);
 		String res = callback + "(" + JSON.toJSONString(map) + ")";
 		return res;
 	}
-	
 
 }

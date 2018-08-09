@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IndustryApp Template</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/bootstrap.css" />
 <link rel="stylesheet"
@@ -107,6 +108,10 @@
 						<c:forEach items="${allGoodList}" var="goodlist" varStatus="status">
 								<div class="item" data-mainType="${goodlist.goodsMainTypeID}" data-SecondType="${goodlist.goodsSecondaryTypeID}">
 										<input type="hidden" value="${goodlist.goodsID}" class="itemgoodsID"/>
+										<input type="hidden" value="${goodlist.goodsID}" class="itemgoodsMainTypeID"/>
+										<input type="hidden" value="${goodlist.goodsID}" class="itemgoodsSecondaryTypeID"/>
+										<input type="hidden" value="${goodlist.isSell}" class="itemisSell"/>
+										<input type="hidden" value="${goodlist.goodsDate}" class="goodsDate"/>
 										<div class="btn-group pull-right">
 											<button data-toggle="dropdown" class="btn dropdown-toggle">
 													<span class="caret"></span>
@@ -123,8 +128,10 @@
 								</div>
 								<p class="date">${goodlist.isSell}</p>
 								<h4>${goodlist.goodsName}</h4>
-								<p>商品简介：${goodlist.goodsBrief}  商品种类：${goodlist.goodsSpecify}</p>
-								<span class="price">价格：￥${goodlist.goodsPrice}</span> <span class="number">库存：${goodlist.goodsCount}</span>
+								<p>商品简介：<span class="itemgoodsBrief">${goodlist.goodsBrief}</span>  商品种类：<span class="itemgoodsSpecify">${goodlist.goodsSpecify}</span></p>
+								<span class="price">价格：￥<span class="itemgoodsPrice">${goodlist.goodsPrice}</span></span> 
+								<span class="number">库存：<span class="itemgoodsCount">${goodlist.goodsCount}</span></span>
+								<span class="sellCount pull-right">销量：<span class="sellNum">${goodlist.sellCount}</span></span>
 							</div>
 						</c:forEach>
 						
@@ -144,19 +151,57 @@
 	<div class="Evaluate-area">
 		<i class="layui-icon layui-icon-close pull-right"></i>
 		<div class="product-img">
-			<img src="" width="200">
+			<img src="" width="250">
 		</div>
-		
-			
-			<input type="hidden" value="${currentCustomer.customerID}" name="customer.customerID" />
-			<input type="hidden" id="goodsSpecify" name="goodsSpecify" />
-			<div class="Evaluate-main">
-				<span class="title">评论区</span>
-				<textarea placeholder="请输入你的评价" id="evaluateContent" name="evaluateContent" style="resize: none"></textarea>
+		<input type="hidden" value="" class="goodsDate"/>
+			<input type="hidden" id="goodsID" name="goodsID" />
+			<div class="inputArea">
+			<div class="inputGroup">
+					<label class="text">品名:</label>
+					<input type="text" class="GoodsName" value=""/>
 			</div>
-			<button type="submit" class="layui-btn layui-btn-radius layui-btn-primary addcomment">提交评论</button>
-			<button type="reset" style="display: none;" id="resetForm">重置</button>
-		
+			<div class="inputGroup">
+					<label class="text">主类:</label>
+					<span class="goodsMainTypeID" data-goodsMainTypeID=""></span>
+			</div>
+			<div class="inputGroup">
+					<label class="text">副类:</label>
+					<span class="goodsSecondaryTypeID" data-goodsSecondaryTypeID=""></span>
+			</div>
+			<div class="inputGroup">
+					<label class="text">规格:</label>
+					<span class="goodsSpecify" data-goodsSpecify=""></span>
+			</div>
+			<div class="inputGroup">
+					<label class="text">简介:</label>
+					<input type="text" class="goodsBrief" value=""/>
+			</div>
+			<div class="inputGroup">
+					<label class="text">价格:</label>
+					<input type="text" class="goodsPrice" value=""/>
+			</div>
+			<div class="inputGroup">
+					<label class="text">库存:</label>
+					<input type="text" class="goodsCount" value=""/>
+			</div>
+			<div class="inputGroup">
+					<label class="text">销量:</label>
+					<input type="text" class="sellCount" value=""/>
+			</div>
+			<div class="radio">
+  				<label>
+    				<input type="radio" name="optionsRadios" id="optionsRadios1" value="1">
+   							上架中
+  				</label>
+			</div>
+			<div class="radio">
+  				<label>
+   					 <input type="radio" name="optionsRadios" id="optionsRadios2" value="0">
+    						下架
+  					</label>
+			</div>
+			</div>
+			<button class="layui-btn layui-btn-radius layui-btn-primary Goods-modify">确认修改</button>
 	</div>
 	
 	<footer>
