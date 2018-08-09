@@ -52,6 +52,12 @@
 		from Indent
 		where customerID = #{customerID}
 	</select>
+	
+	<select id="getAllIndent" resultMap="indentMap1">
+		select *
+		from Indent
+	</select>
+	
 
 	<select id="isIndentexitByaddressID" resultType="java.lang.Integer">
 		select

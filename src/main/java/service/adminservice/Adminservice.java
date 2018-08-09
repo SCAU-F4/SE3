@@ -33,13 +33,14 @@ public interface Adminservice {
     public Integer getHighestSaleCountPerDay();//单日成交数最高
     public GoodsSecondaryType getMostPopularSecondaryType();//最受欢迎种类
     
+//    //订单管理
+    public List<Indent> getAllIndent();
+    public String InsertIndent(Indent indent);
+    public String DeleteIndent(Indent indent);
+    public String UpdateIndent(Indent indent);
+
+    
 //    //用户管理
 //    public String UpdateCustomerPassword(int customerID,String customerPhone);
 //    public String DeleteCustomer(int customerID);
-//    //订单管理
-//    public String InsertIndent(Indent indent);
-//    public String DeleteIndent(Indent indent);
-//    public String UpdateIndent(Indent indent);
-    //
-    
 }

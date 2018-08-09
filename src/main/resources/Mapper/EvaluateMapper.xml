@@ -52,4 +52,8 @@
 	<delete id="deleteByevaluateID">
 		delete from Evaluate where evaluateID=#{evaluateID}
 	</delete>
+	
+	<delete id="deleteByGoodsID">
+		delete from Evaluate where goodsID=#{goodsID}
+	</delete>
 </mapper>
