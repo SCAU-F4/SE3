@@ -3,32 +3,26 @@ package Mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.Address;
 
+@Repository
 public interface AddressMapper {
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Address findBycustomerIDAndaddressID(@Param("customerID") int customerID,@Param("addressID") int addressID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	 List<Address> findAddressByCustomoerID(@Param("customerID")int customerID);
+	Address findBycustomerIDAndaddressID(@Param("customerID") int customerID, @Param("addressID") int addressID);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
+	List<Address> findAddressByCustomoerID(@Param("customerID") int customerID);
+
 	int insert(Address address);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int update(Address address);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int delete(Address address);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int deleteBycustomerIDAndaddressID(@Param("customerID") int customerID,@Param("addressID") int addressID);
-	
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+
+	int deleteBycustomerIDAndaddressID(@Param("customerID") int customerID, @Param("addressID") int addressID);
+
 	int deleteBycustomerID(@Param("customerID") int customerID);
 }

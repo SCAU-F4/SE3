@@ -11,6 +11,9 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import Mapper.AddressMapper;
@@ -36,6 +39,7 @@ import bean.IndentDetail;
 import bean.Picture;
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public class UserserviceImpl implements Userservice {
 	@Autowired
 	CustomerMapper customermapper;
@@ -251,20 +255,27 @@ public class UserserviceImpl implements Userservice {
 			result += "该订单尚未完成，不能删除";
 		} else {
 			int expressCode = indentmapper.findexpressCodeByindentID(indentID);
-			int sum = indentmapper.deleteByindentID(indentID);// 做成事务好点
+			int sum = indentmapper.deleteByindentID(indentID);
 			if (sum == 0) {
 				result += "删除失败";
 				return result;
 			}
-			indentdetailmapper.deleteByindentID(indentID);
-			expressmapper.deleteByexpressCode(expressCode);
+			sum = indentdetailmapper.deleteByindentID(indentID);
+			if (sum == 0) {
+				result += "删除失败";
+				return result;
+			}
+			sum = expressmapper.deleteByexpressCode(expressCode);
+			if (sum == 0) {
+				result += "删除失败";
+				return result;
+			}
 		}
 		return result;
 	}
 
 	/*
-	 * GoodsID=-1即是从购物车处发来的请求 ;
-	 * indentID=0即是从购物车处结算的订单 ;
+	 * GoodsID=-1即是从购物车处发来的请求 ; indentID=0即是从购物车处结算的订单 ;
 	 * indentID=-1即是从立即购买结算的订单;
 	 * 
 	 */
@@ -274,21 +285,20 @@ public class UserserviceImpl implements Userservice {
 		Cart cart = customer.getCart();
 		List<CartDetail> cartdetailList = cart.getCartDetailList();
 		if (goodsID == -1 && !cartdetailList.isEmpty()) {
-			indent = new Indent(0, customer.getCustomerID(), cart.getTotalPrice(),
-					null, -1, -1, 0, null, null);
+			indent = new Indent(0, customer.getCustomerID(), cart.getTotalPrice(), null, -1, -1, 0, null, null);
 			List<IndentDetail> indentDetails = new ArrayList<>();
 			for (CartDetail cartDetail : cartdetailList) {
 				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
-						cartDetail.getGoodsCount(), cartDetail.getTotalPrice(),0);
+						cartDetail.getGoodsCount(), cartDetail.getTotalPrice(), 0);
 				indentDetails.add(indentDetail);
 			}
 			indent.setIndentDetaillist(indentDetails);
-		} else if(goodsID!=-1){
+		} else if (goodsID != -1) {
 			Goods good = goodsmapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
 			indent = new Indent(-1, customer.getCustomerID(), good.getGoodsPrice() * goodsCount, null, -1, -1, 0,
 					new ArrayList<>(), null);
 			List<IndentDetail> indentDetails = indent.getIndentDetaillist();
-			IndentDetail indentDetail = new IndentDetail(0, good, goodsCount, good.getGoodsPrice() * goodsCount,0);
+			IndentDetail indentDetail = new IndentDetail(0, good, goodsCount, good.getGoodsPrice() * goodsCount, 0);
 			indentDetails.add(indentDetail);
 		}
 		return indent;
@@ -305,22 +315,22 @@ public class UserserviceImpl implements Userservice {
 			indent.setIndentTime(new Timestamp(System.currentTimeMillis()));
 			indentmapper.insert(indent);
 			for (CartDetail cartDetail : cartdetailList) {
-				 cartdetailmapper.delete(cartDetail);
+				cartdetailmapper.delete(cartDetail);
 				IndentDetail indentDetail = new IndentDetail(indent.getIndentID(), cartDetail.getGood(),
-						cartDetail.getGoodsCount(), cartDetail.getTotalPrice(),0);
-				 indentdetailmapper.insert(indentDetail);
+						cartDetail.getGoodsCount(), cartDetail.getTotalPrice(), 0);
+				indentdetailmapper.insert(indentDetail);
 			}
-			 cartdetailList.clear();
-			 cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
-			 cart.setTotalPrice(0);
-		}else if(indent.getIndentID() == -1){
+			cartdetailList.clear();
+			cartmapper.updatetotalPriceBycartID(cart.getCartID(), 0);
+			cart.setTotalPrice(0);
+		} else if (indent.getIndentID() == -1) {
 			indent.setAddressID(addressID);
 			indent.setIndentTime(new Timestamp(System.currentTimeMillis()));
 			indentmapper.insert(indent);
 			IndentDetail indentDetail = indent.getIndentDetaillist().get(0);
 			indentDetail.setIndentID(indent.getIndentID());
 			indentdetailmapper.insert(indentDetail);
-		}else {
+		} else {
 			indent.setAddressID(addressID);
 			indentmapper.update(indent);
 		}
@@ -328,7 +338,8 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public String comment(int indentID,int goodsID,String goodsSpecify,int indentState,Evaluate evaluate, String path) {
+	public String comment(int indentID, int goodsID, String goodsSpecify, int indentState, Evaluate evaluate,
+			String path) throws IllegalStateException, IOException {
 		String result = "";
 		evaluate.setEvaluateDate(new Timestamp(System.currentTimeMillis()));
 		int sum = evaluatemapper.insert(evaluate);
@@ -336,41 +347,38 @@ public class UserserviceImpl implements Userservice {
 			result = "评论失败";
 			return result;
 		}
-		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID,1);
-		if(indentState==4){
+		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID, 1);
+		if (indentState == 4) {
 			indentmapper.updateindentStateByindentID(indentID, indentState);
 		}
 		if (evaluate.getImages() != null) {
 			List<MultipartFile> multipartFile = evaluate.getImages();
-			Random random=new Random(System.currentTimeMillis());
+			Random random = new Random(System.currentTimeMillis());
 			for (MultipartFile file : multipartFile) {
-				Integer i=random.nextInt(1000000);
-				String pathname = path + "\\customer\\" + i+".jpg";
+				Integer i = random.nextInt(1000000);
+				String pathname = path + "\\customer\\" + i + ".jpg";
 				File f = new File(pathname);
-				try {
-					file.transferTo(f);
-					pathname="/SE3-F4/img/customer/"+ i+".jpg";
-					Picture picture = new Picture(-2, 0, pathname);
-					picturemapper.insert(picture);
-					EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
-					evaluatepicturemapper.insert(evaluatePicture);
-				} catch (IllegalStateException | IOException e) {
-					e.printStackTrace();
-				}
+				file.transferTo(f);
+				pathname = "/SE3-F4/img/customer/" + i + ".jpg";
+				Picture picture = new Picture(-2, 0, pathname);
+				picturemapper.insert(picture);
+				EvaluatePicture evaluatePicture = new EvaluatePicture(evaluate.getEvaluateID(), picture);
+				evaluatepicturemapper.insert(evaluatePicture);
 			}
 		}
 		return result;
+
 	}
 
 	@Override
-	public boolean payment(int indentID) {//1是待发货   3是待评价
+	public boolean payment(int indentID) {// 1是待发货 3是待评价
 		indentmapper.updateindentStateByindentID(indentID, 3);
 		return true;
 	}
 
 	@Override
 	public Indent payfromcenter(int indentID) {
-		 return indentmapper.findByindentID(indentID);
+		return indentmapper.findByindentID(indentID);
 	}
 
 }

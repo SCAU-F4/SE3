@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -195,7 +196,12 @@ public class Usercontroller {
 	@RequestMapping(value ="comment")
 	@ResponseBody
 	public void comment(Evaluate evaluate,int indentID,int goodsID,String goodsSpecify,int indentState,Model model,ServletRequest servletRequest){
-		String result=userservice.comment(indentID,goodsID,goodsSpecify,indentState,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+		try {
+			String result=userservice.comment(indentID,goodsID,goodsSpecify,indentState,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@RequestMapping(value = "auction")
