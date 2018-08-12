@@ -71,3 +71,14 @@
 .radio label{
 	width:70px;
 }
+/* .panel{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.panel .bottom h2{
+	width:148px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+} */

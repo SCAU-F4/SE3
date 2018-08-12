@@ -3,9 +3,11 @@ function isSell(){
 		var isSell=($(this).find(".date").text());
 		if(isSell==1){
 			$(this).find(".date").text("上架中");
+			$(this).find(".delete").text("下架")
 		}
 		else{
 			$(this).find(".date").text("已下架");
+			$(this).find(".delete").text("上架");
 		}
 	});
 }
@@ -192,7 +194,61 @@ $(".span3 li.collapse li a").click(function () {
 
 var $thisItem;
 
+var $isSellthisItem;
+$(".showpage").on("click",".delete",function(){
+	var goodsID=$(this).parents(".item").find(".itemgoodsID").val();
+	var goodsSpecify=$(this).parents(".item").find(".itemgoodsSpecify").text();
+	var isSell=$(this).parents(".item").find(".itemisSell").val();
+	var code;
+	if(isSell==0){
+		code=1;
+	}
+	else if(isSell==1){
+		code=0;
+	}
+	console.log(code);
+	$isSellthisItem=$(this);
+	$.ajax({
+		type:"post",
+		async:false,
+		url:"GoodsISsell",
+		dataType:"jsonp",
+		jsonp:"callback",
+		data:{
+			goodsID:goodsID,
+			goodsSpecify:goodsSpecify,
+			isSell:code,
+			t:new Date()
+		},success:function(res){
+			alert(res.result);
+			if(code==0){
+				$isSellthisItem.parents(".item").find(".itemisSell").val("0");
+				$isSellthisItem.parents(".item").find(".date").text("已下架");
+				$isSellthisItem.parents(".item").find(".delete").text("上架");
+			}
+			else if(code==1){
+				$isSellthisItem.parents(".item").find(".itemisSell").val("1");
+				$isSellthisItem.parents(".item").find(".date").text("上架中");
+				$isSellthisItem.parents(".item").find(".delete").text("下架");
+			}
+			$("#NoneStream .item .itemgoodsID[value="+goodsID+"]").each(function(){
+				if($(this).parents(".item").find(".itemgoodsSpecify").text()==goodsSpecify)
+					{
+						$(this).parents(".item").find(".itemisSell").val("0");
+					}
+			});
+		},
+		error:function(e){
+			alert("shibia");
+		}
+	});
+});
+
+
+var $modifyItem;
+
 $(".showpage").on("click",".modify",function(){
+	$modifyItem=$(this);
 	var goodsID=$(this).parents(".item").find(".itemgoodsID").val();
 	var goodsMainTypeCode=$(this).parents(".item").find(".itemgoodsMainTypeID").val();
 	var goodsSecondaryTypeIDCode=$(this).parents(".item").find(".itemgoodsSecondaryTypeID").val();
@@ -266,6 +322,32 @@ $(".Goods-modify").click(function(){
 			t:new Date()
 		},success:function(res){
 			alert(res.result);
+			$("#NoneStream .item .itemgoodsID[value="+goodsID+"]").each(function(){
+				if($(this).parents(".item").find(".itemgoodsSpecify").text()==goodsSpecify)
+				{
+					$(this).parents(".item").find("h4").text(goodsName);
+					$(this).parents(".item").find(".itemgoodsBrief").text(goodsBrief);
+					$(this).parents(".item").find(".itemgoodsPrice").text(goodsPrice);
+					$(this).parents(".item").find(".itemgoodsCount").text(goodsCount);
+					$(this).parents(".item").find(".sellNum").text(sellCount);
+					$(this).parents(".item").find(".itemisSell").val(isSell);
+				}
+			});
+			$modifyItem.parents(".item").find("h4").text(goodsName);
+			$modifyItem.parents(".item").find(".itemgoodsBrief").text(goodsBrief);
+			$modifyItem.parents(".item").find(".itemgoodsPrice").text(goodsPrice);
+			$modifyItem.parents(".item").find(".itemgoodsCount").text(goodsCount);
+			$modifyItem.parents(".item").find(".sellNum").text(sellCount);
+			$modifyItem.parents(".item").find(".itemisSell").val(isSell);
+			if(isSell==1){
+				$modifyItem.parents(".item").find(".date").text("上架中");
+				$modifyItem.parents(".item").find(".delete").text("下架")
+			}
+			else{
+				$modifyItem.parents(".item").find(".date").text("已下架");
+				$modifyItem.parents(".item").find(".delete").text("上架");
+			}
+			$(".Evaluate-area i.layui-icon-close").click();
 		},
 		error:function(e){
 			alert("shibia");

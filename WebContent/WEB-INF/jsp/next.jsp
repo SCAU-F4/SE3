@@ -531,18 +531,18 @@
 								<h6>历史销量最高</h6>
 							</div>
 							<div class="bottom">
-								<h2>7720</h2>
-								<h6>春风飞机杯</h6>
+								<h2>${mymap.highestgoods.sellCount}</h2>
+								<h6>${mymap.highestgoods.goodsName}</h6>
 							</div>
 						</div>
 						<div class="panel">
 							<div class="top warning">
 								<i class="batch-big b-flag"></i>
-								<h6>土豪下单最多</h6>
+								<h6>土豪成交额最多</h6>
 							</div>
 							<div class="bottom">
-								<h2>1000</h2>
-								<h6>黄大仙</h6>
+								<h2>${mymap.customerAndPrice.customerName}</h2>
+								<h6>${mymap.customerAndPrice.finaltotalPrice}</h6>
 							</div>
 						</div>
 						<div class="panel">
