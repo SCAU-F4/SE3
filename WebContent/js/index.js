@@ -49,7 +49,7 @@ $(document).ready(function() {
 		var str;
 		var newPrice;
 		if (customer == "") {
-			$(".tip h4").text("请先登陆");
+			$(".tip h4").text("请先登录");
 			$(".tip").fadeIn();
 			$(".tip").delay(1500).fadeOut().delay(300, function() {
 				$(location).attr('href', '/SE3-F4/user/signin');

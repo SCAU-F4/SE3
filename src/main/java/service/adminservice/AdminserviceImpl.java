@@ -146,8 +146,7 @@ public class AdminserviceImpl implements Adminservice {
 	public String DeleteGood(Goods goods) {
 		// TODO Auto-generated method stub
 		int i = goodsMapper.delete(goods);
-		if (i > 0)
-		{
+		if (i > 0) {
 			pictureMapper.deleteByGoodsID(goods.getGoodsID());
 			evaluateMapper.deleteByGoodsID(goods.getGoodsID());
 			return "ok";
@@ -169,6 +168,7 @@ public class AdminserviceImpl implements Adminservice {
 		else if (gddMainType == null)
 			return "没有这个商品主分类，更新失败";
 		else if (!checkgddMainTypeandSecondType(gddMainType, gddGoodsSecondaryType)) {
+			System.out.println("abc");
 			return "商品主分类和商品次分类出问题了";
 		} else {
 			int i = goodsMapper.update(goods);
@@ -179,12 +179,13 @@ public class AdminserviceImpl implements Adminservice {
 	}
 
 	@Override
-	public String ChangeisSellGood(int goodsID,String goodsSpecify,int yesno) {
+	public String ChangeisSellGood(int goodsID, String goodsSpecify, int yesno) {
 		// TODO Auto-generated method stub
-		Goods goods=goodsMapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
+		Goods goods = goodsMapper.findBygoodsIDAndgoodsSpecify(goodsID, goodsSpecify);
 		goods.setIsSell(yesno);
-		int result=goodsMapper.update(goods);
-		if(result>0) return "ok";
+		int result = goodsMapper.update(goods);
+		if (result > 0)
+			return "ok";
 		return "数据库更新失败";
 	}
 
@@ -205,9 +206,10 @@ public class AdminserviceImpl implements Adminservice {
 		List<GoodsSecondaryType> list = goodsMainType.getGoodsSecondaryTypeList();
 		for (GoodsSecondaryType gdst : list) {
 			if (gdst.getGoodsSecondaryTypeID() == goodsSecondaryType.getGoodsSecondaryTypeID())
-				return true;
+				System.out.println("good");
+			return true;
 		}
-
+		System.out.println("fuck");
 		return false;
 	}
 
@@ -216,7 +218,8 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getAllsellCount();
-		if(j!=0) return (i / j)*100;
+		if (j != 0)
+			return (i / j) * 100;
 		return 0;
 	}
 
@@ -225,7 +228,8 @@ public class AdminserviceImpl implements Adminservice {
 		// TODO Auto-generated method stub
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
-		if(i!=0) return (j / i)*100;
+		if (i != 0)
+			return (j / i) * 100;
 		return 0;
 	}
 
@@ -256,7 +260,7 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public GoodsSecondaryType getMostPopularSecondaryType() {
 		// TODO Auto-generated method stub
-       
+
 		return null;
 	}
 
@@ -269,27 +273,24 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public String InsertIndent(Indent indent) {
 		// TODO Auto-generated method stub
-		int customerID=indent.getCustomerID();
-		Customer customer=customerMapper.findBycustomerID(customerID);
-		if(customer==null)
-		{
+		int customerID = indent.getCustomerID();
+		Customer customer = customerMapper.findBycustomerID(customerID);
+		if (customer == null) {
 			return "订单插入失败，没有该用户信息";
 		}
-		List<Address> list=customer.getAddressList();
-		int length=list.size();
-		int flag=0;
-		for(int i=0;i<length;i++)
-		{
-			if(indent.getAddressID()==list.get(i).getAddressID())
-			{
-				flag=1;
+		List<Address> list = customer.getAddressList();
+		int length = list.size();
+		int flag = 0;
+		for (int i = 0; i < length; i++) {
+			if (indent.getAddressID() == list.get(i).getAddressID()) {
+				flag = 1;
 				break;
 			}
 		}
-		if(flag==0) return "该用户没有这个地址，插入失败";
-		int result=indentMapper.insert(indent);
-		if(result>0)
-		{
+		if (flag == 0)
+			return "该用户没有这个地址，插入失败";
+		int result = indentMapper.insert(indent);
+		if (result > 0) {
 			return "ok";
 		}
 		return "不关你的事，数据库插入失败了";
@@ -298,9 +299,8 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public String DeleteIndent(Indent indent) {
 		// TODO Auto-generated method stub
-		int result=indentMapper.delete(indent);
-		if(result>0)
-		{
+		int result = indentMapper.delete(indent);
+		if (result > 0) {
 			indentDetailMapper.deleteByindentID(indent.getIndentID());
 			return "ok";
 		}
@@ -310,108 +310,105 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public String UpdateIndent(Indent indent) {
 		// TODO Auto-generated method stub
-				int customerID=indent.getCustomerID();
-				Customer customer=customerMapper.findBycustomerID(customerID);
-				if(customer==null)
-				{
-					return "订单更新失败，没有该用户信息";
-				}
-				List<Address> list=customer.getAddressList();
-				int length=list.size();
-				int flag=0;
-				for(int i=0;i<length;i++)
-				{
-					if(indent.getAddressID()==list.get(i).getAddressID())
-					{
-						flag=1;
-						break;
-					}
-				}
-				if(flag==0) return "该用户没有这个地址，更新失败";
-				int result=indentMapper.update(indent);
-				if(result>0)
-				{
-					return "ok";
-				}
-				return "不关你的事，数据库更新失败了";
+		int customerID = indent.getCustomerID();
+		Customer customer = customerMapper.findBycustomerID(customerID);
+		if (customer == null) {
+			return "订单更新失败，没有该用户信息";
+		}
+		List<Address> list = customer.getAddressList();
+		int length = list.size();
+		int flag = 0;
+		for (int i = 0; i < length; i++) {
+			if (indent.getAddressID() == list.get(i).getAddressID()) {
+				flag = 1;
+				break;
+			}
+		}
+		if (flag == 0)
+			return "该用户没有这个地址，更新失败";
+		int result = indentMapper.update(indent);
+		if (result > 0) {
+			return "ok";
+		}
+		return "不关你的事，数据库更新失败了";
 	}
 
 	@Override
 	public String UpdateCustomerName(int customerID, String customerName) {
 		// TODO Auto-generated method stub
-		Customer customer=customerMapper.findBycustomerID(customerID);
-		if(customerMapper.IsCustomerNameExist(customerName)!=0) return "失败了，这个用户名已存在";
+		Customer customer = customerMapper.findBycustomerID(customerID);
+		if (customerMapper.IsCustomerNameExist(customerName) != 0)
+			return "失败了，这个用户名已存在";
 		customer.setCustomerName(customerName);
-		int result=customerMapper.update(customer);
-		if(result>0) return "ok";
+		int result = customerMapper.update(customer);
+		if (result > 0)
+			return "ok";
 		return "不关你的事，数据库更新失败了";
 	}
 
 	@Override
 	public String UpdateCustomerPassword(int customerID, String customerPwd) {
 		// TODO Auto-generated method stub
-		Customer customer=customerMapper.findBycustomerID(customerID);
+		Customer customer = customerMapper.findBycustomerID(customerID);
 		customer.setCustomerPwd(customerPwd);
-		int result=customerMapper.update(customer);
-		if(result>0) return "ok";
+		int result = customerMapper.update(customer);
+		if (result > 0)
+			return "ok";
 		return "不关你的事，数据库更新失败了";
 	}
 
 	@Override
 	public String UpdateCustomerPhone(int customerID, String customerPhone) {
 		// TODO Auto-generated method stub
-		Customer customer=customerMapper.findBycustomerID(customerID);
+		Customer customer = customerMapper.findBycustomerID(customerID);
 		customer.setCustomerPhone(customerPhone);
-		int result=customerMapper.update(customer);
-		if(result>0) return "ok";
+		int result = customerMapper.update(customer);
+		if (result > 0)
+			return "ok";
 		return "不关你的事，数据库更新失败了";
 	}
 
 	@Override
 	public String UpdateCustomerEmail(int customerID, String CustomerEmail) {
 		// TODO Auto-generated method stub
-		Customer customer=customerMapper.findBycustomerID(customerID);
+		Customer customer = customerMapper.findBycustomerID(customerID);
 		customer.setCustomerEmail(CustomerEmail);
-		int result=customerMapper.update(customer);
-		if(result>0) return "ok";
+		int result = customerMapper.update(customer);
+		if (result > 0)
+			return "ok";
 		return "不关你的事，数据库更新失败了";
 	}
 
 	@Override
 	public String InsertCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		int result=customerMapper.insert(customer);
-		if(result>0) return "ok";
+		int result = customerMapper.insert(customer);
+		if (result > 0)
+			return "ok";
 		return "不关你的事，数据库更新失败了";
 	}
 
 	@Override
 	public String DeleteCustomer(int customerID) {
 		// TODO Auto-generated method stub
-		Customer customer=new Customer();
+		Customer customer = new Customer();
 		customer.setCustomerID(customerID);
-		int result=customerMapper.delete(customer);
-		if(result>0)
-		{
-			Cart cart=cartMapper.findBycustomerID(customerID);
-			List<CartDetail> cartDetailList=cart.getCartDetailList();
-			for(int i=0;i<cartDetailList.size();i++)
-			{
+		int result = customerMapper.delete(customer);
+		if (result > 0) {
+			Cart cart = cartMapper.findBycustomerID(customerID);
+			List<CartDetail> cartDetailList = cart.getCartDetailList();
+			for (int i = 0; i < cartDetailList.size(); i++) {
 				cartDetailMapper.delete(cartDetailList.get(i));
 			}
-			List<Indent> indentList=indentMapper.findBycustomerID(customerID);
-			for(Indent indent:indentList)
-			{
-				for(IndentDetail indentDetail:indent.getIndentDetaillist())
-				{
+			List<Indent> indentList = indentMapper.findBycustomerID(customerID);
+			for (Indent indent : indentList) {
+				for (IndentDetail indentDetail : indent.getIndentDetaillist()) {
 					indentDetailMapper.delete(indentDetail);
 				}
 			}
-			List<Evaluate> evaluateList=evaluateMapper.findEvaluateBycustomerID(customerID);
-			for(Evaluate evaluate:evaluateList)
-			{
-				for(EvaluatePicture evaluatePicture:evaluate.getEvaluatePictureList())
-				{
+			List<Evaluate> evaluateList = evaluateMapper.findEvaluateBycustomerID(customerID);
+			for (Evaluate evaluate : evaluateList) {
+				for (EvaluatePicture evaluatePicture : evaluate.getEvaluatePictureList()) {
 					evaluatePictureMapper.delete(evaluatePicture);
 				}
 			}

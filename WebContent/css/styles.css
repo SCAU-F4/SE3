@@ -347,7 +347,10 @@ ul.stat-list {
   text-align: center;
   display: inline-block;
   margin-bottom: 20px;
-  margin-right: 20px; }
+  margin-right: 20px; 
+  	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;}
 .first{
   margin-left: 100px;
 }
@@ -376,8 +379,15 @@ ul.stat-list {
     text-align: center;
     border-top: none; }
     .panel .bottom h2 {
+    	width:148px;
       font-weight: 600;
-      margin: 0; }
+      	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+      margin: 0; 
+      
+      font-size:24px;
+      }
     .panel .bottom h6 {
       font-size: 0.9em;
       font-weight: 600;
