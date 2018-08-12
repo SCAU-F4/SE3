@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import Mapper.AddressMapper;
@@ -364,8 +363,8 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public boolean payment(int indentID) {
-		indentmapper.updateindentStateByindentID(indentID, 1);
+	public boolean payment(int indentID) {//1是待发货   3是待评价
+		indentmapper.updateindentStateByindentID(indentID, 3);
 		return true;
 	}
 
