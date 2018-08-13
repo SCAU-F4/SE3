@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.indentList-body td{
+	width:210px;
+}
+.indentList-body .customerItem .inputModify{
+	display:none;
+	width:206px;
+	
+}
+.indentList-body .customerItem .modify{
+	display:none;
+}

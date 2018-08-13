@@ -10,8 +10,4 @@
 		<package name="bean" />
 	</typeAliases>
 	
-	<!-- 配置Mapper文件的路径 -->
-	<mappers>
-		<package name="Mapper" />
-	</mappers>
 </configuration>

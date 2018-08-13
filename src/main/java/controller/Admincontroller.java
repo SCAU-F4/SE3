@@ -194,7 +194,7 @@ public class Admincontroller {
 		int indentID = Integer.valueOf(request.getParameter("indentID"));
 		int customerID = Integer.valueOf(request.getParameter("customerID"));
 		double totalPrice = Double.valueOf(request.getParameter("totalPrice"));
-		Timestamp indentTime = Timestamp.valueOf(request.getParameter("indentTime"));
+		Timestamp indentTime = new Timestamp(System.currentTimeMillis());
 		int addressID = Integer.valueOf(request.getParameter("addressID"));
 		int expressCode = Integer.valueOf(request.getParameter("expressCode"));
 		int indentState = Integer.valueOf(request.getParameter("indentState"));
