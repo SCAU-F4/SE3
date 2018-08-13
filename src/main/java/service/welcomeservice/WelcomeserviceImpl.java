@@ -7,6 +7,9 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import Mapper.GoodsMainTypeMapper;
 import Mapper.GoodsMapper;
@@ -16,6 +19,7 @@ import bean.GoodsMainType;
 import bean.middle.indexbean;
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public class WelcomeserviceImpl implements Welcomeservice {
 
 	@Autowired

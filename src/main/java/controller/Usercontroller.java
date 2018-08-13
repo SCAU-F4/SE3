@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,17 +12,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
 import bean.Address;
 import bean.Customer;
 import bean.Evaluate;
@@ -52,7 +49,7 @@ public class Usercontroller {
 		String substr="http://localhost:8080/SE3-F4";
 		if(referrer!=null){
 			referrer=referrer.replaceFirst(substr, "");
-			return "redirect:"+referrer;
+			if(!referrer.equals("/user/signup")) return "redirect:"+referrer;
 		}
 		return "redirect:/";
 	}
@@ -72,7 +69,7 @@ public class Usercontroller {
 		else
 			return "signup";
 	}
-
+	
 	@RequestMapping(value = "mycenter")
 	public String mycenter(Model model, HttpSession httpSession) {
 		Customer customer = (Customer) httpSession.getAttribute("currentCustomer");
@@ -199,7 +196,12 @@ public class Usercontroller {
 	@RequestMapping(value ="comment")
 	@ResponseBody
 	public void comment(Evaluate evaluate,int indentID,int goodsID,String goodsSpecify,int indentState,Model model,ServletRequest servletRequest){
-		String result=userservice.comment(indentID,goodsID,goodsSpecify,indentState,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+		try {
+			String result=userservice.comment(indentID,goodsID,goodsSpecify,indentState,evaluate,servletRequest.getServletContext().getRealPath("/img"));
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@RequestMapping(value = "auction")

@@ -3,52 +3,42 @@ package Mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.Indent;
 
+@Repository
 public interface IndentMapper {
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 	Indent findByindentID(int indentID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+
 	int findindentStateByindentID(int indentID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+
 	int findexpressCodeByindentID(int indentID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+
 	List<Indent> findBycustomerID(int customerID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+
 	List<Indent> getAllIndent();
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+
 	int isIndentexitByaddressID(int addressID);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-	List<Indent> findAllIndentItembycustomerIDandaddressID(@Param("customerID") int CustomerID,@Param("addressID") int AddressID);
+	List<Indent> findAllIndentItembycustomerIDandaddressID(@Param("customerID") int CustomerID,
+			@Param("addressID") int AddressID);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
 	int insert(Indent indent);
-     
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int update(Indent indent);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int updateaddressIDAndindentStateByindentID(@Param("indentID")int indentID,@Param("addressID")int addressID,@Param("indentState")int indentState);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int updateindentStateByindentID(@Param("indentID")int indentID,@Param("indentState")int indentState);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int update(Indent indent);
+
+	int updateaddressIDAndindentStateByindentID(@Param("indentID") int indentID, @Param("addressID") int addressID,
+			@Param("indentState") int indentState);
+
+	int updateindentStateByindentID(@Param("indentID") int indentID, @Param("indentState") int indentState);
+
 	int delete(Indent indent);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+
 	int deleteByindentID(int indentID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+
 	int deleteBycustomerID(@Param("customerID") int CustomerID);
 }

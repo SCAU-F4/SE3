@@ -1,36 +1,28 @@
 package Mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.Cart;
 
-
-
+@Repository
 public interface CartMapper {
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Cart findByCartID(@Param("cartID")int cartID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	Cart findBycustomerID(@Param("customerID")int customerID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.READ_COMMITTED)
-	double findtotalPriceByCartID(@Param("cartID")int cartID);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.SERIALIZABLE)
+	Cart findByCartID(@Param("cartID") int cartID);
+
+	Cart findBycustomerID(@Param("customerID") int customerID);
+
+	double findtotalPriceByCartID(@Param("cartID") int cartID);
+
 	int insert(Cart cart);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
 	int update(Cart cart);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int updatetotalPriceBycartID(@Param("cartID")int cartID,@Param("totalPrice")double totalPrice);
 
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
+	int updatetotalPriceBycartID(@Param("cartID") int cartID, @Param("totalPrice") double totalPrice);
+
 	int delete(Cart cart);
-	
-	@Transactional(propagation = Propagation.REQUIRED, isolation =Isolation.REPEATABLE_READ)
-	int deleteByCustomerID(@Param("customerID")int customerID);
+
+	int deleteByCustomerID(@Param("customerID") int customerID);
 }

@@ -1,5 +1,6 @@
 package service.userservice;
 
+import java.io.IOException;
 import java.util.List;
 
 import bean.Address;
@@ -18,7 +19,7 @@ public interface Userservice {
     public String deleteIndent(int indentID);
     public Indent auction(int goodsID,String goodsSpecify,int goodsCount,Customer customer);
     public boolean pay(int addressID,Indent indent,Customer customer);
-	public String comment(int indentID,int goodsID,String goodsSpecify,int indentState,Evaluate evaluate, String path);
+	public String comment(int indentID,int goodsID,String goodsSpecify,int indentState,Evaluate evaluate, String path) throws IllegalStateException, IOException;
     public boolean payment(int indentID);
     public Indent payfromcenter(int indentID);
 }

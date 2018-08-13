@@ -1,23 +1,14 @@
 package Mapper;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Random;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
 import bean.Address;
 import bean.Customer;
-import bean.Goods;
 import bean.Indent;
 import bean.Manager;
-import service.adminservice.Adminservice;
-import service.adminservice.AdminserviceImpl;
 
 public class test1 {
 

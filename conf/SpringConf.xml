@@ -27,28 +27,41 @@
 
 	<!-- 配置数据源 -->
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}"></property>
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
+		<property name="maxTotal" value="255"></property>
+		<property name="maxIdle" value="5"></property>
+		<property name="maxWaitMillis" value="10000"></property>
 	</bean>
 
 
 
 	<!-- 配置数据库连接 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 得到数据源 -->
 		<property name="dataSource" ref="dataSource" />
 		<!-- 加载MyBatis配置 -->
 		<property name="configLocation" value="classpath:MyBatisConf.xml" />
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:Mapper/*.xml</value>
+			</array>
+		</property>
 		<!-- 它一般对应我们的实体类所在的包，这个时候会自动取对应包中不包括包名的简单类名作为包括包名的别名。 多个package之间可以用逗号或者分号等来进行分隔。(value的值一定要是包的全名) -->
-		<!-- <property name="typeAliasesPackage" value="pojo" /> -->
+		<property name="typeAliasesPackage" value="bean" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="Mapper"></property>
+		<property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
 	</bean>
 
 
-	<tx:annotation-driven />
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -62,73 +75,4 @@
 		将会为你创建代理。 使用注入的映射器代码,在 MyBatis,Spring 或 MyBatis-Spring 上面不会有直接的依赖。 MapperFactoryBean 
 		创建的代理控制开放和关闭 session,翻译任意的异常到 Spring 的 DataAccessException 异常中。 此外,如果需要或参与到一个已经存在活动事务中,代理将 
 		会开启一个新的 Spring 事务。 -->
-	<bean id="ManagerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.ManagerMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="CustomerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.CustomerMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="AddressMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.AddressMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="GoodsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.GoodsMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="PictureMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.PictureMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="GoodsMainTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.GoodsMainTypeMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="IndentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.IndentMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="IndentDetailMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.IndentDetailMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="ExpressMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.ExpressMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean id="EvaluateMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.EvaluateMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-	
-	<bean id="EvaluatePictureMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.EvaluatePictureMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-	
-	<bean id="CartDetailMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.CartDetailMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-	
-	<bean id="CartMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.CartMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-	
-	<bean id="GoodsSecondaryTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="Mapper.GoodsSecondaryTypeMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
 </beans>

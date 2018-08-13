@@ -37,8 +37,6 @@ public class Admincontroller {
 
 	@RequestMapping(value = "adminsignin", method = RequestMethod.POST)
 	public String signin(Manager manager, String referrer, Model model, HttpSession session) {
-		System.out.println(manager);
-		System.out.println("-------------------------------------------------------------");
 		String result = adminservice.signin(manager);
 		if (result.equals("ok")) {
 			session.setAttribute("currentManager", manager);
@@ -78,7 +76,7 @@ public class Admincontroller {
 		CustomerAndPrice customerAndPrice = adminservice.getHighestCustomer();
 		Goods highestgoods = adminservice.getHistoryHighestGood();
 
-		Map mymap = new HashMap<String, Object>();
+		Map<String, Object> mymap = new HashMap<>();
 		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
 		mymap.put("ClothMainTypeWeight", ClothMainTypeWeight);
 		mymap.put("FoodMainTypeWeight", FoodMainTypeWeight);
