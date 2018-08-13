@@ -95,7 +95,7 @@ public class UserserviceImpl implements Userservice {
 		return result;
 	}
 
-	public String check(Customer customer, String repassword) {
+	private String check(Customer customer, String repassword) {
 		String name = customer.getCustomerName();
 		String password = customer.getCustomerPwd();
 		String phonenum = customer.getCustomerPhone();
