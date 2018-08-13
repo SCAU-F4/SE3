@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.IndentMapper">
+
+	<resultMap type="indent" id="indentMap">
+		<id column="indentID" property="indentID" />
+		<result column="customerID" property="customerID" />
+		<result column="totalPrice" property="totalPrice" />
+		<result column="indentTime" property="indentTime" />
+		<result column="addressID" property="addressID" />
+		<result column="expressCode" property="expressCode" />
+		<result column="indentState" property="indentState" />
+	</resultMap>
+	<resultMap type="indent" id="indentMap1" extends="indentMap">
+		<association property="express" column="{expressCode=expressCode}"
+			fetchType="lazy" select="Mapper.ExpressMapper.findByexpressCode" />
+		<collection property="indentDetaillist" fetchType="lazy"
+			select="Mapper.IndentDetailMapper.getAllDetailbyindentID" column="{indentID=indentID}">
+		</collection>
+	</resultMap>
+
+	<select id="findByindentID" resultMap="indentMap1">
+		select * from Indent where
+		indentID = #{indentID}
+	</select>
+
+	<select id="findindentStateByindentID" resultType="java.lang.Integer">
+		select
+		indentState from Indent where
+		indentID = #{indentID}
+	</select>
+
+	<select id="findexpressCodeByindentID" resultType="java.lang.Integer">
+		select
+		expressCode
+		from Indent where
+		indentID = #{indentID}
+	</select>
+
+	<select id="findAllIndentItembycustomerIDandaddressID"
+		resultMap="indentMap1">
+		select *
+		from Indent
+		where customerID = #{customerID} and
+		addressID=#{addressID}
+	</select>
+
+	<select id="findBycustomerID" resultMap="indentMap1">
+		select *
+		from Indent
+		where customerID = #{customerID}
+	</select>
+	
+	<select id="getAllIndent" resultMap="indentMap1">
+		select *
+		from Indent
+	</select>
+	
+
+	<select id="isIndentexitByaddressID" resultType="java.lang.Integer">
+		select
+		count(indentID) from Indent where addressID=#{addressID}
+	</select>
+
+	<insert id="insert" keyProperty="indentID" useGeneratedKeys="true">
+		insert into
+		Indent(customerID,totalPrice,indentTime,addressID,expressCode,indentState)
+		values(#{customerID},
+		#{totalPrice},
+		#{indentTime},
+		#{addressID},
+		#{expressCode},#{indentState})
+	</insert>
+
+	<update id="update">
+		update Indent set
+		customerID=#{customerID},
+		totalPrice=#{totalPrice},indentTime=#{indentTime},addressID=#{addressID},expressCode=#{expressCode},indentState=#{indentState}
+		where indentID=#{indentID}
+	</update>
+
+	<update id="updateaddressIDAndindentStateByindentID">
+		update Indent set
+		addressID=#{addressID},indentState=#{indentState}
+		where
+		indentID=#{indentID}
+	</update>
+	
+	<update id="updateindentStateByindentID">
+		update Indent set
+		indentState=#{indentState}
+		where indentID=#{indentID}
+	</update>
+
+	<delete id="delete">
+		delete from Indent where
+		indentID=#{indentID}
+	</delete>
+	<delete id="deleteByindentID">
+		delete from Indent where
+		indentID=#{indentID}
+	</delete>
+	<delete id="deleteBycustomerID">
+		delete from Indent where
+		customerID=#{customerID}
+	</delete>
+</mapper>

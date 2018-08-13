@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.GoodsMainTypeMapper">
+
+	<resultMap type="goodsMainType" id="goodsMainTypeMap">
+		<id column="goodsMainTypeID" property="goodsMainTypeID" />
+		<result column="goodsMainType" property="goodsMainType" />
+		<result column="pictureID" property="pictureID" />
+	</resultMap>
+
+	<resultMap type="goodsMainType" id="goodsMainTypeMap1"
+		extends="goodsMainTypeMap">
+		<association property="picture" column="{pictureID=pictureID}"
+			fetchType="lazy" select="Mapper.PictureMapper.findBypictureID" />
+		<collection property="goodsList" fetchType="lazy"
+			select="Mapper.GoodsMapper.findBygoodsMainTypeID" column="{goodsMainTypeID=goodsMainTypeID}">
+		</collection>
+		<collection property="goodsSecondaryTypeList" fetchType="lazy"
+			select="Mapper.GoodsSecondaryTypeMapper.findBygoodsMainTypeID"
+			column="{goodsMainTypeID=goodsMainTypeID}">
+		</collection>
+	</resultMap>
+
+	<select id="findByGoodsMainTypeID" resultMap="goodsMainTypeMap1">
+		select * from
+		GoodsMainType where goodsMainTypeID = #{goodsMainTypeID}
+	</select>
+
+	<select id="findAllGoodsMainTypes" resultMap="goodsMainTypeMap1">
+		select * from
+		GoodsMainType
+	</select>
+
+	<insert id="insert">
+		insert into GoodsMainType values(#{goodsMainTypeID},
+		#{goodsMainType},#{pictureID})
+	</insert>
+
+	<update id="update">
+		update GoodsMainType set
+		goodsMainType=#{goodsMainType}
+		where goodsMainTypeID=#{goodsMainTypeID}
+	</update>
+
+	<delete id="delete">
+		delete from GoodsMainType
+		where
+		goodsMainTypeID=#{goodsMainTypeID}
+	</delete>
+</mapper>

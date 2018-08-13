@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.AddressMapper">
+
+	<resultMap type="address" id="addressMap">
+		<id column="customerID" property="customerID" />
+		<id column="addressID" property="addressID" />
+		<result column="addressDetail" property="addressDetail" />
+		<result column="addressPostcode" property="addressPostcode" />
+		<result column="addressPhone" property="addressPhone" />
+		<result column="addressName" property="addressName" />
+	</resultMap>
+
+	<select id="findBycustomerIDAndaddressID" resultMap="addressMap">
+		select *
+		from Address where customerID = #{customerID} AND
+		addressID=#{addressID}
+	</select>
+
+	<select id="findAddressByCustomoerID" resultMap="addressMap">
+		select *
+		from
+		Address
+		where customerID = #{customerID}
+	</select>
+
+	<insert id="insert" keyProperty="addressID" useGeneratedKeys="true">
+		insert into
+		Address(customerID,addressDetail,addressPostcode,addressPhone,addressName)
+		values(#{customerID}, #{addressDetail}, #{addressPostcode},
+		#{addressPhone}, #{addressName})
+	</insert>
+	<update id="update">
+		update Address set addressDetail=#{addressDetail},
+		addressPostcode=#{addressPostcode},addressPhone=#{addressPhone},addressName=#{addressName}where
+		customerID=#{customerID} AND addressID=#{addressID}
+	</update>
+	<delete id="delete">
+		delete from Address where customerID=#{customerID}
+		AND
+		addressID=#{addressID}
+	</delete>
+	<delete id="deleteBycustomerIDAndaddressID">
+		delete from Address where customerID=#{customerID}
+		AND
+		addressID=#{addressID}
+	</delete>
+	
+	<delete id="deleteBycustomerID">
+		delete from Address where customerID=#{customerID}
+	</delete>
+</mapper>

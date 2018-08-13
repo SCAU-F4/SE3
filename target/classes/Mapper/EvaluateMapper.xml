@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.EvaluateMapper">
+
+	<resultMap type="evaluate" id="evaluateMap">
+		<id column="evaluateID" property="evaluateID" />
+		<result column="goodsID" property="goodsID" />
+		<result column="evaluateDate" property="evaluateDate" />
+		<result column="evaluateGrade" property="evaluateGrade" />
+		<result column="evaluateContent" property="evaluateContent" />
+		<result column="goodsSpecify" property="goodsSpecify" />
+	</resultMap>
+
+	<resultMap type="evaluate" id="evaluateMap1" extends="evaluateMap">
+		<association property="customer" column="{customerID=customerID}"
+			fetchType="lazy" select="Mapper.CustomerMapper.lazyfindBycustomerID" />
+		<collection property="evaluatePictureList" fetchType="lazy"
+			select="Mapper.EvaluatePictureMapper.findEvaluatePictureByevaluateID"
+			column="{evaluateID=evaluateID}">
+		</collection>
+	</resultMap>
+
+	<select id="findByevaluateID" resultMap="evaluateMap1">
+		select * from Evaluate
+		where evaluateID = #{evaluateID}
+	</select>
+
+	<select id="findEvaluateByGoodsIDAndgoodsSpecify" resultMap="evaluateMap1">
+		select *
+		from Evaluate
+		where goodsID = #{goodsID} and goodsSpecify=#{goodsSpecify}
+		order by
+		evaluateDate
+	</select>
+	
+	<select id="findEvaluateBycustomerID" resultMap="evaluateMap1">
+		select *
+		from Evaluate
+		where customerID=#{customerID}
+	</select>
+
+
+	<insert id="insert" keyProperty="evaluateID" useGeneratedKeys="true">
+		insert into
+		Evaluate(customerID,goodsID,evaluateDate,evaluateGrade,evaluateContent,goodsSpecify)
+		values(
+		#{customer.customerID}, #{goodsID},
+		#{evaluateDate}, #{evaluateGrade},
+		#{evaluateContent},#{goodsSpecify})
+	</insert>
+	<update id="updateByevaluateID">
+		update Evaluate set customerID=#{customer.customerID},
+		goodsID=#{goodsID},evaluateDate=#{evaluateDate},evaluateGrade=#{evaluateGrade},evaluateContent=#{evaluateContent},goodsSpecify=#{goodsSpecify}
+		where evaluateID=#{evaluateID}
+	</update>
+	<delete id="deleteByevaluateID">
+		delete from Evaluate where evaluateID=#{evaluateID}
+	</delete>
+	
+	<delete id="deleteByGoodsID">
+		delete from Evaluate where goodsID=#{goodsID}
+	</delete>
+	
+	<delete id="deleteBycustomerID">
+		delete from Evaluate where customerID=#{customerID}
+	</delete>
+</mapper>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.GoodsMapper">
+
+	<resultMap type="goods" id="goodsMap">
+		<id column="goodsID" property="goodsID" />
+		<id column="goodsSpecify" property="goodsSpecify" />
+		<result column="goodsName" property="goodsName" />
+		<result column="goodsMainTypeID" property="goodsMainTypeID" />
+		<result column="goodsBrief" property="goodsBrief" />
+		<result column="goodsPrice" property="goodsPrice" />
+		<result column="goodsCount" property="goodsCount" />
+		<result column="sellCount" property="sellCount" />
+		<result column="goodsDate" property="goodsDate" />
+		<result column="isSell" property="isSell" />
+		<result column="goodsSecondaryTypeID" property="goodsSecondaryTypeID" />
+	</resultMap>
+
+	<resultMap type="goods" id="goodsMap1" extends="goodsMap">
+		<collection property="pictureList" fetchType="lazy"
+			select="Mapper.PictureMapper.findGoodsAllPictures" column="{goodsID=goodsID}">
+		</collection>
+		<collection property="evaluateList" fetchType="lazy"
+			select="Mapper.EvaluateMapper.findEvaluateByGoodsIDAndgoodsSpecify"
+			column="{goodsID=goodsID},{goodsSpecify=goodsSpecify}">
+		</collection>
+	</resultMap>
+
+
+	<select id="findBygoodsID" resultMap="goodsMap1">
+		select * from Goods where
+		goodsID = #{goodsID}
+	</select>
+	
+	<select id="getAllgoods" resultMap="goodsMap1">
+		select * from Goods 
+	</select>
+
+
+	<select id="findBygoodsName" resultMap="goodsMap1">
+		select * from Goods
+		GROUP
+		BY goodsID
+		having
+		goodsName like concat('%',#{goodsName},'%')
+	</select>
+
+	<select id="findBygoodsIDAndgoodsSpecify" resultMap="goodsMap1">
+		select *
+		from Goods where
+		goodsID = #{goodsID} and goodsSpecify=#{goodsSpecify}
+	</select>
+
+	<select id="findBygoodsMainTypeID" resultMap="goodsMap1">
+		select * from Goods
+		where
+		goodsMainTypeID = #{goodsMainTypeID}
+	</select>
+	<select id="findBygoodsMainTypeIDGroupBygoodsID" resultMap="goodsMap1">
+		select * from Goods
+		group by goodsID
+		having
+		goodsMainTypeID =
+		#{goodsMainTypeID}
+	</select>
+
+	<select id="findGoodsBygoodsSecondaryTypeID" resultMap="goodsMap1">
+		select *
+		from Goods
+		group by goodsID
+		having goodsSecondaryTypeID=
+		#{goodsSecondaryTypeID}
+	</select>
+
+<select id="getAllsellCount" resultType="java.lang.Integer">
+		select sum(sellcount)
+		from Goods
+	</select>
+	
+	<select id="getsellCountByMainTypeID" resultType="java.lang.Integer">
+		select sum(sellCount)
+        from goods
+       GROUP BY goodsMainTypeID
+       having goodsMainTypeID=#{goodsMainTypeID}
+	</select>
+	
+	<select id="getsellCountByMainTypeIDAndSecondaryTypeID" resultType="java.lang.Integer">
+		 select IFNULL(sum(sellCount),0)
+        from goods
+       where goodsMainTypeID=#{goodsMainTypeID} and goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+	</select>
+	
+	
+	
+	
+	<select id="getGoodsByMainTypeIDAndSecondaryTypeID" resultMap="goodsMap1">
+		 select *
+        from goods
+       where goodsMainTypeID=#{goodsMainTypeID} and goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+	</select>
+	
+	
+	
+	<select id="getGoodsByMaxSellCount" resultMap="goodsMap">
+		SELECT *
+       from goods
+       where sellCount=(SELECT MAX(sellCount) from goods)
+		
+	</select>
+
+	<insert id="insert">
+		insert into Goods
+		values(#{goodsID}, #{goodsName},
+		#{goodsMainTypeID},
+		#{goodsSpecify},
+		#{goodsBrief}, #{goodsPrice},
+		#{goodsCount},
+		#{sellCount},
+		#{goodsDate}, #{isSell},
+		#{goodsSecondaryTypeID})
+	</insert>
+	<update id="update">
+		update Goods set
+		goodsName=#{goodsName},
+		goodsMainTypeID=#{goodsMainTypeID},goodsBrief=#{goodsBrief},goodsPrice=#{goodsPrice},goodsCount=#{goodsCount},sellCount=#{sellCount},goodsDate=#{goodsDate},isSell=#{isSell},
+		goodsSecondaryTypeID=#{goodsSecondaryTypeID}
+		where goodsID=#{goodsID} and goodsSpecify=#{goodsSpecify}
+	</update>
+	<delete id="delete">
+		delete from Goods where
+		goodsID=#{goodsID}
+	</delete>
+</mapper>

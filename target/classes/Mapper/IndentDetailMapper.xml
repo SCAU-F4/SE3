@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.IndentDetailMapper">
+
+	<resultMap type="indentDetail" id="indentDetailMap">
+		<id column="indentID" property="indentID" />
+		<result column="goodsCount" property="goodsCount" />
+		<result column="totalPrice" property="totalPrice" />
+		<result column="evaluated" property="evaluated" />
+	</resultMap>
+
+	<resultMap type="indentDetail" id="indentDetailMap1" extends="indentDetailMap">
+		<association property="good"
+			column="{goodsID=goodsID},{goodsSpecify=goodsSpecify}" fetchType="lazy"
+			select="Mapper.GoodsMapper.findBygoodsIDAndgoodsSpecify" />
+	</resultMap>
+
+	<select id="find" resultMap="indentDetailMap1">
+		select * from
+		IndentDetail where
+		indentID = #{indentID} AND
+		goodsID=#{goodsID} AND
+		goodsSpecify=#{goodsSpecify}
+	</select>
+
+	<select id="findAllDetailByindentID" resultMap="indentDetailMap1">
+		select * from
+		IndentDetail where indentID = #{indentID}
+	</select>
+
+	<insert id="insert">
+		insert into IndentDetail
+		values(#{indentID},#{good.goodsID},#{goodsCount},#{totalPrice},#{good.goodsSpecify},#{evaluated})
+	</insert>
+	<update id="update">
+		update IndentDetail set
+		goodsCount=#{goodsCount},totalPrice=#{totalPrice}
+		,evaluated=#{evaluated}where
+		indentID=#{indentID} AND
+		goodsID=#{good.goodsID} AND
+		goodsSpecify=#{good.goodsSpecify}
+	</update>
+
+	<update id="updateevaluated">
+		update IndentDetail set
+		evaluated=#{evaluated}
+		where
+		indentID=#{indentID} AND goodsID=#{goodsID} AND
+		goodsSpecify=#{goodsSpecify}
+	</update>
+
+	<delete id="delete">
+		delete from IndentDetail where indentID=#{indentID}
+		AND goodsID=#{good.goodsID} AND goodsSpecify=#{good.goodsSpecify}
+	</delete>
+	<select id="getAllDetailbyindentID" resultMap="indentDetailMap1">
+		select *
+		from
+		indentDetail
+		where indentID=#{indentID}
+	</select>
+	<delete id="deleteByindentID">
+		delete from IndentDetail where indentID=#{indentID}
+	</delete>
+
+</mapper>
