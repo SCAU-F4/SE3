@@ -524,8 +524,8 @@
 								<h6>历史销量最高</h6>
 							</div>
 							<div class="bottom">
-								<h2>${mymap.highestgoods.sellCount}</h2>
-								<h6>${mymap.highestgoods.goodsName}</h6>
+								<h2>${mymap.highestGoods}</h2>
+								
 							</div>
 						</div>
 						<div class="panel">
