@@ -251,7 +251,15 @@ public class AdminserviceImpl implements Adminservice {
 	@Override
 	public List<CustomerAndPrice> getHighestCustomer() {// 获取消费最高的用户名字和消费总额
 		// TODO Auto-generated method stub
-		return customerMapper.getHighestCustomer();
+		List<CustomerAndPrice> list=customerMapper.getHighestCustomer();
+		if(!list.isEmpty()) return list;
+		else
+		{
+			CustomerAndPrice customerAndPrice=new CustomerAndPrice("NULL",0);
+			list.add(customerAndPrice);
+			return list;
+		}
+		 
 	}
 
 	@Override

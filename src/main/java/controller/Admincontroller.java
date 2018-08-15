@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 
 import bean.Customer;
+import bean.CustomerAndPrice;
 import bean.Goods;
 import bean.Indent;
 import bean.Manager;
@@ -74,6 +75,8 @@ public class Admincontroller {
 		///////////////////////////////////////////////////////////////////////////
 
 		Goods highestgoods = adminservice.getHistoryHighestGood();
+		String goodsName=highestgoods.getGoodsName();
+		CustomerAndPrice customerAndPrice=adminservice.getHighestCustomer().get(0);
 
 		Map<String, Object> mymap = new HashMap<>();
 		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
@@ -96,8 +99,9 @@ public class Admincontroller {
 		mymap.put("OutDoorWeight", OutDoorWeight);
 		mymap.put("MusicWeight", MusicWeight);
 		mymap.put("FilmWeight", FilmWeight);
-		mymap.put("highestGoods", highestgoods);
-		// mymap.put("customerAndPrice", customerAndPrice);
+		System.out.println(goodsName);
+		mymap.put("highestGoods", goodsName);
+		 mymap.put("customerAndPrice", customerAndPrice);
 		model.addAttribute("mymap", mymap);
 		return "next";
 	}
