@@ -1,14 +1,12 @@
 package Mapper;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import bean.Address;
 import bean.Customer;
-import bean.CustomerAndPrice;
 import bean.Indent;
 import bean.Manager;
 
@@ -96,8 +94,13 @@ public class test1 {
 //		goods.setGoodsDate(new Timestamp(0));
 //		goods.setSellCount(1);
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("SpringConf.xml");
-		GoodsMapper goodsMapper=ctx.getBean(GoodsMapper.class);
-	System.out.println(goodsMapper.getGoodsByMaxSellCount().get(0));
+		CustomerMapper customerMapper=ctx.getBean(CustomerMapper.class);
+		List list=customerMapper.getAllCustomer();
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
+		
 		
 
 		// public static String signin(Manager manager) {

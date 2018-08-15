@@ -14,7 +14,6 @@ public class Evaluate implements Serializable {
 	private String evaluateContent;
 	private String goodsSpecify;
 	private Customer customer;
-	private List<MultipartFile> images;
 	private List<EvaluatePicture> evaluatePictureList;
 
 	private static final long serialVersionUID = 1L;
@@ -100,20 +99,9 @@ public class Evaluate implements Serializable {
 	public void setEvaluatePictureList(List<EvaluatePicture> evaluatePictureList) {
 		this.evaluatePictureList = evaluatePictureList;
 	}
-	public List<MultipartFile> getImages() {
-		return images;
-	}
-	
-	public void setImages(List<MultipartFile> images) {
-		this.images = images;
-	}
 
-	@Override
-	public String toString() {
-		return "Evaluate [evaluateID=" + evaluateID + ", goodsID=" + goodsID + ", evaluateDate=" + evaluateDate
-				+ ", evaluateGrade=" + evaluateGrade + ", evaluateContent=" + evaluateContent + ", goodsSpecify="
-				+ goodsSpecify + ", customer=" + customer + ", evaluatePictureList=" + evaluatePictureList + "]";
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-
 
 }

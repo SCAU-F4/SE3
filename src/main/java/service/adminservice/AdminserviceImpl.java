@@ -225,41 +225,28 @@ public class AdminserviceImpl implements Adminservice {
 		if (j != 0)
 			return (i / j) * 100;
 		return 0;
-
 	}
 
 	@Override
 	public double SecondaryTypeSaleWeight(int goodsMainTypeID, int goodsSecondaryTypeID) {
 		// TODO Auto-generated method stub
-
 		double i = goodsMapper.getsellCountByMainTypeID(goodsMainTypeID);
 		double j = goodsMapper.getsellCountByMainTypeIDAndSecondaryTypeID(goodsMainTypeID, goodsSecondaryTypeID);
 		if (i != 0)
 			return (j / i) * 100;
 		return 0;
-
 	}
 
 	@Override
 	public Goods getHistoryHighestGood() {
 		// TODO Auto-generated method stub
-
 		return goodsMapper.getGoodsByMaxSellCount().get(0);
-
 	}
 
 	@Override
-	public List<CustomerAndPrice> getHighestCustomer() {// 获取消费最高的用户名字和消费总额
+	public CustomerAndPrice getHighestCustomer() {// 获取消费最高的用户名字和消费总额
 		// TODO Auto-generated method stub
-		List<CustomerAndPrice> list=customerMapper.getHighestCustomer();
-		if(!list.isEmpty()) return list;
-		else
-		{
-			CustomerAndPrice customerAndPrice=new CustomerAndPrice("NULL",0);
-			list.add(customerAndPrice);
-			return list;
-		}
-		 
+		return customerMapper.getHighestCustomer().get(0);
 	}
 
 	@Override
@@ -354,7 +341,7 @@ public class AdminserviceImpl implements Adminservice {
 	public String UpdateCustomerName(int customerID, String customerName) {
 		// TODO Auto-generated method stub
 		Customer customer = customerMapper.findBycustomerID(customerID);
-		if (customerMapper.IsCustomerNameExist2(customerName) != null)
+		if (customerMapper.IsCustomerNameExist(customerName) != 0)
 			return "失败了，这个用户名已存在";
 		customer.setCustomerName(customerName);
 		int result = customerMapper.update(customer);
