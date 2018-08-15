@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import bean.Customer;
 import bean.CustomerAndPrice;
@@ -22,6 +19,8 @@ public interface CustomerMapper {
 	List<CustomerAndPrice> getHighestCustomer();
 
 	int IsCustomerNameExist(String customerName);// 找到返回一个用户的ID,找不到抛出异常
+
+	Integer IsCustomerNameExist2(String customerName);
 
 	int insert(Customer customer);
 

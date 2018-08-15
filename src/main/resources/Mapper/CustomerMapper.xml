@@ -43,6 +43,11 @@
 		select customerID
 		from Customer where customerName = #{customerName}
 	</select>
+	
+	<select id="IsCustomerNameExist2" resultType="java.lang.Integer">
+		select customerID
+		from Customer where customerName = #{customerName}
+	</select>
 
 	<select id="findBycustomerNameAndcustomerPwd" resultMap="customerMap1">
 		select *

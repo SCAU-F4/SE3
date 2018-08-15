@@ -11,6 +11,8 @@
 <title>IndustryApp Template</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/layui/css/layui.css">
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/bootstrap.css" />
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/bootstrap.admin.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/bootstrap-responsive.css" />
@@ -97,10 +99,38 @@
                  <c:forEach items="${allCustomeList}" var="customerlist" varStatus="status">
                  	  <tr class="customerItem">
                			 <td class="customerID"><span class="customerid">${customerlist.customerID}</span></td>
-                		<td class="customerName"><span class="customername">${customerlist.customerName}</span><input type="text" class="inputModify inputName" value=""></td>
-               			 <td class=customerPhone><span class="customerphone">${customerlist.customerPhone}</span><input type="text" class="inputModify inputPhone" value=""></td>
-                			<td class="customerEmail"><span class="customeremail">${customerlist.customerEmail}</span><input type="text" class="inputModify inputEmail" value=""></td>
-                			<td class="customerPwd"><span class="customerpwd">${customerlist.customerPwd}</span><input type="text" class="inputModify inputPwd" value=""></td>
+                		<td class="customerName">
+                			<span class="customername text">${customerlist.customerName}</span>
+                			<div class="input-group">
+                					<input type="text" class="inputModify inputName" value="">
+                					<span class="glyphicon glyphicon-ok text-success"></span>
+									<span class="glyphicon glyphicon-remove text-danger"></span>
+							</div>
+						</td>
+               			 <td class=customerPhone>
+               			 	<span class="customerphone text">${customerlist.customerPhone}</span>
+               			 	<div class="input-group">
+               			 			<input type="text" class="inputModify inputPhone" value="">
+               			 			<span class="glyphicon glyphicon-ok text-success"></span>
+									<span class="glyphicon glyphicon-remove text-danger"></span>
+							</div>
+						</td>
+                			<td class="customerEmail">
+                				<span class="customeremail text">${customerlist.customerEmail}</span>
+                				<div class="input-group">
+                					<input type="text" class="inputModify inputEmail" value="">
+                					<span class="glyphicon glyphicon-ok text-success"></span>
+									<span class="glyphicon glyphicon-remove text-danger"></span>
+								</div>
+							</td>
+                			<td class="customerPwd">
+                				<span class="customerpwd text">${customerlist.customerPwd}</span>
+                				<div class="input-group">
+                					<input type="text" class="inputModify inputPwd" value="">
+                					<span class="glyphicon glyphicon-ok text-success"></span>
+									<span class="glyphicon glyphicon-remove text-danger"></span>
+								</div>
+							</td>
                 			<td>
                  			 <div class="btn-group">
                  			 <button class="btn modify modify-Name">修改</button>
