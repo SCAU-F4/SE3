@@ -704,8 +704,10 @@ $(document).ready(function () {
 			
 		};
 	$("#mainform").submit(function() {
-		console.log($("#pic1").val());
+		console.log($("#images1").val());
+		
 		$("#evaluateContent").val();
+		console.log($("#goodsSpecify").val());
 		$thisitem.find(".itemStateCode").val(1);
 		updateluated($thisitem);
 		console.log($thisitem.parents(".panel").attr("allevaluate"));

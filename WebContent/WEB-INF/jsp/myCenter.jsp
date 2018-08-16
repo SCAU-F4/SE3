@@ -565,7 +565,7 @@
 		</div>
 		<div class="star"></div>
 		<span class="text text-muted"></span>
-		<form id="mainform" method="post" action="#" enctype="multipart/form-data">
+		<form id="mainform" method="post"  enctype="multipart/form-data" name="Evaluate">
 			<input type="hidden" name="indentState" id="Evaluate-indentState"/>
 			<input type="hidden" id="Evaluate-indentID" name="indentID" value="" />
 			<input type="hidden" id="goodsID" name="goodsID" value="">
@@ -584,25 +584,25 @@
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg1" data-address="">
-							<input type="file" data-which="1" name="images" id="images1" class="form-img" accept="image/*" />
+							<input type="file" data-which="1" name="images" id="images1" class="form-img" accept="image/*"/>
 						</a>
 					</li>
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg2" data-address="">
-							<input type="file" data-which="2" name="images" id="images2" class="form-img" accept="image/*" />
+							<input type="file" data-which="2" name="images" id="images2" class="form-img" accept="image/*"/>
 						</a>
 					</li>
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg3" data-address="">
-							<input type="file" data-which="3" name="images" id="images3" class="form-img" accept="image/*" />
+							<input type="file" data-which="3" name="images" id="images3" class="form-img" accept="image/*"/>
 						</a>
 					</li>
 					<li class="Evaluate-img-item">
 						<a>
 							<img class="testimg4" data-address="">
-							<input type="file" data-which="4" name="images" id="images4" class="form-img" accept="image/*" />
+							<input type="file" data-which="4" name="images" id="images4" class="form-img" accept="image/*"/>
 						</a>
 					</li>
 				</ul>
