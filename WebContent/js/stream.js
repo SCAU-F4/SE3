@@ -252,6 +252,8 @@ $(".showpage").on("click",".modify",function(){
 	var goodsID=$(this).parents(".item").find(".itemgoodsID").val();
 	var goodsMainTypeCode=$(this).parents(".item").find(".itemgoodsMainTypeID").val();
 	var goodsSecondaryTypeIDCode=$(this).parents(".item").find(".itemgoodsSecondaryTypeID").val();
+	console.log(goodsMainTypeCode);
+	console.log(goodsSecondaryTypeIDCode);
 	var goodsMainType=$(".sidebar>ul>li>a[data-mainType="+goodsMainTypeCode+"]").text();
 	var goodsSecondaryTypeID=$(".collapse>ul>li>a[data-SecondType="+goodsSecondaryTypeIDCode+"]").text();
 	var imgPath=$(this).parents(".item").find(".stream-icon img").attr("src");

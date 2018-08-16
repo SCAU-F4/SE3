@@ -107,8 +107,8 @@
 						<c:forEach items="${allGoodList}" var="goodlist" varStatus="status">
 								<div class="item" data-mainType="${goodlist.goodsMainTypeID}" data-SecondType="${goodlist.goodsSecondaryTypeID}">
 										<input type="hidden" value="${goodlist.goodsID}" class="itemgoodsID"/>
-										<input type="hidden" value="${goodlist.goodsID}" class="itemgoodsMainTypeID"/>
-										<input type="hidden" value="${goodlist.goodsID}" class="itemgoodsSecondaryTypeID"/>
+										<input type="hidden" value="${goodlist.goodsMainTypeID}" class="itemgoodsMainTypeID"/>
+										<input type="hidden" value="${goodlist.goodsSecondaryTypeID}" class="itemgoodsSecondaryTypeID"/>
 										<input type="hidden" value="${goodlist.isSell}" class="itemisSell"/>
 										<input type="hidden" value="${goodlist.goodsDate}" class="goodsDate"/>
 										<div class="btn-group pull-right">
