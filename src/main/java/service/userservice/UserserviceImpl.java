@@ -95,7 +95,7 @@ public class UserserviceImpl implements Userservice {
 		return result;
 	}
 
-	private String check(Customer customer, String repassword) {
+	public String check(Customer customer, String repassword) {
 		String name = customer.getCustomerName();
 		String password = customer.getCustomerPwd();
 		String phonenum = customer.getCustomerPhone();
@@ -243,33 +243,20 @@ public class UserserviceImpl implements Userservice {
 		if (sum == 0) {
 			result += "删除失败";
 		}
-
 		return result;
 	}
 
 	@Override
 	public String deleteIndent(int indentID) {
-		String result = "";
+		String result = "删除成功";
 		int state = indentmapper.findindentStateByindentID(indentID);
 		if (state <= 2) {
 			result += "该订单尚未完成，不能删除";
 		} else {
 			int expressCode = indentmapper.findexpressCodeByindentID(indentID);
-			int sum = indentmapper.deleteByindentID(indentID);
-			if (sum == 0) {
-				result += "删除失败";
-				return result;
-			}
-			sum = indentdetailmapper.deleteByindentID(indentID);
-			if (sum == 0) {
-				result += "删除失败";
-				return result;
-			}
-			sum = expressmapper.deleteByexpressCode(expressCode);
-			if (sum == 0) {
-				result += "删除失败";
-				return result;
-			}
+			indentmapper.deleteByindentID(indentID);
+			indentdetailmapper.deleteByindentID(indentID);
+			// sum = expressmapper.deleteByexpressCode(expressCode);
 		}
 		return result;
 	}
@@ -338,7 +325,7 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public String comment(int indentID, int goodsID, String goodsSpecify, int indentState, Evaluate evaluate,
+	public String comment(int indentID, int indentState, Evaluate evaluate,List<MultipartFile> images,
 			String path) throws IllegalStateException, IOException {
 		String result = "";
 		evaluate.setEvaluateDate(new Timestamp(System.currentTimeMillis()));
@@ -347,12 +334,12 @@ public class UserserviceImpl implements Userservice {
 			result = "评论失败";
 			return result;
 		}
-		indentdetailmapper.updateevaluated(goodsSpecify, goodsID, indentID, 1);
+		indentdetailmapper.updateevaluated(evaluate.getGoodsSpecify(), evaluate.getGoodsID(), indentID, 1);
 		if (indentState == 4) {
 			indentmapper.updateindentStateByindentID(indentID, indentState);
 		}
-		if (evaluate.getImages() != null) {
-			List<MultipartFile> multipartFile = evaluate.getImages();
+		if (images!= null) {
+			List<MultipartFile> multipartFile = images;
 			Random random = new Random(System.currentTimeMillis());
 			for (MultipartFile file : multipartFile) {
 				Integer i = random.nextInt(1000000);

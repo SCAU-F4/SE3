@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-鸡巴又痛了
+
 </body>
 </html>
