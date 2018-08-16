@@ -73,8 +73,10 @@ public class Admincontroller {
 		float MusicWeight = (float) adminservice.SecondaryTypeSaleWeight(4, 15);
 		float FilmWeight = (float) adminservice.SecondaryTypeSaleWeight(4, 16);
 		///////////////////////////////////////////////////////////////////////////
-		CustomerAndPrice customerAndPrice = adminservice.getHighestCustomer();
+
 		Goods highestgoods = adminservice.getHistoryHighestGood();
+		String goodsName=highestgoods.getGoodsName();
+		CustomerAndPrice customerAndPrice=adminservice.getHighestCustomer().get(0);
 
 		Map<String, Object> mymap = new HashMap<>();
 		mymap.put("PackageMainTypeWeight", PackageMainTypeWeight);
@@ -97,9 +99,9 @@ public class Admincontroller {
 		mymap.put("OutDoorWeight", OutDoorWeight);
 		mymap.put("MusicWeight", MusicWeight);
 		mymap.put("FilmWeight", FilmWeight);
-		mymap.put("highestGoods", highestgoods);
-		mymap.put("customerAndPrice", customerAndPrice);
-
+		System.out.println(goodsName);
+		mymap.put("highestGoods", goodsName);
+		 mymap.put("customerAndPrice", customerAndPrice);
 		model.addAttribute("mymap", mymap);
 		return "next";
 	}
@@ -194,7 +196,7 @@ public class Admincontroller {
 		int indentID = Integer.valueOf(request.getParameter("indentID"));
 		int customerID = Integer.valueOf(request.getParameter("customerID"));
 		double totalPrice = Double.valueOf(request.getParameter("totalPrice"));
-		Timestamp indentTime = Timestamp.valueOf(request.getParameter("indentTime"));
+		Timestamp indentTime = new Timestamp(System.currentTimeMillis());
 		int addressID = Integer.valueOf(request.getParameter("addressID"));
 		int expressCode = Integer.valueOf(request.getParameter("expressCode"));
 		int indentState = Integer.valueOf(request.getParameter("indentState"));

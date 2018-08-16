@@ -46,8 +46,7 @@
 						<li><a
 							href="${pageContext.request.contextPath }/admin/goodsCharge" class="active"><i class="batch stream"></i><br />商品管理</a></li>
 						<li><a href="${pageContext.request.contextPath }/admin/IndentCharge"><i class="batch forms"></i><br />订单管理</a></li>
-						<li><a href="users.html"><i class="batch users"></i><br />用户管理</a></li>
-						<li><a href="settings.html"><i class="batch settings"></i><br />管理员信息管理</a></li>
+						<li><a href="${pageContext.request.contextPath }/admin/CustomerCharge"><i class="batch users"></i><br />用户管理</a></li>
 					</ul>
 				</div>
 			</div>
